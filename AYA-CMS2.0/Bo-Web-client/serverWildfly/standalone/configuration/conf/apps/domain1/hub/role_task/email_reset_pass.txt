@@ -1,0 +1,1 @@
+{"designer":{"email_reset_pass":{"form":{"accept":true,"follow":false}}},"Manager":{"email_reset_pass":{"form":{"accept":true,"follow":false}}}}

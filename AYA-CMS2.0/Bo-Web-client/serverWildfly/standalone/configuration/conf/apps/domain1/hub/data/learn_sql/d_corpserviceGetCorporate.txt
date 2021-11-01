@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Tải tất cả data txcode",
+	"learn_sql_parameter": "@CORPCODE",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT servicecode as serid,name as sername FROM hubdb.d_corpservice where corpcode = ? and internetbanking = 'Y' order by name asc",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_corpserviceGetCorporate",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_corpservice"
+}

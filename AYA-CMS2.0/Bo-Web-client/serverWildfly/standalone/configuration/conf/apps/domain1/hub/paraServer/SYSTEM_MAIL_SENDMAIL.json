@@ -1,0 +1,7 @@
+{
+	"code": "SYSTEM_MAIL_SENDMAIL",
+	"des": "SYSTEM_MAIL_SENDMAIL",
+	"value": "false",
+	"data_type": "b",
+	"isAdmin": false
+}

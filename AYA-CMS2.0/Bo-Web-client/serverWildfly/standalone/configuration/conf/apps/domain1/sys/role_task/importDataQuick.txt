@@ -1,0 +1,1 @@
+{"Manager":{"importDataQuick":{"form":{"accept":true,"follow":false}}}}

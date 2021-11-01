@@ -1,0 +1,1 @@
+{"full_name":"hub003401","email":"hub003401","user_status":"A","user_id":"hub003401","branchcd":"0034","branchid":"0034","branchname":"Thahton","AFGHkeyIndexWJ":"hub003401","AFGHkeyTime":1603781790590,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790590,"AFGHkeyUserCreateWJ":""}

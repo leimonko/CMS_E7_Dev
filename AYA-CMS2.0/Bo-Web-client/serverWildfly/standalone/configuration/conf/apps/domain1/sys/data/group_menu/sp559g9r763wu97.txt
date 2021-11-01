@@ -1,0 +1,1 @@
+{"group_menu_name":"Quản lý màn hình(sys)","group_menu_order":"1","group_menu_parent":"sp5538633k665883b","group_menu_function_code":"screenWorker","group_menu_id":"sp559g9r76338r96","AFGHkeyIndexWJ":"sp559g9r763wu97","AFGHkeyTime":1555906917763,"AFGHkeyWorkFlow":""}

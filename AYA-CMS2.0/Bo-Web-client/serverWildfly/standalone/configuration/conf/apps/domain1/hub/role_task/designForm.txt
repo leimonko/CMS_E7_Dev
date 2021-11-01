@@ -1,0 +1,1 @@
+{"admin":{"designForm":{"form":{"accept":true,"follow":false}}},"designer":{"designForm":{"form":{"accept":true,"caption":null,"follow":false}}}}

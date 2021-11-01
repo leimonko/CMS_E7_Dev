@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Save log","function":"tx.saveLogClient","type":"java","para":[],"status":"A"}],"status":"A","txtype":"bo","txcode":"bo-send-logSystem","txname":"Lưu log của Application AppException vào server","version":1,"updateTime":1563016892657,"hasRole":"false","isOld":false,"response":{}}

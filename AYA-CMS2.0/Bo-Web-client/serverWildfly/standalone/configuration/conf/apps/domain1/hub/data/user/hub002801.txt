@@ -1,0 +1,1 @@
+{"full_name":"hub002801","email":"hub002801","user_status":"A","user_id":"hub002801","branchcd":"0028","branchid":"0028","branchname":"Aung Ban","AFGHkeyIndexWJ":"hub002801","AFGHkeyTime":1603781790581,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790581,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"Test nè Add","en":"Test nè Add","thai":"","lao":"","cam":"","mya":"","han":""},"group_menu_name":"Test nè Add","group_menu_order":"1","group_menu_parent":"e40394be28bb7ca4","group_menu_function_code":"test_n__add","group_menu_id":"test_n__add","AFGHkeyIndexWJ":"e741731311fbdde6","AFGHkeyTime":1575879644845,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1575879644942}

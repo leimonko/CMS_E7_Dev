@@ -1,0 +1,36 @@
+{
+    "input": {},
+    "actions": [{
+            "name": "Print by data get from sql",
+            "function": "cis.core.txsql.view",
+            "type": "java",
+            "para": ["@learn_sql"],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [{
+                            "txcode": "#sys:fo-form-setDataToform"
+                        }, {
+                            "txcode": "#sys:fo-template-printVoucher",
+                            "input": {
+                                "is_get_new": true,
+                                "is_get": true,
+                                "queries": "",
+                                "template_code": "DT003",
+                                "template_condition": "'@{transactionJournalData.sts}' === 'Completed'"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-load-printSQL",
+    "version": 2,
+    "updateTime": 1562205991292,
+    "txname": "Print by data get from sql",
+    "isOld": true
+}

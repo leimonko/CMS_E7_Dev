@@ -1,0 +1,1 @@
+{"cdid":"AuA","cdname":"PTYPE_IRD","caption":"Audit assessment","cdgrp":"JWEBUI","cdidx":"4","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"AuA_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

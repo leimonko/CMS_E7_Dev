@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "d_codetypeLoadAll",
+	"learn_sql_parameter": "",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT * FROM hubdb.d_codetype order by codetype,recid",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_codetypeLoadAll",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_codetype"
+}

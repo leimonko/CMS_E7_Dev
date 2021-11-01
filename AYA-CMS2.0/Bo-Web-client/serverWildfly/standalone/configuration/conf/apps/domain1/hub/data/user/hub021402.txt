@@ -1,0 +1,1 @@
+{"full_name":"hub021402","email":"hub021402","user_status":"A","user_id":"hub021402","branchcd":"0214","branchid":"0214","branchname":"Ygn(89)_KKS","AFGHkeyIndexWJ":"hub021402","AFGHkeyTime":1603781790746,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790746,"AFGHkeyUserCreateWJ":""}

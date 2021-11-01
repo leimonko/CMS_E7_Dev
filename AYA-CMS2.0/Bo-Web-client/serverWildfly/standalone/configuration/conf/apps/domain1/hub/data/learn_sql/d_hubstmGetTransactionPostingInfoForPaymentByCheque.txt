@@ -1,0 +1,29 @@
+
+{
+  "learn_sql_title": "get fee amount",
+   "learn_sql_data": "d_hubfeeposting",
+  "learn_sql_parameter": "@CHEQUEACC,@AMT,@AMT,@CHANNELID,@CORPCODE,#SERCODE,@CUSTACC,@CUSTACC,@BRANID,@CUSTACC1,@BRANID,@BRANIDOFCUSTACC,@REFVA1,@REFVA2,@REFVA3,@AMT,@CORPCODE,#SERCODE,@CHANNELID",
+  "learn_sql_parameter_sub": "DRACC,DRCRCD,DRAMT,CRACC,CRCRCD,CRAMT,CRCODE,DRCODE",
+  "learn_sql_query": "SELECT ? AS dracc,ccycd AS drcrcd, ccycd AS crcrcd, corpdepositaccno AS cracc, TO_NUMBER(?) AS dramt, TO_NUMBER(?) AS cramt, Case when  crcode is null then 'NULL' else crcode end as crcode,   Case when drcode is null then 'NULL' else drcode end  as drcode FROM hubdb.d_corpservice left join d_transcode t on channel= ? and isfee= 'N' WHERE corpcode = ? AND servicecode = ? 
+UNION ALL
+SELECT  CASE c.payer WHEN 'C' THEN ? ELSE c.commonacc  END as dracc,c.ccrcd as drcrcd,c.ccrcd as crcrcd,CASE c.benificiary  WHEN 'C' THEN ?  ELSE c.benefitgl END as cracc,CASE c.valuetype WHEN 'C' THEN ROUND((c.feeamount*c.formular/100),TO_NUMBER(c.roundingby)) ELSE c.formular END as dramt,CASE c.valuetype WHEN 'C' THEN ROUND((c.feeamount*c.formular/100),TO_NUMBER(c.roundingby)) ELSE c.formular END as cramt, Case when  crcode is null then 'NULL' else crcode end as crcode,   Case when drcode is null then 'NULL' else drcode end  as drcode
+FROM (
+SELECT b.corpacc, b.commonacc,r.feecode,d.ccrcd ,b.payer, b.feeamount, r.benificiary ,CASE WHEN INSTR(r.commonacc ,'AAAA')>0 THEN REPLACE(r.commonacc,'AAAA',SUBSTR(b.corpacc ,1,4))  WHEN INSTR(r.commonacc ,'BBBB')>0 THEN REPLACE(r.commonacc,'BBBB',lpad(?,4,'0')) WHEN INSTR(r.commonacc ,'CCCC')>0 THEN CASE WHEN ? = 'CASH' THEN REPLACE(r.commonacc,'CCCC',lpad(?,4,'0')) ELSE REPLACE(r.commonacc,'CCCC',lpad(?,4,'0')) END  ELSE r.commonacc END AS benefitgl ,
+CASE WHEN INSTR( r.formular,'%')>0 THEN TO_NUMBER(SUBSTR(r.formular,1,length(r.formular)-1)) ELSE TO_NUMBER(r.formular) END  AS formular ,TO_NUMBER(r.roundingby) as roundingby,CASE WHEN INSTR( r.formular,'%')>0 THEN 'C' ELSE 'F' END  AS valuetype
+FROM (
+SELECT a.corpacc, a.commonacc,a.feecode, a.caltype,a.appliedwhen,a.payer,a.formular, a.roundingby,CASE a.feevaluetype WHEN 'C' THEN ROUND((a.amt*a.formular/100),TO_NUMBER(a.roundingby)) ELSE a.formular END as feeamount
+FROM (
+SELECT ? as refva1, ? as refva2, ? as refva3, f.feecode, caltype, basicvalue,CASE basicvalue WHEN 'T' THEN TO_NUMBER(?) ELSE 0 END AS amt,s.corpdepositaccno AS corpacc,commonacc AS commonacc,
+	appliedwhen, payer, fromvalue, tovalue,CASE WHEN INSTR( formular,'%')>0 THEN TO_NUMBER(SUBSTR(formular,1,length(formular)-1)) ELSE TO_NUMBER(formular) END  AS formular, roundingby ,
+CASE WHEN INSTR( formular,'%')>0 THEN 'C' ELSE 'F' END  AS feevaluetype
+FROM hubdb.d_feecal f INNER JOIN (SELECT feecode, feecaltype,corpdepositaccno FROM hubdb.d_corpservice WHERE corpcode = ? AND servicecode = ?) s ON f.feecode = s.feecode AND caltype = feecaltype)a
+ WHERE (a.caltype = 'L'and a.basicvalue = 'T' and a.fromvalue <= TO_NUMBER(amt) and a.tovalue>=TO_NUMBER(amt)) OR (a.caltype = 'F')  and a.formular <> '0' AND  ((length(a.refva1)<> 18 AND a.appliedwhen like '%length(refva1)<>18%' ) OR (a.appliedwhen not like '%length(refva1)<>18%')  ))b
+LEFT JOIN hubdb.d_feebeneficiaries r  ON b.feecode = r.feecode and r.formular <> '0'
+LEFT JOIN hubdb.d_feedef d ON TO_NUMBER(b.feecode)= d.feecode )c left join d_transcode on channel= ? and isfee= 'Y'",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_hubstmGetTransactionPostingInfo",
+  "AFGHTimeWJ": 1585837541575
+}

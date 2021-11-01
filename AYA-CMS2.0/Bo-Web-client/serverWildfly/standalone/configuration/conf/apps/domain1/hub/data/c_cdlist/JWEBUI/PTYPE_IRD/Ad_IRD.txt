@@ -1,0 +1,1 @@
+{"cdid":"Ad","cdname":"PTYPE_IRD","caption":"Advance","cdgrp":"JWEBUI","cdidx":"3","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"Ad_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

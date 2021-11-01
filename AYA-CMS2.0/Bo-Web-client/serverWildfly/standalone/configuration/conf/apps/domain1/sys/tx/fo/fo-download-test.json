@@ -1,0 +1,30 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "fo-download-test",
+            "function": "form.addnew",
+            "type": "javascript",
+            "status": "A",
+            "para": ["@list_component", "@list_view"],
+            "request": {
+                "true": {
+                    "bo": [
+                        {
+                            "txcode": "#sys:bo-download-test",
+                            "input": {}
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "request": { "bo": [{ "txcode": "", "input": {} }] },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "fo-download-test",
+    "txname": "fo-download-test",
+    "version": 6,
+    "updateTime": 1588664987064,
+    "isOld": true
+}

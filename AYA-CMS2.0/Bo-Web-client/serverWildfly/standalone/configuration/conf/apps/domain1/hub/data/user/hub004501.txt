@@ -1,0 +1,1 @@
+{"full_name":"hub004501","email":"hub004501","user_status":"A","user_id":"hub004501","branchcd":"0045","branchid":"0045","branchname":"Ygn (10) Thuwunna","AFGHkeyIndexWJ":"hub004501","AFGHkeyTime":1603781790600,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790600,"AFGHkeyUserCreateWJ":""}

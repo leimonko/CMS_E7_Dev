@@ -1,0 +1,248 @@
+{
+    "info": {
+        "title": "Cash",
+        "des": "",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "",
+        "bodata": "#hub:bo-load-viewBalanaceCash",
+        "openOne": "true",
+        "url_input": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "holdingCash",
+        "ruleStrong": [{
+                "code": "setValue",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "userid",
+                    "component_result": "{\n    \"code_userName\": \"user.full_name\",\n    \"code_userID\": \"user.user_id\"\n}",
+                    "isGetOOP": "true",
+                    "getOOPFormat": "{\n \"cashbalance\": \"d_usercash.cashbalance\"\n}"
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": false
+            },{
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "cashbalance",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            },{
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "userid;search;btn_refresh",
+                    "condition": "",
+                    "visible": "false",
+                    "ena_dis": "not_use",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 3,
+                "isStart": true
+            }
+			]
+    },
+    "list_layout": [{
+            "name": "Info",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "2d29b123eb9bdb85",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "74062324500e7126",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [ {
+                            "default": {
+                                "name": "User id",
+                                "code": "userid",
+                                "codeHidden": "8d0518cee077ea87",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_usercash.userid",
+                                "structable_read": "d_usercash.userid",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='BRANCH' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "BRANCH"
+                                },
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "Select * from d_usercash",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "d_usercash.userid",
+                                "selected_view_format": "@d_usercash.userid",
+                                "table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_usercash.userid\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_usercash.userid\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "d_usercash.userid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "User id": "User id"
+                                    },
+                                    "en": {
+                                        "User id": "User id"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        },{
+                            "default": {
+                                "name": "Cash balance",
+                                "code": "cashbalance",
+                                "codeHidden": "42bbce22133574",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_usercash.cashbalance",
+                                "structable_read": "d_usercash.cashbalance",
+                                "data_default": "0",
+                                "format": "#,###.00",
+                                "decimal_length": 2
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false,
+                                "min": 0
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "jCurrency"
+                        },{
+                            "default": {
+                                "name": "Refresh",
+                                "code": "btn_refresh",
+                                "codeHidden": "9688512126ffd90a",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                 "txFoActions": "[\n    {\n        \"txcode\": \"#sys:fo-search-transaction-jonural\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"table\",\n            \"table_code\": \"D_EBSTM\"\n        }\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-refreshDataToForm\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"search\",\n            \"table_code\": \"keysearch\",\n            \"learn_sql\": \"d_usercashViewByUser\"\n        }\n    }\n]",
+								"useAction": "false",
+                                "icon": "refresh",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        },{
+                            "default": {
+                                "name": "Search",
+                                "code": "search",
+                                "codeHidden": "5042e8bf661efab8",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "keysearch.data",
+                                "structable_read": "",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false",
+                                "isSearch": "true"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "react_txt": ""
+}

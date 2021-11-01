@@ -1,0 +1,1 @@
+{"full_name":"hub008101","email":"hub008101","user_status":"A","user_id":"hub008101","branchcd":"0081","branchid":"0081","branchname":"Loikaw","AFGHkeyIndexWJ":"hub008101","AFGHkeyTime":1603781790641,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790641,"AFGHkeyUserCreateWJ":""}

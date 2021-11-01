@@ -1,0 +1,20 @@
+
+{
+  "learn_sql_title": "get fee amount",
+   "learn_sql_data": "d_hubfee",
+  "learn_sql_parameter": "@REFVA1,@REFVA2,@REFVA3,@AMOUNT,@AMOUNT,@AMOUNT,@SERCODE",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "SELECT  CASE a.payer WHEN 'C' THEN feeamount ELSE 0 END as DEBITFEE, CASE a.payer WHEN 'P' THEN feeamount ELSE 0 END as CREFEE FROM (
+SELECT refva1,refva2,refva3,payer,CASE WHEN ((length(refva1)<> 18 AND appliedwhen like '%length(refva1)<>18%' ) OR  (appliedwhen not like '%length(refva1)<>18%')) THEN feeamount ELSE 0 END as feeamount FROM
+(SELECT ? as refva1, ? as refva2, ? as refva3,f.feecode, servicecode, feecaltype,f.payer,f.appliedwhen ,
+CASE WHEN INSTR(f.formular,'%')>0 THEN ROUND((TO_NUMBER(?)*TO_NUMBER(SUBSTR(f.formular,1,length(f.formular)-1))/100),TO_NUMBER(roundingby)) ELSE TO_NUMBER(f.formular) END as feeamount,roundingby ,
+CASE WHEN INSTR(f.formular,'%')>0 THEN 'C' ELSE 'F' END  AS feevaluetype
+FROM hubdb.d_corpservice s LEFT JOIN hubdb.d_feecal f ON s.feecode = f.feecode AND f.caltype = s.feecaltype AND  ((f.caltype = 'L'and f.basicvalue = 'T' and f.fromvalue <= TO_NUMBER(?) and f.tovalue>= TO_NUMBER(?)) OR (f.caltype = 'F'))
+WHERE servicecode = ?   )b )a",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_hubstmCalculateFee",
+  "AFGHTimeWJ": 1585837541575
+}

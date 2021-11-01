@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Tải","function":"system.loadTxCodeFo","type":"java","para":[],"status":"A"}],"request":{},"status":"A","txtype":"system","txcode":"fo-load-txFo","txname":"Không được xóa","version":2,"updateTime":1562157299645,"isOld":true}

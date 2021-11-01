@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"save","function":"tx.saveClientTx","type":"java","para":[],"status":"A"}],"response":{"fo":[{"txcode":"#sys:fo-msg-toast","input":{"lang":"sysActionSaveOk"}}]},"status":"A","txtype":"bo","txcode":"bo-save-txFo","version":2,"updateTime":1562157632492,"txname":"Lưu tx Client (fo)","isOld":true}

@@ -1,0 +1,28 @@
+
+{
+  "learn_sql_title": "get fee amount",
+   "learn_sql_data": "d_hubfeeposting",
+  "learn_sql_parameter": "@amt,@caltype,@feecode",
+  "learn_sql_parameter_sub": "SELECT  CASE c.payer WHEN 'C' THEN 'Customer account' WHEN 'P' THEN 'Corporate account' ELSE 'Banl GL Account' END as dracc,c.ccrcd as drcrcd,c.ccrcd 
+as crcrcd,CASE c.benificiary  WHEN 'C' THEN 'Customer account' WHEN 'P' THEN 'Corporate account' ELSE 'Banl GL Account' END as cracc,CASE c.valuetype
+WHEN 'C' THEN ROUND((c.feeamount*c.formular/100),TO_NUMBER(roundingby)) ELSE c.formular END as dramt,CASE c.valuetype WHEN 'C' 
+THEN ROUND((c.feeamount*c.formular/100),TO_NUMBER(roundingby)) ELSE c.formular END as cramt
+FROM (
+SELECT  r.feecode,d.ccrcd ,f.payer, f.feeamount, r.benificiary,CASE WHEN INSTR(r.formular,'%')>0 THEN CAST(SUBSTR(r.formular,1,length(r.formular)-1) as numeric) ELSE cast(r.formular as numeric) END  AS formular ,TO_NUMBER(r.roundingby)AS roundingby,CASE WHEN INSTR(r.formular,'%') >0 THEN 'C' ELSE 'F' END  AS valuetype
+FROM hubdb.d_feebeneficiaries r 
+LEFT JOIN
+(SELECT b.feecode, b.payer, b.feeamount FROM ( SELECT a.feecode, a.caltype,a.appliedwhen,a.payer,a.formular, a.roundingby,CASE a.feevaluetype WHEN 'C' THEN ROUND((a.amt*a.formular/100),TO_NUMBER(a.roundingby)) ELSE a.formular END as feeamount
+FROM ( SELECT feecode,caltype,basicvalue,CASE basicvalue WHEN 'T' THEN TO_NUMBER(?) ELSE 0 END AS amt,
+  appliedwhen, payer, fromvalue, tovalue,CASE WHEN INSTR(formular,'%')>0 THEN CAST(SUBSTR(formular,1,length(formular)-1) as numeric) ELSE cast(formular as numeric) END  AS formular, roundingby ,
+CASE WHEN CONTAINS(formular,'%')>0 THEN 'C' ELSE 'F' END  AS feevaluetype
+FROM hubdb.d_feecal 
+)a WHERE (a.caltype = 'L'and a.basicvalue = 'T' and a.fromvalue <= TO_NUMBER(amt) and a.tovalue>=TO_CHAR(amt)) OR (a.caltype = 'F') )b WHERE b.caltype =?) f ON r.feecode = f.feecode 
+LEFT JOIN hubdb.d_feedef d ON TO_NUMBER(r.feecode) = d.feecode 
+WHERE r.feecode = ?) c",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_hubfeeGetFeePosting",
+  "AFGHTimeWJ": 1585837541575
+}

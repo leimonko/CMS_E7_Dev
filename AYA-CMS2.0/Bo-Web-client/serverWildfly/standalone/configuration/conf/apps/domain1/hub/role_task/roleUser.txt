@@ -1,0 +1,1 @@
+{"admin":{"roleUser":{"form":{"accept":true,"follow":false}}},"Manager":{"roleUser":{"form":{"accept":true,"follow":false}}},"Teller":{"roleUser":{"form":{"accept":true,"follow":false}}},"designer":{"roleUser":{"form":{"accept":true,"caption":null,"follow":false}}}}

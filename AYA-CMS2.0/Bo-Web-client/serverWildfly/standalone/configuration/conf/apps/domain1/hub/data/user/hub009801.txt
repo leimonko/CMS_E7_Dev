@@ -1,0 +1,1 @@
+{"full_name":"hub009801","email":"hub009801","user_status":"A","user_id":"hub009801","branchcd":"0098","branchid":"0098","branchname":"NPT - MMZ (mini)","AFGHkeyIndexWJ":"hub009801","AFGHkeyTime":1603781790667,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790667,"AFGHkeyUserCreateWJ":""}

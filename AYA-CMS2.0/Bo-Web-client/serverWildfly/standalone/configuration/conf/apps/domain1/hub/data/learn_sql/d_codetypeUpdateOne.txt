@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Update",
+  "learn_sql_data": "d_codetype",
+  "learn_sql_parameter": "@subcodetype, @descs,#recid",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query": "UPDATE hubdb.d_codetype SET subcodetype=?, descs=? WHERE recid=? ",
+  "learn_sql_query_sub": "SELECT * FROM hubdb.d_codetype WHERE recid = ?",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_codetypeUpdateOne",
+  "AFGHTimeWJ": 1561295766446
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub025101","email":"hub025101","user_status":"A","user_id":"hub025101","branchcd":"0251","branchid":"0251","branchname":"YGN(107)_SHT","AFGHkeyIndexWJ":"hub025101","AFGHkeyTime":1603781790780,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790780,"AFGHkeyUserCreateWJ":""}

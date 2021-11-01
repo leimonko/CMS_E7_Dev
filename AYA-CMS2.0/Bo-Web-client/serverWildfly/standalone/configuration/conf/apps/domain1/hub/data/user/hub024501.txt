@@ -1,0 +1,1 @@
+{"full_name":"hub024501","email":"hub024501","user_status":"A","user_id":"hub024501","branchcd":"0245","branchid":"0245","branchname":"Mdy(26) YMG","AFGHkeyIndexWJ":"hub024501","AFGHkeyTime":1603781790772,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790772,"AFGHkeyUserCreateWJ":""}

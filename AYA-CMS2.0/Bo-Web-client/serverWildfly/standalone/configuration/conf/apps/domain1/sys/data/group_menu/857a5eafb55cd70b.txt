@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"testForm","en":"testForm"},"group_menu_name":"testForm","group_menu_order":"1","group_menu_parent":"0","group_menu_status":"I","group_menu_function_code":"testForm","group_menu_visible":"T","group_menu_id":"95a6a0e0dee3f5fd","AFGHkeyIndexWJ":"857a5eafb55cd70b","AFGHkeyTime":1579227686589,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1579227686629}

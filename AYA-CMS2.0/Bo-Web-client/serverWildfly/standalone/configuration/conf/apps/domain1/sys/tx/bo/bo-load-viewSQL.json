@@ -1,0 +1,27 @@
+{
+    "input": {},
+    "actions": [{
+            "name": "Truy vấn 1 data theo mã learn sql",
+            "function": "cis.core.txsql.view",
+            "type": "java",
+            "para": ["@learn_sql"],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [{
+                            "txcode": "#sys:fo-form-setDataToform"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-load-viewSQL",
+    "version": 2,
+    "updateTime": 1562205991292,
+    "txname": "Truy vấn tìm 1 data xem (không xóa)",
+    "isOld": true
+}

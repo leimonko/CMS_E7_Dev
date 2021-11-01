@@ -1,0 +1,14 @@
+{
+  "cdid": "JOB_SEND_MAIL_TX",
+  "cdname": "TRANSFERTYPE",
+  "caption": "JOB_SEND_MAIL_TX",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": 1,
+  "AFGHkeyIndexWJ": "JOB_SEND_MAIL_TX",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

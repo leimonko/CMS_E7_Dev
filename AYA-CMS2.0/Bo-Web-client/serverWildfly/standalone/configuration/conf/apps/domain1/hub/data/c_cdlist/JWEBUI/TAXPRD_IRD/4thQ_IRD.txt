@@ -1,0 +1,1 @@
+{"cdid":"4thQ","cdname":"TAXPRD_IRD","caption":"Fourth Quarter","cdgrp":"JWEBUI","cdidx":"17","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"4thQ_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

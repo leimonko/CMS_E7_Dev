@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Lưu para server","function":"tx.saveParaServer","type":"java","para":[],"status":"A"}],"response":{"fo":[{"txcode":"#sys:fo-msg-toast","input":{"lang":"sysActionSaveOk"}}]},"status":"A","txtype":"bo","txcode":"bo-save-paraServer","version":2,"updateTime":1562206281695,"txname":"Lưu tham số hệ thống","isOld":true}

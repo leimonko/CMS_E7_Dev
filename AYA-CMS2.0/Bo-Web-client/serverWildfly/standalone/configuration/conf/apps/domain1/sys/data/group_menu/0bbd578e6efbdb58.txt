@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"CDLIST","en":"CDLIST","thai":"","lao":"","cam":"","mya":"","han":""},"group_menu_name":"CDLIST","group_menu_function_code":"formCdlist","group_menu_order":"1","group_menu_parent":"sp5538Ddt4rC81","group_menu_id":"1186826399c20654","AFGHkeyIndexWJ":"0bbd578e6efbdb58","AFGHkeyTime":1570461785559,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1570461785571}

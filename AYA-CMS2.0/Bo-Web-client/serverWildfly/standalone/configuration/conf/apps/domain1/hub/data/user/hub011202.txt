@@ -1,0 +1,1 @@
+{"full_name":"hub011202","email":"hub011202","user_status":"A","user_id":"hub011202","branchcd":"0112","branchid":"0112","branchname":"Ygn(41)_Novotel","AFGHkeyIndexWJ":"hub011202","AFGHkeyTime":1603781790676,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790676,"AFGHkeyUserCreateWJ":""}

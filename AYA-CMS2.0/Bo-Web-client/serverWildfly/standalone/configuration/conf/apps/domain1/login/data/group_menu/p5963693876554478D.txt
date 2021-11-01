@@ -1,0 +1,1 @@
+{"group_menu_name":"Tham số hệ thống","group_menu_order":"4","group_menu_parent":"sp5538633k665883b","group_menu_function_code":"paraServer","group_menu_id":"p596369387655859g2","AFGHkeyIndexWJ":"p5963693876554478D","AFGHkeyTime":1559636938765,"AFGHkeyWorkFlow":""}

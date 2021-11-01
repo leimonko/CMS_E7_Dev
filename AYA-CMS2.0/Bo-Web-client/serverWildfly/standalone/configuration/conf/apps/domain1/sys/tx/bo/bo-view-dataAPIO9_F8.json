@@ -1,0 +1,64 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "g?i learn API",
+            "function": "o9.core.txO9.view",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-msg-toast",
+                            "input": {
+                                "lang": "sysGetInfoOk"
+                            }
+                        },
+                        {
+                            "txcode": "#sys:fo-view-dataAPIOpenFormO9_F8",
+                            "input": {}
+                        }
+                    ]
+                },
+                "false": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-msg-confirm",
+                            "input": {
+                                "toast_type": "error"
+                            }
+                        }
+                    ]
+                },
+                "_default_": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-msg-confirm",
+                            "input": {
+                                "toast_type": "error"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {
+        "fo": [
+            {
+                "txcode": "",
+                "input": {}
+            }
+        ]
+    },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-view-dataAPIO9_F8",
+    "version": 8,
+    "updateTime": 1582103816243,
+    "txname": "post and view data api",
+    "hasRole": "false",
+    "isOld": true
+}

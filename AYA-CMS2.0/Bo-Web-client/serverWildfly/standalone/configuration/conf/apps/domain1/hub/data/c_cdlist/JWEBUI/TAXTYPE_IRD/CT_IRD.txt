@@ -1,0 +1,1 @@
+{"cdid":"CT","cdname":"TAXTYPE_IRD","caption":"Commercial tax","cdgrp":"JWEBUI","cdidx":"3","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"CT_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

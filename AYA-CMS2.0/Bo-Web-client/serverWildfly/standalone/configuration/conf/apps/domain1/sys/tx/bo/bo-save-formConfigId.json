@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Save","function":"tx.saveform","type":"java","para":[],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-msg-toast","input":{"lang":"sysActionSaveOk"}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-save-formConfigId","version":2,"updateTime":1562206141307,"txname":"Lưu cấu hình form theo id","isOld":true}

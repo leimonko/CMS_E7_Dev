@@ -1,0 +1,4 @@
+{
+	"time_base_loading": 10000,
+	"x_on_screen": 7
+}

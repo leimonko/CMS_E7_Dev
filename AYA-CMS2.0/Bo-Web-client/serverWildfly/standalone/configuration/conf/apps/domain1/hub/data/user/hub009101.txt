@@ -1,0 +1,1 @@
+{"full_name":"hub009101","email":"hub009101","user_status":"A","user_id":"hub009101","branchcd":"0091","branchid":"0091","branchname":"Mdy(11)_35 ST","AFGHkeyIndexWJ":"hub009101","AFGHkeyTime":1603781790661,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790661,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"full_name":"hub006302","email":"hub006302","user_status":"A","user_id":"hub006302","branchcd":"0063","branchid":"0063","branchname":"Yangon (17) SCG","AFGHkeyIndexWJ":"hub006302","AFGHkeyTime":1603781790623,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790623,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,23 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Thu thập và thêm mới",
+      "function": "formChild.delete",
+      "type": "javascript",
+      "status": "A",
+      "para": ["@node_table"],
+      "request": {
+        "true": {}
+      }
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-removeDataFormChild",
+  "txname": "Tạo mới",
+  "version": 1,
+  "updateTime": 1562501779000,
+  "isOld": true
+}

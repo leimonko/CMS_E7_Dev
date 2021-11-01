@@ -1,0 +1,1 @@
+{"full_name":"hub010401","email":"hub010401","user_status":"A","user_id":"hub010401","branchcd":"0104","branchid":"0104","branchname":"Mdy12-ManawHaRi","AFGHkeyIndexWJ":"hub010401","AFGHkeyTime":1603781790670,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790670,"AFGHkeyUserCreateWJ":""}

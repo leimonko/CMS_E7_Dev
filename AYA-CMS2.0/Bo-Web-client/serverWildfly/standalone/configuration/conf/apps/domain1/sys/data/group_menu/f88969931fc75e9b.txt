@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"YEN 6","en":"YENNE 6"},"group_menu_name":"YEN 6","group_menu_order":"1","group_menu_parent":"012005005","group_menu_function_code":"","group_menu_id":"afdd93f072e6083e","AFGHkeyIndexWJ":"f88969931fc75e9b","AFGHkeyTime":1577436227021,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1577436227129}

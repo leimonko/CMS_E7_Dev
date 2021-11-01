@@ -1,0 +1,48 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "post API",
+      "function": "o9.core.txO9.feeCCL",
+      "type": "java",
+      "para": [],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-feeCCL-formchild",
+              "input": {}
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-msg-toast",
+              "input": {
+                "lang": "sysActionError"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    "fo": [
+      {
+        "txcode": "",
+        "input": {}
+      }
+    ]
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-convert-dataFee-formchild",
+  "version": 6,
+  "updateTime": 1582106989173,
+  "txname": "Fee Caculator",
+  "hasRole": "false",
+  "isOld": true
+}

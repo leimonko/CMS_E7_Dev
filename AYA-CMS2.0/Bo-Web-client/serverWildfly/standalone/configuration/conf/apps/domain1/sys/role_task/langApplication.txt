@@ -1,0 +1,1 @@
+{"Accountant":{"langApplication":{"form":{"accept":true,"follow":false}}},"admin":{"langApplication":{"form":{"accept":true,"follow":false}}},"Manager":{"langApplication":{"form":{"accept":true,"follow":false}}}}

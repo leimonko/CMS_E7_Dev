@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Delete",
+  "learn_sql_data": "",
+  "learn_sql_parameter": "#recid",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "DELETE FROM hubdb.d_cashacno WHERE recid=? ",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "cashacnoDeleteOne",
+  "AFGHTimeWJ": 1561266675211
+}

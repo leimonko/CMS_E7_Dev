@@ -1,0 +1,24 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "O9",
+      "function": "tx.loginDefault",
+      "type": "java",
+      "para": ["hub"],
+      "status": "A",
+      "response": {
+        "true": { "fo": [{ "txcode": "#sys:fo-container", "input": { "lang": "loginAppTrue" } }] },
+        "false": { "fo": [{ "txcode": "#sys:fo-container", "input": { "lang": "loginAppFalse" } }] }
+      }
+    }
+  ],
+  "response": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-app-dev",
+  "version": 8,
+  "updateTime": 1562292754552,
+  "txname": "Đăng nhập dev",
+  "isOld": true
+}

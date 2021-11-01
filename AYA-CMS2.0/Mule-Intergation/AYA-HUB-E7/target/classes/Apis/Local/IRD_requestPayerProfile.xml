@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+  	<flow name="ird_requestpayerprofileFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/requestpayerprofile"
+			doc:name="/requestpayerprofile" allowedMethods="POST" />
+			<set-variable variableName="uuid" value="#[java.util.UUID.randomUUID().toString()]" doc:name="uuid"/>
+		<logger
+			message="#[&quot;\n=======================================\nStarted IRD REQUESTPAYERPROFILE\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="STARTED IRD REQUESTPAYERPROFILE" />
+		<invoke object-ref="AutoLogin" method="getToken"
+			methodArguments="#[message.payloadAs(java.lang.String)]" doc:name="getToken" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsg" value="#[payload]"
+			doc:name="reqMsg" />
+		<set-payload
+			value="{
+	&quot;path&quot;: &quot;/TPISPayerService/module001/service001/requestpayerprofile&quot;,
+	&quot;method&quot;: &quot;POST&quot;,
+	&quot;params&quot;: {},
+	&quot;headers&quot;: {},
+	&quot;body&quot;: {
+		&quot;tinNo&quot;: &quot;#[flowVars.reqMsg.TINNO]&quot;,
+		&quot;phoneNo&quot;: &quot;#[flowVars.reqMsg.PHONENO]&quot;,
+		&quot;debtorCode&quot;: &quot;#[flowVars.reqMsg.DEBTORCODE]&quot;,
+		&quot;remark&quot;: &quot;#[flowVars.reqMsg.REMARK]&quot;,
+		&quot;token&quot;: &quot;#[flowVars.reqMsg.IRD_TOKEN]&quot;
+	}
+}"
+			doc:name="Build Message Request Payer Profile" mimeType="application/json" />
+		<flow-ref name="IRD_connectorFlow" doc:name="IRD_connectorFlow"/>
+		<set-variable variableName="code" value="#[json:status]" doc:name="code"/>
+		<set-payload
+			value="{
+	&quot;ERRORCODE&quot;: &quot;#[java.lang.Integer.parseInt(flowVars.code)]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[json:desc]&quot;,
+	&quot;REGIONCODE&quot;: &quot;#[json:data/regionCode]&quot;,
+	&quot;TAXOFFICENAME&quot;: &quot;#[json:data/taxOfficeName]&quot;,
+	&quot;REFNO&quot;: &quot;#[json:data/refNo]&quot;,
+	&quot;PHONENUMBER&quot;: &quot;#[json:data/phoneNumber]&quot;,
+	&quot;HOUSENO&quot;: &quot;#[json:data/houseNo]&quot;,
+	&quot;TINNO&quot;: &quot;#[json:data/tin_No]&quot;,
+	&quot;EMAILADDRESS&quot;: &quot;#[json:data/emailAddress]&quot;,
+	&quot;FAXNUMBER&quot;: &quot;#[json:data/faxNumber]&quot;,
+	&quot;MDACCNO&quot;: &quot;#[json:data/mdaccNo]&quot;,
+	&quot;TOWNSHIPCODE&quot;: &quot;#[json:data/townShipCode]&quot;,
+	&quot;STREET&quot;: &quot;#[json:data/street]&quot;,
+	&quot;QUARTER&quot;: &quot;#[json:data/quarter]&quot;,
+	&quot;PROFILENAME&quot;: &quot;#[json:data/profileName]&quot;,
+	&quot;CREDITORBRANCHNAME&quot;: &quot;#[json:data/creditorBranchName]&quot;,
+	&quot;REGISTRATIONNO&quot;: &quot;#[json:data/registrationNo]&quot;,
+	&quot;CREDITORBRANCHCODE&quot;: &quot;#[json:data/creditorBranchCode]&quot;,
+	&quot;CREDITORFIBRANCHCODE&quot;: &quot;#[json:data/creditorFIBranchCode]&quot;,
+	&quot;TAXTYPE&quot;: #[json:data/taxType],   &quot;INCOMEYEAR&quot;:#[json:data/incomeYear]
+}"
+			doc:name="Build message response" mimeType="application/json"/>
+		<logger
+			message="#[&quot;\n=======================================\nEnded IRD REQUESTPAYERPROFILE\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="ENDED IRD REQUESTPAYERPROFILE" />
+
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 9999,  &quot;ERRORDESC&quot;: &quot;#[(exception.?cause.message or exception).toString().replace('&quot;','')]&quot;,  &quot;RESULT&quot;: {} }"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=======================================\nEnded IRD REQUESTPAYERPROFILE\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+				level="INFO" doc:name="ENDED IRD REQUESTPAYERPROFILE" />
+		</catch-exception-strategy>
+		</flow>
+</mule>

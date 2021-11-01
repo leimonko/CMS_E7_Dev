@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"xử lý logic","function":"wallet.demo.demoCRUD.save","type":"java","para":[],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-post-viewHasData","input":{}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-demo-formSearch","version":4,"updateTime":1588488137527,"txname":"demo fom","hasRole":"false","isOld":true}

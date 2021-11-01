@@ -1,0 +1,14 @@
+﻿{
+  "learn_sql_title": "d_usercashInsertOneByAPI",
+  "learn_sql_query": "INSERT INTO hubdb.d_usercash(userid,ostbalance,changedate) values(?,TO_NUMBER(?),SYSDATE)",
+  "learn_sql_parameter": "@USRID,@OSTBALANCE",
+  "learn_sql_parameter_sub": "@USRID",
+  "learn_sql_query_sub": "SELECT * FROM hubdb.d_usercash WHERE userid =?",
+  "learn_sql_data": "d_usercash",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+   "learn_sql_squence": "",
+  "AFGHkeyIndexWJ": "d_usercashInsertOneByAPI",
+  "AFGHTimeWJ": 1561266469836
+}

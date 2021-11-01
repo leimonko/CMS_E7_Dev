@@ -1,0 +1,16 @@
+{
+  "app_code": "o9",
+  "learn_api_name": "ctm_customer_group Search-Search",
+  "learn_api_link": "$API_SERVER$:$API_PORT_DATA$/api/customer/customergroup/search/?term=@{ctm_customer_group.search_text}&page=0",
+  "learn_api_data": "ctm_customer_group",
+  "learn_api_node_data": "data",
+  "learn_api_app": "BO",
+  "learn_api_method": "GET",
+  "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer )",
+  "learn_api_mapping": "",
+  "learn_api_id": "ctm_customer_group_search_search_get_api_customer_customergroup_term_search_text",
+  "AFGHkeyIndexWJ": "ctm_customer_group_search_search_get_api_customer_customergroup_term_search_text",
+  "AFGHkeyTime": 1577005955874,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1577005955874
+}

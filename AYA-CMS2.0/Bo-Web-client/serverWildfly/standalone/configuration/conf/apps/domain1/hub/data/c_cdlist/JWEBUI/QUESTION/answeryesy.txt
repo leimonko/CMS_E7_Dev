@@ -1,0 +1,1 @@
+{"cdid":"Y","cdname":"QUESTION","caption":"Yes","cdgrp":"JWEBUI","cdidx":"1","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"answeryesy","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

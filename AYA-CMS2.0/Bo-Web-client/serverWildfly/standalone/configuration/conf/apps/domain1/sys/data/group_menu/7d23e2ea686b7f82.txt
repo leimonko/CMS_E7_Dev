@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"Thiết kế form","en":"","thai":"","lao":"","cam":"","mya":"","han":""},"group_menu_name":"Thiết kế form","group_menu_order":"15","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"designForm","group_menu_id":"dadc186885f02da1","AFGHkeyIndexWJ":"7d23e2ea686b7f82","AFGHkeyTime":1568565119106,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1568565119109}

@@ -1,0 +1,14 @@
+{
+  "cdid": "B",
+  "cdname": "BENEFIT",
+  "caption": "Bank",
+  "cdgrp": "JWEBUI",
+  "cdidx": "3",
+  "cdval": "",
+  "flag": "",
+  "visible": "1",
+  "AFGHkeyIndexWJ": "bank11",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

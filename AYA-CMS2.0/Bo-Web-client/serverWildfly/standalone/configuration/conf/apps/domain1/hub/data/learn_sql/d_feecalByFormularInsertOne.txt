@@ -1,0 +1,15 @@
+{
+  "learn_sql_title": "Thêm mới txcode",
+  "learn_sql_query": "INSERT INTO hubdb.d_feecal(recid,feecode, caltype, appliedwhen,payer, descs, formular, roundingby,commonacc,ccrcd,fromvalue,tovalue,basicvalue,tier) 
+  VALUES (?,?,?, ?,?, ?, ?, ?,?,?,TO_NUMBER(?),TO_NUMBER(?),?,?)",
+  "learn_sql_parameter": "#recid,@feecode,@caltype,@appliedwhen, @payer, @descs, @formular, #roundingby,@commonacc,@ccrcd,@fromvalue,@tovalue,@basicvalue,#tier",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query_sub": "SELECT recid,feecode, caltype, appliedwhen, basicvalue, payer, descs,CASE WHEN caltype = 'L' then TO_CHAR(tier) else '-' end as tier, fromvalue, tovalue, formular, roundingby,commonacc,ccrcd FROM hubdb.d_feecal WHERE recid = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "learn_sql_squence": "select hubdb.D_FEECAL_SEQ.nextval as recid from dual",
+  "AFGHkeyIndexWJ": "d_feecalByFormularInsertOne",
+  "AFGHTimeWJ": 1561266469836
+}

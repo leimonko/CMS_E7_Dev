@@ -1,0 +1,1 @@
+{"full_name":"hub008701","email":"hub008701","user_status":"A","user_id":"hub008701","branchcd":"0087","branchid":"0087","branchname":"Ygn(30)_PZD","AFGHkeyIndexWJ":"hub008701","AFGHkeyTime":1603781790654,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790654,"AFGHkeyUserCreateWJ":""}

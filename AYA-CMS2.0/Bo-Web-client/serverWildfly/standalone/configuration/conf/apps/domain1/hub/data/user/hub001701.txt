@@ -1,0 +1,1 @@
+{"full_name":"hub001701","email":"hub001701","user_status":"A","user_id":"hub001701","branchcd":"0017","branchid":"0017","branchname":"Tarchileik","AFGHkeyIndexWJ":"hub001701","AFGHkeyTime":1603781790569,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790569,"AFGHkeyUserCreateWJ":""}

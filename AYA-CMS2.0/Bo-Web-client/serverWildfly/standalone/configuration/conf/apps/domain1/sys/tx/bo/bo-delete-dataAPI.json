@@ -1,0 +1,44 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Xóa dữ liệu bằng API",
+      "function": "o9.core.txO9.delete",
+      "type": "java",
+      "para": [],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-msg-toast",
+              "input": { "lang": "sysDeleteOk" }
+            },
+
+            {
+              "txcode": "#sys:fo-search-API",
+              "input": { "learn_api": "@learn_api_search" }
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-msg-toast",
+              "input": { "lang": "sysDeleteError" }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": { "fo": [{ "txcode": "", "input": {} }] },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-delete-dataAPI",
+  "version": 7,
+  "updateTime": 1571224518558,
+  "txname": "Delete data with API",
+  "hasRole": "false",
+  "isOld": true
+}

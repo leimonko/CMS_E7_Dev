@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "d_hubstmUpdateChar11HubstmRVFail",
+	"learn_sql_parameter": "@TXREFID",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "Update hubdb.d_hubstm set char11 = 'C',date06 = SYSDATE , num01 = (case when num01 is null then 1 else num01+1 end) where id =?",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_hubstmUpdateChar11HubstmRVFail",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_hubstmUpdateChar11HubstmRVFail"
+}

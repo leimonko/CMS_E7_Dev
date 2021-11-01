@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+	<flow name="fbe_getBalanceFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/getBalance"
+			allowedMethods="POST" doc:name="/getBalance" />
+		<set-variable variableName="uuid" value="#[java.util.UUID.randomUUID().toString()]" doc:name="uuid"/>
+		<logger
+			message="#[&quot;\n=======================================\nStarted FBE GET ACCOUNT BALANCE\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="STARTED FBE GET ACCOUNT BALANCE" />
+        <invoke object-ref="AutoLogin" method="getSession" methodArguments="#[message.payloadAs(java.lang.String)]" doc:name="getSession"/>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+		<set-payload value="{
+	&quot;path&quot;: &quot;/bfweb/retail/v1/accounts/#[payload.ACNO]/balances&quot;,
+	&quot;method&quot;: &quot;GET&quot;,
+	&quot;params&quot;: {},
+	&quot;headers&quot;: {
+		&quot;Content-Type&quot;: &quot;application/json&quot;,
+		&quot;X-Request-ID&quot;: &quot;b8a888a6-4bbf-11ea-b77f-2e728ce88125&quot;,
+		&quot;Authorization&quot;: &quot;#[payload.SESSIONID]&quot;
+	},
+	&quot;body&quot;: {}
+}" mimeType="application/json" doc:name="Get Account Balance"/>
+		<flow-ref name="FBE_jsonConnectorFlow" doc:name="FBE_jsonConnectorFlow"/>
+
+        <set-payload value="{
+	&quot;ERRORCODE&quot;: &quot;#[json:status]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[json:desc]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;BALANCE&quot;: &quot;#[json:data/balances[2]/amount/amount]&quot;,
+		&quot;CCRCD&quot;: &quot;#[json:data/balances[2]/amount/currency]&quot;
+	}
+}" doc:name="Msg Response" mimeType="application/json"/>
+		<logger
+			message="#[&quot;\n=======================================\nEnded FBE GET ACCOUNT BALANCE\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="ENDED FBE GET ACCOUNT BALANCE" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 9999,  &quot;ERRORDESC&quot;: &quot;#[exception.?cause.message or exception]&quot;,  &quot;RESULT&quot;: {} }"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=======================================\nEnded FBE GET ACCOUNT BALANCE\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+				level="INFO" doc:name="Ended FBE GET ACCOUNT BALANCE" />
+		</catch-exception-strategy>
+		</flow>
+</mule>

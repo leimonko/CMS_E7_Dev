@@ -1,0 +1,2406 @@
+{
+    "info": {
+        "title": "Corporation Service",
+        "des": "Corporation Service",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "d_corpserviceLoadAll",
+        "bodata": "",
+        "openOne": "true",
+        "url_input": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "corporationServiceFormList",
+        "ruleStrong": [{
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "servicecode",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            },{
+                "code": "managerComponent",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "servicecode",
+                    "component_manager": "{\n    \"btn_update\": \" '@{servicecode}' !== '' \"\n,\n    \"btn_updateView\": \" '@{servicecode}' !== '' \"\n}",
+                    "is_use_block": "false"
+                },
+                "inUse": false,
+                "order": 3,
+                "isStart": true
+            },{
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "btn_updateView",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            },{
+                "code": "managerComponent",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "maximumamountaccepted;minimumamountaccepted;servicecode",
+                    "component_manager": "{\n    \"btn_update\": \"@{maximumamountaccepted} >= @{minimumamountaccepted} && '@{servicecode}' !== '' \"\n, \n    \"btn_updateView\": \" @{maximumamountaccepted} < @{minimumamountaccepted} && '@{servicecode}' !== '' \"\n}",
+                    "is_use_block": "false"
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            },{
+			 "code": "runFo",
+                "config": {
+                    "component_action": "minimumamountaccepted;maximumamountaccepted",
+                    "component_result": "",
+                    "component_event": "enter_tab",
+                    "txFoActions": "[\n    {\n        \"function\": \"formValidate.validateMaximunamount\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                    "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                    "useAction": "true",
+                    "condition": ""
+                },
+				"isStart": false,
+                "inUse": true,
+                "order": 4
+            },{
+			 "code": "runFo",
+                "config": {
+                    "component_action": "startdate;expiredate",
+                    "component_result": "",
+                    "component_event": "enter_tab",
+                    "txFoActions": "[\n    {\n        \"function\": \"formValidate.validateFromToDate\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                    "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                    "useAction": "true",
+                    "condition": ""
+                },
+				"isStart": false,
+                "inUse": true,
+                "order": 5
+            }
+        ]
+    },
+    "list_layout": [{
+            "name": "Corporation Service Listing",
+            "des": "",
+            "class": "",
+            "lang": {
+                "en": "Corporation Service Listing",
+                "vi": "Corporation Service Listing"
+            },
+            "lang_des": {},
+            "codeHidden": "5ceca2c9492937d9",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "search",
+                    "class": "",
+                    "codeHidden": "2ab44811d19fdf12",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Add",
+                                "code": "add",
+                                "codeHidden": "039634bea38e9485",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-open-form\",\n        \"input\": {\n            \"form_key\": \"corporationServiceAddInfomation\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "add",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }, {
+                    "name": "",
+                    "lang": {},
+                    "code": "search",
+                    "class": "",
+                    "codeHidden": "2ab44811d1981f12",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Search",
+                                "code": "search",
+                                "codeHidden": "e9338b6d9e4a66b4",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "keysearch.data",
+                                "structable_read": "",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Search",
+                                "code": "btn_search",
+                                "codeHidden": "c663bee959a5c04f",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-searchDataByParameter\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"search\",\n            \"table_code\": \"keysearch\",\n            \"learn_sql\": \"d_corpservice_searchbyparameter\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "search",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Corporation Service Listing",
+                                "code": "table",
+                                "codeHidden": "caaf435d2c6d59ef",
+                                "class": "col-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "table.col",
+                                "query_data": "Select * from d_corpservice  where wf.d_corpservice.codetype===\"S\"",
+                                "paging_record": "50",
+                                "columns": "[\n    {\n        \"code\": \"d_corpservice.servicecode\",\n        \"title\": \"Service code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_corpservice.name\",\n        \"title\": \"Service Name\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_corpservice.corpname\",\n        \"title\": \"Corpname\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_corpservice.catid\",\n        \"title\": \"Service category\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_corpservice.corpdepositaccno\",\n        \"title\": \"Payee Corporation Deposit Account Number\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {
+                                "vi": {
+                                    "Service code": "Service code",
+                                    "Service Name": "Service Name",
+                                    "Corpname": "Corpname",
+                                    "Service category": "Service category",
+                                    "Payee Corporation Deposit Account Number": "Payee Corporation Deposit Account Number"
+                                },
+                                "en": {
+                                    "Service code": "Service code",
+                                    "Service Name": "Service Name",
+                                    "Corpname": "Corpname",
+                                    "Service category": "Service category",
+                                    "Payee Corporation Deposit Account Number": "Payee Corporation Deposit Account Number"
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTableDefault"
+                        }, {
+                            "default": {
+                                "name": "View",
+                                "code": "btn_view",
+                                "codeHidden": "dc3fbd478b2f6308",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewDataSQL\",\n        \"input\": {\n            \"learn_sql\": \"d_corpserviceViewOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "visibility",
+                                "color": "info",
+                                "onTable": "table",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Delete",
+                                "code": "btn_delete",
+                                "codeHidden": "b0e25bd0dc8adea7",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-deleteDataSQL\",\n        \"input\": {\n            \"table_code\": \"d_corpservice\",\n            \"pk_col\": \"servicecode\",\n            \"learn_sql\": \"d_corpservicefDeleteOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "delete",
+                                "color": "info",
+                                "onTable": "table",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "Corporation Service View",
+            "des": "",
+            "class": "",
+            "lang": {
+                "vi": "Corporation Service View",
+                "en": "Corporation Service View"
+            },
+            "lang_des": {},
+            "codeHidden": "8cc3cbfeca1bad6a",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "872498129144007e",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Service code",
+                                "code": "servicecode",
+                                "codeHidden": "b0e77766c4d1c239",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.servicecode",
+                                "structable_read": "d_corpservice.servicecode",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Company": "Company"
+                                    },
+                                    "en": {
+                                        "Company": "Company"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Service name",
+                                "code": "servicename",
+                                "codeHidden": "42bbce2491e83574",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.name",
+                                "structable_read": "d_corpservice.name",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Corporation code",
+                                "code": "corporationcode",
+                                "codeHidden": "8d0518cee077ea87",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.corpcode",
+                                "structable_read": "d_corpservice.corpcode",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='BRANCH' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "BRANCH"
+                                },
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "Select * from d_corpservice where wf.d_corpservice.codetype===\"C\"",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "d_corpservice.servicecode",
+                                "selected_view_format": "@d_corpservice.servicecode - @d_corpservice.name",
+                                "table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_corpservice.servicecode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_corpservice.name\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "d_corpservice.servicecode",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Corporation code": "Corporation code"
+                                    },
+                                    "en": {
+                                        "Corporation code": "Corporation code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Service category",
+                                "code": "servicecategory",
+                                "codeHidden": "412f4601d5ab361f",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.catid",
+                                "structable_read": "d_corpservice.catid",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='HUBSERVICECATEGORY' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "HUBSERVICECATEGORY"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='HUBSERVICECATEGORY' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Service category": "Service category"
+                                    },
+                                    "en": {
+                                        "Service category": "Service category"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Service description",
+                                "code": "servicedescription",
+                                "codeHidden": "f968cdae5aae0e5b",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.description",
+                                "structable_read": "d_corpservice.description",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Currency code": "Currency code"
+                                    },
+                                    "en": {
+                                        "Currency code": "Currency code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Currency Accepted",
+                                "code": "currencyaccepted",
+                                "codeHidden": "a2631fec73529a97",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.ccycd",
+                                "structable_read": "d_corpservice.ccycd",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='CRCD' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "CRCD"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='CRCD' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Currency Accepted": "Currency Accepted"
+                                    },
+                                    "en": {
+                                        "Currency Accepted": "Currency Accepted"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Customer number sample",
+                                "code": "customernumbersample",
+                                "codeHidden": "2300dba4e9b2c32d",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.customernumber",
+                                "structable_read": "d_corpservice.customernumber",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "cis_host_transaction",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, 
+						{
+                            "default": {
+                                "name": "Webservice name",
+                                "code": "webservicename",
+                                "codeHidden": "2f21c404deaed393",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "true",
+                                "action": "",
+                                "structable": "d_corpservice.websername",
+                                "structable_read": "d_corpservice.websername",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Minimum Amount Accepted",
+                                "code": "minimumamountaccepted",
+                                "codeHidden": "7a326701f26227a8",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.minamount",
+                                "structable_read": "d_corpservice.minamount",
+                                "data_default": "0",
+                                "format": "#,###.00",
+                                "decimal_length": 2
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true,
+                                "min": 0
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "jCurrency"
+                        }, {
+                            "default": {
+                                "name": "Maximum amount accepted",
+                                "code": "maximumamountaccepted",
+                                "codeHidden": "1cd9c676071c8e6f",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.maxamount",
+                                "structable_read": "d_corpservice.maxamount",
+                                "data_default": "0",
+                                "format": "#,###.00",
+                                "decimal_length": 2
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true,
+                                "min": 0
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Target account type": "Target account type"
+                                    },
+                                    "en": {
+                                        "Target account type": "Target account type"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jCurrency"
+                        }, {
+                            "default": {
+                                "name": "Partial payment amount accepted",
+                                "code": "partialpaymentamountaccepted",
+                                "codeHidden": "0cc1865a20758538",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.paymentamount",
+                                "structable_read": "d_corpservice.paymentamount",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Partial payment amount accepted": "Partial payment amount accepted"
+                                    },
+                                    "en": {
+                                        "Partial payment amount accepted": "Partial payment amount accepted"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Amount exceeds bill amount accepted",
+                                "code": "amountexceedsbillamountaccepted",
+                                "codeHidden": "ce94b9e7c1e3c045",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.exceedsbillamount",
+                                "structable_read": "d_corpservice.exceedsbillamount",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Amount exceeds bill amount accepted": "Amount exceeds bill amount accepted"
+                                    },
+                                    "en": {
+                                        "Amount exceeds bill amount accepted": "Amount exceeds bill amount accepted"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Expired bill accepted",
+                                "code": "expiredbillaccepted",
+                                "codeHidden": "0824bf229a0b178a",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.expiredbill",
+                                "structable_read": "d_corpservice.expiredbill",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Expired bill accepted": "Expired bill accepted"
+                                    },
+                                    "en": {
+                                        "Expired bill accepted": "Expired bill accepted"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Internet banking",
+                                "code": "internetbanking",
+                                "codeHidden": "9191536e9b022358",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.internetbanking",
+                                "structable_read": "d_corpservice.internetbanking",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Internet banking": "Internet banking"
+                                    },
+                                    "en": {
+                                        "Internet banking": "Internet banking"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Counter",
+                                "code": "counter",
+                                "codeHidden": "b25275cb48822d0c",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.counter",
+                                "structable_read": "d_corpservice.counter",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Counter": "Counter"
+                                    },
+                                    "en": {
+                                        "Counter": "Counter"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "ATM",
+                                "code": "atm",
+                                "codeHidden": "13ad9cdc543d42ac",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.atm",
+                                "structable_read": "d_corpservice.atm",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "ATM": "ATM"
+                                    },
+                                    "en": {
+                                        "ATM": "ATM"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Fee code",
+                                "code": "feecode",
+                                "codeHidden": "c72e9d897d85f943",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.feecode",
+                                "structable_read": "d_corpservice.feecode",
+                                "cdlist": {},
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "Select * from d_corpservice where wf.d_corpservice.codetype===\"F\"",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "d_corpservice.servicecode",
+                                "selected_view_format": "@d_corpservice.servicecode - @d_corpservice.name",
+                                "table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_corpservice.servicecode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_corpservice.name\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "d_corpservice.servicecode",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Fee code": "Fee code"
+                                    },
+                                    "en": {
+                                        "Fee code": "Fee code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Fee calculation type",
+                                "code": "feecaltype",
+                                "codeHidden": "fce03ca24f264d4e",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.feecaltype",
+                                "structable_read": "d_corpservice.feecaltype",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='FEECALTYPE' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "FEECALTYPE"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='FEECALTYPE' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Fee calculation type": "Fee calculation type"
+                                    },
+                                    "en": {
+                                        "Fee calculation type": "Fee calculation type"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Start date",
+                                "code": "startdate",
+                                "codeHidden": "1e41e2e3bed627f5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.stdt",
+                                "structable_read": "d_corpservice.stdt",
+                                "data_default": "",
+                                "data_type": "edit",
+                                "component_title": "",
+                                "mask_format": "DD/MM/YYYY",
+                                "mask_data_format": "DD/MM/YYYY",
+                                "value_type": "number",
+                                "auto_delete": "true",
+                                "mask_mode": "date",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": ""
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true,
+                                "condistion": []
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Start date": "Start date"
+                                    },
+                                    "en": {
+                                        "Start date": "Start date"
+                                    }
+                                },
+                                "mask_format": {
+                                    "vi": {
+                                        "-": "-"
+                                    },
+                                    "en": {
+                                        "-": "-"
+                                    }
+                                },
+                                "validate": {}
+                            },
+                            "configAVD": {},
+                            "inputtype": "jMaskInput"
+                        }, {
+                            "default": {
+                                "name": "Expire date",
+                                "code": "expiredate",
+                                "codeHidden": "737dfb6ae27c134c",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.frdt",
+                                "structable_read": "d_corpservice.frdt",
+                                "data_default": "",
+                                "data_type": "edit",
+                                "component_title": "",
+                                "mask_format": "DD/MM/YYYY",
+                                "mask_data_format": "DD/MM/YYYY",
+                                "value_type": "number",
+                                "auto_delete": "true",
+                                "mask_mode": "date",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": ""
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true,
+                                "condistion": []
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Expire date": "Expire date"
+                                    },
+                                    "en": {
+                                        "Expire date": "Expire date"
+                                    }
+                                },
+                                "mask_format": {
+                                    "vi": {
+                                        "-": "-"
+                                    },
+                                    "en": {
+                                        "-": "-"
+                                    }
+                                },
+                                "validate": {}
+                            },
+                            "configAVD": {},
+                            "inputtype": "jMaskInput"
+                        }, {
+                            "default": {
+                                "name": "Contact number",
+                                "code": "contactnumber",
+                                "codeHidden": "2d6e0a208861677b",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.contractno",
+                                "structable_read": "d_corpservice.contractno",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Payment email",
+                                "code": "paymentemail",
+                                "codeHidden": "20b5addc05524a03",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.email",
+                                "structable_read": "d_corpservice.email",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Notification email",
+                                "code": "notificationemail",
+                                "codeHidden": "1513bdc3f012e834",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.notifiemail",
+                                "structable_read": "d_corpservice.notifiemail",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Payee corporation deposit collection account no",
+                                "code": "payeecorporationdepositcollectionaccountno",
+                                "codeHidden": "adb70083788e743c",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.corpdepositaccno",
+                                "structable_read": "d_corpservice.corpdepositaccno",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Reference Field 1",
+                                "code": "referencefiled1",
+                                "codeHidden": "f8967b9628f1f291",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.ref1",
+                                "structable_read": "d_corpservice.ref1",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Reference Field 1 Sample",
+                                "code": "erferencefield1sample",
+                                "codeHidden": "b3a4051063302aa5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.refsa1",
+                                "structable_read": "d_corpservice.refsa1",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Reference Field 2",
+                                "code": "referencefield2",
+                                "codeHidden": "f6a90055f0c2308d",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.ref2",
+                                "structable_read": "d_corpservice.ref2",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Reference Field 2 Sample",
+                                "code": "referencefield2sample",
+                                "codeHidden": "71331196b4a28537",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.refsa2",
+                                "structable_read": "d_corpservice.refsa2",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Reference Field 3",
+                                "code": "referencefield3",
+                                "codeHidden": "3d19303c384c972d",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.ref3",
+                                "structable_read": "d_corpservice.ref3",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Reference Field 3 Sample",
+                                "code": "referencefield3sample",
+                                "codeHidden": "aee2b1d4f3ff75e1",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.refsa3",
+                                "structable_read": "d_corpservice.refsa3",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Mask reference field 1",
+                                "code": "maskreferencefield1",
+                                "codeHidden": "1e8d83f5133f3050",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.mask",
+                                "structable_read": "d_corpservice.mask",
+                                "data_default": "-",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Mask reference field 2",
+                                "code": "maskreferencefield2",
+                                "codeHidden": "c69f456e67b5b6c5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.mask1",
+                                "structable_read": "d_corpservice.mask1",
+                                "data_default": "-",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Mask reference field 3",
+                                "code": "maskreferencefield3",
+                                "codeHidden": "c69f456e67b5b645",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.mask3",
+                                "structable_read": "d_corpservice.mask3",
+                                "data_default": "-",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Export MIS hourly",
+                                "code": "exportmishourly",
+                                "codeHidden": "6b520a1b0449866d",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.expmishl",
+                                "structable_read": "d_corpservice.expmishl",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Export MIS hourly": "Export MIS hourly"
+                                    },
+                                    "en": {
+                                        "Export MIS hourly": "Export MIS hourly"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Send email",
+                                "code": "sendemail",
+                                "codeHidden": "c4e468547eca200c",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.sm",
+                                "structable_read": "d_corpservice.sm",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Send email": "Send email"
+                                    },
+                                    "en": {
+                                        "Send email": "Send email"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        },  {
+                            "default": {
+                                "name": "Validate reference bill number",
+                                "code": "validatereferencebillnumber",
+                                "codeHidden": "b44b72ab76b1d786",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.validbill",
+                                "structable_read": "d_corpservice.validbill",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Validate reference bill number": "Validate reference bill number"
+                                    },
+                                    "en": {
+                                        "Validate reference bill number": "Validate reference bill number"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Credit payment by GL",
+                                "code": "creditpaymentbyGL",
+                                "codeHidden": "e27b802b389ac151",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.crgl",
+                                "structable_read": "d_corpservice.crgl",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Credit payment by GL": "Credit payment by GL"
+                                    },
+                                    "en": {
+                                        "Credit payment by GL": "Credit payment by GL"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Fixed amount for transactions",
+                                "code": "fixedamountfortransactions",
+                                "codeHidden": "69c8ddffa44199dc",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.famt",
+                                "structable_read": "d_corpservice.famt",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "false",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Fixed amount for transactions": "Fixed amount for transactions"
+                                    },
+                                    "en": {
+                                        "Fixed amount for transactions": "Fixed amount for transactions"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        },{
+                            "default": {
+                                "name": "Fixed amount",
+                                "code": "fixedamount",
+                                "codeHidden": "a55494ada02c4981",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpservice.fvamt",
+                                "structable_read": "d_corpservice.fvamt",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Edit fixed amount",
+                                "code": "editfixedamount",
+                                "codeHidden": "d8e829e06bc8768a",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_corpservice.efvamt",
+                                "structable_read": "d_corpservice.efvamt",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Edit fixed amount": "Edit fixed amount"
+                                    },
+                                    "en": {
+                                        "Edit fixed amount": "Edit fixed amount"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "Button",
+            "des": "",
+            "class": "",
+            "lang": {
+                "vi": "",
+                "en": ""
+            },
+            "lang_des": {},
+            "codeHidden": "8cc3cbfeca1bad6a",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "872498121364007e",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Update",
+                                "code": "btn_updateView",
+                                "codeHidden": "12e7c314123104d85",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-updateDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"learn_sql\": \"d_corpserviceUpdateOne\",\n            \"table_code\": \"d_corpservice\",\n            \"pk_col\": \"servicecode\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "edit",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        },{
+                            "default": {
+                                "name": "Update",
+                                "code": "btn_update",
+                                "codeHidden": "12e7c314123104d82",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-updateDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"learn_sql\": \"d_corpserviceUpdateOne\",\n            \"table_code\": \"d_corpservice\",\n            \"pk_col\": \"servicecode\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "edit",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Clear",
+                                "code": "btn_clear",
+                                "codeHidden": "8a98c0e8ffd7c001",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "icon": "clear",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }]
+		}
+    ],
+    "react_txt": ""
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub004002","email":"hub004002","user_status":"A","user_id":"hub004002","branchcd":"0040","branchid":"0040","branchname":"Mdy (4) 19 Street","AFGHkeyIndexWJ":"hub004002","AFGHkeyTime":1603781790597,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790597,"AFGHkeyUserCreateWJ":""}

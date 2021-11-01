@@ -1,0 +1,1 @@
+{"full_name":"hub010802","email":"hub010802","user_status":"A","user_id":"hub010802","branchcd":"0108","branchid":"0108","branchname":"Ygn(40)_Yuzana Plaza","AFGHkeyIndexWJ":"hub010802","AFGHkeyTime":1603781790673,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790673,"AFGHkeyUserCreateWJ":""}

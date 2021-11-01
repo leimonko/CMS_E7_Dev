@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Đăng nhập","function":"tx.login","type":"java","para":[],"status":"A","response":{"_default_":{"fo":[{"txcode":"#sys:fo-login-signIn"}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-login-signIn","version":6,"updateTime":1581665093139,"txname":"Đăng nhập","hasRole":"false","isOld":true}

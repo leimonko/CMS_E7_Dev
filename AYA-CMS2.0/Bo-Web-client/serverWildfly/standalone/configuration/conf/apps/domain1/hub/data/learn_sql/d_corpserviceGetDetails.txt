@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Tải tất cả data txcode",
+	"learn_sql_parameter": "#SERCODE",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT ref1 as refname1,ref2 as refname2,ref3 as refname3,refsa1 refsample1,refsa2 as refsample2,refsa3 refsample3, minamount as minamn,maxamount as maxamn FROM hubdb.d_corpservice where servicecode = ? ",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_corpserviceGetDetails",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_corpservice"
+}

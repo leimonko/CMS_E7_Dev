@@ -1,0 +1,14 @@
+﻿{
+    "learn_sql_title": "Tai tat cad_hubstm",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT h.recid,txrefid,txdt,txcode,branchid as branid ,usrid, corpcode, sercode, billccy,round(billamt,2) as billamt, baccdr,bacccr, cuscode,round(hubfee01,2) as hubfee01,round(hubfee02,2) as hubfee02, feecode, notifiemail, catid,case char11 when 'R' then 'Reversed' else char17 end as char17,id,descs as sts,char15,char12,char05 as descs,case char07 when 'C' then 'Completed' when 'F' then 'Failed' else 'Not yet' end as char07,case isemail when 'Y' then 'Yes' else 'No' end as isemail,char18, char02||' - '||char03 as char0203 FROM hubdb.d_hubstm h LEFT JOIN hubdb.d_codetype ON sts = subcodetype AND codetype = 'STT'
+WHERE txcode <> 'O9_HUB06' and txcode <> 'O9_HUB11' ORDER BY txdt DESC",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmLoadAll",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "transactionJournalData"
+    }

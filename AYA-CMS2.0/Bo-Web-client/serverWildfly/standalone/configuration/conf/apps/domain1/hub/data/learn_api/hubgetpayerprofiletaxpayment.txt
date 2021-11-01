@@ -1,0 +1,20 @@
+{
+    "app_code": "o9",
+    "learn_api_name": "hub get payer profile tax payment",
+    "learn_api_link": "$API_SERVER$:$API_PORT_LOGIN$/hub/requestpayerprofile",
+    "learn_api_data": "hubgetpayerprofiletaxpayment",
+    "learn_api_node_data": "",
+    "learn_api_app": "BO",
+    "learn_api_method": "POST",
+    "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer)",
+    "learn_api_mapping": "{   \"SERCODE\": \"MapS.dataS(d_hubstmInsert.servicecode)\",
+    \"CORPCODE\": \"MapS.dataS(d_hubstmInsert.corpcode)\",
+    \"TINNO\": \"MapS.dataS(d_hubstmInsert.tinno)\",
+	\"PHONENO\":\" \",\"DEBTORCODE\": \"CBYGNMM03\",
+    \"REMARK\": \"Request Payer ProfilefromPostman\" }",
+    "learn_api_id": "hubgetpayerprofiletaxpayment",
+    "AFGHkeyIndexWJ": "hubgetpayerprofiletaxpayment",
+    "AFGHkeyTime": 1569894868360,
+    "AFGHkeyWorkFlow": "",
+    "AFGHTimeWJ": 1569894868366
+}

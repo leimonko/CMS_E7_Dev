@@ -1,0 +1,1 @@
+{"admin":{"mydashboardexample":{"form":{"accept":true,"follow":false}},"e8201c731f9f28e7":{"layout":{"install":true}},"371e14a0a2cbb470":{"view":{"install":true}},"8f0fb88b2a254d9b":{"component":{"install":true}}}}

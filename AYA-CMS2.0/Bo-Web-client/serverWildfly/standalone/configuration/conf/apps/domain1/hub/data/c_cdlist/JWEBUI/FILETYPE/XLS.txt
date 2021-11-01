@@ -1,0 +1,14 @@
+{
+  "cdid": "xls",
+  "cdname": "FILETYPE",
+  "caption": "xls",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": "",
+  "AFGHkeyIndexWJ": "XLS",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

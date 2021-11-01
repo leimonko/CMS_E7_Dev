@@ -1,0 +1,23 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Thu thập và thêm mới",
+      "function": "formChild.moveDataArray",
+      "type": "javascript",
+      "status": "A",
+      "para": ["@node_get", "@node_set"],
+      "request": {
+        "true": {}
+      }
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-moveDataTableFormChild",
+  "txname": "Tạo mới",
+  "version": 1,
+  "updateTime": 1562501779000,
+  "isOld": true
+}

@@ -1,0 +1,14 @@
+{
+  "cdid": "F",
+  "cdname": "FEECALTYPE",
+  "caption": "By formular",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": "1",
+  "AFGHkeyIndexWJ": "byformular",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

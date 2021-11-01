@@ -1,0 +1,48 @@
+﻿{
+    "learn_sql_title": "d_hubstmreportonline002exportbyparameter",
+    "learn_sql_parameter": "@fromdate,@todate,@fromdate,@todate,@branchcode,@branchcode,@corpcode,@fromdate,@todate,@fromdate,@todate,@branchcode,@branchcode,@corpcode",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select b.branchid id, b.branchid|| ' - ' || CHAR18 branchid,
+        to_char(SUM(b.ACCFEE), 'FM999,999,999,999,990.00') AMOUNT,
+        Count(b.branchid) NO ,
+         to_char(sum(b.HUBFEE), 'FM999,999,999,999,990.00') FEE
+        from
+        (
+        select CHAR18,trace,txrefid,dvaluedt,to_number(branchid) branchid,usrid,txcode,corpcode,sercode,billccy,BILLAMT accfee,refva1,wmsts,HUBFEE01 HUBFEE,REFVA2 from d_hubstm where sts='C' and dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        union all
+        select CHAR18,trace,txrefid,dvaluedt,branchid,usrid,txcode,corpcode,sercode,billccy,BILLAMT accfee,refva1,wmsts,HUBFEE01 HUBFEE,REFVA2 from r_hubstm where sts='C' and dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        ) b
+        inner join d_corpregistation c on b.corpcode = c.corpcode
+        --inner join s_branch s on b.branchid = s.branchid
+        where b.branchid = case when ? <> '0000' then to_number(?) else b.branchid end
+        and c.FULLNAMECORP=?
+          GROUP BY b.branchid,b.branchid|| ' - ' || CHAR18 
+          
+UNION ALL         
+ select 9999,'TOTAL',to_char(SUM(b.ACCFEE), 'FM999,999,999,999,990.00') AMOUNT,Count(b.branchid) NO ,to_char(sum(b.HUBFEE), 'FM999,999,999,999,990.00') FEE
+        from
+        (
+        select CHAR18,trace,txrefid,dvaluedt,to_number(branchid) branchid,usrid,txcode,corpcode,sercode,billccy,BILLAMT accfee,refva1,wmsts,HUBFEE01 HUBFEE,REFVA2 from d_hubstm where sts='C' and dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        union all
+        select CHAR18,trace,txrefid,dvaluedt,branchid,usrid,txcode,corpcode,sercode,billccy,BILLAMT accfee,refva1,wmsts,HUBFEE01 HUBFEE,REFVA2 from r_hubstm where sts='C' and dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        ) b
+        inner join d_corpregistation c on b.corpcode = c.corpcode
+        --inner join s_branch s on b.branchid = s.branchid
+        where b.branchid = case when ? <> '0000' then to_number(?) else b.branchid end
+        and c.FULLNAMECORP=?
+    Order by id ASC",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "fromdate,todate",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmreportonline002exportbyparameter",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "dataexportforcmsreport",
+	"tmp_header":"branchid,no,amount,fee",
+	"tmp_exportfile":"{
+	\"branchid\": \"BRANCH NAME\",
+	\"no\": \"NO\",
+	\"amount\": \"AMOUNT\",
+	\"fee\": \"FEE\"
+}"
+    }

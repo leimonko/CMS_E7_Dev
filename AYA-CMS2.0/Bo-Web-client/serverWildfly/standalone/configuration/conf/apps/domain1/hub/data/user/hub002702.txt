@@ -1,0 +1,1 @@
+{"full_name":"hub002702","email":"hub002702","user_status":"A","user_id":"hub002702","branchcd":"0027","branchid":"0027","branchname":"Lashio","AFGHkeyIndexWJ":"hub002702","AFGHkeyTime":1603781790580,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790580,"AFGHkeyUserCreateWJ":""}

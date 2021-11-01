@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "sua",
+    "learn_sql_query": "Update hubdb.d_hubstm set sts = 'R' ,char11 = ?,txupdatedt= SYSDATE  where id =?",
+    "learn_sql_parameter": "@CHAR11,@ID",
+   "learn_sql_parameter_sub": "@ID",
+  "learn_sql_query_sub": "SELECT recid,txrefid,txdt,sts,id FROM hubdb.d_hubstm WHERE id =?",
+    "learn_sql_data": "d_hubstm",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmUpdateStatusChar11",
+    "AFGHTimeWJ": 1561266469836
+}

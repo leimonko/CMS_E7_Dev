@@ -1,0 +1,16 @@
+{
+	"learn_api_name": "Logout API HUB",
+	"learn_api_link": "$API_SERVER$:$API_PORT_LOGIN$/hub/logout",
+	"learn_api_data": "login",
+	"learn_api_node_data": "",
+	"learn_api_app": "BO",
+	"learn_api_method": "POST",
+	"learn_api_header": "Content-Type:application/json\nAccept:application/json",
+	"learn_api_mapping": "{\n    \"USERNAME\": \"MapS.context(userName)\",\n    \"SESSIONID\": \"MapS.context(RESULT.SESSIONID)\"\n}",
+	"AFGHkeyIndexWJ": "logout_api_hub",
+	"learn_api_id": "logout_api_hub",
+	"AFGHTimeWJ": 1561538220623,
+	"AFGHkeyTime": 1561538220616,
+	"AFGHkeyWorkFlow": "",
+	"app_code": "o9"
+}

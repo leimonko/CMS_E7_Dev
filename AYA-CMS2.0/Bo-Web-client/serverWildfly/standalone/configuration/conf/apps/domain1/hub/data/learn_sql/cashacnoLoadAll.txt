@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "cashacnoLoadAll",
+	"learn_sql_parameter": "",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT * FROM hubdb.d_cashacno",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "cashacnoLoadAll",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "cashacno"
+}

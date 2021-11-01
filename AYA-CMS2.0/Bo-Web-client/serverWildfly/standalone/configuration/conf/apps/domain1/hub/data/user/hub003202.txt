@@ -1,0 +1,1 @@
+{"full_name":"hub003202","email":"hub003202","user_status":"A","user_id":"hub003202","branchcd":"0032","branchid":"0032","branchname":"Magwe","AFGHkeyIndexWJ":"hub003202","AFGHkeyTime":1603781790587,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790587,"AFGHkeyUserCreateWJ":""}

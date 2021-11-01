@@ -1,0 +1,1 @@
+{"full_name":"hub004201","email":"hub004201","user_status":"A","user_id":"hub004201","branchcd":"0042","branchid":"0042","branchname":"Aung Lan","AFGHkeyIndexWJ":"hub004201","AFGHkeyTime":1603781790598,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790598,"AFGHkeyUserCreateWJ":""}

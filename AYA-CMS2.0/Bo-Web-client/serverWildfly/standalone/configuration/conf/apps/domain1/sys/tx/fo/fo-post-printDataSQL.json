@@ -1,0 +1,31 @@
+{
+    "input": {},
+    "actions": [{
+            "name": "Print data by row",
+            "function": "formsql.view",
+            "type": "javascript",
+            "status": "A",
+            "para": ["@learn_sql","@table_code"],
+            "request": {
+                "true": {
+                    "bo": [{
+                            "txcode": "#sys:bo-load-printSQL",
+                            "input": {
+                                "learn_sql": "@learn_sql",
+								"table_code":"@table_code"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "request": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "fo-post-printDataSQL",
+    "txname": "Print data by row",
+    "version": 2,
+    "updateTime": 1562208762925,
+    "isOld": true
+}

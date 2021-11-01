@@ -1,0 +1,77 @@
+﻿{
+    "learn_sql_title": "d_hubstmreportonline001exportbyparameter_new",
+    "learn_sql_parameter": "@fromdate,@todate,@fromdate,@todate,@branchcode,@branchcode,@channelid,@channelid,@txcode,@txcode,@status,@status,@userid,@userid,@ccycd,@fromdate,@todate,@fromdate,@todate,@branchcode,@branchcode,@channelid,@channelid,@txcode,@txcode,@status,@status,@userid,@userid,@ccycd",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select ''||ROW_NUMBER() OVER (ORDER BY dvaluedt) AS recid,b.TRACE TRACE,b.TXREFID,TO_CHAR(b.dvaluedt,'DD/MM/RRRR') ||' ' ||TO_CHAR(b.dvaluedt,'hh24:mi:ss') txdt,branchname branchid,b.usrid,b.txcode,b.CORPCODE,b.SERCODE,b.BILLCCY,
+        to_char(b.ACCFEE, 'FM999,999,999,999,990.00') Bill_amount,
+        b.REFVA1 Bill_number,
+        case when b.char14 = 'null' then '-' else b.char14 end  Status_notification,TAXTYPE,PTYPE,TAXPRD,INCYEA,baccdr,
+        REFVA2,REFVA3,to_char(HUBFEE, 'FM999,999,999,999,990.00') HUBFEE, to_char(b.ACCFEE+HUBFEE, 'FM999,999,999,999,990.00') as totalamount
+        from
+        (
+        select char1,trace,txrefid,dvaluedt,branchid,branchid||'-'||CHAR18 branchname,usrid,txcode,corpcode,sercode,billccy,BILLAMT  accfee,refva1,REFVA2,char14 ,HUBFEE01 HUBFEE,REFVA3,sts,baccdr,regexp_substr(char04,'[^|]+',1,1) as TAXTYPE, regexp_substr(char04 ,'[^|]+',1,2) as PTYPE,regexp_substr(char04 ,'[^|]+',1,3) as TAXPRD, regexp_substr(char04,'[^|]+',1,4) as INCYEA  
+		from d_hubstm where  dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1 
+        union all
+        select char1,trace,txrefid,dvaluedt,branchid,branchid||'-'||CHAR18 branchname,usrid,txcode,corpcode,sercode,billccy,BILLAMT  accfee,refva1,REFVA2,char14 ,HUBFEE01 HUBFEE,REFVA3,sts,baccdr,regexp_substr(char04,'[^|]+',1,1) as TAXTYPE, regexp_substr(char04 ,'[^|]+',1,2) as PTYPE,regexp_substr(char04 ,'[^|]+',1,3) as TAXPRD, regexp_substr(char04,'[^|]+',1,4) as INCYEA  
+		from r_hubstm where dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        
+        ) b
+        inner join d_corpregistation c on b.corpcode = c.corpcode
+        where b.branchid = case when ? <> '0000' then to_number(?) else b.branchid end
+		 and b.char1 = case when ? <> '0' then ? else b.char1 end
+		 and b.txcode = case when ? <> '0' then ? else b.txcode end
+		 and b.sts = case when ? <> '0' then ? else b.sts end
+		 and b.usrid = case when ? <> 'ALL' then ? else b.usrid end 
+		  and b.billccy = ?
+		 and b.txcode in ('O9_HUB01','O9_HUB04','O9_HUB05','O9_HUB09','O9_HUB10','O9_HUB13','O9_HUB14')
+UNION ALL
+Select '','' ,'','','','','','','','Total',to_char(Bill_amount, 'FM999,999,999,999,990.00') ,'','','','','','','','','',to_char(hubfee, 'FM999,999,999,999,990.00'),to_char(Bill_amount+hubfee, 'FM999,999,999,999,990.00') as totalamount from (
+select count(*)+1 as recid,sum(b.ACCFEE) Bill_amount,sum(HUBFEE) hubfee
+       from
+        (
+        select char1,trace,txrefid,dvaluedt,branchid,branchid||'-'||CHAR18 branchname,usrid,txcode,corpcode,sercode,billccy,BILLAMT  accfee,refva1,REFVA2,char14 ,HUBFEE01 HUBFEE,REFVA3,sts  from d_hubstm where  dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1 
+        union all
+        select char1,trace,txrefid,dvaluedt,branchid,branchid||'-'||CHAR18 branchname,usrid,txcode,corpcode,sercode,billccy,BILLAMT  accfee,refva1,REFVA2,char14 ,HUBFEE01 HUBFEE,REFVA3,sts  from r_hubstm where dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        
+        ) b
+        inner join d_corpregistation c on b.corpcode = c.corpcode
+        where b.branchid = case when ? <> '0000' then to_number(?) else b.branchid end
+        and b.char1 = case when ? <> '0' then ? else b.char1 end
+        and b.txcode = case when ? <> '0' then ? else b.txcode end
+         and b.sts = case when ? <> '0' then ? else b.sts end
+         and b.usrid = case when ? <> 'ALL' then ? else b.usrid end
+		 and b.billccy = ?
+		 and b.txcode in ('O9_HUB01','O9_HUB04','O9_HUB05','O9_HUB09','O9_HUB10','O9_HUB13','O9_HUB14'))",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "fromdate,todate",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmreportonline001exportbyparameter_new",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "dataexportforcmsreport",
+	"tmp_header":"recid,trace,txrefid,txdt,branchid,usrid,txcode,corpcode,sercode,billccy,bill_amount,hubfee,totalamount,bill_number,refva2,refva3,status_notification,taxtype,ptype,taxprd,incyea,baccdr",
+	"tmp_exportfile":"{
+	\"recid\": \"No\",
+	\"trace\": \"ID\",
+	\"txrefid\": \"Transaction number\",
+	\"txdt\": \"TXDT\",
+	\"branchid\": \"Branch ID\",
+	\"usrid\": \"USERID\",
+	\"txcode\": \"Transaction code\",
+	\"corpcode\": \"Corporation code\",
+	\"sercode\": \"Service code\",
+	\"billccy\": \"Bill currency\",
+	\"bill_amount\": \"Bill amount\",
+	\"hubfee\": \"Fee\",
+	\"totalamount\": \"Total Amount\",
+	\"bill_number\": \"Reference 1\",
+	\"refva2\": \"Reference 2\",
+	\"refva3\": \"Reference 3\",
+	\"status_notification\": \"Status Notification\",
+	\"taxtype\": \"Tax Type\",
+	\"ptype\": \"Payment Type\",
+	\"taxprd\": \"Tax Period\",
+	\"incyea\": \"Income Year\",
+	\"baccdr\": \"Debtor A/C No\"
+}"
+    }

@@ -1,0 +1,1 @@
+{"full_name":"hub008801","email":"hub008801","user_status":"A","user_id":"hub008801","branchcd":"0088","branchid":"0088","branchname":"SBO","AFGHkeyIndexWJ":"hub008801","AFGHkeyTime":1603781790656,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790656,"AFGHkeyUserCreateWJ":""}

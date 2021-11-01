@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"tải","function":"tx.loadAllParaServer","type":"java","para":[],"status":"A","response":{"_default_":{"fo":[{"txcode":"#sys:fo-form-paraServer"}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-load-allParaServer","version":2,"updateTime":1562205328723,"txname":"Tải para server cho chỉnh sửa","isOld":true}

@@ -1,0 +1,1 @@
+{"admin":{"designDataBase":{"form":{"accept":true,"follow":false}}}}

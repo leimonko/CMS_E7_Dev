@@ -1,0 +1,1 @@
+{"full_name":"hub006702","email":"hub006702","user_status":"A","user_id":"hub006702","branchcd":"0067","branchid":"0067","branchname":"Hlaing Tha Yar","AFGHkeyIndexWJ":"hub006702","AFGHkeyTime":1603781790628,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790628,"AFGHkeyUserCreateWJ":""}

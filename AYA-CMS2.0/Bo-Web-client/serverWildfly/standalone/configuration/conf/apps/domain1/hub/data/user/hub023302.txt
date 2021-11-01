@@ -1,0 +1,1 @@
+{"full_name":"hub023302","email":"hub023302","user_status":"A","user_id":"hub023302","branchcd":"0233","branchid":"0233","branchname":"YGN(100)_BHO","AFGHkeyIndexWJ":"hub023302","AFGHkeyTime":1603781790760,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790760,"AFGHkeyUserCreateWJ":""}

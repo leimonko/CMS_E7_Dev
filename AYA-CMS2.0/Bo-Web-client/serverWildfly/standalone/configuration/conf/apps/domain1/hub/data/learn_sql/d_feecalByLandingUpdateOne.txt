@@ -1,0 +1,13 @@
+{
+    "learn_sql_title": "Thêm mới txcode",
+    "learn_sql_query": "UPDATE hubdb.d_feecal SET appliedwhen =?, basicvalue=?, payer=?, descs=?, fromvalue=TO_NUMBER(?), tovalue=TO_NUMBER(?), formular=?, roundingby=?,commonacc=?,ccrcd=? WHERE feecode = ? AND recid =?",
+    "learn_sql_parameter": "@land_appliedwhen,@land_basisvalue,@land_payer,@land_descs,@fromvalue,@tovalue,@formular,#roundingby,@land_commonacc,@land_ccrcd,@feecode,#recid",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query_sub": "",
+    "learn_sql_data": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_feecalByLandingUpdateOne",
+    "AFGHTimeWJ": 1561266469836
+}

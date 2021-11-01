@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Tìm các dòng dữ liệu",
+	"learn_sql_data": "d_configreconfile",
+	"learn_sql_parameter": "@data",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT 'M' as codetype, recid, fieldname, format, isuse,indext ,corpcode from hubdb.d_configreconfile WHERE  corpcode =?  order by indext, TO_NUMBER(corpcode) asc",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_configreconfile_searchbyparameter",
+	"AFGHTimeWJ": 1561269909390
+}

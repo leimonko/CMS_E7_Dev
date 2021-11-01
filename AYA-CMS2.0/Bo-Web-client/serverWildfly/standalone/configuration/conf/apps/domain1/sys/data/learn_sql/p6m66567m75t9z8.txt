@@ -1,0 +1,1 @@
+{"learn_sql_title":"Xóa 1 dữ liệu","learn_sql_data":"","learn_sql_parameter":"#recid","learn_sql_parameter_sub":"","learn_sql_query":"DELETE FROM testdb.table1 where recid=?","learn_sql_query_sub":"","AFGHkeyIndexWJ":"p6m66567m75t9z8","AFGHTimeWJ":1561266675211}

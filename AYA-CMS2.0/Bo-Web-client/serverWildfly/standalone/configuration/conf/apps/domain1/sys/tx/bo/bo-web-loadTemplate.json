@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Đọc template","function":"web.logic.txweb.readTemplate","type":"java","para":[],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-web-readTemplate","input":{}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-web-loadTemplate","version":2,"updateTime":1573101898236,"txname":"Đọc template yêu cầu","hasRole":"false","isOld":true}

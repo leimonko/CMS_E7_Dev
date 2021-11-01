@@ -1,0 +1,37 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Thu thập tinh toán Fee",
+      "function": "own_O9_fee.FeeApply",
+      "type": "javascript",
+      "status": "A",
+      "para": [],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-convert-dataFee-formchild",
+              "input": {}
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "request": {
+    "bo": [
+      {
+        "txcode": "",
+        "input": {}
+      }
+    ]
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-convert-dataFee-formchild",
+  "txname": "View data open form",
+  "version": 11,
+  "updateTime": 1571223716631,
+  "isOld": true
+}

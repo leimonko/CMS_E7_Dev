@@ -1,0 +1,1 @@
+{"full_name":"hub000702","email":"hub000702","user_status":"A","user_id":"hub000702","branchcd":"0007","branchid":"0007","branchname":"Monywa","AFGHkeyIndexWJ":"hub000702","AFGHkeyTime":1603781790559,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790559,"AFGHkeyUserCreateWJ":""}

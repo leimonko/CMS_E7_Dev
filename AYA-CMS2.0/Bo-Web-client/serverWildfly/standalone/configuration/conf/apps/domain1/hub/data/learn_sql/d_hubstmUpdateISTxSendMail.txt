@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "update tx sending email",
+    "learn_sql_parameter": "@txrefid",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "Update hubdb.d_hubstm set char07 = 'IP', date07 = sysdate where txrefid = ? ",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmUpdateISTxSendMail",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "transactionJournalData"
+    }

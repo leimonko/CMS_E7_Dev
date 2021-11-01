@@ -1,0 +1,1 @@
+{"full_name":"hub021901","email":"hub021901","user_status":"A","user_id":"hub021901","branchcd":"0219","branchid":"0219","branchname":"NPT03-OTR","AFGHkeyIndexWJ":"hub021901","AFGHkeyTime":1603781790748,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790748,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"full_name":"hub009302","email":"hub009302","user_status":"A","user_id":"hub009302","branchcd":"0093","branchid":"0093","branchname":"Ygn(33)_SCG2(MAPO)","AFGHkeyIndexWJ":"hub009302","AFGHkeyTime":1603781790664,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790664,"AFGHkeyUserCreateWJ":""}

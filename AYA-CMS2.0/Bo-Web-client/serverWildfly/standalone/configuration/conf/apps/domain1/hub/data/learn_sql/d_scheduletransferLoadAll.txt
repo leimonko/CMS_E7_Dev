@@ -1,0 +1,34 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data scheduletransfer",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select codetype,sercode,corpcode,frequency,schedulename,recid , transfertype,firsttime,firsttxdate,lasttime,lasttxdate, descs, status, mic,fromdateex,todateex from (
+SELECT  'D' as codetype,CASE sercode WHEN 0 Then '--' else  TO_CHAR(sercode) END as sercode,
+CASE corpcode WHEN 0 Then  '--' else TO_CHAR(corpcode) END as corpcode,schedulename,recid , transfertype, 
+CASE frequency WHEN 'D' THEN 'Daily' WHEN 'W' THEN 'Weekly' WHEN 'M' THEN 'Monthly' WHEN 'Mi' THEN 'Minutely' ELSE  'One time' END as frequency,
+TO_CHAR(firsttxdate,'HH24:Mi:SS') AS firsttime , TO_CHAR(firsttxdate,'DD/MM/YYYY') AS firsttxdate, 
+TO_CHAR(lasttxdate,'HH24:Mi:SS') lasttime , 
+TO_CHAR(lasttxdate,'DD/MM/YYYY') as lasttxdate, descs, status, mic, 
+TO_CHAR(fromdateex,'DD/MM/YYYY') as fromdateex, 
+TO_CHAR(todateex,'DD/MM/YYYY') as todateex
+FROM hubdb.d_scheduletransfer 
+UNION ALL
+select 'S' as codetype,TO_CHAR(a.servicecode), TO_CHAR(a.corpcode),a.name,0,'','','00:00:00','1999-01-01','00:00:00','1999-01-01','','',0,'1999-01-01','1999-01-01'
+from(
+select  s.servicecode, TO_NUMBER(s.corpcode) as corpcode,s.name, s.ccycd,s.corpdepositaccno,s.customernumber as customercode, s.customernumber as customersamplenumber,c.bcode as bankcode,s.minamount, s.maxamount, 
+s.ref1,s.refsa1,s.ref2,s.refsa2,s.ref3,s.refsa3, s.feecode, s.notifiemail, s.sm as sendmail,webserprtcol as webservicename
+from hubdb.d_corpservice s INNER JOIN hubdb.d_corpregistation c ON c.corpcode = TO_NUMBER(s.corpcode)
+)a
+UNION ALL
+select 'C' as codetype,'',TO_CHAR(corpcode),fullnamecorp,0,'','','00:00:00','1999-01-01','00:00:00','1999-01-01','','',0 as recid,'1999-01-01','1999-01-01'
+FROM hubdb.d_corpregistation )
+ order by codetype,recid",
+    "learn_sql_query_sub": "",
+	 "learn_sql_data": "d_scheduletransfer",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_scheduletransferLoadAll",
+    "AFGHTimeWJ": 1561263635755
+   
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub023201","email":"hub023201","user_status":"A","user_id":"hub023201","branchcd":"0232","branchid":"0232","branchname":"YGN(99)_KMT","AFGHkeyIndexWJ":"hub023201","AFGHkeyTime":1603781790757,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790757,"AFGHkeyUserCreateWJ":""}

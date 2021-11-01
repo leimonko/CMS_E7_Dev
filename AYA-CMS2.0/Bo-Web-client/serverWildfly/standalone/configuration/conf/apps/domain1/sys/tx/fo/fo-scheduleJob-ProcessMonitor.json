@@ -1,0 +1,33 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "Chạy thử",
+			"function": "scheduleJob.runTest",
+			"type": "javascript",
+			"status": "A",
+			"para": [],
+			"request": {
+				"true": {
+					"bo": [
+						{
+							"txcode": "#sys:bo-load-processmonitor",
+							"input": {
+								"table_code": "@table_code",
+								"learn_sql": "@learn_sql"
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "fo-scheduleJob-ProcessMonitor",
+	"txname": "Cấu trúc scheduleJob mẫu",
+	"version": 1,
+	"updateTime": 1588064458147,
+	"isOld": false,
+	"request": {}
+}

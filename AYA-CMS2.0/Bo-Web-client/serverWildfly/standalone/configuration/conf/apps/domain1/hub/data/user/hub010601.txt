@@ -1,0 +1,1 @@
+{"full_name":"hub010601","email":"hub010601","user_status":"A","user_id":"hub010601","branchcd":"0106","branchid":"0106","branchname":"DANUPHYU","AFGHkeyIndexWJ":"hub010601","AFGHkeyTime":1603781790671,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790671,"AFGHkeyUserCreateWJ":""}

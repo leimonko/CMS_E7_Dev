@@ -1,0 +1,39 @@
+{
+  "template_login": {
+        "mobi": {
+          "template": "malibu",
+          "screen_working": "login",
+          "theme": "Green_Pigment"
+        },
+        "desktop": {
+          "template": "malibu",
+          "screen_working": "login",
+          "theme": "Green_Pigment"
+        },
+        "tablet": {
+          "template": "malibu",
+          "screen_working": "login",
+          "theme": "Green_Pigment"
+        }
+  },
+  "configGlobal": {
+    "server": {
+      "web": "http://#system_host_port/webchannel",
+      "socket": "#system_host_port/webchannel/webuisocket"
+    },
+    "public": {
+      "port": "system_host_port",
+      "app": "app"
+    },
+    "dev": {
+      "login_port": ":3001",
+      "app": ":3000"
+    },
+    "para": {
+      "app_id": "login",
+      "language": "en",
+      "lang_data": {}
+    },
+    "fo_load": "#sys:fo-load-bigData;#sys:fo-masterdata-saveDataNew;#sys:fo-read-dyjs;#sys:fo-sys-showError;#sys:fo-load-dataLazy;#sys:fo-goto-pageLogin"
+  }
+}

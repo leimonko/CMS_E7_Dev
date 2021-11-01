@@ -1,0 +1,1176 @@
+{
+    "info": {
+        "title": "Transaction journal",
+        "des": "Transaction journal",
+        "data": "",
+        "openOne": "true",
+        "group_menu": "sp553D4v9g54B75",
+        "node_position": [{
+                "id": "start",
+                "left": "268",
+                "top": "128"
+            }, {
+                "id": "sp5549k67x5m4370",
+                "left": "128",
+                "top": "318"
+            }, {
+                "id": "sp5549o495974c851",
+                "left": "483",
+                "top": "143"
+            }, {
+                "id": "sp5549p43544970b",
+                "left": "363",
+                "top": "277"
+            }, {
+                "id": "sp5549k7r365C485",
+                "left": "22",
+                "top": "168"
+            }, {
+                "id": "sp5549k86j7u5575",
+                "left": "365",
+                "top": "40"
+            }
+        ],
+        "flow_layout": [{
+                "sourceId": "start",
+                "targetId": "sp5549k7r365C485"
+            }, {
+                "sourceId": "start",
+                "targetId": "sp5549k67x5m4370"
+            }
+        ],
+        "learnapi": "",
+        "form_code": "transactionjournalform",
+        "ruleStrong": [{
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "refva1;refva2;refva3;txdt;char15;transctionreference;txcode;corpcode;servicecode;billamt;billccy;baccdr;bacccr;hubfee01;hubfee02;feecode;transid;sts;char17;char12",
+                    "condition": "",
+                    "visible": "true",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }
+        ],
+        "key_form": "p6j347j7hr89473",
+        "ofModal": false,
+        "learnsql": "d_hubstmLoadAll",
+        "bodata": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        }
+    },
+    "list_layout": [{
+            "name": "Search",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "e56213214ef02c4d",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "1456cb9267dba8bc",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Search",
+                                "code": "search",
+                                "codeHidden": "5042e8bf661efab8",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "keysearch.data",
+                                "structable_read": "",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false",
+                                "isSearch": "true"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Search",
+                                "code": "btn_search",
+                                "codeHidden": "f0229c6ca2ba7418",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"txcode\": \"#sys:fo-search-transaction-jonural\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"table\",\n            \"table_code\": \"D_EBSTM\"\n        }\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-searchDataByParameter\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"search\",\n            \"table_code\": \"keysearch\",\n            \"learn_sql\": \"d_hubstm_searchbyparameter\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "search",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "List transaction",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "08e09f13877450cc",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "f4331befad2818a6",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Transaction listing",
+                                "code": "apistatement",
+                                "codeHidden": "sp5557p7Cp4ze",
+                                "class": "col-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "",
+                                "query_data": "select * from transactionJournalData",
+                                "paging_record": "50",
+                                "columns": "[\n    {\n        \"code\": \"transactionJournalData.txrefid\",\n        \"title\": \"Transaction reference\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.txdt\",\n        \"title\": \"Transaction date\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.txcode\",\n        \"title\": \"Transaction code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.id\",\n        \"title\": \"Transaction id\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.char12\",\n        \"title\": \"E7/Business Txn id\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.sts\",\n        \"title\": \"Status\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.char17\",\n        \"title\": \"Error description\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.char15\",\n        \"title\": \"Transaction id reversed\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.sercode\",\n        \"title\": \"Service code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.billccy\",\n        \"title\": \"Bill currency\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.billamt\",\n        \"title\": \"Bill amount\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.feecode\",\n        \"title\": \"Fee code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.hubfee01\",\n        \"title\": \"Dr fee amount\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.hubfee02\",\n        \"title\": \"Cr fee amount\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.notifiemail\",\n        \"title\": \"Notify email\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.usrid\",\n        \"title\": \"UserID\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"transactionJournalData.branid\",\n        \"title\": \"Branch\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n,\n    {\n        \"code\": \"transactionJournalData.descs\",\n        \"title\": \"Description\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n,\n    {\n        \"code\": \"transactionJournalData.isemail\",\n        \"title\": \"Is send mail\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n,\n    {\n        \"code\": \"transactionJournalData.char07\",\n        \"title\": \"Sent\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n,\n    {\n        \"code\": \"transactionJournalData.char0203\",\n        \"title\": \"FIGW Status\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {
+                                "vi": {
+                                    "Recid": "Recid",
+                                    "Transaction date": "Transaction date",
+                                    "Transaction code": "Transaction code",
+                                    "Transaction reference number": "Transaction reference number",
+                                    "Status": "Status",
+                                    "Error description": "Error description",
+                                    "Transaction reversed": "Transaction reversed",
+                                    "Service code": "Service code",
+                                    "Bill currency": "Bill currency",
+                                    "Bill amount": "Bill amount",
+                                    "Fee code": "Fee code",
+                                    "Dr fee amount": "Dr fee amount",
+                                    "Cr fee amount": "Cr fee amount",
+                                    "Notify email": "Notify email",
+                                    "UserID": "UserID",
+                                    "Branch": "Branch"
+                                },
+                                "en": {
+                                    "Recid": "Recid",
+                                    "Transaction date": "Transaction date",
+                                    "Transaction code": "Transaction code",
+                                    "Transaction reference number": "Transaction reference number",
+                                    "Status": "Status",
+                                    "Error description": "Error description",
+                                    "Transaction reversed": "Transaction reversed",
+                                    "Service code": "Service code",
+                                    "Bill currency": "Bill currency",
+                                    "Bill amount": "Bill amount",
+                                    "Fee code": "Fee code",
+                                    "Dr fee amount": "Dr fee amount",
+                                    "Cr fee amount": "Cr fee amount",
+                                    "Notify email": "Notify email",
+                                    "UserID": "UserID",
+                                    "Branch": "Branch"
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTableDefault"
+                        }, {
+                            "default": {
+                                "name": "View",
+                                "code": "btn_view",
+                                "codeHidden": "15c0afe6eaae79fe",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewDataSQL\",\n        \"input\": {\n            \"learn_sql\": \"d_hubstmViewOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "view",
+                                "color": "info",
+                                "onTable": "apistatement",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        },{
+                            "default": {
+                                "name": "Print",
+                                "code": "btn_print",
+                                "codeHidden": "15c021211ae79fe",
+                                "class": "",
+                                "condition": "wf.transactionJournalData.txcode !== 'O9_HUB09' && wf.transactionJournalData.txcode !== 'O9_HUB10'",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-printDataSQL\",\n        \"input\": {\n            \"learn_sql\": \"d_hubstmViewOne\"\n , \"table_code\": \"transactionJournalData\"\n       }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "print",
+                                "color": "info",
+                                "onTable": "apistatement",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        },{
+                            "default": {
+                                "name": "Print",
+                                "code": "btn_print2",
+                                "codeHidden": "15cghsafd1ae79fe",
+                                "class": "",
+                                "condition": "wf.transactionJournalData.txcode === 'O9_HUB09' || wf.transactionJournalData.txcode === 'O9_HUB10'",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#hub:fo-post-printTaxPaymentVourcher\",\n        \"input\": {\n            \"learn_sql\": \"d_hubstmViewOne\"\n , \"table_code\": \"transactionJournalData\"\n       }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "print",
+                                "color": "info",
+                                "onTable": "apistatement",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "Details",
+            "des": "Note",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "3e0965547cd2a137",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "code": "code",
+                    "name": "View model",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "codeHidden": "f3b3574606ee5079",
+                    "list_input": [{
+                            "default": {
+                                "name": "Transaction reference",
+                                "code": "transctionreference",
+                                "codeHidden": "dae00cbe7b5d1bd8",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.txrefid",
+                                "structable_read": "transactionJournalData.txrefid",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Transaction id",
+                                "code": "transid",
+                                "codeHidden": "dae00cbe7b5d1ab8",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.id",
+                                "structable_read": "transactionJournalData.id",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "E7 Transaction id",
+                                "code": "char12",
+                                "codeHidden": "dae00cbe7b5d1bd8",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.char12",
+                                "structable_read": "transactionJournalData.char12",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Transaction date",
+                                "code": "txdt",
+                                "codeHidden": "eb785d6e833bf1e4",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.txdt",
+                                "structable_read": "transactionJournalData.txdt",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": "true"
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Transaction code",
+                                "code": "txcode",
+                                "codeHidden": "6cc697528cd037f5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.txcode",
+                                "structable_read": "transactionJournalData.txcode",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Transaction id reversed",
+                                "code": "char15",
+                                "codeHidden": "0145b1006a8a28c0",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.char15",
+                                "structable_read": "transactionJournalData.char15",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Status",
+                                "code": "sts",
+                                "codeHidden": "c8cd31797f530d27",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.sts",
+                                "structable_read": "transactionJournalData.sts",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Error descs",
+                                "code": "char17",
+                                "codeHidden": "d438640b5f0b40ab",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.char17",
+                                "structable_read": "transactionJournalData.char17",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Corporation code",
+                                "code": "corpcode",
+                                "codeHidden": "f69601693493fc95",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.corpcode",
+                                "structable_read": "transactionJournalData.corpcode",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Service code",
+                                "code": "servicecode",
+                                "codeHidden": "2bee958f4daffbaf",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.sercode",
+                                "structable_read": "transactionJournalData.sercode",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Bill amount",
+                                "code": "billamt",
+                                "codeHidden": "9bc241af7b369ce7",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.billamt",
+                                "structable_read": "transactionJournalData.billamt",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "jCurrency"
+                        }, {
+                            "default": {
+                                "name": "Bill currency",
+                                "code": "billccy",
+                                "codeHidden": "fcd25362617396ea",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.billccy",
+                                "structable_read": "transactionJournalData.billccy",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Debit account",
+                                "code": "baccdr",
+                                "codeHidden": "47c439d1f73190e8",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.baccdr",
+                                "structable_read": "transactionJournalData.baccdr",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Credit account",
+                                "code": "bacccr",
+                                "codeHidden": "e6f1a129e5f7f4db",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.bacccr",
+                                "structable_read": "transactionJournalData.bacccr",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Debit fee amount",
+                                "code": "hubfee01",
+                                "codeHidden": "a90a03704e8b4316",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.hubfee01",
+                                "structable_read": "transactionJournalData.hubfee01",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "jCurrency"
+                        }, {
+                            "default": {
+                                "name": "Credit fee amount",
+                                "code": "hubfee02",
+                                "codeHidden": "754c8fcb882bd626",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.hubfee02",
+                                "structable_read": "transactionJournalData.hubfee02",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "jCurrency"
+                        }, {
+                            "default": {
+                                "name": "Feecode",
+                                "code": "feecode",
+                                "codeHidden": "f64a9f048243f9d5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.feecode",
+                                "structable_read": "transactionJournalData.feecode",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Refenece 1",
+                                "code": "refva1",
+                                "codeHidden": "f64a9f048243f9d5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.refva1",
+                                "structable_read": "transactionJournalData.refva1",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Refenece 2",
+                                "code": "refva2",
+                                "codeHidden": "f64a9f048243f9d5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.refva2",
+                                "structable_read": "transactionJournalData.refva2",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Refenece 3",
+                                "code": "refva3",
+                                "codeHidden": "f64a9f048243f9d5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "transactionJournalData.refva3",
+                                "structable_read": "transactionJournalData.refva3",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "react_txt": ""
+}

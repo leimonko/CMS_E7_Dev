@@ -1,0 +1,14 @@
+﻿{
+  "learn_sql_title": "Insert",
+  "learn_sql_query": "INSERT INTO hubdb.d_branchcode(recid,branchcode, branchname,createdt) VALUES (?,?, ?, SYSDATE)",
+  "learn_sql_parameter": "#recid,@branchcode, @branchname",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query_sub": "SELECT recid, branchcode, branchname FROM hubdb.d_branchcode WHERE recid = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+   "learn_sql_squence": "select hubdb.d_branchcode_seq.nextval as recid from dual",
+  "AFGHkeyIndexWJ": "d_branchcodeInsertOne",
+  "AFGHTimeWJ": 1561266469836
+}

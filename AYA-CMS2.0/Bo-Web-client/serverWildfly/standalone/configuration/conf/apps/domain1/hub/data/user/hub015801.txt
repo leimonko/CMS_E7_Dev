@@ -1,0 +1,1 @@
+{"full_name":"hub015801","email":"hub015801","user_status":"A","user_id":"hub015801","branchcd":"0158","branchid":"0158","branchname":"TKI","AFGHkeyIndexWJ":"hub015801","AFGHkeyTime":1603781790714,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790714,"AFGHkeyUserCreateWJ":""}

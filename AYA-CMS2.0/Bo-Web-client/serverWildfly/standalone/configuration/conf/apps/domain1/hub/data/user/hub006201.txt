@@ -1,0 +1,1 @@
+{"full_name":"hub006201","email":"hub006201","user_status":"A","user_id":"hub006201","branchcd":"0062","branchid":"0062","branchname":"MGW-Five Lane Shopping Complex(Mini)","AFGHkeyIndexWJ":"hub006201","AFGHkeyTime":1603781790621,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790621,"AFGHkeyUserCreateWJ":""}

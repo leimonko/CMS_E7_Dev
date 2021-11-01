@@ -1,0 +1,16 @@
+
+{
+  "learn_sql_title": "xem 1 txcode",
+   "learn_sql_data": "d_configreconfilename",
+  "learn_sql_parameter": "@corpcode,@servicecode",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "select c.corpcode,c.servicecode,c.corpdepositaccno, case when filename is null then 'corpcode_sercode_ddMMyyyyHHmmssSSS' else 
+case when INSTR( filename,'accountnumber')>0 then REPLACE(filename,'accountnumber',c.corpdepositaccno) else filename end end as filename 
+from hubdb.d_corpservice c left join hubdb.d_configreconfilename f on c.corpcode = f.corpcode  WHERE c.corpcode = ? and c.servicecode =? ",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_configreconfilenameGetFilenameByCorpcode",
+  "AFGHTimeWJ": 1585837541575
+}

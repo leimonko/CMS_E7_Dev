@@ -1,0 +1,1 @@
+{"cdid":"18-19","cdname":"INCYEA_IRD","caption":"Income year 18-19","cdgrp":"JWEBUI","cdidx":"10","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"18_19_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="api_MISReportFlow">
+		<http:listener config-ref="APIManagement" path="/MISReport"
+			doc:name="/MISReport" allowedMethods="POST" />
+		<logger
+			message="#[&quot;\n====================================================================================================\nSTARTED HUB MIS REPORT\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]"
+			level="INFO" doc:name="STARTED HUB MIS REPORT" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsg" value="#[payload]"
+			doc:name="reqMsg" />
+		<set-variable variableName="apiKey" value="/MISReport"
+			doc:name="apiKey" />
+		<flow-ref name="sub_verifytokenSub_Flow" doc:name="sub_verifytokenSub_Flow" />
+		<choice doc:name="Token T?F">
+			<when expression="#[payload.ERRORCODE==0]">
+				<set-payload
+					value="{
+    &quot;SERCODE&quot;: &quot;#[flowVars.reqMsg.SERVICE_ID]&quot;,
+    &quot;CORPCODE&quot;: &quot;#[flowVars.reqMsg.CORP_ID]&quot;,
+    &quot;FROMDATE&quot;: &quot;#[flowVars.reqMsg.FROM_DATE]&quot;,
+    &quot;TODATE&quot;: &quot;#[flowVars.reqMsg.TO_DATE]&quot;,
+    &quot;EMAIL&quot;: &quot;#[flowVars.reqMsg.EMAIL]&quot;
+}"
+					mimeType="application/json" doc:name="Remake message HUB_GetServiceDetail" />
+				<http:request config-ref="HUB2.0" path="/MISReport"
+					method="POST" doc:name="/MISReport">
+				</http:request>
+			</when>
+			<otherwise>
+				<json:object-to-json-transformer
+					doc:name="Object to JSON" />
+			</otherwise>
+		</choice>
+		<logger
+			message="#[&quot;\n====================================================================================================\nENDED HUB MIS REPORT\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]"
+			level="INFO" doc:name="ENDED HUB MIS REPORT" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 4,  &quot;ERRORDESC&quot;: &quot;#[exception.message.replace('&quot;',&quot;&quot;)]&quot;,  &quot;RESULT&quot;: &quot;&quot; }"
+				doc:name="Message Exception Error " mimeType="application/json" />
+			<logger
+				message="#[&quot;\n----EXCEPTION &quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="---EXCEPTION---" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

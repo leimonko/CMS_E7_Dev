@@ -1,0 +1,1 @@
+{"full_name":"hub005102","email":"hub005102","user_status":"A","user_id":"hub005102","branchcd":"0051","branchid":"0051","branchname":"Ygn Pa Zun Daung","AFGHkeyIndexWJ":"hub005102","AFGHkeyTime":1603781790606,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790606,"AFGHkeyUserCreateWJ":""}

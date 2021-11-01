@@ -1,0 +1,180 @@
+{
+    "info": {
+        "title": "Transaction on Day",
+        "des": "Show total transaction on day",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "d_hubstmLoadTransactionOnDay",
+        "bodata": "",
+        "openOne": "true",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "transactionMonitorbyDay",
+        "ruleStrong": [{
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "isMap",
+                    "condition": "",
+                    "visible": "false",
+                    "ena_dis": "false",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "btn_refresh",
+                    "condition": "",
+                    "visible": "false",
+                    "ena_dis": "not_use",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            }, {
+                "code": "runFo",
+                "config": {
+                    "component_action": "",
+                    "component_result": "",
+                    "component_event": "enter_tab",
+                    "txFoActions": "[\n    {\n        \"function\": \"chart.loadChartJs\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                    "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                    "useAction": "true",
+                    "condition": ""
+                },
+                "inUse": true,
+                "order": 3,
+                "isStart": true
+            }
+        ]
+    },
+    "list_layout": [{
+            "name": "General infomation",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "0fe1e6c5187446a1",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "code": "code",
+                    "name": "M?u view",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "codeHidden": "933cf20d593df797",
+                    "list_input": [{
+                            "default": {
+                                "name": "Refresh",
+                                "code": "btn_refresh",
+                                "codeHidden": "96885935e6ffd90a",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"schedule.runScheduleJob\",\n        \"status\": \"A\",\n        \"para\": [\n            \"reloadTransactionMonitoring\"\n        ]\n    }\n]",
+                                "txFo": "[\n    {\n        \"function\": \"schedule.runScheduleJob\",\n        \"status\": \"A\",\n        \"para\": [\n            \"reloadTransactionMonitoring\"\n        ]\n    }\n]",
+                                "useAction": "true",
+                                "icon": "refresh",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "View By Seconds",
+                                "code": "btn_viewbyseconds",
+                                "codeHidden": "d6a9708227f001f9",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-open-form\",\n        \"input\": {\n            \"form_key\": \"transactionMonitor\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "insert_chart",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Transaction mornitor",
+                                "code": "chart",
+                                "codeHidden": "c5f26a6d739b9c8c",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "query_data": "select * from transactionOnDay",
+                                "chartType": "LineChart",
+                                "chart_width": "1300",
+                                "chart_height": "500",
+                                "columns": "[\n    {\n        \"columnName\": \"Kh?ng c?n t?n\",\n        \"tableColumnGroup\": \"transactionOnDay.txtime\"\n    },\n    {\n        \"columnName\": \"Success\",\n        \"tableColumn\": \"transactionOnDay.success\"\n    },\n    {\n        \"columnName\": \"Pending\",\n        \"tableColumn\": \"transactionOnDay.pending\"\n    },\n    {\n        \"columnName\": \"Failed\",\n        \"tableColumn\": \"transactionOnDay.failed\"\n    },\n    {\n        \"columnName\": \"Reversed\",\n        \"tableColumn\": \"transactionOnDay.reversed\"\n    },\n    {\n        \"columnName\": \"Time out\",\n        \"tableColumn\": \"transactionOnDay.timeout\"\n    }\n]",
+                                "options": "{\n    \"title\": \"Transaction monitoring\",\n    \"chartArea\": {\n        \"width\": \"60%\"\n    },\n    \"hAxis\": {\n        \"title\": \"Time\"\n    },\n    \"vAxis\": {\n        \"title\": \"Total Transaction\"\n    },\n    \"colors\": [\n        \"green\",\n        \"yellow\",\n        \"red\",\n        \"blue\",\n        \"orange\"\n    ]\n}"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "jChart"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "react_txt": ""
+}

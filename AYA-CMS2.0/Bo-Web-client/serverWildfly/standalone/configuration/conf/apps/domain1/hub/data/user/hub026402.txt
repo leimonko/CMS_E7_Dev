@@ -1,0 +1,1 @@
+{"full_name":"hub026402","email":"hub026402","user_status":"A","user_id":"hub026402","branchcd":"0264","branchid":"0264","branchname":"YGN(112)-SDP","AFGHkeyIndexWJ":"hub026402","AFGHkeyTime":1603781790788,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790788,"AFGHkeyUserCreateWJ":""}

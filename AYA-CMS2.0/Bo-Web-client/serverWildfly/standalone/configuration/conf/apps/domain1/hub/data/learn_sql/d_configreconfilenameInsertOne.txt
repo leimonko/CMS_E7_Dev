@@ -1,0 +1,14 @@
+﻿{
+  "learn_sql_title": "Thêm mới txcode",
+  "learn_sql_query": "INSERT INTO hubdb.d_configreconfilename(recid,corpcode, filename, createdt,filetype) VALUES (?,?, ?, SYSDATE,?)",
+  "learn_sql_parameter": "#recid,@corpcode, @filename, @filetype",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query_sub": "SELECT 'F' as codetype, recid, corpcode, filename,filetype FROM hubdb.d_configreconfilename WHERE recid = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "learn_sql_squence": "select hubdb.D_CONFIGRECONFILENAME_SEQ.nextval as recid from dual",
+  "AFGHkeyIndexWJ": "d_configreconfilenameInsertOne",
+  "AFGHTimeWJ": 1561266469836
+}

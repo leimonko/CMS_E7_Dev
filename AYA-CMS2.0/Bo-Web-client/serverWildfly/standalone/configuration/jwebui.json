@@ -1,0 +1,77 @@
+{
+    "license": "abl7S/AfvIfvkZ6USkAJlBfU3Z4POkgIM9imo70j28tfMi8/fY5DspZG3fK0WvwlqClgRh3dChKADamJgsp9s2NnFcaUe1e35TyqjXN6Vf1WhKVdVznEoMjQ2D7sBiP2+erd5lhJHbwHa3gPw1VKYPerldfjUwwqc3B0QO2YDV1gjnjBMCYm/kmh3T3Lf1xhc792lM1Kgur9TLR9Q/LKqD7HrYn+o358dcjpe1AJGW+8gWsCo9ptVYOUbjTNtX2JP+NZbadtq/ogmthjLp42R+oHLYLG5S+OBjihmnoWOVMK/T3ejlJsPgtSUfP4EKUinw6rsm1gUptjw8EWHw3ntQ/2fXkm75NqEZFktLFZdvmk7c9UG1jinlBGa3FinMv+r4HKd23gQA1b+5AxBLQR23fPBt+8UhTBggfpot7X8CYKiI0PexuEQK3L0UkZQXhaGyCuBgr1X3Z5p51vcDr50L44P5sgOu9IHBcaZ9M2CV81WsWfGGwOlfeFQjofNo5y9BG9ydzpiuozN7G6YIsODaBKQbxtlW4A6Z0ZNciMNM2I0LRUZj2hY/rzYP8Q0NMl4S8K5vBCtiuBuE5JQIA3qqQxZuJ+x9pWv1XQxIchMwtZeurSDkWXFjeu1catxiGo/pNQ801K53hF41XrTgGiCsjUqMQKrX8MGf1HIAxTjCM=",
+	"rsa": false,
+    "geo": true,
+    "isDev": true,
+    "slowSpeedNetwork": 1,
+    "hostPort": "8444",
+    "template_host_dev": "http://127.0.0.1:8444/fwcss",
+    "sever_rsa_private_key": "G6rYythqYLO8YNlg2vFB5xE215mD6MYSajx5UJXrcUbBfjB7wPCAaiJRvWBbwmfIl5zlzWSOrYzUt3aIGN53b+PIxu+Wud9klHK44nBTqePpGT9uHpEQZRJ41PTfAwSl7ZbyZ1NRv2gqId8NsRkBbgH0TXctz8drgUyy1BdsVRk=JGPI5qeWYZpP0YF2zMMPZJYddKZ2ThqrtePptnOa+QtIQb4DC/0PjvKQ5lV4S6sqQNMueKT+bc08+ODp16lv4qTxzXJpMTPBr6F4J+HXmMEbrIHZbwnV148PkGua3c8hEPX7s+L+XOxRa6AkwXnVYlphl+2hSHyGiQRcYIcSbGk=Xf6k453ar1bbL83ct1gcUg/G5U/lLaoh5Xip9zY6mDpBK5yN39KMq+/5hIEjgX1wreRcFweYtLgcrPwhFd9GwAUkE1h3Quz4evqdjf+eYhvsCguMjSs98jbwEp0cDHaBhTv1s7XbBWYA5in9FIK0OS2RJY3JGSiinCyFYzzIPhA=YQiRtvUzThgdB9vov6NaEe5P41HNPpVuxgZnoZO9WDFrlHyW+9ni+0K1KPn9qWTW6u3SfPSx0VtKOmUWq3CWTuFmxZhd7fm6oYaw1AjnUWtNFUCkKIQRiRoJT/mruUteWfYooILOlq5mmP9+xrnqMz57J4XMUCvNJi8S0kmklEA=KrP2C13xWOg1JqtaImt1lpHUY0uM+IW4/57II7oKasuvqTfuC+9ukK2v/ICmMyD3moocBofozUiY87yugvdw70uhCsNq1y6HCWYBcBKEbP0lY9vwvSDp6r1GMiGJMxqr6b8DZLKaxXTyyOghnsLcZGIdDRe/4AlT/mPeLrjbD/k=VnFjGyZJLm4jwRkWpZXP2qBHKJcehCxrJVn6GexxOFcI9Uvm2rgABZ5QyUs5PURldgrkJZaPeByFiAS94zbizQN1rjtYuzX9A6oXmkT5lIpiIFpzVEbVYaYyWym2DFss+boS5JQll4gyPV6+4ap3CYuFqKll04irwNDcGQ9/N+8=DKGwNs4Vw5y8pTmiGEmV36VWGBuJ8Pis+Qs2/Hm+EPP5wY4YP4rYcq69WUncVMaTBVEbzrUAujN9nT8N1EnQ6WiYcapfgimdskxtZZeWIH9KoNe4nbQ3Z90NT8cAYkVwU3uI0pEzthEVBTW1USuyGQuOZPSsfNX7qan2fRgvS2w=",
+    "client_rsa_public_key": "YCZXOANlZV6F/LrNyJi0TL9FodY4Xxctv23eH5y3UMpzC6P67+/AC2Wrv6HBfTiWLATCuFjpDbPsqAd5pwwwVGysk/BOYhdtgWQ07IFf7YyzaCVNC8GigtxWGPrAV6ZPz9vqEnOCMSLeZBmrQThD+vple/aEiHvSPUwyMku6SV8=XgJiyxaq2GFkK0ELctIu1ejJpXjg8OKU3zLLhHA05CVluXOIjWJIuHCfF4RrpR+5lJvyDNT7UmgWitH9CuJOIjVOmp98gOKl1DIAxE1cDBHNtV+Pd7pepP5Pinc2COBGwOPzRdhEYZfp7iyqpLTt72k+uWBkk6LLRWJvGdHE7Ug=",
+    "data_rsa_private_key": "N4ZAY1HwdJjt9QL/vyijhplFsQt06hgnPLyl7APlh+1SU210hr+LxBJxY/UbD5fJtmezr7NKeZnuaX4UOaRn/17uwlKNngSdqSohdkBOAwA8oPzl/oTQVuGwzjqgQnj7HjK8F40KL2KH3Zg+EtkP+8vVBAzB+VKpY5msVlof7Gc=NY0TDDCmoWZN1SGwQDzv19jw6Scg/FH5idAis2MJuO1E9RVMvQ6ccxMJ7b0ptekJbowmK/AK0gg+z3eLKjYNGGhkUUJ5iosNIMn02gqhJjmRxaHvlZU8H59Z2mBU7/SRC0be889eXDsMXhBORkptKHRg0A+PNOX6QSdq3vb3aB8=CZ+IB1OKpcqYSV2HGc+2QFRqahT7/ZmnsGWs7HO49DBGrGWwigQ+4khqlfCEERtzazLqdq6EcMSFxgqG76jBb4dbLbrb3ipWShCQaDLRbYsgpgd3kgICiXLw5pFpcaeDgJwxQJyk6mvL/n1u7b0DTk0FEujMfMbEoxQhI985EJM=XXDMaHVLZptz6VHzMKBA8oc1oR52IzAyqkxrmaQ3UfdVX5FAw/mjaJGifEULVZtL0TIruyHXAnkwqV9DMZbpbzUrskLn4lAdbzk0LOUWkob8OGBVlH5BR4YmtQLSUiW8XSyW1JFl9KT3gzdKQ8TNE/XmOdxxx4r1C+2Wx+lohq4=FfjFRmcdhbmUQygwuZhip8CHKOr1gW7gMPXDcdsp35zQ5HZGNJZ8vGm8wrtLlWGd9WT6XI4Rk/3KDMbooQVmkRF6I4wBErpuO62sHX8Xzf58BX6rMgY2+LuGbUI07YyDWW/1Ts/5LzABHAFmRPoEXiiU+ZYDPRM+m1yw7NYFPos=CgEgXX5lx9Mms2Ch/1QojssTYqazLz21hTglOuvs+HVeP0KsriQyTkViReQ/E1ORhCMs+I74QhEyZYxJT7mBGsU8R2sUZoIXy/1kKPacpvy84j0vvGER8lgFKtEa9b78RMOz/CjMefkEgMYTupuAaTy4Pi//5TPQqXEq5E+eTag=JoKEOZgIGK1bFVl0YnIz+bKE/FrK9qyyATJBZtonrDgXOPExFM2KNWJyh0X1AmsfjOs4+U8k3zfn1D5+TBGERjKtz4A8WkyQzTNeLl9QHWmG9wTTOXOgPns7kwm6xrTmw44MNNgcXrJbZhxU/q84e3vvn/Z8EUWLHuTMTqZcLls=",
+    "data_rsa_public_key": "HmBhuhT5tvCGONK8BL6nruUZpfY9uMFMe7YJo/BAM4hRurB/tFcrS8GVuphIuQV8jd6wcjW1T4iAj5TuPRLNDY3GtUG386/124/ua6psQc+Qk97Z02LhfMXRO3z25gnG8akQ1sBw6DSiD+Zb/ymfX+T0hkx31zwTUSHlFRC2+0Y=Rh0BooIV6ZFM6y/MC18PnhkJGyaDOCo0tdmlScT6k9ks537zkaUyFS7q/XWuKrXeGsFgIdD9ZXoWPyOLluR7uULxTdlRbQsxAu4YXfBpVXLUx4inRJRBYRYMI2DPX5TLq9QuVxsWLkeI9DEnjFobdB8PmsdHPUkhm3n8/8huSrs=",
+    "domains":{
+      "127.0.0.1" :"domain1"
+    },
+    "database_system_core": {
+        "active": true,
+        "JPA_usage": "Oracle",
+        "config_subtype":{
+            "/apps/@{domain}/@{app}/data/@{folder_parent}/" : {
+                "type":"data",
+                "sub_type":"@{folder_parent}"
+            },
+            "/apps/@{domain}/@{app}/@{folder_parent}/" : {
+                "type":"config",
+                "sub_type":"@{folder_parent}"
+            },
+            "/apps/@{domain}/@{app}/" : {
+                "type":"config",
+                "sub_type":"APP_CONFIG"
+            },
+            "/apps/@{domain}/" : {
+                "type":"config",
+                "sub_type":"DOMAIN_CONFIG"
+            },
+            "/@{folder_parent}/" : {
+                "type":"config",
+                "sub_type":"@{folder_parent}"
+            }
+        },
+        "JPA": {
+            "Postgres": {
+                "properties": {
+                    "javax.persistence.jdbc.url": "jdbc:postgresql://localhost:5432/hubdb",
+                    "javax.persistence.jdbc.user": "postgres",
+                    "javax.persistence.jdbc.password": "To9VUaQy2jOmAnpx/H7DUHdmJD+b1Gl30EIrqQtK2r+EKSrwg16WPQzqye4JnHhcPGohnTr6pCcbQ3+eRqXsuPCfgHXRm+Ld78y1xdiGX4y4uFZeHu0Gj2WCjl5IrE1qMY3uTi6fLz81AGeWj+gvvdhAqYhlribrDqj0vx4aTng=",
+                    "javax.persistence.jdbc.driver": "org.postgresql.Driver",
+                    "eclipselink.connection-pool.default.initial": "1",
+                    "eclipselink.connection-pool.default.min": "64",
+                    "eclipselink.connection-pool.default.max": "64"
+                }
+            },
+            "MySQL": {
+                "properties": {
+                    "javax.persistence.jdbc.url": "jdbc:mysql://192.168.1.220:3306/mydb",
+                    "javax.persistence.jdbc.user": "jwebui",
+                    "javax.persistence.jdbc.password": "FkBu6wychHMqv9/atcF6RGTg8CkTNhPRKUR6GXAgxnJs0yW6t7ZzZnRdUgg14qoUYLChK2AWJYBlLYrn85Vks60dO/FMnPPzyDZrZ/mNtbbqrw1H5x7BVbsPDKLvXybsUQg9yaj4RVbSGICGSNLwyCFe3e0NF8zvI7ZDIN+TkYA=",
+                    "javax.persistence.jdbc.driver": "com.mysql.jdbc.Driver",
+                    "eclipselink.connection-pool.default.initial": "1",
+                    "eclipselink.connection-pool.default.min": "64",
+                    "eclipselink.connection-pool.default.max": "64"
+                }
+            },
+            "Oracle": {
+                "properties": {
+                    "javax.persistence.jdbc.url": "jdbc:oracle:thin:@192.168.1.215:1521:CMSE7",
+                    "javax.persistence.jdbc.user": "hubdb",
+                    "javax.persistence.jdbc.password": "JV+T03Iy72q9prJN8eW+s+X/qByXfN69ozFm+gKfLZqV69YmccbbwOuLjX5osVHklwEPOmZgXye3Bvh47aqcuMHrrDJ29O5UfBt0Fdzgmtx8c5/dHH9FXXQ2BBakEcP0+9XvPnoKCPuIvxdNkSbjiq5mWXc3+qt2TIK3JU3lVTg=",
+                    "javax.persistence.jdbc.driver": "oracle.jdbc.OracleDriver",
+                    "eclipselink.connection-pool.default.initial": "1",
+                    "eclipselink.connection-pool.default.min": "64",
+                    "eclipselink.connection-pool.default.max": "64"
+                }
+            }
+        }
+    }
+	}

@@ -1,0 +1,40 @@
+﻿{
+    "learn_sql_title": "Tải dulieu cho hubstm",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT 'C' as codetype,TO_NUMBER(corpcode) as recid,corpcode as itemcode, fullnamecorp as itemname FROM hubdb.d_corpregistation where corpcode not in ('9999')
+UNION ALL
+SELECT 'C' as codetype,0 as recid,'ALL' , ' ' as itemname FROM dual
+UNION ALL
+SELECT 'B' as codetype,0 as recid,'0000' , 'ALL' as itemname FROM dual
+UNION ALL
+SELECT 'B' as codetype,TO_NUMBER(branchcode), branchcode, branchname from d_branchcode 
+UNION ALL
+SELECT 'STS' as codetype,0 as recid,'0' , 'ALL' as itemname FROM dual
+UNION ALL
+SELECT 'STS' as codetype,recid, subcodetype, descs from d_codetype where codetype = 'STT' 
+UNION ALL
+SELECT 'TXCODE' as codetype,0 as recid,'0' , 'ALL' as itemname FROM dual
+UNION ALL
+SELECT 'TXCODE' as codetype,recid, subcodetype, descs from d_codetype where codetype = 'TXCODE' and subcodetype  in ('O9_HUB01','O9_HUB04','O9_HUB05','O9_HUB09','O9_HUB10','O9_HUB13','O9_HUB14')
+UNION ALL
+SELECT 'CHANNEL' as codetype,0 as recid,'0' , 'ALL' as itemname FROM dual
+UNION ALL
+SELECT 'CHANNEL' as codetype,1 as recid, 'OTC', 'OTC' from dual
+UNION ALL
+SELECT 'CHANNEL' as codetype,2 as recid, 'IB', 'Internet banking' from dual
+UNION ALL
+SELECT 'CHANNEL' as codetype,1 as recid, 'MB', 'Mobile banking' from dual
+UNION ALL
+SELECT 'USERID' as codetype,0 as recid, 'ALL', 'ALL' from dual
+UNION ALL
+SELECT 'USERID' as codetype,usernumber, to_char(usernumber),  to_char(usernumber) from hubusernumber
+order by codetype,recid ASC",
+    "learn_sql_query_sub": "",
+    "learn_sql_data": "d_hubreportLoadDataForm02",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubreportLoadDataForm02",
+    "AFGHTimeWJ": 1561263635755
+}

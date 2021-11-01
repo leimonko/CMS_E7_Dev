@@ -1,0 +1,1 @@
+{"full_name":"hub006101","email":"hub006101","user_status":"A","user_id":"hub006101","branchcd":"0061","branchid":"0061","branchname":"NPT - Oaktaya Thiri (Mini)","AFGHkeyIndexWJ":"hub006101","AFGHkeyTime":1603781790620,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790620,"AFGHkeyUserCreateWJ":""}

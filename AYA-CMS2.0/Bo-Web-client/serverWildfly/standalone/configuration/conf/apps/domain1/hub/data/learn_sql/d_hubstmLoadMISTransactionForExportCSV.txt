@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Tải tất cả data txcode",
+	"learn_sql_parameter": "@corpcode,@servicecode,@fromdate,@todate",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "FROM hubdb.d_hubstm WHERE corpcode=? AND sercode=? AND sts = 'C' AND TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD')<= dvaluedt AND  (TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + INTERVAL '1' DAY) > dvaluedt ORDER BY dvaluedt ASC",
+	"learn_sql_query_sub": "FROM hubdb.r_hubstm WHERE corpcode=? AND sercode=? AND sts = 'C' AND TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD')<= dvaluedt AND  (TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + INTERVAL '1' DAY) > dvaluedt ORDER BY dvaluedt ASC",
+	"learn_sql_date_verify": "fromdate,todate",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_hubstmLoadMISTransactionForExportCSV",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "MISTransaction"
+}

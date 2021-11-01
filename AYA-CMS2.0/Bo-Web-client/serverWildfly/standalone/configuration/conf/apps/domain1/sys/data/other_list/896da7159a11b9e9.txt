@@ -1,0 +1,1 @@
+{"other_list_name":"10","other_list_group":"loan_rate","other_list_color":"","other_list_icon":"","other_list_order":"1","other_list_id":"1279bd62875ee2c4","AFGHkeyIndexWJ":"896da7159a11b9e9","AFGHkeyTime":1569387172124,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1569387173993}

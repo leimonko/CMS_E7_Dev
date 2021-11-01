@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"get html","function":"tx.getListHTML","type":"java","para":[],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-container","input":{}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-load-getListHTML","version":3,"updateTime":1574915933545,"txname":"L?y d? li?u HTML c?a danh sách URL","hasRole":"false","isOld":true}

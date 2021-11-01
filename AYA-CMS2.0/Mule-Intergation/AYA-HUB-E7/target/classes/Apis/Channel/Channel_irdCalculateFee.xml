@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="ib_irdCalculateFeeFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/irdCalculateFee" doc:name="/irdCalculateFee" allowedMethods="POST"/>
+			<set-variable variableName="uuid" value="#[java.util.UUID.randomUUID().toString()]" doc:name="uuid"/>
+	<logger
+			message="#[&quot;\n=======================================\nStarted IRD Calculate Fee\nRequest Message: &quot; + message.payloadAs(java.lang.String) + &quot;\n=======================================&quot;]"
+			level="INFO" doc:name="Started IRD Calculate Fee" />
+
+		<set-variable variableName="reqJSMsg" value="#[json:]"
+			doc:name="jsReqMsg" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqBody" value="#[payload]"
+			doc:name="reqBody" />
+		<set-payload
+			value="{
+  &quot;info&quot;: {
+    &quot;lang&quot;: &quot;en&quot;,
+    &quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+    &quot;my_device&quot;: {
+      &quot;browser&quot;: &quot;Chrome&quot;,
+      &quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+      &quot;browserMajorVersion&quot;: 79,
+      &quot;cookies&quot;: true
+    },
+    &quot;request_time&quot;: 1580804624914,
+    &quot;protect_request&quot;: &quot;&quot;,
+    &quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+  },
+  &quot;bo&quot;: [
+    {
+      &quot;txcode&quot;: &quot;bo-hub-dymanicSearch&quot;,
+      &quot;input&quot;: {
+        &quot;learn_sql&quot;: &quot;d_hubstmCalculateFee&quot;,
+        &quot;data&quot;: {
+          &quot;SERCODE&quot;: &quot;#[flowVars.reqBody.SERCODE]&quot;,
+          &quot;AMOUNT&quot;: &quot;#[flowVars.reqBody.AMOUNT]&quot;,
+          &quot;CUSTACC&quot;: &quot;#[flowVars.reqBody.CUSTACC]&quot;,
+          &quot;REFVA1&quot;: &quot;#[flowVars.REFVA1]&quot;,
+          &quot;REFVA2&quot;: &quot;#[flowVars.REFVA2]&quot;,
+          &quot;REFVA3&quot;: &quot;#[flowVars.REFVA3]&quot;
+        }
+      }
+    }
+  ]
+}"
+			mimeType="application/json" doc:name="Build message calculate fee" />
+		<flow-ref name="BO_connectorFlow" doc:name="BO_connectorFlow"/>
+		<set-payload value="{
+    &quot;ERRORCODE&quot;: &quot;#[json:fo[0]/input/response/errorcode]&quot;,
+    &quot;ERRORDESC&quot;: &quot;#[json:fo[0]/input/response/errordesc]&quot;,
+       &quot;SERCODE&quot;: &quot;#[flowVars.reqBody.SERCODE]&quot;,
+    &quot;AMOUNT&quot;: &quot;#[flowVars.reqBody.AMOUNT]&quot;,
+    &quot;CUSTACC&quot;:&quot;#[flowVars.reqBody.CUSTACC]&quot;,
+    &quot;DEBITFEE&quot;: &quot;#[json:fo[0]/input/response/data/d_hubfee[0]/d_hubfee/DEBITFEE]&quot;,
+    &quot;CREFEE&quot;: &quot;#[json:fo[0]/input/response/data/d_hubfee[0]/d_hubfee/CREFEE]&quot;,
+    
+    &quot;RESULT&quot;: #[json:fo[0]/input/response/data]
+}" mimeType="application/json" doc:name="Build message response"/>
+		<logger
+			message="#[&quot;\n=======================================\nEnded IRD Calculator Fee\nResponse Message: &quot; + message.payloadAs(java.lang.String)+&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="Ended IRD Calculator Fee" />
+
+<catch-exception-strategy doc:name="Catch Exception Strategy">
+				<logger message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]" level="INFO" doc:name="Exception Logger"/>
+	<set-payload
+				value="{  &quot;ERRORCODE&quot;: 9999,  &quot;ERRORDESC&quot;: &quot;#[exception.?cause.message or exception]&quot;,  &quot;RESULT&quot;: {} }"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=======================================\nEnded Channel Calculator Fee\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+				level="INFO" doc:name="Ended Hub Calculator Fee" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

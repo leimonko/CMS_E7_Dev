@@ -1,0 +1,1 @@
+{"full_name":"hub001101","email":"hub001101","user_status":"A","user_id":"hub001101","branchcd":"0011","branchid":"0011","branchname":"Mawlamyaing","AFGHkeyIndexWJ":"hub001101","AFGHkeyTime":1603781790563,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790563,"AFGHkeyUserCreateWJ":""}

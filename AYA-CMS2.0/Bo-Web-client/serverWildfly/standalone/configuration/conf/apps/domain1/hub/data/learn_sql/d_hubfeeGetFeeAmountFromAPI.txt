@@ -1,0 +1,16 @@
+
+{
+  "learn_sql_title": "get fee amount",
+   "learn_sql_data": "d_hubfee",
+  "learn_sql_parameter": "@servicecode,@corpcode",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "SELECT f.feecode ,formular AS feeamount FROM
+(SELECT feecode,feecaltype FROM hubdb.d_corpservice WHERE servicecode = ? AND corpcode = ? )a 
+INNER JOIN hubdb.d_feecal f ON a.feecode = f.feecode AND f.caltype = a.feecaltype",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_hubfeeGetFeeAmountFromAPI",
+  "AFGHTimeWJ": 1585837541575
+}

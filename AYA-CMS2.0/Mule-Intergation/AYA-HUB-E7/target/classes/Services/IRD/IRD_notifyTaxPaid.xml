@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="ird_notifytaxpaidSub_Flow" doc:description="{  &quot;path&quot;: &quot;/bfweb/retail/v1/accounts/#[payload.ACNO]/balances&quot;,  &quot;method&quot;: &quot;GET&quot;,  &quot;params&quot;: {},  &quot;headers&quot;: {   &quot;Content-Type&quot;: &quot;application/json&quot;,   &quot;X-Request-ID&quot;: &quot;b8a888a6-4bbf-11ea-b77f-2e728ce88125&quot;,   &quot;Authorization&quot;: &quot;#[payload.SESSIONID]&quot;  },  &quot;body&quot;: {} }">
+		<logger
+			message="#[&quot;\n======================================================================\nSTARTED IRD NOTIFYTAXPAID\n&quot;+&quot;NOTIFYTAXPAID Request Message:\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="STARTED IRD NOTIFYTAXPAID" />
+		<invoke object-ref="AutoLogin" method="getToken"
+			methodArguments="#[message.payloadAs(java.lang.String)]" doc:name="getToken" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqNotifyTaxPaid" value="#[payload]"
+			doc:name="reqNotifyTaxPaid" />
+		<set-payload value="{  &quot;path&quot;: &quot;/TPISPayerService/module001/service001/notifyTaxPaid&quot;,  &quot;method&quot;: &quot;POST&quot;,  &quot;params&quot;: {},  &quot;headers&quot;: {   &quot;Content-Type&quot;: &quot;application/json&quot;  },  &quot;body&quot;: {   &quot;tinNo&quot;: &quot;#[flowVars.reqNotifyTaxPaid.TINNO]&quot;,   &quot;phoneNo&quot;: &quot;#[flowVars.reqNotifyTaxPaid.PHONENO.split('\\s*[,./~ ]+')[0]]&quot;,   &quot;emailAddress&quot;: &quot;#[flowVars.reqNotifyTaxPaid.EMAILADDRESS]&quot;,   &quot;amount&quot;: &quot;#[flowVars.reqNotifyTaxPaid.AMOUNT]&quot;,   &quot;debtorCode&quot;: &quot;#[flowVars.reqNotifyTaxPaid.DEBTORCODE]&quot;,   &quot;bankTransID&quot;: &quot;#[flowVars.reqNotifyTaxPaid.BANKTRANSID]&quot;,   &quot;originRefNo&quot;: &quot;#[flowVars.reqNotifyTaxPaid.ORIGINREFNO]&quot;,   &quot;transDateTime&quot;: &quot;#[flowVars.reqNotifyTaxPaid.TRANSDATETIME]&quot;,   &quot;token&quot;: &quot;#[flowVars.reqNotifyTaxPaid.IRD_TOKEN]&quot;  } }" doc:name="Request Message"/>
+		<flow-ref name="IRD_connectorFlow" doc:name="IRD_connectorFlow"/>
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-payload
+			value="{  &quot;ERRORCODE&quot;: &quot;#[payload.status.equals('0000') ? 0 : payload.status]&quot;,  &quot;ERRORDESC&quot;: &quot;#[payload.desc]&quot;,  &quot;REFNO&quot;: &quot;&quot;,  &quot;TINNO&quot;: &quot;#[flowVars.reqNotifyTaxPaid.TINNO]&quot;,  &quot;PHONENO&quot;: &quot;#[flowVars.reqNotifyTaxPaid.PHONENO]&quot;,  &quot;EMAILADDRESS&quot;: &quot;#[flowVars.reqNotifyTaxPaid.EMAILADDRESS]&quot;,  &quot;AMOUNT&quot;: &quot;#[flowVars.reqNotifyTaxPaid.AMOUNT]&quot;,  &quot;DEBTORCODE&quot;: &quot;#[flowVars.reqNotifyTaxPaid.DEBTORCODE]&quot;,  &quot;BANKTRANSID&quot;: &quot;#[flowVars.reqNotifyTaxPaid.BANKTRANSID]&quot;,  &quot;ORIGINREFNO&quot;: &quot;#[flowVars.reqNotifyTaxPaid.ORIGINREFNO]&quot;,  &quot;TRANSDATETIME&quot;: &quot;#[flowVars.reqNotifyTaxPaid.TRANSDATETIME]&quot; }"
+			mimeType="application/json" doc:name="Build Message Reponse" />
+		<logger
+			message="#[&quot;\n======================================================================\nENDED IRD NOTIFYTAXPAID\n&quot; +&quot;NOTIFYTAXPAID Response Message:\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="ENDED IRD NOTIFYTAXPAID" />
+<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{
+	&quot;ERRORCODE&quot;: &quot;9999&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[(exception.?cause.message or exception).toString().replace('&quot;','')]&quot;,
+	&quot;REFNO&quot;: &quot;&quot;,
+	&quot;TINNO&quot;: &quot;-&quot;,
+	&quot;PHONENO&quot;: &quot;-&quot;,
+	&quot;EMAILADDRESS&quot;: &quot;-&quot;,
+	&quot;AMOUNT&quot;: &quot;-&quot;,
+	&quot;DEBTORCODE&quot;: &quot;-&quot;,
+	&quot;BANKTRANSID&quot;: &quot;-&quot;,
+	&quot;ORIGINREFNO&quot;: &quot;-&quot;,
+	&quot;TRANSDATETIME&quot;: &quot;-&quot;
+}"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n======================================================================\nENDED IRD NOTIFYTAXPAID\n&quot; +&quot;NOTIFYTAXPAID Response Message:\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]"
+				level="INFO" doc:name="ENDED IRD NOTIFYTAXPAID" />
+		</catch-exception-strategy>
+	</flow>
+	<flow name="ird_notifytaxpaidFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/notifyTaxPaid"
+			doc:name="/notifyTaxPaid" allowedMethods="POST" />
+		<flow-ref name="ird_notifytaxpaidSub_Flow" doc:name="sub-"/>
+	
+	</flow>
+</mule>

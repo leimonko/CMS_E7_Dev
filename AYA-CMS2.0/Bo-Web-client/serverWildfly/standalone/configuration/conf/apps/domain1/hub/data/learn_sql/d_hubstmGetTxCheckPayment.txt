@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "d_hubstmGetTxCheckPayment",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT char12 as TRANSREF,TO_CHAR(sysdate, 'YYYY-MM-DD') AS TRANSDATE, char1 as CHANNEL FROM hubdb.d_hubstm where txcode in('O9_HUB10','O9_HUB09')and corpcode in('9999') and char12 is not null and (char02 is null or (char02 is not null and char02 not in ('E','B','CO','F','REVERSAL')))",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmGetTxCheckPayment",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "d_hubstmGetTxCheckPayment"
+}

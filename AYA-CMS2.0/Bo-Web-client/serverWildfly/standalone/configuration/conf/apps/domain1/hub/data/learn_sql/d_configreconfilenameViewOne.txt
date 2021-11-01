@@ -1,0 +1,14 @@
+
+{
+  "learn_sql_title": "xem 1 txcode",
+   "learn_sql_data": "d_configreconfilename",
+  "learn_sql_parameter": "#recid",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "SELECT recid, corpcode, filename,filetype FROM hubdb.d_configreconfilename WHERE recid = ? ",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_configreconfilenameViewOne",
+  "AFGHTimeWJ": 1585837541575
+}

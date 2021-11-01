@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data fee",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT  d.feecode, d.feename, d.status as statuscode,CASE d.status WHEN 'A' THEN 'Active' ELSE 'Inactive' END AS status, d.description, d.ccrcd, d.createdt FROM hubdb.d_feedef d ORDER BY d.feecode ASC",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_feedefLoadAll",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "d_feemanagement"
+    }

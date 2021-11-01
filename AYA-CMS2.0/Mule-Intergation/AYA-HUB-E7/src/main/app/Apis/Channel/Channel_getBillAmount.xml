@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<flow name="ib_getBillAmountFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/ib_getBillAmount"
+			doc:name="/ib_getBillAmount" allowedMethods="POST"
+			doc:description="{
+    &quot;CORP_ID&quot;: &quot;3&quot;,
+    &quot;SERVICE_ID&quot;: &quot;3&quot;,
+    &quot;REFVA1&quot;: &quot;01/01/04&quot;,
+    &quot;REFVA2&quot;: &quot;YC-181245&quot;,
+    &quot;REFVA3&quot;: &quot;3&quot;   
+}" />
+
+		<set-variable variableName="uuid"
+			value="#[java.util.UUID.randomUUID().toString()]" doc:name="uuid" />
+		<logger level="INFO" doc:name="STARTED CHANNEL GET AMOUNT"
+			message="#[&quot;\n=======================================\nStarted Channel Get Amount\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]" />
+		<scripting:transformer doc:name="JavaScript">
+			<scripting:script engine="JavaScript"><![CDATA[var resMsg = JSON.parse(payload);
+var refva1, refva2, refva3;
+try{
+	refva1 = JSON.stringify(resMsg.REFVA1);
+	refva2 = JSON.stringify(resMsg.REFVA2);
+	refva3 = JSON.stringify(resMsg.REFVA3);
+	flowVars.put('REFVA1',refva1.substring(1, refva1.length-1));
+	flowVars.put('REFVA2',refva2.substring(1, refva2.length-1));
+	flowVars.put('REFVA3',refva3.substring(1, refva3.length-1));
+}
+catch(e){
+	flowVars.put('REFVA1','');
+	flowVars.put('REFVA2','');
+	flowVars.put('REFVA3','');
+}
+message.setPayload(JSON.stringify(resMsg));
+result = message;]]></scripting:script>
+		</scripting:transformer>
+		<set-variable variableName="reqJSMsgGetBill" value="#[json:]"
+			doc:name="reqJSMsg" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsgIB" value="#[payload]"
+			doc:name="reqMsgIB" />
+		<set-payload
+			value="{   &quot;info&quot;: {     &quot;lang&quot;: &quot;en&quot;,     &quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,     &quot;my_device&quot;: {       &quot;browser&quot;: &quot;Chrome&quot;,       &quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,       &quot;browserMajorVersion&quot;: 79,       &quot;cookies&quot;: true     },     &quot;request_time&quot;: 1580804624914,     &quot;protect_request&quot;: &quot;&quot;,     &quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;   },   &quot;bo&quot;: [     {       &quot;txcode&quot;: &quot;bo-hub-dymanicSearch&quot;,       &quot;input&quot;: {         &quot;learn_sql&quot;: &quot;d_corpserviceGetWebserprtcol&quot;,         &quot;data&quot;: {           &quot;SERCODE&quot;: &quot;#[flowVars.reqMsgIB.SERCODE]&quot;         }       }     }   ] }"
+			doc:name="Build message get WEBPROTOCOL" mimeType="application/json" />
+		<logger
+			message="#[&quot;\n==============================================================================\nGET WEBSERVICE RESPONSE:\n&quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]"
+			level="INFO" doc:name="GET WEBSERVICE RESPONSE" />
+		<http:request config-ref="HUB2.0_BO" path="/" method="POST"
+			doc:name="HUB2.0_BO" />
+		<set-variable variableName="WEBSERPRTCOL"
+			value="#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/WEBSERPRTCOL]"
+			doc:name="WEBSERPRTCOL" />
+		<logger
+			message="#[&quot;\n==============================================================================\nGET WEBSERVICE RESPONSE\n:&quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]"
+			level="INFO" doc:name="GET WEBSERVICE RESPONSE" />
+		<choice doc:name="Route WEBSERPRTCOL">
+			<when expression="#[flowVars.WEBSERPRTCOL==&quot;YCDC&quot;]">
+				<set-payload
+					value="{   &quot;BILLINGMERCHANTCODE&quot;: &quot;#[flowVars.WEBSERPRTCOL]&quot;,   &quot;BILLID&quot;: &quot;#[flowVars.REFVA1]&quot; }"
+					mimeType="application/json" doc:name="Build Message Get Amount" />
+				<logger
+					message="#[&quot;\nCall To YCDC WEBSERVICE:\n&quot; + message.payloadAs(java.lang.String)]"
+					level="INFO" doc:name="Call To YCDC WEBSERVICE" />
+				<flow-ref name="YCDC_getBillByIDSub_Flow" doc:name="YCDC_getBillByIDSub_Flow" />
+			</when>
+			<when
+				expression="#[flowVars.WEBSERPRTCOL!=null &amp;&amp; flowVars.WEBSERPRTCOL.matches(&quot;${SERVICE_EM}&quot;)]">
+				<set-payload
+					value="{     &quot;SERVICEID&quot;: &quot;#[flowVars.WEBSERPRTCOL+&quot;-EM&quot;]&quot;,     &quot;REFVA1&quot;: &quot;#[flowVars.REFVA1]&quot;,    &quot;REFVA2&quot;:&quot;#[flowVars.REFVA2]&quot;,  &quot;REFVA3&quot;:&quot;#[flowVars.REFVA3]&quot;  }"
+					mimeType="application/json" doc:name="Build Message Get Amount" />
+				<logger
+					message="#[&quot;\nCall To Biller HUB WEBSERVICE:\n&quot; + message.payloadAs(java.lang.String)]"
+					level="INFO" doc:name="Call To Biller HUB WEBSERVICE" />
+				<flow-ref name="BillerHUB_getBillInfoSub_Flow" doc:name="BillerHUB_getBillInfoSub_Flow" />
+
+			</when>
+			<otherwise>
+				<set-payload
+					value="{   &quot;info&quot;: {     &quot;lang&quot;: &quot;en&quot;,     &quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,     &quot;my_device&quot;: {       &quot;browser&quot;: &quot;Chrome&quot;,       &quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,       &quot;browserMajorVersion&quot;: 79,       &quot;cookies&quot;: true     },     &quot;request_time&quot;: 1580804624914,     &quot;protect_request&quot;: &quot;&quot;,     &quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;   },   &quot;bo&quot;: [     {       &quot;txcode&quot;: &quot;bo-hub-dymanicSearch&quot;,       &quot;input&quot;: {         &quot;learn_sql&quot;: &quot;d_corpserviceGetFixedAmount&quot;,         &quot;data&quot;: {           &quot;SERCODE&quot;: &quot;#[flowVars.reqMsgIB.SERCODE]&quot;,           &quot;CORPCODE&quot;: &quot;#[flowVars.reqMsgIB.CORPCODE]&quot;,           &quot;CUSTACC&quot;: &quot;-&quot;,           &quot;REFVA1&quot;: &quot;#[flowVars.REFVA1]&quot;,           &quot;REFVA2&quot;: &quot;#[flowVars.REFVA2]&quot;,           &quot;REFVA3&quot;: &quot;#[flowVars.REFVA3]&quot;         }       }     }   ] }"
+					mimeType="application/json" doc:name="Not have WS, Build message Call to Get Amount" />
+				<logger
+					message="#[&quot;\nIB Get Amount BO Request:\n&quot; + message.payloadAs(java.lang.String)]"
+					level="INFO" doc:name="IB Get Amount BO Request" />
+				<http:request config-ref="HUB2.0_BO" path="/" method="POST"
+					doc:name="HUB2.0_BO" />
+				<logger
+					message="#[&quot;\nIB Get Amount BO Response:\n&quot; + message.payloadAs(java.lang.String)]"
+					level="INFO" doc:name="IB Get Amount BO Response" />
+				<set-variable variableName="jsBODESC"
+					value="#[json:fo[0]/input/response/errordesc]" doc:name="jsBODESC" />
+				<json:json-to-object-transformer
+					returnClass="java.lang.Object" doc:name="JSON to Object" />
+				<choice doc:name="Get Amoun BO T?F">
+					<when expression="#[payload.fo[0].input.response.errorcode==0]">
+						<set-payload
+							value="{   &quot;ERRORCODE&quot;: 0,   &quot;ERRORDESC&quot;: &quot;Transaction successfully!&quot;,   &quot;RESULT&quot;: {     &quot;AMOUNT&quot;: &quot;#[payload.fo[0].input.response.data.d_corpservice[0].d_corpservice.AMOUNT]&quot;,     &quot;EDITABLE&quot;:&quot;#[payload.fo[0].input.response.data.d_corpservice[0].d_corpservice.EDITTABLE]&quot;,     &quot;CCRCD&quot;:&quot;#[payload.fo[0].input.response.data.d_corpservice[0].d_corpservice.CCRCD]&quot;   } }"
+							doc:name="build message success" mimeType="application/json" />
+					</when>
+					<otherwise>
+						<set-payload
+							value="{   &quot;ERRORCODE&quot;: #[payload.fo[0].input.response.errorcode],   &quot;ERRORDESC&quot;: &quot;#[flowVars.jsBODESC.replace(&quot;\&quot;&quot;, &quot;\\\&quot;&quot;)]&quot;,   &quot;RESULT&quot;:&quot;&quot; }"
+							doc:name="build message error" mimeType="application/json" />
+					</otherwise>
+				</choice>
+			</otherwise>
+		</choice>
+		<logger
+			message="#[&quot;\n&quot;]WS IB Get Amount Return: #[message.payloadAs(java.lang.String)]"
+			level="INFO" doc:name="WS IB Get Amount Return" />
+		<scripting:transformer mimeType="application/json"
+			doc:name="Build Message Response">
+			<scripting:script engine="JavaScript"><![CDATA[var data = {};
+var resMsg = {};
+try {
+    data = JSON.parse(payload);
+    resMsg = JSON.parse(flowVars.get('reqJSMsgGetBill'));
+    log.info(resMsg.WEBSERNAME);
+    resMsg.ERRORCODE = data.ERRORCODE;
+    resMsg.ERRORDESC = data.ERRORDESC;
+	
+	resMsg.SERVICE_ID = resMsg.SERCODE;
+	delete resMsg.SERCODE;
+	resMsg.CORP_ID = resMsg.CORPCODE;
+	delete resMsg.CORPCODE;
+	resMsg.CUST_ACCT_NO = resMsg.CUSTACC;
+	delete resMsg.CUSTACC;
+	
+    if (data.ERRORCODE == 0) {
+        resMsg.AMOUNT = data.RESULT.AMOUNT;
+        resMsg.EDITABLE = data.RESULT.EDITABLE;
+        resMsg.CCYID = data.RESULT.CCRCD;
+        resMsg.RESULT = {};
+        resMsg.RESULT.AMOUNT = data.RESULT.AMOUNT;
+        resMsg.RESULT.EDITABLE = data.RESULT.EDITABLE;
+        resMsg.RESULT.CCYID = data.RESULT.CCRCD;
+    }
+  	else {
+    	resMsg.AMOUNT = 0;
+        resMsg.EDITABLE = "Y";
+        resMsg.CCYID = "MMK";
+        resMsg.RESULT = {};
+        resMsg.RESULT.AMOUNT = 0;
+        resMsg.RESULT.EDITABLE = "Y";
+        resMsg.RESULT.CCYID = "MMK";
+    }
+} catch (err) {
+    log.info(err);
+    resMsg.ERRORCODE = 1;
+    resMsg.ERRORDESC = "Cannot get amount";
+}
+message.setPayload(JSON.stringify(resMsg));
+result = message;]]></scripting:script>
+		</scripting:transformer>
+		<json:object-to-json-transformer
+			doc:name="Object to JSON" />
+		<logger
+			message="#[&quot;\n=======================================\nEnded Channel Get Amount\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="ENDED CHANNEL GET AMOUNT" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 9999,  &quot;ERRORDESC&quot;: &quot;#[exception.?cause.message or exception]&quot;,  &quot;RESULT&quot;: {} }"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=======================================\nEnded Channel Get Amount\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+				level="INFO" doc:name="ENDED CHANNEL GET AMOUNT" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

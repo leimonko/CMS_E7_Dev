@@ -1,0 +1,9 @@
+{
+    "role_system_name": "Designer",
+    "role_system_id": "designer",
+    "AFGHkeyIndexWJ": "designer",
+    "AFGHkeyTime": 1597331697756,
+    "AFGHkeyWorkFlow": "",
+    "AFGHkeyUserCreateWJ": "p56855d3np64A70",
+    "AFGHTimeWJ": 1597331697794
+}

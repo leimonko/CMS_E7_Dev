@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<flow name="fbe_rvsFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/hub_rvs"
+			doc:name="/hub_rvs" allowedMethods="POST" />
+		<logger message="RVS Request Message: #[message.payloadAs(java.lang.String)]"
+			level="INFO" doc:name="RVS Request Message" />
+		<set-variable variableName=" RequestMsgJson" value="#[payload]"
+			doc:name="Save RequestMsgJson" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="RequestMsgObj" value="#[payload]"
+			doc:name="Save RequestMsgObj" />
+		<logger message="#[message.payloadAs(java.lang.String)]" level="INFO"
+			doc:name="Logger" />
+		<set-payload
+			value="{   &quot;TXREFID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.TXREFID]&quot;,   &quot;ORGREFID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.ORGREFID]&quot;,   &quot;DESCS&quot;: &quot;#[flowVars.RequestMsgObj.datarv.DESCS]&quot; }"
+			mimeType="application/json" doc:name="Build Message Call CBS" />
+		<logger message="REQUEST MESSAGE CBS: #[&quot;\n&quot; +payload]"
+			level="INFO" doc:name="REQUEST MESSAGE CBS" />
+        <flow-ref name="fbe_rvsSub_Flow" doc:name="fbe_rvsSub_Flow"/>
+		<logger
+			message="RESPONSE MESSAGE CBS: #[&quot;\n&quot; +message.payloadAs(java.lang.String)]"
+			level="INFO" doc:name="RESPONSE MESSAGE CBS" />
+        <set-variable variableName="rvsMsg" value="#[message.payloadAs(java.lang.String)]" doc:name="rvsMsg"/>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-payload value="{
+  &quot;info&quot;: {
+    &quot;lang&quot;: &quot;en&quot;,
+    &quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+    &quot;my_device&quot;: {
+      &quot;browser&quot;: &quot;Chrome&quot;,
+      &quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+      &quot;browserMajorVersion&quot;: 79,
+      &quot;cookies&quot;: true
+    },
+    &quot;request_time&quot;: 1580804624914,
+    &quot;protect_request&quot;: &quot;&quot;,
+    &quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+  },
+  &quot;bo&quot;: [
+    {
+      &quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,
+      &quot;input&quot;: {
+        &quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusByAPI&quot;,
+        &quot;learn_sql_insert_table&quot;: &quot;d_usercashInsertOneByAPI&quot;,
+        &quot;learn_sql_update_table&quot;: &quot;d_usercashUpdateBalanceRevesed&quot;,
+        &quot;data&quot;: {
+          &quot;CHAR17&quot;: &quot;#[payload.ERRORDESC]&quot;,
+          &quot;STS&quot;: &quot;#[payload.ERRORCODE==0 ? &quot;C&quot; : &quot;F&quot;]&quot;,
+          &quot;CHAR11&quot;: &quot;#[payload.ERRORCODE==0 ? &quot;C&quot; : &quot;F&quot;]&quot;,
+          &quot;CHAR12&quot;: &quot;#[payload.RESULT.TXREFID]&quot;,
+          &quot;WFSTS&quot;: &quot;C&quot;,
+          &quot;DESCS&quot;: &quot;#[flowVars.RequestMsgObj.datarv.DESCS]&quot;,
+          &quot;ID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.UUID]&quot;,
+          &quot;TXCODE&quot;: &quot;#[flowVars.RequestMsgObj.datarv.TXCODE]&quot;,
+          &quot;OSTBALANCE&quot;: &quot;#[flowVars.RequestMsgObj.datarv.OSTBALANCE]&quot;,
+          &quot;USRID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.USRID]&quot;
+        }
+      }
+    }
+  ]
+}" mimeType="application/json" doc:name="Msg Update"/>
+		<logger message="Message Request Update BO:  #[&quot;\n&quot;+payload]"
+			level="INFO" doc:name="Message Request Update BO" />
+		<http:request config-ref="HUB2.0_BO" path="/" method="POST"
+			doc:name="Update BO" />
+		<logger
+			message="Message Response Update BO:  #[&quot;\n&quot;+message.payloadAs(java.lang.String)]"
+			level="INFO" doc:name="Message Response Update BO" />
+        <set-payload value="#[flowVars.rvsMsg]" mimeType="application/json" doc:name="Msg Response"/>
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{
+	&quot;ERRORCODE&quot;: 9999,
+	&quot;ERRORDESC&quot;: &quot;#[exception !=null ? (exception.?cause.message or exception) : 'Transaction Failed']&quot;,
+	&quot;RESULT&quot;: {}
+}"
+				doc:name="Set Payload" />
+			<logger
+				message="----EXCEPTION #[&quot;\n&quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="Logger" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

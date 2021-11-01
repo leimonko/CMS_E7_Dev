@@ -1,0 +1,1 @@
+{"full_name":"hub013101","email":"hub013101","user_status":"A","user_id":"hub013101","branchcd":"0131","branchid":"0131","branchname":"TPZ","AFGHkeyIndexWJ":"hub013101","AFGHkeyTime":1603781790691,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790691,"AFGHkeyUserCreateWJ":""}

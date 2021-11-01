@@ -1,0 +1,13 @@
+{
+    "learn_sql_title": "Thêm mới txcode",
+    "learn_sql_query": "UPDATE hubdb.d_feecal SET appliedwhen =?, basicvalue=?, payer=?, descs=?, fromvalue=TO_NUMBER(?), tovalue=TO_NUMBER(?), formular=?, roundingby=?,commonacc=?,ccrcd=?,tier = ? WHERE recid = ?",
+    "learn_sql_parameter": "@appliedwhen,@basicvalue,@payer,@descs,@fromvalue,@tovalue,@formular,#roundingby,@commonacc,@ccrcd,#tier,#recid",
+    "learn_sql_parameter_sub": "#recid",
+    "learn_sql_query_sub": "SELECT  recid,TO_NUMBER(feecode) as feecode, caltype, appliedwhen , basicvalue, payer , descs , CASE WHEN caltype = 'L' then TO_CHAR(tier) else '-' end as tier,round( fromvalue,2) as fromvalue , round(tovalue,2) as tovalue, formular, roundingby,commonacc ,ccrcd FROM hubdb.d_feecal  WHERE recid = ?",
+    "learn_sql_data": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_feecalUpdateOne",
+    "AFGHTimeWJ": 1561266469836
+}

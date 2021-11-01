@@ -1,0 +1,14 @@
+﻿{
+  "learn_sql_title": "Thêm mới service",
+  "learn_sql_query": "INSERT INTO hubdb.d_hubstm( recid,trace, txrefid, txdt,id, char15,txcode,sts,usrid,branchid,char05,txupdatedt,char18,char19,dvaluedt) VALUES (?,hubdb.d_hubstm_trace_sque.nextval , hubdb.gene_hubstm_txrefid(),SYSDATE, ?, ?,'O9_HUB07','P',?,?,?,SYSDATE,?,?,SYSDATE)",
+  "learn_sql_parameter": "@recid,@id,@uuid,@usrid,#branid,@descs,@brname,@hublgname",
+  "learn_sql_parameter_sub": "@id",
+  "learn_sql_query_sub": "SELECT recid,txrefid,txdt,txcode, id FROM hubdb.d_hubstm WHERE id =?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "learn_sql_squence": "select hubdb.D_HUBSTM_SEQ.nextval as recid from dual",
+  "AFGHkeyIndexWJ": "d_hubstmInsertOneReversal",
+  "AFGHTimeWJ": 1561266469836
+}

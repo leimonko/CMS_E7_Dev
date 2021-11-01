@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Tìm các dòng dữ liệu",
+	"learn_sql_data": "d_corpregistationGetCorpName",
+	"learn_sql_parameter": "#corpcode",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT shortnamecorp as foldername from hubdb.d_corpregistation  where corpcode = ?  ",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_corpregistationGetCorpName",
+	"AFGHTimeWJ": 1561269909390
+}

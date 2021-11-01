@@ -1,0 +1,39 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Xác nhận",
+      "function": "form.confirm",
+      "type": "javascript",
+      "status": "A",
+      "para": ["sysConfirmDelTitle"],
+      "request": { "false": { "cmd": "stop" } }
+    },
+    {
+      "name": "Xóa dữ liệu",
+      "function": "form.delete",
+      "type": "javascript",
+      "status": "A",
+      "para": ["@table_code", "@table_col_key"],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-load-deletedata",
+              "input": { "table_code": "@table_code", "table_col_key": "@table_col_key" }
+            },
+            { "txcode": "#sys:bo-load-data", "input": { "table_code": "@table_code" } }
+          ]
+        }
+      }
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-post-deletedata",
+  "txname": "Xóa 1 data webui (không xóa)",
+  "version": 4,
+  "updateTime": 1565861292783,
+  "isOld": true
+}

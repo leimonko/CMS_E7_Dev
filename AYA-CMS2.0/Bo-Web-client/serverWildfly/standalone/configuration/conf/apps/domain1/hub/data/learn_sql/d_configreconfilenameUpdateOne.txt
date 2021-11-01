@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Sửa 1 dữ liệu txcode",
+  "learn_sql_parameter": "@filename,@filetype, @corpcode",
+  "learn_sql_query": "UPDATE hubdb.d_configreconfilename SET filename=? ,filetype=? WHERE corpcode=? ",
+  "learn_sql_parameter_sub": "@corpcode",
+  "learn_sql_query_sub": "SELECT 'F' as codetype, recid,corpcode, filename,filetype FROM hubdb.d_configreconfilename WHERE corpcode = ? ",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_configreconfilenameUpdateOne",
+  "learn_sql_data": "d_configreconfilename",
+  "AFGHTimeWJ": 1561295766446
+}

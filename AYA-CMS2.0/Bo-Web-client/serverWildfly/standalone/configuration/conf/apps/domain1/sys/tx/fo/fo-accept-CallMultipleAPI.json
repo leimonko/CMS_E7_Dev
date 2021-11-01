@@ -1,0 +1,44 @@
+{
+    "input": {},
+    "actions": [{
+            "name": "Xoá thông báo lỗi",
+            "function": "form.clearError",
+            "type": "javascript",
+            "status": "A",
+            "para": []
+        }, {
+            "name": "Thu thập và thêm mới",
+            "function": "form.addnew",
+            "type": "javascript",
+            "status": "A",
+            "para": ["@list_component", "@list_view"],
+            "request": {
+                "true": {
+                    "bo": [{
+                            "txcode": "#sys:bo-accept-CallMultipleAPI",
+                            "input": {
+                                "learn_api": "@learn_api",
+                                "learn_sql": "@learn_sql",
+                                "table_code": "@table_code"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "request": {
+        "bo": [{
+                "txcode": "",
+                "input": {}
+            }
+        ]
+    },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "fo-accept-CallMultipleAPI",
+    "txname": "create data with API",
+    "version": 3,
+    "updateTime": 1583718670042,
+    "isOld": true
+}

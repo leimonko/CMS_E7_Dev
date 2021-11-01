@@ -1,0 +1,14 @@
+
+{
+  "learn_sql_title": "d_codetypeViewOne",
+   "learn_sql_data": "d_codetype",
+  "learn_sql_parameter": "#recid",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "SELECT * FROM hubdb.d_codetype WHERE recid = ? ",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_codetypeViewOne",
+  "AFGHTimeWJ": 1585837541575
+}

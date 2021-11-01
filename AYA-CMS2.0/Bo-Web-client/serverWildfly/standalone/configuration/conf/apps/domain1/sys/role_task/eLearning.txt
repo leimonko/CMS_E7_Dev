@@ -1,0 +1,1 @@
+{"admin":{"eLearning":{"form":{"accept":true,"follow":false}}}}

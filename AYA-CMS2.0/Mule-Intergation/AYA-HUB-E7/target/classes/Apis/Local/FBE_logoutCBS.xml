@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="hub_logoutcbsFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/logout"
+			allowedMethods="POST" doc:name="/logout" />
+			<set-variable variableName="uuid" value="#[java.util.UUID.randomUUID().toString()]" doc:name="uuid"/>
+	<logger
+			message="#[&quot;\n=======================================\nStarted FBE LOGOUT\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="Start HUB Logout" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-payload
+			value="{
+	&quot;path&quot;: &quot;/bfweb/retail/MisysSSOFBPService/SSOLogoutService&quot;,
+	&quot;method&quot;: &quot;POST&quot;,
+	&quot;params&quot;: {},
+	&quot;headers&quot;: {},
+	&quot;body&quot;: {     &quot;applicationID&quot;: &quot;#[payload.APPLICATIONID]&quot;,     &quot;userLocator&quot;: &quot;#[payload.USERLOCATOR]&quot; }
+}"
+			mimeType="application/json" doc:name="build message logout" />
+		<flow-ref name="FBE_jsonConnectorFlow" doc:name="FBE_jsonConnectorFlow"/>
+		<set-payload
+			value="{
+	&quot;ERRORCODE&quot;: &quot;#[json:status]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[json:desc]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;SESSIONID&quot;: &quot;#[json:data/result]&quot;
+	}
+}"
+			mimeType="application/json" doc:name="Response Msg" />
+			<logger
+			message="#[&quot;\n=======================================\nEnded FBE LOGOUT\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="End HUB Logout" />
+	<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 9999,  &quot;ERRORDESC&quot;: &quot;#[(exception.?cause.message or exception).toString().replace('&quot;','')]&quot;,  &quot;RESULT&quot;: {} }"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=======================================\nEnded FBE LOGOUT\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+				level="INFO" doc:name="End HUB Logout" />
+		</catch-exception-strategy>		</flow>
+</mule>

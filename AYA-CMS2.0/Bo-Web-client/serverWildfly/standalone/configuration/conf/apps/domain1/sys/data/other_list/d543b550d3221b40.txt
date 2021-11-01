@@ -1,0 +1,1 @@
+{"other_list_name":"Xe máy","other_list_group":"loan_menu","other_list_color":"","other_list_icon":"","other_list_order":"2","other_list_id":"9617ce4d6e00eeb9","AFGHkeyIndexWJ":"d543b550d3221b40","AFGHkeyTime":1569387015756,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1569387017617}

@@ -1,0 +1,1 @@
+{"cdid":"WT","cdname":"PTYPE_IRD","caption":"Withholding tax","cdgrp":"JWEBUI","cdidx":"1","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"WT_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

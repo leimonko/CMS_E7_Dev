@@ -1,0 +1,40 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Xóa thông báo lỗi",
+      "function": "form.clearError",
+      "type": "javascript",
+      "status": "A",
+      "para": []
+    },
+    {
+      "name": "Thu thập và thêm mới",
+      "function": "form.addnew",
+      "type": "javascript",
+      "status": "A",
+      "para": ["@list_component", "@list_view"],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-api-postAPI",
+              "input": {
+                "table_code": "@table_code",
+                "learn_api": "@learn_api"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-post-newDataAPI",
+  "txname": "gọi learn API",
+  "version": 1,
+  "updateTime": 1562501779000,
+  "isOld": false,
+  "request": {}
+}

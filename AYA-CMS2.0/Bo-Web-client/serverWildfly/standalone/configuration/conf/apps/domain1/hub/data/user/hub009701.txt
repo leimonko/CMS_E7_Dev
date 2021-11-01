@@ -1,0 +1,1 @@
+{"full_name":"hub009701","email":"hub009701","user_status":"A","user_id":"hub009701","branchcd":"0097","branchid":"0097","branchname":"NPT - TPG (mini)","AFGHkeyIndexWJ":"hub009701","AFGHkeyTime":1603781790666,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790666,"AFGHkeyUserCreateWJ":""}

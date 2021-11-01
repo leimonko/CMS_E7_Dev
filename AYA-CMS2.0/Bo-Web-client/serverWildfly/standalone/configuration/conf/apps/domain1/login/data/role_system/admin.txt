@@ -1,0 +1,1 @@
+{"role_system_name":"Quyền quản trị","role_system_id":"admin","AFGHkeyIndexWJ":"admin","AFGHkeyTime":1556008461346,"AFGHkeyWorkFlow":""}

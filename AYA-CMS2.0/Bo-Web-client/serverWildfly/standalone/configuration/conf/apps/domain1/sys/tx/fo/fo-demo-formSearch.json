@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Thu thập","function":"form.addnew","type":"javascript","status":"A","para":["@list_component","@list_view"],"request":{"true":{"bo":[{"txcode":"#sys:bo-demo-formSearch","input":{}}]}}}],"request":{},"status":"A","txtype":"bo","txcode":"fo-demo-formSearch","txname":"Form demo","version":2,"updateTime":1588390626480,"isOld":true}

@@ -1,0 +1,1 @@
+{"full_name":"hub003701","email":"hub003701","user_status":"A","user_id":"hub003701","branchcd":"0037","branchid":"0037","branchname":"Mudon","AFGHkeyIndexWJ":"hub003701","AFGHkeyTime":1603781790592,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790592,"AFGHkeyUserCreateWJ":""}

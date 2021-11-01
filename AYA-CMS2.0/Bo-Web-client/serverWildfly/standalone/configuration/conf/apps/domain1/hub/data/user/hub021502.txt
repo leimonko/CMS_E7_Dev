@@ -1,0 +1,1 @@
+{"full_name":"hub021502","email":"hub021502","user_status":"A","user_id":"hub021502","branchcd":"0215","branchid":"0215","branchname":"NPT_TKN","AFGHkeyIndexWJ":"hub021502","AFGHkeyTime":1603781790746,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790746,"AFGHkeyUserCreateWJ":""}

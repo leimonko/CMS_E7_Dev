@@ -1,0 +1,1 @@
+{"full_name":"hub002101","email":"hub002101","user_status":"A","user_id":"hub002101","branchcd":"0021","branchid":"0021","branchname":"Hinthata","AFGHkeyIndexWJ":"hub002101","AFGHkeyTime":1603781790574,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790574,"AFGHkeyUserCreateWJ":""}

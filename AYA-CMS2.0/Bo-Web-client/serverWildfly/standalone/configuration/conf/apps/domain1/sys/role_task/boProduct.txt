@@ -1,0 +1,1 @@
+{"admin":{"boProduct":{"form":{"accept":true,"follow":false}}}}

@@ -1,0 +1,27 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Xem d? li?u",
+      "function": "own_O9.printVoucher",
+      "type": "javascript",
+      "status": "A",
+      "para": ["@table_code", "@table_col_key", "@form_key"]
+    }
+  ],
+  "request": {
+    "bo": [
+      {
+        "txcode": "",
+        "input": {}
+      }
+    ]
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-print-dataAPIOpenFormO9_F8",
+  "txname": "view data api openform",
+  "version": 2,
+  "updateTime": 1571219489989,
+  "isOld": true
+}

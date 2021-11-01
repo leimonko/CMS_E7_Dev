@@ -1,0 +1,1 @@
+{"cdid":"MD-010134","cdname":"TAXPAYMENT_ACNO","caption":"2020","cdgrp":"JWEBUI","cdidx":"2","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"MD_010134","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

@@ -1,0 +1,1 @@
+{"full_name":"hub019801","email":"hub019801","user_status":"A","user_id":"hub019801","branchcd":"0198","branchid":"0198","branchname":"Ygn(82)_DPN 2","AFGHkeyIndexWJ":"hub019801","AFGHkeyTime":1603781790737,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790737,"AFGHkeyUserCreateWJ":""}

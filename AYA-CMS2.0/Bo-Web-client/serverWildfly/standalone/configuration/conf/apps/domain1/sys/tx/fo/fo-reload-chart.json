@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Reload data chart form","function":"formAPI.reloadData","type":"javascript","status":"A","para":[]}],"status":"A","txtype":"bo","txcode":"fo-reload-chart","txname":"Reload data for chart","version":1,"updateTime":1587453787234,"isOld":false,"request":{}}

@@ -1,0 +1,25 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Lưu master data mới và so sánh",
+      "function": "masterdata.compareData",
+      "type": "javascript",
+      "status": "A",
+      "para": [],
+      "request": {
+        "true": {
+          "bo": [{ "txcode": "#sys:bo-masterdata-saveData", "input": {} }]
+        }
+      }
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-masterdata-saveDataNew",
+  "txname": "Lưu vào kho master data client new",
+  "version": 4,
+  "updateTime": 1564483049730,
+  "isOld": true
+}

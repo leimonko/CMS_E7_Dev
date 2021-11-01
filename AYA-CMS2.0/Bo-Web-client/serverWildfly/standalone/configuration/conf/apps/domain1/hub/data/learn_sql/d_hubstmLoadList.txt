@@ -1,0 +1,14 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data txcode",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT recid,txrefid,txdt,txcode, corpcode, sercode, billccy, billamt, baccdr, cuscode,hubfee01, feecode, notifiemail, catid,id FROM hubdb.d_hubstm WHERE txcode ='O9_HUB06'
+	ORDER BY txdt DESC",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmLoadList",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "d_hubstmListing"
+    }

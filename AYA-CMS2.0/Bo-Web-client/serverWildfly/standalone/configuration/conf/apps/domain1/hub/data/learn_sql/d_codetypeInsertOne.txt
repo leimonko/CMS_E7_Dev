@@ -1,0 +1,14 @@
+﻿{
+  "learn_sql_title": "d_codetypeInsertOne",
+  "learn_sql_query": "INSERT INTO hubdb.d_codetype(recid,codetype, subcodetype,descs) VALUES (?,?, ?, ?)",
+  "learn_sql_parameter": "#recid,@codetype, @subcodetype,@descs",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query_sub": "SELECT * FROM hubdb.d_codetype WHERE recid = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+   "learn_sql_squence": "select hubdb.d_codetype_seq.nextval as recid from dual",
+  "AFGHkeyIndexWJ": "d_codetypeInsertOne",
+  "AFGHTimeWJ": 1561266469836
+}

@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Sửa 1 dữ liệu txcode",
+  "learn_sql_data": "d_configreconfile",
+  "learn_sql_parameter": "@fieldname, @format, #indext, #isuse, #recid",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query": "UPDATE hubdb.d_configreconfile SET fieldname=?, format=?, indext=?, isuse=?  WHERE recid=?",
+  "learn_sql_query_sub": "SELECT 'M' as codetype, recid, fieldname, format, indext ,isuse,TO_NUMBER(corpcode) as corpcode from hubdb.d_configreconfile WHERE recid = ?",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_configreconfileUpdateOne",
+  "AFGHTimeWJ": 1561295766446
+}

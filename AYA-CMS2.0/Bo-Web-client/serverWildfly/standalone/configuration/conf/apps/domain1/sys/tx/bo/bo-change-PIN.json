@@ -1,0 +1,31 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "Save PIN",
+			"function": "txManagerUser.savePIN",
+			"type": "java",
+			"para": [],
+			"status": "A",
+			"response": {
+				"_default_": {
+					"fo": [
+						{
+							"txcode": "#sys:fo-container",
+							"input": {}
+						}
+					]
+				}
+			}
+		}
+	],
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "bo-change-PIN",
+	"txname": "Lưu mã PIN",
+	"version": 1,
+	"updateTime": 1568129234355,
+	"hasRole": "false",
+	"isOld": false,
+	"response": {}
+}

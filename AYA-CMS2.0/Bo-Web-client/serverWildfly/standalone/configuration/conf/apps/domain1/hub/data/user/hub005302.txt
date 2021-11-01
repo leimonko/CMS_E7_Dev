@@ -1,0 +1,1 @@
+{"full_name":"hub005302","email":"hub005302","user_status":"A","user_id":"hub005302","branchcd":"0053","branchid":"0053","branchname":"Ygn In Ya Road","AFGHkeyIndexWJ":"hub005302","AFGHkeyTime":1603781790608,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790608,"AFGHkeyUserCreateWJ":""}

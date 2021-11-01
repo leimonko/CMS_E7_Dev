@@ -1,0 +1,1 @@
+{"full_name":"hub003802","email":"hub003802","user_status":"A","user_id":"hub003802","branchcd":"0038","branchid":"0038","branchname":"Pyinmanar","AFGHkeyIndexWJ":"hub003802","AFGHkeyTime":1603781790593,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790593,"AFGHkeyUserCreateWJ":""}

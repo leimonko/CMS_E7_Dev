@@ -1,0 +1,1 @@
+{"full_name":"hub024602","email":"hub024602","user_status":"A","user_id":"hub024602","branchcd":"0246","branchid":"0246","branchname":"Mdy(27) OCW","AFGHkeyIndexWJ":"hub024602","AFGHkeyTime":1603781790773,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790773,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"data webui","function":"system.data","type":"java","status":"A"}],"request":{},"status":"A","txtype":"bo","txcode":"fo-load-data","txname":"Chỉ xử lý chép data vào hệ thống client","version":2,"updateTime":1562157339445,"isOld":true}

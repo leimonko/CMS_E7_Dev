@@ -1,0 +1,14 @@
+﻿
+{
+  "learn_sql_title": "view 1 fee cal",
+   "learn_sql_data": "feecalculation",
+  "learn_sql_parameter": "#recid",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "SELECT recid,TO_NUMBER(feecode) as feecode, caltype, appliedwhen , basicvalue, payer , descs , tier, case fromvalue when null then 0 else fromvalue end as fromvalue , case tovalue when null then 0 else tovalue end as tovalue, formular, roundingby,commonacc ,ccrcd FROM hubdb.d_feecal WHERE recid = ? ",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_feecalViewOne",
+  "AFGHTimeWJ": 1585837541575
+}

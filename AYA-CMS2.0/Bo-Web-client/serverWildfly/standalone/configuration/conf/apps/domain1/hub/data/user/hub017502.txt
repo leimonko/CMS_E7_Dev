@@ -1,0 +1,1 @@
+{"full_name":"hub017502","email":"hub017502","user_status":"A","user_id":"hub017502","branchcd":"0175","branchid":"0175","branchname":"Mdy(18)_DPA","AFGHkeyIndexWJ":"hub017502","AFGHkeyTime":1603781790723,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790723,"AFGHkeyUserCreateWJ":""}

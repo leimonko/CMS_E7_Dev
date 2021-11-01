@@ -1,0 +1,1 @@
+{"full_name":"hub007002","email":"hub007002","user_status":"A","user_id":"hub007002","branchcd":"0070","branchid":"0070","branchname":"Kyi Myin Dine (1)","AFGHkeyIndexWJ":"hub007002","AFGHkeyTime":1603781790631,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790631,"AFGHkeyUserCreateWJ":""}

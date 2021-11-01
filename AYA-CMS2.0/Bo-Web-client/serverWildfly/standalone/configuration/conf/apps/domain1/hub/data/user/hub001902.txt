@@ -1,0 +1,1 @@
+{"full_name":"hub001902","email":"hub001902","user_status":"A","user_id":"hub001902","branchcd":"0019","branchid":"0019","branchname":"Myawady","AFGHkeyIndexWJ":"hub001902","AFGHkeyTime":1603781790573,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790573,"AFGHkeyUserCreateWJ":""}

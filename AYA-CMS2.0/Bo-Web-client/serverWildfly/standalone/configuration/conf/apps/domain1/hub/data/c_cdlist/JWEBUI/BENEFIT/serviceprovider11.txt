@@ -1,0 +1,14 @@
+{
+  "cdid": "P",
+  "cdname": "BENEFIT",
+  "caption": "Service provider",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": "1",
+  "AFGHkeyIndexWJ": "serviceprovider11",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

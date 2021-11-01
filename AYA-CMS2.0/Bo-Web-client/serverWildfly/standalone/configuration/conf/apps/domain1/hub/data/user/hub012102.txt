@@ -1,0 +1,1 @@
+{"full_name":"hub012102","email":"hub012102","user_status":"A","user_id":"hub012102","branchcd":"0121","branchid":"0121","branchname":"Myan Aung","AFGHkeyIndexWJ":"hub012102","AFGHkeyTime":1603781790683,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790683,"AFGHkeyUserCreateWJ":""}

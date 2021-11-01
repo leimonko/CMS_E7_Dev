@@ -1,0 +1,1 @@
+{"full_name":"hub016202","email":"hub016202","user_status":"A","user_id":"hub016202","branchcd":"0162","branchid":"0162","branchname":"KPW","AFGHkeyIndexWJ":"hub016202","AFGHkeyTime":1603781790717,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790717,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,14 @@
+﻿{
+  "learn_sql_title": "Tải tất cả data txcode",
+  "learn_sql_parameter": "",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": " SELECT distinct a.CORPCODE as corpid, a.FULLNAMECORP as corpname FROM hubdb.D_CORPREGISTATION a inner join hubdb.d_corpservice b on a.corpcode = b.corpcode
+where b.internetbanking = 'Y' order by fullnamecorp",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_corpserviceGetCorporateList",
+  "AFGHTimeWJ": 1561263635755,
+  "learn_sql_data": "d_corpregistation"
+}

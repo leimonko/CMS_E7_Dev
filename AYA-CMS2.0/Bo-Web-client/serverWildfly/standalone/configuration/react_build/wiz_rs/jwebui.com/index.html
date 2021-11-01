@@ -1,0 +1,33 @@
+<wiz dataweb="menu" component="JTree">
+	<ul class="nav navbar-nav nav_1" wiz-list="menu">
+		<wcontent></wcontent>
+		<wtemplate><li><a href="@{link}">@{title}</a></li></wtemplate>
+		<wtemplate>
+			<li class="has_sub_menu">
+				<a href="@{link}">@{title}</a>
+					<ul class="sub_menu">
+						<wizchild1>
+	                        <li><a href="@{link}">@{title}</a></li>
+						</wizchild1>
+					</ul>
+			</li>
+		</wtemplate>
+		<wtemplate>
+			<li class="has_sub_menu">
+				<a href="@{link}">@{title}</a>
+				<ul class="sub_menu">
+					<wizchild1>
+						<li>
+	                        <a href="@{link}">@{title}</a>
+	                        <ul>
+	                            <wizchild2>
+	                            	<li><a href="@{link}">@{title}</a></li>
+	                            </wizchild2>
+	                        </ul>
+	                    </li>
+	                </wizchild1>
+	            </ul>
+	        </li>
+		</wtemplate>
+    </ul>
+</wiz>

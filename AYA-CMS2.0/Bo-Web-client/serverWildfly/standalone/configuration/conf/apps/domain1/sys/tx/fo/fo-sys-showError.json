@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Hiển thị lỗi","function":"system.showError","type":"javascript","status":"A","para":[]}],"status":"A","txtype":"bo","txcode":"fo-sys-showError","txname":"Thông báo lỗi từ server (Không xóa)","version":1,"updateTime":1571307790028,"isOld":false,"request":{}}

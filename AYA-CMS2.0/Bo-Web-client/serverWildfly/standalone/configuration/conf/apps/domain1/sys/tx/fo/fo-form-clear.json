@@ -1,0 +1,20 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Xóa trắng dữ liệu form",
+      "function": "formAPI.clearForm",
+      "type": "javascript",
+      "status": "A",
+      "para": []
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-form-clear",
+  "txname": "Xóa trắng",
+  "version": 3,
+  "updateTime": 1577440015850,
+  "isOld": true
+}

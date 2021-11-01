@@ -1,0 +1,14 @@
+{
+  "cdid": "JOB_MIS_REPORT",
+  "cdname": "TRANSFERTYPE",
+  "caption": "JOB_MIS_REPORT",
+  "cdgrp": "JWEBUI",
+  "cdidx": "3",
+  "cdval": "",
+  "flag": "",
+  "visible": "1",
+  "AFGHkeyIndexWJ": "JOB_MIS_REPORT",
+  "AFGHkeyTime": 1578537958707,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

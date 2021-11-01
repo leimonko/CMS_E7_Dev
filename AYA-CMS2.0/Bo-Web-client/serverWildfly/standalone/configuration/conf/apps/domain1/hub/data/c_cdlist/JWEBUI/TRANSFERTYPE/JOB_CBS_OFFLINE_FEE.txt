@@ -1,0 +1,14 @@
+{
+  "cdid": "JOB_CBS_OFFLINE_FEE",
+  "cdname": "TRANSFERTYPE",
+  "caption": "JOB_CBS_OFFLINE_FEE",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": 1,
+  "AFGHkeyIndexWJ": "JOB_CBS_OFFLINE_FEE",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Tải tất cả data txcode",
+	"learn_sql_parameter": "",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT recid, schedulename, transfertype, frequency,TO_CHAR(firsttxdate, 'HH:Mi:SS') as firsttime, TO_CHAR(firsttxdate, 'DD/MM/YYYY') as firsttxdate,TO_CHAR(lasttxdate, 'HH:Mi:SS') as lasttime,TO_CHAR(lasttxdate, 'DD/MM/YYYY') as lasttxdate,  descs, status, mic, corpcode, sercode, TO_CHAR(fromdateex, 'dd/mm/yyyy') as fromdateex, TO_CHAR(todateex, 'dd/mm/yyyy') as todateex  FROM hubdb.d_scheduletransfertmp",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_scheduletransfertmp",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_scheduletransfertmp"
+}

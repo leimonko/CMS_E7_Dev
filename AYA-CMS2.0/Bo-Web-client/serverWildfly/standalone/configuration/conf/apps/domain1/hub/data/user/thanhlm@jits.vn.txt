@@ -1,0 +1,9 @@
+{
+    "full_name": "Lê Minh Thành",
+    "email": "thanhlm@jits.vn",
+    "user_status": "N",
+    "user_id": "p56855d3np64A70",
+    "AFGHkeyIndexWJ": "thanhlm@jits.vn",
+    "AFGHkeyTime": 1556856044145,
+    "AFGHkeyWorkFlow": ""
+}

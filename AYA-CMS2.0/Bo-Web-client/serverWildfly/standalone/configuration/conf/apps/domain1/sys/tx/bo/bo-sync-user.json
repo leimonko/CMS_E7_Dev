@@ -1,0 +1,26 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "Tạo mới",
+			"function": "o9.core.txSyncUser.createUserHub",
+			"type": "java",
+			"para": [],
+			"status": "A",
+			"response": {
+				"true": {},
+				"false": {}
+			}
+		}
+	],
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "bo-sync-user",
+	"txname": "Tạo mới người dùng khi chưa có trong sys",
+	"version": 2,
+	"updateTime": 1598769252787,
+	"hasRole": "false",
+	"isOld": true,
+	"response": {},
+	"order": 19
+}

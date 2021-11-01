@@ -1,0 +1,14 @@
+﻿{
+  "learn_sql_title": "Add usernumber",
+  "learn_sql_query": "INSERT INTO hubdb.HUBUSERNUMBER(APP,DOMAIN, USER_ID, USERNUMBER) VALUES (?,?, ?, hubdb.HUBUSERNUMBER_SEQ.nextval)",
+  "learn_sql_parameter": "@app, @domain, @user_id",
+  "learn_sql_parameter_sub": "@app, @domain, @user_id",
+  "learn_sql_query_sub": "SELECT * FROM hubdb.HUBUSERNUMBER WHERE APP = ? and DOMAIN = ? and USER_ID =?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "learn_sql_squence": "",
+  "AFGHkeyIndexWJ": "hubusernumber_InsertOne",
+  "AFGHTimeWJ": 1561266469836
+}

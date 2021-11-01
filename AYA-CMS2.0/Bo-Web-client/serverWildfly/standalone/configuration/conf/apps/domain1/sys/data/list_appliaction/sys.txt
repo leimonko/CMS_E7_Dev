@@ -1,0 +1,29 @@
+{
+	"list_appliaction_name": "System",
+	"list_appliaction_des": "App System",
+	"list_appliaction_img": "../rs/global/img/Dl1RiGy.png",
+	"list_appliaction_id": "sys",
+	"list_appliaction_bo": "bo-login-sys",
+	"list_appliaction_order": "1",
+	"AFGHkeyIndexWJ": "sys",
+	"AFGHkeyTime": 1562778225210,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1562778225215,
+	"configTemplate": {
+		"mobi": {
+			"template": "malibu",
+			"screen_working": "desktop_sys",
+			"theme": "krungthai"
+		},
+		"desktop": {
+			"template": "malibu",
+			"screen_working": "desktop_sys",
+			"theme": "krungthai"
+		},
+		"tablet": {
+			"template": "malibu",
+			"screen_working": "desktop_sys",
+			"theme": "krungthai"
+		}
+	}
+}

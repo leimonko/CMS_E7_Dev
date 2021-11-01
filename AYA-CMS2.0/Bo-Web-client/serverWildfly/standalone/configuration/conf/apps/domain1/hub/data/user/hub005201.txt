@@ -1,0 +1,1 @@
+{"full_name":"hub005201","email":"hub005201","user_status":"A","user_id":"hub005201","branchcd":"0052","branchid":"0052","branchname":"Mdy (7) 30 Street","AFGHkeyIndexWJ":"hub005201","AFGHkeyTime":1603781790607,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790607,"AFGHkeyUserCreateWJ":""}

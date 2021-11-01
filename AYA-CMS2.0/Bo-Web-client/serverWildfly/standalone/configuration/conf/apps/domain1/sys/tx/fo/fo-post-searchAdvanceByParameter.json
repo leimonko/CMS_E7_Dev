@@ -1,0 +1,42 @@
+{
+  "input": {
+    
+  },
+  "actions": [
+    {
+     "name": "Thu thập và thêm mới",
+      "function": "formsql.getDataForm",
+      "type": "javascript",
+      "status": "A",
+      "para": [
+        "@list_component",
+        "@list_view",
+		"false"
+      ],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-load-searchAdvanceByParameter",
+              "input": {
+				"table_code": "@table_code",
+                "learn_sql": "@learn_sql"
+				
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "request": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-post-searchAdvanceByParameter",
+  "txname": "Xem 1 data bằng learn sql (không xóa)",
+  "version": 2,
+  "updateTime": 1562208762925,
+  "isOld": true
+}

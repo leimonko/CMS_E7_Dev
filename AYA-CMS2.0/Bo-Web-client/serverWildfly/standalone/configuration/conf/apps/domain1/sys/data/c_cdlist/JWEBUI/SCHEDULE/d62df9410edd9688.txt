@@ -1,0 +1,1 @@
+{"cdid":"S","cdname":"SCHEDULE","caption":"Start after","cdgrp":"JWEBUI","cdidx":2,"cdval":"","flag":0,"visible":1,"AFGHkeyIndexWJ":"d62df9410edd9688","AFGHkeyTime":1578537990963,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537990994}

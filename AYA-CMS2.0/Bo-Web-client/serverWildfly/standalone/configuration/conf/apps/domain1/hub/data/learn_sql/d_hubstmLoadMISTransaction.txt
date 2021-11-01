@@ -1,0 +1,19 @@
+﻿{
+    "learn_sql_title": "d_hubstmLoadMISTransaction",
+    "learn_sql_parameter": "@corpcode,@servicecode,@fromdate,@todate,@corpcode,@servicecode,@fromdate,@todate",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT  recid,trace,txrefid,txdt,txcode, corpcode, sercode, billccy, billamt, baccdr, cuscode,hubfee01, feecode, notifiemail, catid,id FROM (
+SELECT recid,trace,txrefid,txdt,txcode, corpcode, sercode, billccy, billamt, baccdr, cuscode,hubfee01, feecode, notifiemail, catid,id, sts FROM hubdb.d_hubstm 
+WHERE corpcode=? AND sercode=? AND sts='C' AND TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD')<=dvaluedt AND  (TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD')+ INTERVAL '1' DAY)>dvaluedt
+UNION ALL
+SELECT recid,trace,txrefid,txdt,txcode, corpcode, sercode, billccy, billamt, baccdr, cuscode,hubfee01, feecode, notifiemail, catid,id,sts FROM hubdb.r_hubstm 
+WHERE corpcode=? AND sercode=? AND sts='C' AND TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD')<=dvaluedt AND  (TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD')+ INTERVAL '1' DAY)>dvaluedt
+) a	 ORDER BY txdt ASC",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "fromdate,todate",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmLoadMISTransaction",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "MISTransaction"
+    }

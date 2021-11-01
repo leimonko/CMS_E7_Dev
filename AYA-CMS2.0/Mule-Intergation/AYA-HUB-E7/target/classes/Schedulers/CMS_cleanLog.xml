@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:schedulers="http://www.mulesoft.org/schema/mule/schedulers"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/schedulers http://www.mulesoft.org/schema/mule/schedulers/current/mule-schedulers.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<flow name="cleanHUBSTMLogFlow" processingStrategy="synchronous">
+		<poll doc:name="Run Everyday at 1AM">
+			<schedulers:cron-scheduler expression="0 0 1 ? * *" />
+			<invoke object-ref="AutoLogin" method="getMsgCleanLog"
+				doc:name="getMsgCleanLog" />
+		</poll>
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-payload
+			value="{
+  &quot;info&quot;: {
+    &quot;lang&quot;: &quot;en&quot;,
+    &quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+    &quot;my_device&quot;: {
+      &quot;browser&quot;: &quot;Chrome&quot;,
+      &quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+      &quot;browserMajorVersion&quot;: 79,
+      &quot;cookies&quot;: true
+    },
+    &quot;request_time&quot;: 1580804624914,
+    &quot;protect_request&quot;: &quot;&quot;,
+    &quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+  },
+  &quot;bo&quot;: [
+    {
+      &quot;txcode&quot;: &quot;bo-hub-clean-log&quot;,
+      &quot;input&quot;: {
+        &quot;learn_sql&quot;: &quot;&quot;,
+        &quot;data&quot;: {
+      &quot;DATE&quot;:&quot;#[payload.DATE]&quot;,
+      &quot;DESC&quot;:&quot;Mule Call BO Clean Log&quot;,
+      &quot;TXDT&quot;:&quot;#[payload.TXDT]&quot;
+        }
+      }
+    }
+  ]
+}"
+			mimeType="application/json" doc:name="Build Msg Clean Log" />
+		<logger
+			message="#[&quot;\n====================================================================================================\nSTARTED CLEAN LOG\n-----\nMessage Request:\n&quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]"
+			level="INFO" doc:name="STARTED CLEAN LOG" />
+		<http:request config-ref="HUB2.0_BO" path="/" method="POST"
+			doc:name="Clean Log" />
+		<logger
+			message="#[&quot;\n====================================================================================================\nENDED CLEAN LOG\n-----\nMessage Response:\n&quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]"
+			level="INFO" doc:name="ENDED CLEAN LOG" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 4,  &quot;ERRORDESC&quot;: &quot;#[exception.message.replace('&quot;',&quot;&quot;)]&quot;,  &quot;RESULT&quot;: &quot;&quot; }"
+				doc:name="Message Exception Error " mimeType="application/json" />
+			<logger
+				message="#[&quot;\n----EXCEPTION &quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="---EXCEPTION---" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

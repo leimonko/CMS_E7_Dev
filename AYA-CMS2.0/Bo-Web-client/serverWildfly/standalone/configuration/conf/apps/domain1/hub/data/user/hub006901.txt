@@ -1,0 +1,1 @@
+{"full_name":"hub006901","email":"hub006901","user_status":"A","user_id":"hub006901","branchcd":"0069","branchid":"0069","branchname":"Tamu","AFGHkeyIndexWJ":"hub006901","AFGHkeyTime":1603781790629,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790629,"AFGHkeyUserCreateWJ":""}

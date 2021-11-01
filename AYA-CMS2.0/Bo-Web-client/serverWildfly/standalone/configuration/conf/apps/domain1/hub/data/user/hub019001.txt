@@ -1,0 +1,1 @@
+{"full_name":"hub019001","email":"hub019001","user_status":"A","user_id":"hub019001","branchcd":"0190","branchid":"0190","branchname":"Ygn(78)_DPN 1","AFGHkeyIndexWJ":"hub019001","AFGHkeyTime":1603781790731,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790731,"AFGHkeyUserCreateWJ":""}

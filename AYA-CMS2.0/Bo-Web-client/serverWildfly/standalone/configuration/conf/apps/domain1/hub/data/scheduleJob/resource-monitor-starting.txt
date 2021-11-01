@@ -1,0 +1,17 @@
+﻿{
+  "name": "Lập liên tục",
+  "type": "L",
+  "status": "start",
+  "time": 1000,
+  "creator": "ac02",
+  "conditions": "wf.context.scheduleContext_run_count<=1",
+  "modifier": "ac02",
+  "content_run": "[{\"txcode\":\"#sys:fo-scheduleJob-starting-resource-monitoring\",\"input\": {\"inputne\": \"starting-resource-monitoring\"}}]",
+  "id": "5dcfce88af37c0e9",
+  "AFGHkeyUserCreateWJ": "p56855d3np64A70",
+  "AFGHkeyIndexWJ": "bebb338b5df5904b",
+  "AFGHkeyTime": 1588061934561,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1588061934580,
+  "JWebUI_UserCreate": "p56855d3np64A70"
+}

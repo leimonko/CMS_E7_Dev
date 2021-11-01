@@ -1,0 +1,39 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "Xem 1 dữ liệu",
+			"function": "o9.core.txO9.viewCdlist",
+			"type": "java",
+			"para": [],
+			"status": "A",
+			"response": {
+				"true": {
+					"fo": [
+						{
+							"txcode": "#sys:fo-post-viewHasData",
+							"input": {}
+						},
+						{
+							"txcode": "#sys:fo-masterdata-saveDataOld",
+							"input": {}
+						},
+						{
+							"txcode": "#sys:fo-error-setToFormMain",
+							"input": {}
+						}
+					]
+				}
+			}
+		}
+	],
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "bo-view-cdlist",
+	"txname": "View cdlist",
+	"version": 1,
+	"updateTime": 1589255023360,
+	"hasRole": "false",
+	"isOld": false,
+	"response": {}
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub004602","email":"hub004602","user_status":"A","user_id":"hub004602","branchcd":"0046","branchid":"0046","branchname":"Mdy Diamond Plaza","AFGHkeyIndexWJ":"hub004602","AFGHkeyTime":1603781790602,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790602,"AFGHkeyUserCreateWJ":""}

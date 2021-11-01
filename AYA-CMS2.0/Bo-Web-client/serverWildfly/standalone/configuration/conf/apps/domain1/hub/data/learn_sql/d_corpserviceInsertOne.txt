@@ -1,0 +1,19 @@
+﻿{
+  "learn_sql_title": "Thêm mới service",
+  "learn_sql_query": "INSERT INTO hubdb.d_corpservice(servicecode,corpcode,name,description,ccycd, customernumber, minamount, maxamount,paymentamount, exceedsbillamount,
+       expiredbill,internetbanking,counter,atm,feecode, contractno,stdt, frdt, catid,email, notifiemail,ref1,refsa1,ref2, refsa2,corpdepositaccno, sm,mask, mask1,expmishl,
+       validbill,ref3,crgl,refsa3,famt,fvamt, efvamt,feecaltype,webserprtcol,mask3) VALUES (?,?,?,?,?,?,TO_NUMBER(?),TO_NUMBER(?),?,?,?,?,?,?,?,?,TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'),TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,TO_NUMBER(?),?,?,?,?)",
+  "learn_sql_parameter": "#sercode,@corpcode,@name,@description,@ccycd, @customernumber, @minamount, @maxamount,@paymentamount, @exceedsbillamount,
+       @expiredbill,@internetbanking,@counter,@atm,@feecode, @contractno,@stdt, @frdt, #catid,@email, @notifiemail,@ref1,@refsa1,@ref2, @refsa2,@corpdepositaccno, @sm,@mask, @mask1,@expmishl,
+       @validbill,@ref3,@crgl,@refsa3,@famt,@fvamt, @efvamt,@feecaltype,@websername, @mask3",
+  "learn_sql_parameter_sub": "#sercode",
+  "learn_sql_query_sub": "SELECT 'S' as codetype, s.servicecode,c.shortnamecorp as corpname,s.name,CASE  s.catid  WHEN 1 THEN 'Collection' WHEN 2 THEN 'Payment' ELSE 'Direct Debit' END as catid  ,s.corpdepositaccno from hubdb.d_corpservice s LEFT JOIN hubdb.d_corpregistation c ON TO_NUMBER(s.corpcode) = c.corpcode 
+WHERE s.servicecode = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "stdt,frdt",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "learn_sql_squence": "select hubdb.D_CORPSERVICE_SEQ.nextval as sercode from dual",
+  "AFGHkeyIndexWJ": "d_corpserviceInsertOne",
+  "AFGHTimeWJ": 1561266469836
+}

@@ -1,0 +1,11 @@
+﻿{
+  "learn_sql_title": "Thêm mới service",
+  "learn_sql_query": "SELECT TXCODE FROM hubdb.d_hubstm where id = ?",
+  "learn_sql_parameter": "@ID",
+  "learn_sql_data": "d_hubstm",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_workflowGetTXCODE",
+  "AFGHTimeWJ": 1561266469836
+}

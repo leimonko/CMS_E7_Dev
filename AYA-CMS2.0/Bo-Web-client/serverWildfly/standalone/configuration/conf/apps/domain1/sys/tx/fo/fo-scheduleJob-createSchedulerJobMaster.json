@@ -1,0 +1,39 @@
+{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "Chạy thử",
+      "function": "scheduleJob.runTest",
+      "type": "javascript",
+      "status": "A",
+      "para": [
+        
+      ],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-api-callCreateSchedulerJobMaster",
+              "input": {
+
+				
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-scheduleJob-createSchedulerJobMaster",
+  "txname": "Cấu trúc scheduleJob mẫu",
+  "version": 1,
+  "updateTime": 1588064458147,
+  "isOld": false,
+  "request": {
+    
+  }
+}

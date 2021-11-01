@@ -1,0 +1,1 @@
+{"cdid":"4","cdname":"NUMBER","caption":"4","cdgrp":"JWEBUI","cdidx":"4","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"4","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

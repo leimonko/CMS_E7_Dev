@@ -1,0 +1,20 @@
+﻿{
+    "learn_sql_title": "Thêm mới txcode",
+	
+    "learn_sql_query": "UPDATE hubdb.d_feedef SET feename = ?, status = ?,description = ?,ccrcd=? WHERE feecode = ?",
+    "learn_sql_parameter": "@feename, @status, @descs, @ccrcd, #feecode",
+    "learn_sql_parameter_sub": "#feecode",
+    "learn_sql_query_sub": "SELECT feecode, feename, CASE d.status WHEN 'A' THEN 'Active' ELSE 'Inactive' END AS status, description, ccrcd, createdt FROM hubdb.d_feedef WHERE feecode = ?",
+    "learn_sql_data": "d_feemanagement",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_feemanagementUpdateOne",
+    "AFGHTimeWJ": 1561266469836,
+    "data_formchild_primarykey":"recid",
+    "data_formchild_list":"",
+    "data_formchild_attribute_list":"",
+    "learn_sql_update_for_formchild":"",
+	"learn_sql_insert_for_formchild":""
+
+}

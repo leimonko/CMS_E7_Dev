@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "d_branchcodeLoadAll",
+	"learn_sql_parameter": "",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT recid, branchcode, branchname FROM hubdb.d_branchcode ORDER BY TO_NUMBER(branchcode)",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_branchcodeLoadAll",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_branchcode"
+}

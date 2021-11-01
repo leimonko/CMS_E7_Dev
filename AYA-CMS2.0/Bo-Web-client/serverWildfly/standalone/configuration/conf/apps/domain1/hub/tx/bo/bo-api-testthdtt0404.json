@@ -1,0 +1,48 @@
+{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "API bo test thdtt",
+      "function": "testAPIThdtt.createtestapi",
+      "type": "java",
+      "para": [
+        
+      ],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-container",
+              "input": {
+                "lang": "loginAppTrue"
+              }
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-container",
+              "input": {
+                "lang": "loginAppFalse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-api-testthdtt0404",
+  "version": 8,
+  "updateTime": 1562292754552,
+  "txname": "nhanvaxulyapi",
+  "isOld": true
+}

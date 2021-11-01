@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"get html","function":"tx.gethtml","type":"java","para":[],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-container","input":{}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-load-getHtml","version":2,"updateTime":1562205830821,"txname":"Chức năng import cần html từ url","isOld":true}

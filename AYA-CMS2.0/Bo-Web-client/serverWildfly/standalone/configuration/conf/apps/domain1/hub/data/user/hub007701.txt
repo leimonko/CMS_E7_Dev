@@ -1,0 +1,1 @@
+{"full_name":"hub007701","email":"hub007701","user_status":"A","user_id":"hub007701","branchcd":"0077","branchid":"0077","branchname":"Ygn(24)_KYM","AFGHkeyIndexWJ":"hub007701","AFGHkeyTime":1603781790635,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790635,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,14 @@
+﻿{
+	"learn_sql_title": "Xem 1 dữ liệu",
+	"learn_sql_data": "d_feecalbyformular",
+	"learn_sql_parameter": "@feecode",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT recid,feecode, caltype, appliedwhen, payer, descs, formular, roundingby,commonacc,ccrcd
+FROM hubdb.d_feecal WHERE feecode = ? AND caltype = 'F'",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_feecalbyformularView",
+	"AFGHTimeWJ": 1561269909390
+}

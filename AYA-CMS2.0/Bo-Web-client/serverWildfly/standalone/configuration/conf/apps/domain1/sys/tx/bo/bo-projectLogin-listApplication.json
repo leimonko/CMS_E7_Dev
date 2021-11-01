@@ -1,0 +1,30 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "Tải application",
+            "function": "txManagerUser.getListAppOfRole",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "_default_": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-container"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-projectLogin-listApplication",
+    "version": 3,
+    "updateTime": 1568277385876,
+    "txname": "Tải danh sách app cho project login",
+    "hasRole": "false",
+    "isOld": true
+}

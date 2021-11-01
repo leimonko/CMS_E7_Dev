@@ -1,0 +1,28 @@
+{
+	"forApp":"HUB",
+	"input": {},
+	"actions": [
+		{
+			"name": "Tạo lại",
+			"function": "txManagerUser.rebuildUserApp",
+			"type": "java",
+			"para": [],
+			"status": "A"
+		},{
+			"name": "Adduser",
+			"function": "cis.core.txHUB_Form.buildUserAppHub",
+			"type": "java",
+			"para": [],
+			"status": "A"
+		}
+	],
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "bo-build-userApp",
+	"txname": "Tạo lại quan hệ user và có quyền ở app (không được xóa)",
+	"version": 1,
+	"updateTime": 1568262518396,
+	"hasRole": "false",
+	"isOld": false,
+	"response": {}
+}

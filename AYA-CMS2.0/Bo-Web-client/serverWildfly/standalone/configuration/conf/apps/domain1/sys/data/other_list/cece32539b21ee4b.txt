@@ -1,0 +1,1 @@
+{"other_list_name":"Bất động sản","other_list_group":"loan_menu","other_list_color":"","other_list_icon":"","other_list_order":"4","other_list_id":"5df129e927c91acf","AFGHkeyIndexWJ":"cece32539b21ee4b","AFGHkeyTime":1569387078804,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1569387080688}

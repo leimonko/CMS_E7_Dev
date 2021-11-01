@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <flow name="BillerHUB_getBillInfoSub_Flow"><logger
+			message="#[&quot;\n==============================================================================\nSTARTED BILLER HUB GET BILL INFO\nResponse Message: &quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]"
+			level="INFO" doc:name="Started Get Bill Info" />
+		<scripting:transformer doc:name="Store REFVA1, REFVA2, REFVA3">
+			<scripting:script engine="JavaScript"><![CDATA[var resMsg = JSON.parse(payload);
+var refva1, refva2, refva3;
+try{
+	refva1 = JSON.stringify(resMsg.REFVA1);
+	refva2 = JSON.stringify(resMsg.REFVA2);
+	refva3 = JSON.stringify(resMsg.REFVA3);
+	flowVars.put('REFVA1',refva1.substring(1, refva1.length-1));
+	flowVars.put('REFVA2',refva2.substring(1, refva2.length-1));
+	flowVars.put('REFVA3',refva3.substring(1, refva3.length-1));
+}
+catch(e){
+	flowVars.put('REFVA1','');
+	flowVars.put('REFVA2','');
+	flowVars.put('REFVA3','');
+}
+message.setPayload(JSON.stringify(resMsg));
+result = message;]]></scripting:script>
+		</scripting:transformer>
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsgGetBillerHUB" value="#[payload]"
+			doc:name="reqMsgGetBillerHUB" />
+		<set-variable variableName="apiKey" value="bearer 12k3jnn123a"
+			doc:name="apiKey" />
+		<set-payload value="{
+	&quot;path&quot;: &quot;/GetBillInfo&quot;,
+	&quot;method&quot;: &quot;GET&quot;,
+	&quot;params&quot;: {
+		&quot;serviceId&quot;: &quot;#[flowVars.reqMsgGetBillerHUB.SERVICEID]&quot;,
+		&quot;refValue1&quot;: &quot;#[flowVars.reqMsgGetBillerHUB.REFVA1]&quot;,
+		&quot;refValue2&quot;: &quot;#[flowVars.reqMsgGetBillerHUB.REFVA2]&quot;
+	},
+	&quot;headers&quot;: {
+		&quot;Authorization&quot;: &quot;#[flowVars.apiKey]&quot;
+	},
+	&quot;body&quot;: {}
+}" mimeType="application/json" doc:name="Set Payload"/>
+		<flow-ref name="BillerHub_connectorFlow" doc:name="BillerHub_connectorFlow"/>
+		<set-variable variableName="code" value="#[json:code]" doc:name="code"/>
+		<set-variable variableName="desc" value="#[json:desc]" doc:name="desc"/>
+		<set-payload value="{
+	&quot;ERRORCODE&quot;: &quot;#[flowVars.code==null ? 0 : flowVars.code]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[flowVars.code==null ? 'Transaction successful!' : flowVars.desc]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;AMOUNT&quot;: &quot;#[json:data/billInfo/amount/amount]&quot;,
+		&quot;EDITABLE&quot;: &quot;N&quot;,
+		&quot;CCRCD&quot;: &quot;#[json:data/billInfo/amount/currency]&quot;
+	}
+}" mimeType="application/json" doc:name="Build message response success"/>
+
+		<logger message="#[&quot;\n==============================================================================\nENDED BILLER HUB GET BILL INFO\nResponse Message: &quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]" level="INFO" doc:name="Ended Get Bill Info"/>	<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: &quot;9999&quot;,  &quot;ERRORDESC&quot;: &quot;#[(exception.?cause.message or exception).toString().replace('&quot;','')]&quot;,  &quot;RESULT&quot;: {} } "
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n==============================================================================\nENDED BILLER HUB GET BILL INFO\nResponse Message: &quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]"
+				level="INFO" doc:name="ENDED BILLER HUB GET BILL INFO" />
+		</catch-exception-strategy>	</flow>
+
+</mule>

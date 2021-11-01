@@ -1,0 +1,42 @@
+﻿{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "hubstmNoneRow",
+      "function": "cis.core.txDev_Form.loadDataWithNoneRow",
+      "type": "java",
+      "para": [
+		"dataexportforcmsreport"	  
+      ],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+            { 
+              "txcode": "#sys:fo-update-data"
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+            { 
+              "txcode": "#sys:fo-update-data"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-load-hubreportdataNoneRow",
+  "version": 2,
+  "updateTime": 1562205991292,
+  "txname": "hubstmNoneRow",
+  "isOld": true
+}

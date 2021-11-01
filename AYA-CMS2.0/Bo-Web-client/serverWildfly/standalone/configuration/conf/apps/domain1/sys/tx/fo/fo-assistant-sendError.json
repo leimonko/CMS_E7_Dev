@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Send lỗi","function":"chat.assistant_sendError","type":"javascript","status":"A","para":[],"request":{"_default_":{"bo":[{"txcode":"#sys:bo-assistant-saveError","input":{}}]}}}],"status":"A","txtype":"bo","txcode":"fo-assistant-sendError","txname":"Gửi lỗi từ enduser","version":1,"updateTime":1582800068166,"isOld":false,"request":{}}

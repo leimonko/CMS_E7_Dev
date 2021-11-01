@@ -1,0 +1,1 @@
+{"full_name":"hub000301","email":"hub000301","user_status":"A","user_id":"hub000301","branchcd":"0003","branchid":"0003","branchname":"Mdy (1) 26 Street","AFGHkeyIndexWJ":"hub000301","AFGHkeyTime":1603781790553,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790553,"AFGHkeyUserCreateWJ":""}

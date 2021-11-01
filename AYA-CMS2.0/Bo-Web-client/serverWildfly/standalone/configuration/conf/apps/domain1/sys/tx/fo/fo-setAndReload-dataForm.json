@@ -1,0 +1,25 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Reload form with new data",
+      "function": "formAPI.dataToForm",
+      "type": "java",
+      "status": "A"
+    },
+    {
+      "name": "set data this",
+      "function": "runFunc.setOOPThis",
+      "type": "java",
+      "status": "A"
+    }
+  ],
+  "request": { "bo": [{ "txcode": "", "input": {} }] },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-setAndReload-dataForm",
+  "txname": "set and Reload new data form",
+  "version": 3,
+  "updateTime": 1573038042729,
+  "isOld": true
+}

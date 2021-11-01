@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="api_authenticationFlow">
+		<http:listener config-ref="APIManagement" path="/authentication"
+			doc:name="/authentication" />
+        <logger message="#[&quot;\n====================================================================================================\nSTARTED AUTHENTICATION\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]" level="INFO" category="com.jits.apim.messageinout" doc:name="Started Authentication - Msg In Out"/>
+		<logger
+			message="#[&quot;\n====================================================================================================\nSTARTED AUTHENTICATION\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]"
+			level="INFO" doc:name="Started Authentication" />
+		<set-variable variableName="reqHeader" value="#[message.inboundProperties]"
+			doc:name="reqHeader" />
+		
+		<set-variable variableName="authorization"
+			value="#[message.inboundProperties['Authorization']]" doc:name="Authorization Message" />
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-variable variableName="grant_type" value="#[payload]" doc:name="grant_type"/>
+		<choice doc:name="Choice">
+            <when expression="#[flowVars.authorization!=null &amp;&amp; flowVars.grant_type.grant_type==&quot;client_credentials&quot;]">
+                <invoke object-ref="JWTHelper" method="VerifyHeader" methodArguments="#[flowVars.authorization]" doc:name="validateAuthorization"/>
+            </when>
+			<otherwise>
+				<set-payload
+					value="{  &quot;statusCode&quot;: 401,  &quot;message&quot;:  &quot;Unauthorized!&quot;,  &quot;access_token&quot;: &quot;null&quot; }"
+					doc:name="Unauthorized Message" mimeType="application/json"/>
+			</otherwise>
+		</choice>
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<choice doc:name="Check status code">
+			<when expression="#[payload.statusCode==0]">
+				<invoke object-ref="JWTHelper" method="createToken"
+					methodArguments="#[payload.username]"
+					doc:name="createToken" />
+				<set-payload
+					value="{
+	&quot;ERRORCODE&quot;: #[json:statusCode],
+	&quot;ERRORDESC&quot;:  &quot;#[json:message]&quot;,
+	&quot;ACCESS_TOKEN&quot;: &quot;#[json:access_token]&quot;,
+	&quot;EXPIRE_TIME&quot;: #[json:expire_time],
+	&quot;TOKEN_TYPE&quot;: &quot;#[json:token_type]&quot;
+}"
+					mimeType="application/json" doc:name="Build message success" />
+			</when>
+			<otherwise>
+				<set-payload
+					value="{  &quot;ERRORCODE&quot;:  #[payload.statusCode],  &quot;ERRORDESC&quot;: &quot;#[payload.message]&quot; }"
+					mimeType="application/json" doc:name="Message fail" />
+			</otherwise>
+		</choice>
+        <logger message="#[&quot;\n====================================================================================================\nENDED AUTHENTICATION\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]" level="INFO" doc:name="Ended Authentication"/>
+        <logger message="#[&quot;\n====================================================================================================\nENDED AUTHENTICATION\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]" level="INFO" category="com.jits.apim.messageinout" doc:name="Ended Authentication - Msg In Out"/>
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 4,  &quot;ERRORDESC&quot;: &quot;#[exception.message.replace('&quot;',&quot;&quot;)]&quot;,  &quot;RESULT&quot;: &quot;&quot; }"
+				doc:name="Message Exception Error " mimeType="application/json"/>
+			<logger
+				message="#[&quot;\n----EXCEPTION &quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="----EXCEPTION" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

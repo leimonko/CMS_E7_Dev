@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<flow name="fbe_rvs2Flow">
+		<http:listener config-ref="CMS_LISTENER" path="/hub_rvs2"
+			doc:name="/fbe_rvs2" allowedMethods="POST" />
+		<logger message="#[&quot;\n======================================================================\nSTARTED REVERSAL\nRVS Request Message:Tx ID \n&quot;+ message.payloadAs(java.lang.String) + &quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="RVS Request Message" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="RequestMsgObj" value="#[payload]"
+			doc:name="Save RequestMsgObj" />
+		<set-payload
+			value="{   &quot;TXREFID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.TXREFID]&quot;,   &quot;ORGREFID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.ORGREFID]&quot;,   &quot;DESCS&quot;: &quot;#[flowVars.RequestMsgObj.datarv.DESCS]&quot; }"
+			mimeType="application/json" doc:name="Build Message Call CBS" />
+        <flow-ref name="fbe_rvsSub_Flow" doc:name="fbe_rvsSub_Flow"/>
+        <set-variable variableName="rvsMsg" value="#[message.payloadAs(java.lang.String)]" doc:name="rvsMsg"/>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+		<set-variable variableName="STS"
+			value="#[payload.ERRORCODE==0 ?  &quot;C&quot; :  &quot;F&quot;]"
+			doc:name="STS" />
+		<scatter-gather doc:name="Scatter-Gather">
+            <choice doc:name="Revert success or not">
+                <when expression="#[payload.ERRORCODE==0]">
+                    <set-payload value="{   &quot;info&quot;: {     &quot;lang&quot;: &quot;en&quot;,     &quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,     &quot;my_device&quot;: {       &quot;browser&quot;: &quot;Chrome&quot;,       &quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,       &quot;browserMajorVersion&quot;: 79,       &quot;cookies&quot;: true     },     &quot;request_time&quot;: 1580804624914,     &quot;protect_request&quot;: &quot;&quot;,     &quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;   },   &quot;bo&quot;: [     {       &quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,       &quot;input&quot;: {         &quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusChar11&quot;,         &quot;data&quot;: {           &quot;CHAR11&quot;: &quot;R&quot;,           &quot;ID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.TXREFID]&quot;         }       }     }   ] }" mimeType="application/json" doc:name="Update Status Transaction Reversal"/>
+					<flow-ref name="BO_updateStatementFlow" doc:name="BO_updateStatementFlow"/>
+                </when>
+                <otherwise>
+                    <logger message="=====&gt; Revert Fail, No need run update BO1" level="INFO" doc:name="Revert Fail"/>
+                </otherwise>
+            </choice>
+			<processor-chain>
+                <set-payload value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusByAPI&quot;,
+				&quot;learn_sql_insert_table&quot;: &quot;d_usercashInsertOneByAPI&quot;,
+				&quot;learn_sql_update_table&quot;: &quot;d_usercashUpdateBalanceRevesed&quot;,
+				&quot;data&quot;: {
+					&quot;CHAR17&quot;: &quot;#[payload.ERRORDESC]&quot;,
+					&quot;STS&quot;: &quot;#[flowVars.STS]&quot;,
+					&quot;CHAR11&quot;: &quot;#[flowVars.STS]&quot;,
+					&quot;CHAR12&quot;: &quot;#[payload.RESULT.TXREFID]&quot;,
+					&quot;WFSTS&quot;: &quot;C&quot;,
+					&quot;ID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.UUID]&quot;,
+					&quot;DESCS&quot;: &quot;#[flowVars.RequestMsgObj.datarv.DESCS]&quot;,
+					&quot;TXCODE&quot;: &quot;#[flowVars.RequestMsgObj.datarv.TXCODE]&quot;,
+					&quot;OSTBALANCE&quot;: &quot;#[flowVars.RequestMsgObj.datarv.OSTBALANCE]&quot;,
+					&quot;USRID&quot;: &quot;#[flowVars.RequestMsgObj.datarv.USRID]&quot;
+				}
+			}
+		}
+	]
+}" mimeType="application/json" doc:name="Update Status Reversal"/>
+				<flow-ref name="BO_updateStatementFlow" doc:name="BO_updateStatementFlow"/>
+			</processor-chain>
+		</scatter-gather>
+		<set-payload
+			value="#[flowVars.rvsMsg]"
+			mimeType="application/json" doc:name="Build Message Response" />
+		<json:object-to-json-transformer
+			doc:name="Object to JSON" />
+		<logger
+			message="#[&quot;\n======================================================================\nENDED HUB OTC REVERSAL\nRVS Response Message:\n&quot;+ message.payloadAs(java.lang.String) + &quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="ENDED HUB OTC REVERSAL" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{
+	&quot;ERRORCODE&quot;: 9999,
+	&quot;ERRORDESC&quot;: &quot;#[exception !=null ? (exception.?cause.message or exception) : 'Transaction Failed']&quot;,
+	&quot;RESULT&quot;: {}
+}"
+				doc:name="EXCEPTION" mimeType="application/json" />
+			<logger
+				message="----EXCEPTION #[&quot;\n&quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="EXCEPTION" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

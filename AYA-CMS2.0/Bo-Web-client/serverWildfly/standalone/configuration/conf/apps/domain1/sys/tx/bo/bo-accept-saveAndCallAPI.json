@@ -1,0 +1,54 @@
+{
+    "input": {},
+    "actions": [{
+            "name": "gửi learn API",
+            "function": "cis.core.txHUB_Form.saveDataAndCallAPI",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [{
+                            "txcode": "#sys:fo-msg-toast",
+                            "input": {
+                                "lang": "systransactionOk"
+                            }
+                        },{
+                            "txcode": "#sys:fo-update-data"
+                        }, {
+                            "txcode": "#sys:fo-form-clear"
+                        }
+                    ]
+                },
+                "false": {
+                    "fo": [{
+                            "txcode": "#sys:fo-msg-toast",
+                            "input": {
+                                "lang": "systransactionError"
+                            }
+                        }, {
+                            "txcode": "#sys:fo-update-data"
+                        }, {
+                            "txcode": "#sys:fo-form-clear"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {
+        "fo": [{
+                "txcode": "",
+                "input": {}
+            }
+        ]
+    },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-accept-saveAndCallAPI",
+    "version": 4,
+    "updateTime": 1583718699716,
+    "txname": "Tạo API",
+    "hasRole": "false",
+    "isOld": true
+}

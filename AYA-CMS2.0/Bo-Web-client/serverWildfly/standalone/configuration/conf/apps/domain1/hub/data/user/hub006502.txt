@@ -1,0 +1,1 @@
+{"full_name":"hub006502","email":"hub006502","user_status":"A","user_id":"hub006502","branchcd":"0065","branchid":"0065","branchname":"Mandalay (8) ZCHO","AFGHkeyIndexWJ":"hub006502","AFGHkeyTime":1603781790626,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790626,"AFGHkeyUserCreateWJ":""}

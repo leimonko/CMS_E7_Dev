@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<flow name="fbe_transferFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/hub_tf"
+			allowedMethods="POST" doc:name="/hub_tf"
+			doc:description="ERRORCODE = 0 : Transaction Sucessfully. 
+ERRORCODE = 1 : Error in insert BO. 
+ERRORCODE = 2 : Error in posting BO. 
+ERRORCODE = 3 : Error in update BO. 
+ERRORCODE = 4 : Error by Timeout, SYS_ERROR.">
+			<http:response-builder>
+			</http:response-builder>
+		</http:listener>
+		<logger
+			message="#[&quot;\n======================================================================\nHUB TRANSFER STARTED\nRequest Message Hub Transfer:\n&quot;+ message.payloadAs(java.lang.String) + &quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="Hub Transfer Started - Msg In Out" category="com.jits.cms2.messageinout" />
+		<logger
+			message="#[&quot;\n======================================================================\nHUB TRANSFER STARTED\nRequest Message Hub Transfer:\n&quot;+ message.payloadAs(java.lang.String) + &quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="Hub Transfer Started" />
+		<scripting:transformer doc:name="Store REFVA1, REFVA2, REFVA3, DESCS">
+			<scripting:script engine="JavaScript"><![CDATA[var resMsg = JSON.parse(payload);
+var refva1, refva2, refva3,descs;
+try{
+	refva1 = JSON.stringify(resMsg.REFVA1);
+	refva2 = JSON.stringify(resMsg.REFVA2);
+	refva3 = JSON.stringify(resMsg.REFVA3);
+	descs = JSON.stringify(resMsg.DESCS);
+	flowVars.put('REFVA1',refva1.substring(1, refva1.length-1));
+	flowVars.put('REFVA2',refva2.substring(1, refva2.length-1));
+	flowVars.put('REFVA3',refva3.substring(1, refva3.length-1));
+	flowVars.put('DESCS',descs.substring(1, descs.length-1));
+}
+catch(e){
+	flowVars.put('REFVA1','');
+	flowVars.put('REFVA2','');
+	flowVars.put('REFVA3','');
+	flowVars.put('DESCS','');
+}
+message.setPayload(JSON.stringify(resMsg));
+result = message;]]></scripting:script>
+		</scripting:transformer>
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsg" value="#[payload]"
+			doc:name="reqMsg" />
+		<foreach collection="#[payload]" doc:name="For Each">
+			<set-variable variableName="coverJSON"
+				value="#[payload!=null ? (flowVars.reqMsg[flowVars.key]=payload.toString().replaceAll('\n|\r','')) : payload]"
+				doc:name="coverJSON" />
+		</foreach>
+		<set-payload
+			value="{
+  &quot;ACNO&quot;: &quot;#[flowVars.reqMsg.CUSTACC]&quot;
+}"
+			mimeType="application/json" doc:name="Build Message get BranchID by Account" />
+		<flow-ref name="fbe_readAccountSub_Flow" doc:name="fbe_readAccountSub_Flow" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="branchID" value="#[payload.RESULT.BRANCHID]"
+			doc:name="branchID" />
+		<choice doc:name="Get Branch ID Success ? Fail">
+			<when expression="payload.ERRORCODE==0">
+				<set-payload
+					value="{
+    &quot;info&quot;: {
+        &quot;lang&quot;: &quot;en&quot;,
+        &quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+        &quot;my_device&quot;: {
+            &quot;browser&quot;: &quot;Chrome&quot;,
+            &quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+            &quot;browserMajorVersion&quot;: 79,
+            &quot;cookies&quot;: true
+        },
+        &quot;request_time&quot;: 1580804624914,
+        &quot;protect_request&quot;: &quot;&quot;,
+        &quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+    },
+    &quot;bo&quot;: [
+        {
+            &quot;txcode&quot;: &quot;bo-hub-getPostingInfo&quot;,
+            &quot;input&quot;: {
+                &quot;learn_sql&quot;: &quot;d_hubstmGetTransactionPostingInfo&quot;,
+                &quot;learn_sql_sub&quot;: &quot;d_hubstmServiceInfoPosting&quot;,
+                &quot;data&quot;: {
+                    &quot;BRANID&quot;: &quot;#[flowVars.reqMsg.BRANID]&quot;,
+                    &quot;SERCODE&quot;: &quot;#[flowVars.reqMsg.SERCODE]&quot;,
+                    &quot;CORPCODE&quot;: &quot;#[flowVars.reqMsg.CORPCODE]&quot;,
+                    &quot;CUSTACC&quot;: &quot;#[flowVars.reqMsg.CUSTACC]&quot;,
+                    &quot;CUSTACC1&quot;: &quot;#[flowVars.reqMsg.CUSTACC]&quot;,
+                    &quot;AMT&quot;: &quot;#[flowVars.reqMsg.AMT]&quot;,
+                    &quot;BRANIDOFCUSTACC&quot;: &quot;#[Integer.parseInt(flowVars.branchID)]&quot;,
+                    &quot;CCRCD&quot;: &quot;#[flowVars.reqMsg.CCRCD]&quot;,
+                    &quot;REFVA1&quot;: &quot;#[flowVars.REFVA1]&quot;,
+                    &quot;REFVA2&quot;: &quot;#[flowVars.REFVA2]&quot;,
+                    &quot;REFVA3&quot;: &quot;#[flowVars.REFVA3]&quot;,
+                    &quot;CHANNELID&quot;: &quot;#[flowVars.reqMsg.CHANNELID]&quot;
+                }
+            }
+        }
+    ]
+}"
+					mimeType="application/json" doc:name="Build message Get Info Posting" />
+				<flow-ref name="BO_GetTransactionInfoFlow" doc:name="BO_GetTransactionInfoFlow" />
+
+				<choice doc:name="Check Status Get Info">
+					<when expression="#[flowVars.getInfoObject.errorcode==0]">
+
+						<set-payload
+							value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Insert&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmInsertOneByAPI&quot;,
+				&quot;data&quot;: {
+					&quot;TXCODE&quot;: &quot;O9_HUB04&quot;,
+					&quot;BRANID&quot;: &quot;#[flowVars.reqMsg.BRANID]&quot;,
+					&quot;USRID&quot;: &quot;#[flowVars.reqMsg.USRID]&quot;,
+					&quot;BRNAME&quot;: &quot;#[flowVars.reqMsg.BRNAME]&quot;,
+					&quot;HUBLGNAME&quot;: &quot;#[flowVars.reqMsg.HUBLGNAME]&quot;,
+					&quot;WORKINGDATE&quot;: &quot;#[flowVars.reqMsg.WORKINGDATE]&quot;,
+					&quot;CORPCODE&quot;: &quot;#[flowVars.reqMsg.CORPCODE]&quot;,
+					&quot;SERCODE&quot;: &quot;#[flowVars.reqMsg.SERCODE]&quot;,
+					&quot;CCRCD&quot;: &quot;#[flowVars.getInfoObject.data.CCRCD]&quot;,
+					&quot;CORPDEPOSITACCNO&quot;: &quot;#[flowVars.getInfoObject.data.CORPDEPOSITACCNO]&quot;,
+					&quot;AMT&quot;: &quot;#[flowVars.reqMsg.AMT]&quot;,
+					&quot;CUSTACC&quot;: &quot;#[flowVars.reqMsg.CUSTACC]&quot;,
+					&quot;DRFEEAMT&quot;: &quot;#[flowVars.getInfoObject.data.DRFEEAMT]&quot;,
+					&quot;CRFEEAMT&quot;: &quot;#[flowVars.getInfoObject.data.CRFEEAMT]&quot;,
+					&quot;FEECODE&quot;: &quot;#[flowVars.getInfoObject.data.FEECODE]&quot;,
+					&quot;NOTIFIEMAIL&quot;: &quot;#[flowVars.getInfoObject.data.NOTIFIEMAIL]&quot;,
+					&quot;CATID&quot;: &quot;#[flowVars.getInfoObject.data.CATID]&quot;,
+					&quot;BANKCODE&quot;: &quot;#[flowVars.getInfoObject.data.BCODE]&quot;,
+					&quot;REFVA1&quot;: &quot;#[flowVars.REFVA1]&quot;,
+					&quot;REFVA2&quot;: &quot;#[flowVars.REFVA2]&quot;,
+					&quot;REFVA3&quot;: &quot;#[flowVars.REFVA3]&quot;,
+					&quot;SM&quot;: &quot;#[flowVars.reqMsg.SM]&quot;,
+					&quot;ID&quot;: &quot;#[flowVars.reqMsg.ID]&quot;,
+					&quot;PAYMETHOD&quot;: &quot;#[flowVars.reqMsg.PAYMETHOD]&quot;,
+					&quot;CHANNELID&quot;: &quot;#[flowVars.reqMsg.CHANNELID]&quot;,
+					&quot;DESCS&quot;: &quot;#[flowVars.DESCS]&quot;
+				}
+			}
+		}
+	]
+}"
+							mimeType="application/json" doc:name="Build message insert" />
+						<flow-ref name="BO_insertStatementFlow" doc:name="BO_insertStatementFlow" />
+						<choice doc:name="Check Status Insert BO">
+							<when expression="#[flowVars.BoInsertObject.errorcode==0]">
+								<set-payload
+									value="{
+    &quot;forcePostIndicator&quot;: false,
+    &quot;postingEntries&quot;: [],
+    &quot;sourceBranchCode&quot;: &quot;&quot;,
+    &quot;sourceId&quot;: &quot;CMS2.0&quot;,
+    &quot;transactionReference&quot;: &quot;#[flowVars.reqMsg.ID]&quot;,
+    &quot;valueDate&quot;: &quot;#[server.dateTime.format('yyyy-MM-dd')]&quot;
+}"
+									mimeType="application/json" doc:name="Message Posting HUB_TF" />
+								<set-variable variableName="payloadPosting" value="#[payload]"
+									doc:name="payloadPostingFBE" />
+								<foreach collection="#[flowVars.getInfoObject.data.GROUP]"
+									doc:name="For Each">
+									<set-variable variableName="groupPosting"
+										value="#[flowVars.getInfoObject.data.GROUP[counter-1]]"
+										doc:name="groupPosting" />
+									<json:object-to-json-transformer
+										doc:name="JavaObject to JSON for JavaScript" />
+									<scripting:transformer doc:name="Mapping Group Posting">
+										<scripting:script engine="JavaScript"><![CDATA[var messagePosting=flowVars.get('payloadPosting');
+var payloadMsg=JSON.parse(payload);
+var data=JSON.parse(messagePosting);
+var descs=String(flowVars.get('DESCS'));
+
+//mapping debit account
+var drAcc = {
+      "accountNumber": payloadMsg['DRACC'],
+      "amount": {
+        "currency": payloadMsg['DRCRCD'],
+        "value": payloadMsg['DRAMT']
+      },
+      "creditDebitFlag": "D",
+      "narrative": descs,
+      "postingType": payloadMsg['DRCODE']
+    };
+//mapping credit account
+var crAcc = {
+      "accountNumber": payloadMsg['CRACC'],
+      "amount": {
+        "currency": payloadMsg['CRCRCD'],
+        "value": payloadMsg['CRAMT']
+      },
+      "creditDebitFlag": "C",
+      "narrative": descs,
+      "postingType": payloadMsg['CRCODE']
+    };
+data['postingEntries'].push(drAcc);
+data['postingEntries'].push(crAcc);
+log.info("\nMessage Mapping "+JSON.stringify(data));
+flowVars.put('payloadPosting',JSON.stringify(data));
+]]></scripting:script>
+									</scripting:transformer>
+								</foreach>
+								<invoke object-ref="AutoLogin" method="getSessionID"
+									methodArguments="#[message.payloadAs(java.lang.String)]"
+									doc:name="getCurrentDate" />
+								<set-payload
+									value="{  &quot;path&quot;: &quot;/bfweb/retail/v1/essence/transactions/&quot;,  &quot;method&quot;: &quot;POST&quot;,  &quot;params&quot;: {},  &quot;headers&quot;: {   &quot;Content-Type&quot;: &quot;application/json&quot;,   &quot;X-Request-ID&quot;: &quot;b8a888a6-4bbf-11ea-b77f-2e728ce88125&quot;,   &quot;Authorization&quot;: &quot;#[json:SESSIONID]&quot;  },  &quot;body&quot;: #[flowVars.payloadPosting] }"
+									mimeType="application/json" doc:name="Build message Posting" />
+								<flow-ref name="FBE_jsonConnectorFlow" doc:name="FBE_jsonConnectorFlow" />
+								<json:json-to-object-transformer
+									returnClass="java.lang.Object" doc:name="JSON to Object" />
+								<set-variable variableName="coreResponse" value="#[payload]"
+									doc:name="coreResponse" />
+
+
+								<choice doc:name="POSTING T?F">
+									<when
+										expression="#[coreResponse.data.postingId!=null &amp;&amp; coreResponse.data.postingId != &quot;&quot;]">
+										<choice doc:name="Do Payment or Not">
+											<when
+												expression="#[flowVars.getInfoObject.data.WEBSERNAME!= &quot;&quot; &amp;&amp; flowVars.getInfoObject.data.WEBSERNAME!=null]">
+												<set-payload
+													value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusByAPI&quot;,
+				&quot;data&quot;: {
+					&quot;CHAR17&quot;: &quot;Doing submit payment&quot;,
+					&quot;STS&quot;: &quot;P&quot;,
+					&quot;ID&quot;: &quot;#[flowVars.reqMsg.ID]&quot;,
+					&quot;CHAR11&quot;: &quot;C&quot;,
+					&quot;CHAR12&quot;: &quot;#[flowVars.coreResponse.data.transactionId]&quot;,
+					&quot;POSTINGDATE&quot;: &quot;#[flowVars.coreResponse.data.postingDate]&quot;,
+					&quot;CHAR13&quot;: &quot;P&quot;,
+					&quot;CHAR14&quot;: &quot;Pending&quot;,
+					&quot;WFSTS&quot;: &quot;P&quot;
+				}
+			}
+		}
+	]
+}"
+													mimeType="application/json" doc:name="build message insert hubstm for do payment" />
+												<flow-ref name="BO_updateStatementFlow" doc:name="BO_updateStatementFlow" />
+												<choice doc:name="Check Insert hubStm ">
+													<when expression="#[flowVars.BoUpdateObject.errorcode==0]">
+														<set-payload
+															value="{
+	&quot;WEBSERNAME&quot;: &quot;#[flowVars.getInfoObject.data.WEBSERNAME]&quot;,
+	&quot;TRANDESC&quot;: &quot;Do bill payment&quot;,
+	&quot;REFVA1&quot;: &quot;#[flowVars.REFVA1]&quot;,
+	&quot;REFVA2&quot;: &quot;#[flowVars.REFVA2]&quot;,
+	&quot;REFVA3&quot;: &quot;#[flowVars.REFVA3]&quot;,
+	&quot;ID&quot;: &quot;#[flowVars.reqMsg.ID]&quot;,
+	&quot;AMT&quot;: &quot;#[flowVars.reqMsg.AMT]&quot;,
+	&quot;CCRCD&quot;: &quot;#[flowVars.getInfoObject.data.CCRCD]&quot;
+}"
+															mimeType="application/json" doc:name="Build message dopayment" />
+														<flow-ref name="hub_doPaymentSub_Flow" doc:name="hub_doPaymentFlow" />
+														<json:json-to-object-transformer
+															returnClass="java.lang.Object" doc:name="JSON to Object" />
+														<set-variable variableName="paymentResponse"
+															value="#[payload]" doc:name="paymentResponse" />
+														<set-payload
+															value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusByAPI&quot;,
+				&quot;data&quot;: {
+					&quot;CHAR17&quot;: &quot;#[flowVars.paymentResponse.ERRORDESC]&quot;,
+					&quot;STS&quot;: &quot;#[payload.ERRORCODE==0 ? 'C' : 'F']&quot;,
+					&quot;ID&quot;: &quot;#[flowVars.reqMsg.ID]&quot;,
+					&quot;CHAR11&quot;: &quot;C&quot;,
+					&quot;CHAR12&quot;: &quot;#[flowVars.coreResponse.data.postingId]&quot;,
+					&quot;POSTINGDATE&quot;: &quot;#[flowVars.coreResponse.data.postingDate]&quot;,
+					&quot;CHAR13&quot;: &quot;#[payload.ERRORCODE==0 ? 'C' : 'F']&quot;,
+					&quot;CHAR14&quot;: &quot;#[payload.ERRORDESC]&quot;,
+					&quot;WFSTS&quot;: &quot;C&quot;,
+					&quot;ERRORCODE&quot;: &quot;#[flowVars.paymentResponse.ERRORCODE]&quot;
+				}
+			}
+		}
+	]
+}"
+															mimeType="application/json" doc:name="Build message update final" />
+													</when>
+													<otherwise>
+														<set-payload
+															value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusByAPI&quot;,
+				&quot;data&quot;: {
+					&quot;CHAR17&quot;: &quot;Transaction is not complete!&quot;,
+					&quot;STS&quot;: &quot;F&quot;,
+					&quot;ID&quot;: &quot;#[flowVars.reqMsg.ID]&quot;,
+					&quot;CHAR11&quot;: &quot;C&quot;,
+					&quot;CHAR12&quot;: &quot;#[flowVars.coreResponse.data.postingId]&quot;,
+					&quot;POSTINGDATE&quot;: &quot;#[flowVars.coreResponse.data.postingDate]&quot;,
+					&quot;CHAR13&quot;: &quot;F&quot;,
+					&quot;CHAR14&quot;: &quot;Cannot Update Statement&quot;,
+					&quot;WFSTS&quot;: &quot;C&quot;,
+					&quot;ERRORCODE&quot;: &quot;#[flowVars.BoUpdateObject.errorcode]&quot;
+				}
+			}
+		}
+	]
+}"
+															doc:name="Build message insert fail" mimeType="application/json" />
+													</otherwise>
+												</choice>
+											</when>
+											<otherwise>
+												<logger
+													message="#[&quot;\n=====&gt;Corporate not have webservice!&quot;]"
+													level="INFO" doc:name="Corporate not have webservice" />
+												<set-payload
+													value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusByAPI&quot;,
+				&quot;data&quot;: {
+					&quot;CHAR17&quot;: &quot;Transaction successfully!&quot;,
+					&quot;STS&quot;: &quot;C&quot;,
+					&quot;ID&quot;: &quot;#[flowVars.reqMsg.ID]&quot;,
+					&quot;CHAR11&quot;: &quot;C&quot;,
+					&quot;CHAR12&quot;: &quot;#[flowVars.coreResponse.data.postingId]&quot;,
+					&quot;POSTINGDATE&quot;: &quot;#[flowVars.coreResponse.data.postingDate]&quot;,
+					&quot;CHAR13&quot;: &quot;-&quot;,
+					&quot;CHAR14&quot;: &quot;-&quot;,
+					&quot;WFSTS&quot;: &quot;C&quot;,
+					&quot;DESCS&quot;: &quot;#[flowVars.reqMsg.DESCS]&quot;,
+					&quot;ERRORCODE&quot;: &quot;0&quot;
+				}
+			}
+		}
+	]
+}"
+													doc:name="build message update success final" mimeType="application/json" />
+
+											</otherwise>
+										</choice>
+
+									</when>
+
+									<otherwise>
+										<logger message="#[&quot;\n=====&gt;Posting fail&quot;]"
+											level="INFO" doc:name="Posting fail" />
+										<set-payload
+											value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusByAPI&quot;,
+				&quot;data&quot;: {
+					&quot;CHAR17&quot;: &quot;#[payload.desc]&quot;,
+					&quot;STS&quot;: &quot;F&quot;,
+					&quot;CHAR11&quot;: &quot;F&quot;,
+					&quot;CHAR12&quot;: &quot;#[flowVars.coreResponse.data != null ? ((flowVars.coreResponse.data.postingId !=null &amp;&amp; flowVars.coreResponse.data.postingId !='') ? flowVars.coreResponse.data.postingId : '-') : '-']&quot;,
+					&quot;POSTINGDATE&quot;: &quot;#[flowVars.coreResponse.data != null ? (flowVars.coreResponse.data.postingDate !=null ? flowVars.coreResponse.data.postingDate : server.dateTime.format('YYYY-MM-dd HH:mm:ss') ) : '-']&quot;,
+					&quot;CHAR13&quot;: &quot;#[flowVars.paymentResponse != null  ? (flowVars.paymentResponse.ERRORCODE == 0 ? 'C': 'F') : 'F']&quot;,
+					&quot;CHAR14&quot;: &quot;#[flowVars.paymentResponse !=null ? flowVars.paymentResponse.ERRORDESC : '-']&quot;,
+					&quot;ID&quot;: &quot;#[flowVars.reqMsg.ID]&quot;,
+					&quot;ERRORCODE&quot;: &quot;8426&quot;
+				}
+			}
+		}
+	]
+}"
+											mimeType="application/json" doc:name="build message update fail" />
+									</otherwise>
+
+								</choice>
+								<json:json-to-object-transformer
+									doc:name="JSON to Object" returnClass="java.lang.Object" />
+								<set-variable variableName="finalMsg" value="#[payload]"
+									doc:name="finalMsg" />
+								<json:object-to-json-transformer
+									doc:name="Object to JSON" />
+								<flow-ref name="BO_updateStatementFlow" doc:name="BO_updateStatementFlow" />
+								<set-payload
+									value="{     &quot;ERRORCODE&quot;: &quot;#[flowVars.BoUpdateObject.errorcode == 0 ? flowVars.finalMsg.bo[0].input.data.ERRORCODE : flowVars.BoUpdateObject.errorcode]&quot;,     &quot;ERRORDESC&quot;: &quot;#[flowVars.BoUpdateObject.errorcode == 0 ? flowVars.finalMsg.bo[0].input.data.CHAR17 : flowVars.BoUpdateObject.errordesc]&quot;,     &quot;RESULT&quot;: {         &quot;ACCTNO&quot;: &quot;#[flowVars.getInfoObject.data.CUSTACC]&quot;,         &quot;RECEIVERACCOUNT&quot;: &quot;#[flowVars.getInfoObject.data.CORPDEPOSITACCNO]&quot;,         &quot;BALANCE&quot;: &quot;0&quot;,         &quot;AMOUNT&quot;: &quot;#[flowVars.getInfoObject.data.AMT]&quot;,         &quot;FEECR&quot;: &quot;#[flowVars.getInfoObject.data.CRFEEAMT]&quot;,         &quot;FEEDR&quot;: &quot;#[flowVars.getInfoObject.data.DRFEEAMT]&quot;,         &quot;TRANDESC&quot;: &quot;#[flowVars.finalMsg.bo[0].input.data.CHAR17]&quot;     } }"
+									mimeType="application/json" doc:name="Response Message" />
+							</when>
+							<otherwise>
+								<set-payload
+									value="{  &quot;ERRORCODE&quot;: &quot;#[flowVars.BoInsertObject.errorcode]&quot;,  &quot;ERRORDESC&quot;: &quot;#[flowVars.BoInsertObject.errordesc]&quot; } "
+									mimeType="application/json" doc:name="Set Payload" />
+								<logger message="#[&quot;\nCannot Insert HUB Statement!&quot;]"
+									level="INFO" doc:name="Cannot Insert HUB Statement" />
+							</otherwise>
+						</choice>
+
+
+
+					</when>
+					<otherwise>
+
+						<set-payload
+							value="{  &quot;ERRORCODE&quot;: &quot;#[flowVars.getInfoObject.errorcode]&quot;,  &quot;ERRORDESC&quot;: &quot;#[flowVars.getInfoObject.errordesc]&quot; }"
+							mimeType="application/json" doc:name="build message fail" />
+						<logger message="#[&quot;\nCannot Get HUB Information!&quot;]"
+							level="INFO" doc:name="Cannot Get HUB Information!" />
+					</otherwise>
+				</choice>
+			</when>
+			<otherwise>
+				<logger level="INFO" doc:name="Can not get branch ID by Account"
+					message="#[&quot;\n=====&gt;Can not get branch ID by Account: &quot; + flowVars.reqMsg.CUSTACC]" />
+				<json:object-to-json-transformer
+					mimeType="application/json" doc:name="Object to JSON" />
+			</otherwise>
+		</choice>
+
+		<logger
+			message="#[&quot;\n======================================================================\nENDED HUB TRANSFER\nResponse Message Hub Transfer: Tx ID &quot;+flowVars.reqMsg.ID+&quot;\n&quot;+ message.payloadAs(java.lang.String) + &quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="Hub Transfer Ended" />
+
+		<logger
+			message="#[&quot;\n======================================================================\nENDED HUB TRANSFER\nResponse Message Hub Transfer: Tx ID &quot;+flowVars.reqMsg.ID+&quot;\n&quot;+ message.payloadAs(java.lang.String) + &quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="Hub Transfer Ended - Msg In Out" category="com.jits.cms2.messageinout" />
+
+
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<choice doc:name="Choice">
+				<when expression="#[flowVars.BoInsertObject.errorcode==0]">
+
+					<set-payload
+						value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicQuery-Update&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmUpdateStatusByAPI&quot;,
+				&quot;data&quot;: {
+					&quot;CHAR17&quot;: &quot;Transaction fail!&quot;,
+					&quot;STS&quot;: &quot;T&quot;,
+					&quot;CHAR11&quot;: &quot;#[flowVars.coreResponse.data != null ? ((flowVars.coreResponse.data.postingId !=null &amp;&amp; flowVars.coreResponse.data.postingId !='') ? 'C': 'F') : '-']&quot;,
+					&quot;CHAR12&quot;: &quot;#[flowVars.coreResponse.data != null ? flowVars.coreResponse.data.postingId : '-']&quot;,
+					&quot;POSTINGDATE&quot;: &quot;#[flowVars.coreResponse.data != null ? (flowVars.coreResponse.data.postingDate !=null ? flowVars.coreResponse.data.postingDate : server.dateTime.format('YYYY-MM-dd HH:mm:ss') ) : '-']&quot;,
+					&quot;CHAR13&quot;: &quot;#[flowVars.paymentResponse != null  ? (flowVars.paymentResponse.ERRORCODE == 0 ? 'C': 'F') : 'F']&quot;,
+					&quot;CHAR14&quot;: &quot;#[flowVars.paymentResponse !=null ? flowVars.paymentResponse.ERRORDESC : '-']&quot;,
+					&quot;ID&quot;: &quot;#[flowVars.reqMsg.ID]&quot;
+				}
+			}
+		}
+	]
+}"
+						doc:name="Update Fail" mimeType="application/json" />
+					<flow-ref name="BO_updateStatementFlow" doc:name="BO_updateStatementFlow" />
+
+				</when>
+				<otherwise>
+					<logger message="#[&quot;\n====&gt;Response SYS_ERROR_MESSAGE&quot;]"
+						level="INFO" doc:name="Response SYS_ERROR_MESSAGE" />
+				</otherwise>
+			</choice>
+			<set-payload
+				value="{
+	&quot;ERRORCODE&quot;: 9999,
+	&quot;ERRORDESC&quot;: &quot;#[exception !=null ? (exception.?cause.message or exception) : 'Transaction Failed']&quot;,
+	&quot;RESULT&quot;: {}
+}"
+				doc:name="Exception response" mimeType="application/json" />
+			<logger
+				message="#[&quot;\n======================================================================\nEnded Hub Transfer\n======================================================================\nResponse Message Hub Transfer: Tx ID &quot;+flowVars.reqMsg.ID+&quot;\n&quot;+ message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="Hub Transfer Ended" />
+			<logger
+				message="#[&quot;\n======================================================================\nEnded Hub Transfer\n======================================================================\nResponse Message Hub Transfer: Tx ID &quot;+flowVars.reqMsg.ID+&quot;\n&quot;+ message.payloadAs(java.lang.String)]"
+				level="INFO" category="com.jits.cms2.messageinout" doc:name="Hub Transfer Ended" />
+
+		</catch-exception-strategy>
+	</flow>
+</mule>

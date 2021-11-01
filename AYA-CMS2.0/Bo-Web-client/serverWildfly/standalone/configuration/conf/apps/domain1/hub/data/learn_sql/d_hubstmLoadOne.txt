@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data txcode",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT h.recid,txrefid,txdt,txcode,branchid as branid ,usrid, corpcode, sercode, billccy,round(billamt,2) as billamt, baccdr,bacccr, cuscode,round(hubfee01,2) as hubfee01,round(hubfee02,2) as hubfee02, feecode, notifiemail, catid,case char11 when 'R' then 'Reversed' else char17 end as char17,id,descs as sts,char15,char12 FROM hubdb.d_hubstm h inner join hubdb.d_codetype ON sts = subcodetype AND codetype = 'STT' and  corpcode = <> and sercode <>'' and isemail <> 'Y'",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmGetTxSendMail",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "transactionJournalData"
+    }

@@ -1,0 +1,16 @@
+﻿{
+	"learn_sql_title": "d_usercashViewByUser",
+	"learn_sql_data": "d_usercash",
+	"learn_sql_parameter": "@userid,@userid",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "select userid, round(sum(ostbalance),2) as cashbalance from (
+select ? as userid, 0 as ostbalance from dual
+union all
+select userid,ostbalance from d_usercash where userid = ?)a group by userid",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_usercashViewByUser",
+	"AFGHTimeWJ": 1561269909390
+}

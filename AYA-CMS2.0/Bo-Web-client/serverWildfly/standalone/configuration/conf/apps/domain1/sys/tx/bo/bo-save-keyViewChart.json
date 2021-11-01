@@ -1,0 +1,35 @@
+{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "Trả key view chart về form",
+      "function": "cis.core.txDev_Form.getKeyViewChartToForm",
+      "type": "java",
+      "para": [
+        "@table_code"
+      ],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-form-setDataToform"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-save-keyViewChart",
+  "version": 2,
+  "updateTime": 1562205991292,
+  "txname": "Truy vấn tìm 1 data xem (không xóa)",
+  "isOld": true
+}

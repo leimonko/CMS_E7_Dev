@@ -1,0 +1,14 @@
+{
+  "cdid": "JOB_SV_GET_OFFLINE_FILE",
+  "cdname": "TRANSFERTYPE",
+  "caption": "JOB_SV_GET_OFFLINE_FILE",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": 1,
+  "AFGHkeyIndexWJ": "JOB_SV_GET_OFFLINE_FILE",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

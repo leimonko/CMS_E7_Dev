@@ -1,0 +1,1 @@
+{"full_name":"hub004401","email":"hub004401","user_status":"A","user_id":"hub004401","branchcd":"0044","branchid":"0044","branchname":"Mdy (5) Pyi Gyi Myetshin","AFGHkeyIndexWJ":"hub004401","AFGHkeyTime":1603781790599,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790599,"AFGHkeyUserCreateWJ":""}

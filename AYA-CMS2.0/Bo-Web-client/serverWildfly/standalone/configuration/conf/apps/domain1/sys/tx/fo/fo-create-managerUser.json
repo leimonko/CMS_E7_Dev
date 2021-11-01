@@ -1,0 +1,53 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "Xóa thông báo lỗi",
+			"function": "form.clearError",
+			"type": "javascript",
+			"status": "A",
+			"para": []
+		},
+		{
+			"name": "Thu thập và thêm mới",
+			"function": "form.addnew",
+			"type": "javascript",
+			"status": "A",
+			"para": [
+				"@list_component",
+				"@list_view"
+			],
+			"request": {
+				"true": {
+					"bo": [
+						{
+							"txcode": "#sys:bo-check-managerUser",
+							"input": {
+								"list_component": "@list_component",
+								"list_view": "@list_view",
+								"table_code": "user"
+							}
+						},
+						{
+							"txcode": "#sys:bo-create-managerUser",
+							"input": {
+								"list_component": "@list_component",
+								"list_view": "@list_view",
+								"table_code": "user"
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "fo-create-managerUser",
+	"txname": "fo-create-managerUser",
+	"version": 2,
+	"updateTime": 1598767938669,
+	"isOld": true,
+	"request": {},
+	"order": 133
+}

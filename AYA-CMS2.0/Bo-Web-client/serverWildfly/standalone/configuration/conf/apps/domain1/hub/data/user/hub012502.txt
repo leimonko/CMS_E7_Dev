@@ -1,0 +1,1 @@
+{"full_name":"hub012502","email":"hub012502","user_status":"A","user_id":"hub012502","branchcd":"0125","branchid":"0125","branchname":"Phyarpon","AFGHkeyIndexWJ":"hub012502","AFGHkeyTime":1603781790687,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790687,"AFGHkeyUserCreateWJ":""}

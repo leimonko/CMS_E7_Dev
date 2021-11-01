@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="FIGW_reverseFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/taxReversal" allowedMethods="POST" doc:name="/taxReversal"/>
+		<logger level="INFO" doc:name="STARTED FIGW Reversal" message="#[&quot;\n======================================================================\nSTARTED FIGW Reversal\nRequest Message:\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]"/>
+		<json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+		<set-variable variableName="reqMsg" value="#[payload]" doc:name="reqMsg"/>
+		<set-payload value="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;&gt;
+	&lt;soapenv:Header/&gt;
+	&lt;soapenv:Body&gt;
+		&lt;tem:ccs_reversal&gt;
+			&lt;!--Optional:--&gt;
+			&lt;tem:trans&gt;
+				&lt;!--Optional:--&gt;
+				&lt;tem:businessid&gt;CCT025&lt;/tem:businessid&gt;tem:businessid&gt;
+				&lt;!--Optional:--&gt;
+				&lt;tem:transid&gt;#[payload.TRANSID]&lt;/tem:transid&gt;
+				&lt;!--Optional:--&gt;
+				&lt;tem:channel&gt;#[payload.CHANNEL]&lt;/tem:channel&gt;
+			&lt;/tem:trans&gt;
+		&lt;/tem:ccs_reversal&gt;
+	&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;" mimeType="text/xml" doc:name="Build XML Request"/>
+		<logger message="#[&quot;\n======================================================================\nXML Request ID: &quot; +  flowVars.reqMsg.ID + &quot;\n&quot;+   message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]" level="INFO" doc:name="XML Request"/>
+		<http:request config-ref="FIGW" path="/CoreService.asmx" method="POST" doc:name="FIGW">
+			<http:success-status-code-validator values="200..599"/>
+		</http:request>
+		<logger message="#[&quot;\n======================================================================\nXML Response ID: &quot; +  flowVars.reqMsg.ID  +&quot;\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]" level="INFO" doc:name="XML Response"/>
+		<set-variable variableName="transid"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:ccs_reversalResponse/*:ccs_reversalResult/*:result/*:transid&quot;)]"
+			doc:name="transid" />
+		<set-variable variableName="errorcode"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:ccs_reversalResponse/*:ccs_reversalResult/*:result/*:errorcode&quot;)]"
+			doc:name="errorcode" />
+		<set-variable variableName="errordesc"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:ccs_reversalResponse/*:ccs_reversalResult/*:result/*:errordesc&quot;).replace('/',' ')]"
+			doc:name="errordesc" />
+		<set-variable variableName="faultstring" value="#[xpath3(&quot;/*:Envelope/*:Body/*:Fault/faultstring&quot;).replace('/',' ')]" doc:name="faultstring"/>
+		<set-payload
+			value="{
+	&quot;ERRORCODE&quot;: &quot;#[(flowVars.errorcode==null || flowVars.errorcode.isEmpty()) ? 1997: flowVars.errorcode]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[(flowVars.errorcode==null || flowVars.errorcode.isEmpty()) ? flowVars.faultstring : flowVars.errordesc]&quot;,
+	&quot;TRANSID&quot;: &quot;#[flowVars.transid]&quot;,
+	&quot;ID&quot;:&quot;#[flowVars.reqMsg.ID]&quot;
+}"
+			mimeType="application/json" doc:name="Build JSON Response" />
+		<logger
+			message="#[&quot;\n======================================================================\nENDED FIGW Reversal\nResponse Message:\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="Ended Posting FIGW" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger message="#[&quot;\n---Exception---&quot;+exception+&quot;\n&quot;]" level="INFO" doc:name="Exception Logger"/>
+			<set-payload value="{  &quot;ERRORCODE&quot;: &quot;9999&quot;,  &quot;ERRORDESC&quot;: &quot;#[exception !=null ? (exception.?cause.message or exception) : 'Transaction Failed']&quot;,  &quot;TRANSID&quot;: &quot;#[flowVars.transid]&quot;,  &quot;ID&quot;:&quot;#[flowVars.reqMsg.ID]&quot; }" mimeType="application/json" doc:name="Exception Message"/>
+			<logger message="#[&quot;\n======================================================================\nENDED FIGW Reversal\nResponse Message:\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]" level="INFO" doc:name="Ended Posting FIGW"/>
+		</catch-exception-strategy>
+	</flow>
+</mule>

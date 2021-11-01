@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<sub-flow name="YCDC_makePaymentByApiKeySub_Flow">
+		<logger
+			message="#[&quot;\n==============================================================================\nSTARTED YCDC MAKE PAYMENT BY APIKEY\n--Request Message: &quot; + message.payloadAs(java.lang.String)+&quot;\n==============================================================================&quot;]"
+			level="INFO" doc:name="STARTED YCDC MAKE PAYMENT BY APIKEY" />
+		<scripting:transformer doc:name="Store REFVA1, REFVA2, REFVA3">
+			<scripting:script engine="JavaScript"><![CDATA[var resMsg = JSON.parse(payload);
+var billRefNo;
+try{
+billRefNo = JSON.stringify(resMsg.BILLREFNO);
+flowVars.put('BILLREFNO',billRefNo.substring(1, billRefNo.length-1));
+}
+catch(e){
+flowVars.put('BILLREFNO','');
+}
+message.setPayload(JSON.stringify(resMsg));
+result = message;]]></scripting:script>
+		</scripting:transformer>
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsgYCDC" value="#[payload]"
+			doc:name="reqMsgYCDC" />
+		<set-variable variableName="apiKey"
+			value="${YCDC_API_KEY}" doc:name="apiKey" />
+		<set-payload
+			value="{   &quot;apiKey&quot;:  &quot;#[flowVars.apiKey]&quot;,   &quot;billingMerchantCode&quot;: &quot;#[flowVars.reqMsgYCDC.BILLINGMERCHANTCODE]&quot;,   &quot;billAmount&quot;: &quot;#[flowVars.reqMsgYCDC.BILLAMOUNT]&quot;,   &quot;currencyCode&quot;: &quot;#[flowVars.reqMsgYCDC.CURRENCYCODE]&quot;,   &quot;billRefNo&quot;: &quot;#[flowVars.BILLREFNO]&quot;,   &quot;transferRefNo1&quot;: &quot;#[flowVars.reqMsgYCDC.TRANSFERREFNO1]&quot;,   &quot;custRefNo&quot;: &quot;#[flowVars.reqMsgYCDC.CUSTREFNO]&quot; }"
+			mimeType="application/json" doc:name="Build Message Request" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+        <logger message="#[&quot;\n--makePaymentByApiKey Request\n&quot;+message.payloadAs(java.lang.String)]" level="INFO" doc:name="makePaymentByApiKey Request"/>
+		<http:request config-ref="YCDCEndpoint" path="/makePaymentByApiKey"
+			method="POST" doc:name="/makePaymentByApiKey">
+			<http:request-builder>
+				<http:header headerName="Content-Type" value="application/x-www-form-urlencoded"/>
+			</http:request-builder>
+			<http:success-status-code-validator
+				values="200..699" />
+		</http:request>
+		<logger
+			message="#[&quot;\n==========[YCDC makePayment Response]=========== &quot; + flowVars.uuid +&quot;\n  -Headers=&quot;+message.inboundProperties+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n==========[YCDC makePayment Response]===========&quot;]"
+			level="INFO" doc:name="makePaymentByApiKey Response" />
+		<set-variable variableName="status" value="#[json:status]"
+			doc:name="status" />
+		<choice doc:name="status T ? F">
+			<when expression="#[flowVars.status==&quot;success&quot;]">
+				<set-payload
+					value="{
+  &quot;ERRORCODE&quot;: 0,
+  &quot;ERRORDESC&quot;: &quot;Transaction successfully!&quot;,
+  &quot;RESULT&quot;: {
+    &quot;TRANSACTIONNO&quot;: &quot;#[json:TransactionNo]&quot;,
+    &quot;PDFDOWNLOADURL&quot;: &quot;#[json:PDFDownloadURL]&quot;
+  }
+}"
+					mimeType="application/json" doc:name="Message payment success" />
+			</when>
+			<otherwise>
+				<set-payload
+					value="{
+  &quot;ERRORCODE&quot;: &quot;996&quot;,
+  &quot;ERRORDESC&quot;: &quot;#[json:message]&quot;,
+  &quot;RESULT&quot;: &quot;&quot;
+}"
+					mimeType="application/json" doc:name="Message payment fail" />
+			</otherwise>
+		</choice>
+		<logger
+			message="#[&quot;\n==============================================================================\nENDED YCDC MAKE PAYMENT BY APIKEY\n--Response Message: &quot; + message.payloadAs(java.lang.String)+&quot;\n==============================================================================&quot;]"
+			level="INFO" doc:name="ENDED YCDC MAKE PAYMENT BY APIKEY" />
+	</sub-flow>
+</mule>

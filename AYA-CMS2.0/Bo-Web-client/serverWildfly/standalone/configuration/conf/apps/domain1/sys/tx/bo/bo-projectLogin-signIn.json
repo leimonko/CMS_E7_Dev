@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Đăng nhập","function":"tx.login","type":"java","para":[],"status":"A","response":{"_default_":{"fo":[{"txcode":"#sys:fo-projectLogin-signIn"}]}}}],"status":"A","txtype":"bo","txcode":"bo-projectLogin-signIn","txname":"Đăng nhập cho project login","version":1,"updateTime":1562250482068,"hasRole":"false","isOld":false,"response":{}}

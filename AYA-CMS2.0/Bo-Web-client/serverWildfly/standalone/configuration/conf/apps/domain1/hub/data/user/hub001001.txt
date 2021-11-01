@@ -1,0 +1,1 @@
+{"full_name":"hub001001","email":"hub001001","user_status":"A","user_id":"hub001001","branchcd":"0010","branchid":"0010","branchname":"Muse","AFGHkeyIndexWJ":"hub001001","AFGHkeyTime":1603781790562,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790562,"AFGHkeyUserCreateWJ":""}

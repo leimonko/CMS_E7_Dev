@@ -1,0 +1,1 @@
+{"other_list_name":"Vay nhỏ","other_list_group":"loan_menu","other_list_color":"","other_list_icon":"","other_list_order":"1.2","other_list_id":"bd6eebf7dce2b29e","AFGHkeyIndexWJ":"68828a8fa7370d75","AFGHkeyTime":1576028719650,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1576028722260,"other_list_value":""}

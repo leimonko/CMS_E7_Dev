@@ -1,0 +1,1 @@
+{"full_name":"hub012302","email":"hub012302","user_status":"A","user_id":"hub012302","branchcd":"0123","branchid":"0123","branchname":"Pan Ta Naw","AFGHkeyIndexWJ":"hub012302","AFGHkeyTime":1603781790685,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790685,"AFGHkeyUserCreateWJ":""}

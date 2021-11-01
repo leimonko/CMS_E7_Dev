@@ -1,0 +1,58 @@
+﻿{
+    "learn_sql_title": "d_hubstmreportonline001exportbyparameter",
+    "learn_sql_parameter": "@fromdate,@todate,@fromdate,@todate,@branchcode,@branchcode,@corpcode,@corpcode,@fromdate,@todate,@fromdate,@todate,@branchcode,@branchcode,@corpcode,@corpcode",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select ''||ROW_NUMBER() OVER (ORDER BY dvaluedt) AS recid,b.TRACE TRACE,b.TXREFID,TO_CHAR(b.dvaluedt,'DD/MM/RRRR') ||' ' ||TO_CHAR(b.dvaluedt,'hh24:mi:ss') txdt,branchname branchid,b.usrid,b.txcode,b.CORPCODE,b.SERCODE,b.BILLCCY,
+        to_char(b.ACCFEE, 'FM999,999,999,999,990.00') Bill_amount,
+        b.REFVA1 Bill_number,
+        case when b.char14 = 'null' then '-' else b.char14 end  Status_notification,
+        REFVA2,REFVA3,to_char(HUBFEE, 'FM999,999,999,999,990.00') HUBFEE,b.char05 descs
+        from
+        (
+        select trace,txrefid,dvaluedt,branchid,branchid||'-'||CHAR18 branchname,usrid,txcode,corpcode,sercode,billccy,BILLAMT  accfee,refva1,REFVA2,char14 ,HUBFEE01 HUBFEE,REFVA3,CHAR05 from d_hubstm where sts='C' and dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        union all
+        select trace,txrefid,dvaluedt,branchid,branchid||'-'||CHAR18 branchname,usrid,txcode,corpcode,sercode,billccy,BILLAMT  accfee,refva1,REFVA2,char14 ,HUBFEE01 HUBFEE,REFVA3,CHAR05 from r_hubstm where sts='C' and dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        ) b
+        inner join d_corpregistation c on b.corpcode = c.corpcode
+        where b.branchid = case when ? <> '0000' then to_number(?) else b.branchid end
+        and c.CORPCODE=CASE WHEN ?='ALL' THEN C.CORPCODE ELSE ? END and c.CORPCODE not in ('9999')
+UNION ALL
+Select '','' ,'','','','','','','','Total',to_char(Bill_amount, 'FM999,999,999,999,990.00') ,'','','','',to_char(hubfee, 'FM999,999,999,999,990.00'), '' from (
+select count(*)+1 as recid,sum(b.ACCFEE) Bill_amount,sum(HUBFEE) hubfee
+        from
+        (
+        select trace,txrefid,dvaluedt,branchid,branchid||'-'||CHAR18 branchname,usrid,txcode,corpcode,sercode,billccy,BILLAMT  accfee,refva1,REFVA2,char14 ,HUBFEE01 HUBFEE,REFVA3  from d_hubstm where sts='C' and dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        union all
+        select trace,txrefid,dvaluedt,branchid,branchid||'-'||CHAR18 branchname,usrid,txcode,corpcode,sercode,billccy,BILLAMT  accfee,refva1,REFVA2,char14 ,HUBFEE01 HUBFEE,REFVA3  from r_hubstm where sts='C' and dvaluedt >= TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') and  dvaluedt < TO_DATE( TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD'),'YYYY-MM-DD') + 1
+        ) b
+        inner join d_corpregistation c on b.corpcode = c.corpcode
+        where b.branchid = case when ? <> '0000' then to_number(?) else b.branchid end
+        and c.CORPCODE=CASE WHEN ?='ALL' THEN C.CORPCODE ELSE ? END and c.CORPCODE not in ('9999'))",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "fromdate,todate",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmreportonline001exportbyparameter",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "dataexportforcmsreport",
+	"tmp_header":"recid,trace,txrefid,txdt,branchid,usrid,txcode,corpcode,sercode,billccy,bill_amount,bill_number,refva2,refva3,hubfee,status_notification,descs",
+	"tmp_exportfile":"{
+	\"recid\": \"No\",
+	\"trace\": \"ID\",
+	\"txrefid\": \"Transaction number\",
+	\"txdt\": \"TXDT\",
+	\"branchid\": \"Branch ID\",
+	\"usrid\": \"USERID\",
+	\"txcode\": \"Transaction code\",
+	\"corpcode\": \"Corporation code\",
+	\"sercode\": \"Service code\",
+	\"billccy\": \"Bill currency\",
+	\"bill_amount\": \"Bill amount\",
+	\"bill_number\": \"Reference 1\",
+	\"refva2\": \"Reference 2\",
+	\"refva3\": \"Reference 3\",
+	\"hubfee\": \"Fee\",
+	\"status_notification\": \"Status Notification\",
+	\"descs\": \"Description\"
+}"
+    }

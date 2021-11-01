@@ -1,0 +1,1 @@
+{"admin":{"holdingCash":{"form":{"accept":true,"follow":false}}},"designer":{"holdingCash":{"form":{"accept":true,"follow":false}}},"Manager":{"holdingCash":{"form":{"accept":true,"follow":false}}},"Teller":{"holdingCash":{"form":{"accept":true,"follow":false}}}}

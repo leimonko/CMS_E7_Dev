@@ -1,0 +1,879 @@
+{
+    "info": {
+        "title": "Amend Fee Beneficiary",
+        "des": "Amend Fee Beneficiary",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "d_feecalLoadByFeecode",
+        "bodata": "",
+        "openOne": "true",
+        "url_input": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "feebenefitciaryamend",
+        "ruleStrong": [{
+                "code": "managerComponent",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "recid",
+                    "component_manager": "{\n    \"btn_save\": \"'@{recid}' === ''\",\n    \"btn_update\": \"'@{recid}' !== ''\",\n    \"recid\": \"'@{recid}' !== ''\"\n}",
+                    "is_use_block": "false"
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "recid;feecodeview",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            },{
+                "code": "managerComponent",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "recid",
+                    "component_manager": "{\n    \"feecode\": \"'@{recid}' === ''\",\n    \"feecodeview\": \"'@{recid}' !== ''\"\n}",
+                    "is_use_block": "false"
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            },  {
+                "code": "managerComponent",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "benificiary",
+                    "component_manager": "{\n    \"commonacc\": \" '@{benificiary}' !== 'C'\",\n    \"ccrcd\": \" '@{benificiary}' !== 'C'\"\n}",
+                    "is_use_block": "false"
+                },
+                "inUse": true,
+                "order": 7,
+                "isStart": true
+            }
+        ]
+    },
+    "list_layout": [{
+            "name": "",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "312bbc4405094f6d",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "search",
+                    "class": "",
+                    "codeHidden": "d67f882ee422c28e",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Fee code",
+                                "code": "search",
+                                "codeHidden": "e9338b6d9e4a66b4",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "keysearch.feecode",
+                                "structable_read": "d_feebeneficiaries.feecode",
+                                "cdlist": {},
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "select * from keysearch",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "keysearch.feecode",
+                                "selected_view_format": "@keysearch.feecode - @keysearch.feename",
+                                "table_format": "[\n    {\n        \"title\": \"Feecode\",\n        \"code\": \"keysearch.feecode\"\n    },\n    {\n        \"title\": \"Feename\",\n        \"code\": \"keysearch.feename\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "keysearch.feecode",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Fee code": "Fee code"
+                                    },
+                                    "en": {
+                                        "Fee code": "Fee code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Search",
+                                "code": "search",
+                                "codeHidden": "3abcabc70d3da801",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-searchAdvanceByParameter\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"search\",\n            \"table_code\": \"keysearch\",\n            \"learn_sql\": \"d_feebenefitciariesAdvanceSearchByParameter\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "search",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Corporation Service Listing",
+                                "code": "table",
+                                "codeHidden": "caaf435d2c6d59ef",
+                                "class": "col-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "table.col",
+                                "query_data": "Select * from d_feebeneficiaries",
+                                "paging_record": "50",
+                                "columns": "[\n    {\n        \"code\": \"d_feebeneficiaries.recid\",\n        \"title\": \"Recid\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_feebeneficiaries.feecode\",\n        \"title\": \"Feecode\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_feebeneficiaries.appliedwhen\",\n        \"title\": \"Applied when\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_feebeneficiaries.benificiary\",\n        \"title\": \"Benefitciary\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_feebeneficiaries.formular\",\n        \"title\": \"Formular\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_feebeneficiaries.roundingby\",\n        \"title\": \"Rounding by\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_feebeneficiaries.commonacc\",\n        \"title\": \"Common account\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_feebeneficiaries.ccrcd\",\n        \"title\": \"Currency\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {
+                                "vi": {
+                                    "Recid": "Recid",
+                                    "Caculation type": "Caculation type",
+                                    "Tier": "Tier",
+                                    "Applied when": "Applied when",
+                                    "Basic value": "Basic value",
+                                    "Payer": "Payer",
+                                    "From value": "From value"
+                                },
+                                "en": {
+                                    "Recid": "Recid",
+                                    "Caculation type": "Caculation type",
+                                    "Tier": "Tier",
+                                    "Applied when": "Applied when",
+                                    "Basic value": "Basic value",
+                                    "Payer": "Payer",
+                                    "From value": "From value"
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTableDefault"
+                        }, {
+                            "default": {
+                                "name": "View",
+                                "code": "btn_view",
+                                "codeHidden": "0dcba9d892bb3cb8",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewDataSQL\",\n        \"input\": {\n            \"learn_sql\": \"d_feebenefitciariesViewOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "visibility",
+                                "color": "info",
+                                "onTable": "table",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Remove",
+                                "code": "btn_delete",
+                                "codeHidden": "94775cb2ff898d42",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-deleteDataSQL\",\n        \"input\": {\n            \"table_code\": \"d_feebeneficiaries\",\n            \"pk_col\": \"recid\",\n            \"learn_sql\": \"d_feebenefitciariesDeleteOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "delete",
+                                "color": "info",
+                                "onTable": "table",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "",
+            "des": "",
+            "class": "",
+            "lang": {
+                "en": "",
+                "vi": ""
+            },
+            "lang_des": {},
+            "codeHidden": "5ceca2c9492937d9",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "View and Input",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "2ab44811d19fdf12",
+                    "inputtype": "cView",
+                    "isTab": "true",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Fee code",
+                                "code": "feecodeview",
+                                "codeHidden": "e9338b6d9e4a66b4",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "",
+                                "structable_read": "d_feebeneficiaries.feecode",
+                                "cdlist": {},
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "select * from keysearch",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "keysearch.feecode",
+                                "selected_view_format": "@keysearch.feecode - @keysearch.feename",
+                                "table_format": "[\n    {\n        \"title\": \"Feecode\",\n        \"code\": \"keysearch.feecode\"\n    },\n    {\n        \"title\": \"Feename\",\n        \"code\": \"keysearch.feename\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "keysearch.feecode",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Fee code": "Fee code"
+                                    },
+                                    "en": {
+                                        "Fee code": "Fee code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Fee code",
+                                "code": "feecode",
+                                "codeHidden": "e9338b6d9e4a66b4",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_feebeneficiaries.feecode",
+                                "structable_read": "d_feebeneficiaries.feecode",
+                                "cdlist": {},
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "select * from keysearch",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "keysearch.feecode",
+                                "selected_view_format": "@keysearch.feecode - @keysearch.feename",
+                                "table_format": "[\n    {\n        \"title\": \"Feecode\",\n        \"code\": \"keysearch.feecode\"\n    },\n    {\n        \"title\": \"Feename\",\n        \"code\": \"keysearch.feename\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "keysearch.feecode",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Fee code": "Fee code"
+                                    },
+                                    "en": {
+                                        "Fee code": "Fee code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Recid",
+                                "code": "recid",
+                                "codeHidden": "3c179a75c252d3c7",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_feebeneficiaries.recid",
+                                "structable_read": "d_feebeneficiaries.recid",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Fee calculation code": "Fee calculation code"
+                                    },
+                                    "en": {
+                                        "Fee calculation code": "Fee calculation code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Applied when",
+                                "code": "appliedwhen",
+                                "codeHidden": "d605b51d84b47c40",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_feebeneficiaries.appliedwhen",
+                                "structable_read": "d_feebeneficiaries.appliedwhen",
+                                "data_default": "-",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Beneficiary",
+                                "code": "benificiary",
+                                "codeHidden": "68d70f31c7346d28",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_feebeneficiaries.benificiary",
+                                "structable_read": "d_feebeneficiaries.benificiary",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='BENEFIT' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "BENEFIT"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='BENEFIT' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Benificiary": "Benificiary"
+                                    },
+                                    "en": {
+                                        "Benificiary": "Benificiary"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Account number",
+                                "code": "commonacc",
+                                "codeHidden": "d6727f76c84c8cdf",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_feebeneficiaries.commonacc",
+                                "structable_read": "d_feebeneficiaries.commonacc",
+                                "data_default": " ",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Currency",
+                                "code": "ccrcd",
+                                "codeHidden": "20a332d43ecf35cd",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_feebeneficiaries.ccrcd",
+                                "structable_read": "d_feebeneficiaries.ccrcd",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='CRCD' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "CRCD"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='CRCD' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Currency": "Currency"
+                                    },
+                                    "en": {
+                                        "Currency": "Currency"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Formular",
+                                "code": "formular",
+                                "codeHidden": "983f262408486f92",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_feebeneficiaries.formular",
+                                "structable_read": "d_feebeneficiaries.formular",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Rounding by",
+                                "code": "roundingby",
+                                "codeHidden": "d6eb90146b662ad5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "d_feebeneficiaries.roundingby",
+                                "structable_read": "d_feebeneficiaries.roundingby",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='NUMBER0108' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "NUMBER0108"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='NUMBER0108' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Rounding by": "Rounding by"
+                                    },
+                                    "en": {
+                                        "Rounding by": "Rounding by"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "",
+            "des": "",
+            "class": "",
+            "lang": {
+                "en": "",
+                "vi": ""
+            },
+            "lang_des": {},
+            "codeHidden": "5ceca2c9492937d9",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "2ab44811d19fdf12",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Save",
+                                "code": "btn_save",
+                                "codeHidden": "bc430f0c71b3fdrd",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-newDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"table_code\": \"d_feebeneficiaries\",\n            \"learn_sql\": \"d_feebeneficiariesInsertOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "save",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Update",
+                                "code": "btn_update",
+                                "codeHidden": "bc430f0c71b3fdcf",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-updateDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"learn_sql\": \"d_feebeneficiariesUpdateOneFromformdetail\",\n            \"table_code\": \"d_feebeneficiaries\",\n            \"pk_col\": \"recid\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "edit",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Clear",
+                                "code": "btn_clear",
+                                "codeHidden": "c4a0ba013f419102",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "icon": "clear",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }]
+		}
+    ],
+    "react_txt": ""
+}

@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "d_usercashUpdateBalanceRevesed",
+  "learn_sql_query": "UPDATE hubdb.d_usercash SET OSTBALANCE = OSTBALANCE - TO_NUMBER(?), changedate = SYSDATE WHERE userid =?",
+  "learn_sql_parameter": "@OSTBALANCE,@USRID",
+  "learn_sql_parameter_sub": "@USRID",
+  "learn_sql_query_sub": "SELECT * FROM hubdb.d_usercash WHERE userid =?",
+  "learn_sql_data": "d_usercash",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_usercashUpdateBalanceRevesed",
+  "AFGHTimeWJ": 1561266469836
+}

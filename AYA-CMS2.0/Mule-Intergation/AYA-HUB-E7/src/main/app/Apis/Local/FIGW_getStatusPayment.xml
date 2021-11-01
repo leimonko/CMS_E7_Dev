@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="FIGW_checkStatusPaymentFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/getStatusPayment" doc:name="/getStatusPayment" allowedMethods="POST"/>
+		<set-variable variableName="uuid" value="#[java.util.UUID.randomUUID().toString()]" doc:name="uuid"/>
+		<logger
+			message="#[&quot;\n=======================================\nSTARTED CHECK STATUS PAYMENT\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="STARTED CHECK STATUS PAYMENT" />
+        <set-payload value="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;&gt;
+	&lt;soapenv:Header/&gt;
+	&lt;soapenv:Body&gt;
+		&lt;tem:CheckTransactionStatus&gt;
+			&lt;tem:transactionstatus&gt;
+				&lt;tem:businessid&gt;CCT025&lt;/tem:businessid&gt;
+				&lt;tem:transref&gt;#[json:TRANSREF]&lt;/tem:transref&gt;
+				&lt;tem:transdate&gt;#[json:TRANSDATE]&lt;/tem:transdate&gt;
+				&lt;tem:channel&gt;#[json:CHANNELID]&lt;/tem:channel&gt;
+			&lt;/tem:transactionstatus&gt;
+		&lt;/tem:CheckTransactionStatus&gt;
+	&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;" mimeType="text/xml" doc:name="Message Request Check Status"/>
+		<flow-ref name="Figw_soapConnectorFlow" doc:name="Figw_soapConnectorFlow"/>
+        <set-variable variableName="transid" value="#[xpath3(&quot;/*:Envelope/*:Body/*:CheckTransactionStatusResponse/*:CheckTransactionStatusResult/*:result/*:transid&quot;)]" doc:name="transid"/>
+        <set-payload value="{
+	&quot;ERRORCODE&quot;: &quot;#[flowVars.transid==null? 2000: 0]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[xpath3(&quot;/*:Envelope/*:Body/*:CheckTransactionStatusResponse/*:CheckTransactionStatusResult/*:result/*:statusdesc&quot;)]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;TRANSID&quot;: &quot;#[flowVars.transid]&quot;,
+		&quot;TRANSREF&quot;: &quot;#[xpath3(&quot;/*:Envelope/*:Body/*:CheckTransactionStatusResponse/*:CheckTransactionStatusResult/*:result/*:transref&quot;)]&quot;,
+		&quot;STATUS&quot;: &quot;#[xpath3(&quot;/*:Envelope/*:Body/*:CheckTransactionStatusResponse/*:CheckTransactionStatusResult/*:result/*:statusid&quot;)]&quot;,
+		&quot;STATUSDESC&quot;: &quot;#[xpath3(&quot;/*:Envelope/*:Body/*:CheckTransactionStatusResponse/*:CheckTransactionStatusResult/*:result/*:statusdesc&quot;)]&quot;
+	}
+}" mimeType="application/json" doc:name="MsgResponse"/>
+		<logger
+			message="#[&quot;\n=======================================\nENDED CHECK STATUS PAYMENT\nResponse Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="ENDED CHECK STATUS PAYMENT" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 9999,  &quot;ERRORDESC&quot;: &quot;#[exception.?cause.message or exception]&quot;,  &quot;RESULT&quot;: {} }"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=======================================\nENDED CHECK STATUS PAYMENT\nResponse Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+				level="INFO" doc:name="ENDED CHECK STATUS PAYMENT" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

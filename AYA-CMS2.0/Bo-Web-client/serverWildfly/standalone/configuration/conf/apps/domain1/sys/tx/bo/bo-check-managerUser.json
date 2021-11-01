@@ -1,0 +1,22 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "Check tài khoản ở sys",
+            "function": "txManagerUser.checkHasUser",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": { "_default_": { "fo": [{ "txcode": "#sys:fo-container" }] } }
+        }
+    ],
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-check-managerUser",
+    "txname": "Kiểm tra tài khoản tồn tại",
+    "version": 1,
+    "updateTime": 1567757896790,
+    "hasRole": "false",
+    "isOld": false,
+    "response": {}
+}

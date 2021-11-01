@@ -1,0 +1,558 @@
+{
+    "info": {
+        "title": "HUB Reconciliation File",
+        "des": "",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "d_hubstmMISTransactionLoadCorpcode",
+        "bodata": "",
+        "openOne": "true",
+        "url_input": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "hubMISTransaction",
+        "ruleStrong": [
+            {
+                "code": "runFo",
+                "config": {
+                    "component_action": "email",
+                    "component_result": "",
+                    "component_event": "enter_tab",
+                    "txFoActions": "[\n    {\n        \"function\": \"formValidate.validateEmail\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                    "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                    "useAction": "true",
+                    "condition": ""
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": false
+            },
+            {
+                "code": "setDataGB",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "corpcode",
+                    "component_result": "servicecode",
+                    "data_type": "query_db",
+                    "query": "select * from d_configreconfilename where wf.d_configreconfilename .codetype ===\"S\" ",
+                    "api": "",
+                    "query_db": "select * from d_configreconfilename where wf.d_configreconfilename.codetype ===\"S\" ",
+                    "mode_filter": "js_condition",
+                    "filter_condition": "{\n            \"col_col1\": \"condition_1\",\n            \"col_col2\": \"condition_2\"\n            }",
+                    "js_condition": "data_gb = data_gb.filter(data=>{\n\n        return data.d_configreconfilename.corpcode === '@{corpcode}';\n\n    })"
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            },
+            {
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "filename",
+                    "condition": "",
+                    "visible": "false",
+                    "ena_dis": "not_use",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            },
+            {
+                "code": "setValue",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "servicecode",
+                    "component_result": "",
+                    "isGetOOP": "true",
+                    "getOOPFormat": "{\n    \"filename\": \"d_configreconfilename.filename\"\n}"
+                },
+                "inUse": true,
+                "order": 3,
+                "isStart": true
+            }
+        ]
+    },
+    "list_layout": [
+        {
+            "name": "Input",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "782bb4300c1e02fa",
+            "inputtype": "cLayout",
+            "list_view": [
+                {
+                    "code": "code",
+                    "name": "View model",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "codeHidden": "0109dbef89123c30f",
+                    "list_input": [
+                        {
+                            "default": {
+                                "name": "Corporation code",
+                                "code": "corpcode",
+                                "codeHidden": "5595bc3d21a567b0",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "MISTransaction.corpcode",
+                                "structable_read": "MISTransaction.corpcode",
+                                "cdlist": {},
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "Select * from d_configreconfilename where wf.d_configreconfilename.codetype===\"C\"",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "d_configreconfilename.corpcode",
+                                "selected_view_format": "@d_configreconfilename.corpcode - @d_configreconfilename.corpname",
+                                "table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_configreconfilename.corpcode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_configreconfilename.corpname\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "d_configreconfilename.corpcode",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Corporation code": "Corporation code"
+                                    },
+                                    "en": {
+                                        "Corporation code": "Corporation code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        },
+                        {
+                            "default": {
+                                "name": "Service code",
+                                "code": "servicecode",
+                                "codeHidden": "9eb34047f084ab03",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "MISTransaction.servicecode",
+                                "structable_read": "MISTransaction.servicecode",
+                                "cdlist": {},
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "select * from d_configreconfilename where wf.d_configreconfilename.codetype ===\"S\" ",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "d_configreconfilename.servicecode",
+                                "selected_view_format": "@d_configreconfilename.servicecode - @d_configreconfilename.corpname",
+                                "table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_configreconfilename.servicecode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_configreconfilename.corpname\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "d_configreconfilename.servicecode",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Service code": "Service code"
+                                    },
+                                    "en": {
+                                        "Service code": "Service code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        },
+                        {
+                            "default": {
+                                "name": "From date",
+                                "code": "fromdate",
+                                "codeHidden": "af2cad89c959635a",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "MISTransaction.fromdate",
+                                "structable_read": "MISTransaction.fromdate",
+                                "data_default": "",
+                                "data_type": "edit",
+                                "component_title": "",
+                                "mask_format": "DD/MM/YYYY",
+                                "mask_data_format": "DD/MM/YYYY",
+                                "value_type": "number",
+                                "auto_delete": "true",
+                                "mask_mode": "date",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": ""
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true,
+                                "condistion": []
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "From date": "From date"
+                                    },
+                                    "en": {
+                                        "From date": "From date"
+                                    }
+                                },
+                                "mask_format": {
+                                    "vi": {
+                                        "/": "/"
+                                    },
+                                    "en": {
+                                        "/": "/"
+                                    }
+                                },
+                                "validate": {}
+                            },
+                            "configAVD": {},
+                            "inputtype": "jMaskInput"
+                        },
+                        {
+                            "default": {
+                                "name": "To date",
+                                "code": "todate",
+                                "codeHidden": "946c5fe386c0c04d",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "MISTransaction.todate",
+                                "structable_read": "MISTransaction.todate",
+                                "data_default": "",
+                                "data_type": "edit",
+                                "component_title": "",
+                                "mask_format": "DD/MM/YYYY",
+                                "mask_data_format": "DD/MM/YYYY",
+                                "value_type": "number",
+                                "auto_delete": "true",
+                                "mask_mode": "date",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": ""
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true,
+                                "condistion": []
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "To date": "To date"
+                                    },
+                                    "en": {
+                                        "To date": "To date"
+                                    }
+                                },
+                                "mask_format": {
+                                    "vi": {
+                                        "/": "/"
+                                    },
+                                    "en": {
+                                        "/": "/"
+                                    }
+                                },
+                                "validate": {}
+                            },
+                            "configAVD": {},
+                            "inputtype": "jMaskInput"
+                        },
+                        {
+                            "default": {
+                                "name": "Email",
+                                "code": "email",
+                                "codeHidden": "578482bd897250c5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "MISTransaction.email",
+                                "structable_read": "MISTransaction.email",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },
+                        {
+                            "default": {
+                                "name": "File name",
+                                "code": "filename",
+                                "codeHidden": "31e2a1d90c8e58a7",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "MISTransaction.filename",
+                                "structable_read": "d_configreconfilename.filename",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }
+                    ]
+                },
+                {
+                    "code": "code",
+                    "name": "View model",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "codeHidden": "0109dbefc1c0c30f",
+                    "list_input": [
+                        {
+                            "default": {
+                                "name": "Accept",
+                                "code": "btn_Accept",
+                                "codeHidden": "e4c8562b6c3a15ed",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#hub:fo-post-viewDataMISTransaction\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"table_code\": \"MISTransaction\",\n            \"learn_sql\": \"d_hubstmLoadMISTransactionForExportCSV\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "arrow_forward_ios",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        },
+                        {
+                            "default": {
+                                "name": "Clear",
+                                "code": "btn_clear",
+                                "codeHidden": "b15b771142dca5d6",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "icon": "clear",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Transaction Listing",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "5ea9ad835c66e88a",
+            "inputtype": "cLayout",
+            "list_view": [
+                {
+                    "code": "code",
+                    "name": "View model",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "codeHidden": "d36108fe83861474",
+                    "list_input": [
+                        {
+                            "default": {
+                                "name": "Transaction Listing",
+                                "code": "table",
+                                "codeHidden": "4236a458ec78e440",
+                                "class": "col-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "table.col",
+                                "query_data": "select * from MISTransaction",
+                                "paging_record": "5",
+                                "columns": "[\n    {\n        \"code\": \"MISTransaction.trace\",\n        \"title\": \"Trace\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"MISTransaction.txdt\",\n        \"title\": \"Transaction date\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"MISTransaction.txcode\",\n        \"title\": \"Txcode\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"MISTransaction.sercode\",\n        \"title\": \"Service code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"MISTransaction.billccy\",\n        \"title\": \"Currency\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"MISTransaction.billamt\",\n        \"title\": \"Billamount\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"MISTransaction.baccdr\",\n        \"title\": \"Bank account\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"MISTransaction.feecode\",\n        \"title\": \"Fee code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {
+                                "vi": {
+                                    "Trace": "Trace",
+                                    "Transaction date": "Transaction date",
+                                    "Txcode": "Txcode",
+                                    "Service code": "Service code",
+                                    "Currency": "Currency",
+                                    "Billamount": "Billamount",
+                                    "Bank account": "Bank account",
+                                    "Fee code": "Fee code"
+                                },
+                                "en": {
+                                    "Trace": "Trace",
+                                    "Transaction date": "Transaction date",
+                                    "Txcode": "Txcode",
+                                    "Service code": "Service code",
+                                    "Currency": "Currency",
+                                    "Billamount": "Billamount",
+                                    "Bank account": "Bank account",
+                                    "Fee code": "Fee code"
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTableDefault"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "react_txt": ""
+}

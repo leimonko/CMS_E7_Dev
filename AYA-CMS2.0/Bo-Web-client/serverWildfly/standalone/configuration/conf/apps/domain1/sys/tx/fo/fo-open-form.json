@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"OpenNewForm","function":"form.open","type":"javascript","status":"A","para":["@form_key"],"request":{}}],"status":"A","txtype":"bo","txcode":"fo-open-form","txname":"Open new form","version":1,"updateTime":1572108577086,"isOld":false,"request":{"bo":[{"txcode":"","input":{}}]}}

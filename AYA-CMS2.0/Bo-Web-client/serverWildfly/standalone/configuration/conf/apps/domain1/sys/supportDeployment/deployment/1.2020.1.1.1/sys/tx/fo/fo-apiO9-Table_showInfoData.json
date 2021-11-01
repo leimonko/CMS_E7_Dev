@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Thông báo","function":"o9_secret.table_showInfoData","type":"javascript","status":"A","para":[]}],"status":"A","txtype":"bo","txcode":"fo-apiO9-Table_showInfoData","txname":"Thông báo lượng dữ liệu cho lưới search","version":1,"updateTime":1582000223368,"isOld":false,"request":{}}

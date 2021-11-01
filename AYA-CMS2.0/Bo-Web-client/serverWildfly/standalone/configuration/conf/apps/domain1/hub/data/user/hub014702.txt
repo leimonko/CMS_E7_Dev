@@ -1,0 +1,1 @@
+{"full_name":"hub014702","email":"hub014702","user_status":"A","user_id":"hub014702","branchcd":"0147","branchid":"0147","branchname":"SGG","AFGHkeyIndexWJ":"hub014702","AFGHkeyTime":1603781790703,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790703,"AFGHkeyUserCreateWJ":""}

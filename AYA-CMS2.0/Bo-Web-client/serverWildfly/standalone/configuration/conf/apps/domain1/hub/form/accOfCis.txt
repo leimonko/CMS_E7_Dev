@@ -1,0 +1,740 @@
+{
+    "info": {
+        "title": "User Profile",
+        "des": "User information",
+        "data": "user",
+        "openOne": "true",
+        "group_menu": "sp553D4v9g54B75",
+        "node_position": [{
+                "id": "start",
+                "left": "432",
+                "top": "111"
+            }, {
+                "id": "sp5549k67x5m4370",
+                "left": "565",
+                "top": "12"
+            }, {
+                "id": "sp5549k7r365C485",
+                "left": "40",
+                "top": "187"
+            }, {
+                "id": "sp5549k86j7u5575",
+                "left": "42",
+                "top": "314"
+            }, {
+                "id": "sp5549o495974c851",
+                "left": "604",
+                "top": "158"
+            }, {
+                "id": "sp5549p43544970b",
+                "left": "419",
+                "top": "274"
+            }
+        ],
+        "flow_layout": [{
+                "sourceId": "start",
+                "targetId": "sp5549k67x5m4370"
+            }, {
+                "sourceId": "start",
+                "targetId": "sp5549k7r365C485"
+            }, {
+                "sourceId": "start",
+                "targetId": "sp5549k86j7u5575"
+            }, {
+                "sourceId": "start",
+                "targetId": "sp5549o495974c851"
+            }, {
+                "sourceId": "start",
+                "targetId": "sp5549p43544970b"
+            }
+        ],
+        "learnapi": "",
+        "form_code": "accOfCis",
+        "ruleStrong": [{
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "code_userName",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "code_userEmail",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "code_userID;branchname",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": ""
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }, 
+			{
+                "code": "setValue",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "branchcode",
+                    "component_result": "",
+                    "isGetOOP": "true",
+                    "getOOPFormat": "{\n    \"branchname\": \"d_branchcode.branchname\"\n}"
+                },
+                "inUse": true,
+                "order": 1
+            }, {
+                "code": "setValue",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "code_userEmail",
+                    "component_result": "",
+                    "isGetOOP": "true",
+                    "getOOPFormat": "{\n    \"code_userName\": \"user.full_name\",\n    \"code_userID\": \"user.user_id\"\n}"
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "code_userEmail",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": ""
+                },
+                "inUse": true,
+                "order": 1,
+                "isStatus": 5
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "code_userEmail",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "false",
+                    "view_result": ""
+                },
+                "inUse": true,
+                "order": 1,
+                "isStatus": 6
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "code_userEmail",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": ""
+                },
+                "inUse": true,
+                "order": 1,
+                "isStatus": 3
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "code_ortherinformation;code_userID",
+                    "condition": "",
+                    "visible": "false",
+                    "ena_dis": "not_use",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }
+        ],
+        "learnsql": "d_branchcodeLoadAll",
+        "bodata": "#sys:bo-data-userSys",
+        "lang_form": {
+            "en": "Account management",
+            "vi": ""
+        },
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        }
+    },
+    "list_layout": [{
+            "name": "",
+            "des": "",
+            "class": "",
+            "codeHidden": "d536dfcc90895469",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "button",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "e55f3f4d8d4d38fe",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [     {
+                            "default": {
+                                "name": "Add",
+                                "code": "btn_add",
+                                "codeHidden": "sp5557779958535kr",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                             "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-open-form\",\n        \"input\": {\n            \"form_key\": \"accOfCis_add\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "add",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {
+                                "vi": "Add",
+                                "en": "Add"
+                            },
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                },{
+                    "name": "View",
+                    "code": "code",
+                    "codeHidden": "4dc01a17aa799678",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "list_input": [{
+                            "default": {
+                                "name": "View",
+                                "code": "sp5549k7r365C485",
+                                "codeHidden": "sp5557793r55579392",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "false",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "default_view",
+                                "txFoActions": "[\n    {\n        \"txcode\": \"fo-post-viewdata\",\n        \"input\": {\n            \"table_code\": \"user\",\n            \"table_col_key\": \"\"\n        }\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewdata\",\n        \"input\": {\n            \"table_code\": \"user\",\n            \"table_col_key\": \"\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "visibility",
+                                "color": "",
+                                "onTable": "table",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {
+                                "vi": "View",
+                                "en": "View"
+                            },
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Delete",
+                                "code": "sp5549k86j7u5575",
+                                "codeHidden": "sp5557797875z63B5",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "false",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "default_delete",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-deletedata\",\n        \"input\": {\n            \"table_code\": \"user\",\n            \"table_col_key\": \"\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "delete",
+                                "color": "",
+                                "onTable": "table",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {
+                                "vi": "",
+                                "en": "Delete"
+                            },
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "List",
+                                "code": "table",
+                                "codeHidden": "sp5557p7Cp4ze",
+                                "class": "col-12",
+                                "condition": "",
+                                "ofgroup": "false",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "",
+                                "query_data": "select * from user",
+                                "paging_record": "50",
+                                "columns": "[\n    {\n        \"code\": \"user.full_name\",\n        \"title\": \"Full name\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"user.email\",\n        \"title\": \"Email\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {
+                                "vi": {
+                                    "Full name": "",
+                                    "Email": "Email",
+                                    "Status": ""
+                                },
+                                "en": {
+                                    "Full name": "Full name",
+                                    "Email": "Email",
+                                    "Status": "Status"
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTableDefault"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "",
+            "des": "",
+            "class": "",
+            "codeHidden": "304e17a849ca0475",
+            "inputtype": "cLayout",
+            "list_view": [ {
+                    "name": "View",
+                    "lang": {
+                        "vi": "",
+                        "en": "General Information"
+                    },
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "f4a6a4e6c7b143f3",
+                    "inputtype": "cView",
+                    "isTab": "true",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Email",
+                                "code": "code_userEmail",
+                                "codeHidden": "sp55577465798Db33",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "false",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "user.email",
+                                "structable_read": "user.email",
+                                "cdlist": {},
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "select * from user_sys user",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "user.email",
+                                "selected_view_format": "@user.email",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@user.email",
+                                "json_data": "[\n    {\n        \"user\": {\n            \"email\": \"\"\n        }\n    }\n]",
+                                "key_selected": "user.email",
+                                "useAction": "false"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Email": "Email"
+                                    },
+                                    "en": {
+                                        "Email": "Email"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Full name",
+                                "code": "code_userName",
+                                "codeHidden": "sp555774hj9C6970",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "false",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "user.full_name",
+                                "structable_read": "user.full_name",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Full name": "Full name"
+                                    },
+                                    "en": {
+                                        "Full name": "Full name"
+                                    }
+                                },
+                                "en": "Full name",
+                                "vi": "H? t�n"
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },   {
+                            "default": {
+                                "name": "ID",
+                                "code": "code_userID",
+                                "codeHidden": "51d29ac13b6d8071",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "false",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "user.user_id",
+                                "structable_read": "user.user_id",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_disabled": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "ID": "ID"
+                                    },
+                                    "en": {
+                                        "ID": "ID"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Branch id",
+                                "code": "branchcode",
+                                "codeHidden": "8d0518cee077ea87",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "user.branchcd",
+                                "structable_read": "user.branchcd",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='BRANCH' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "BRANCH"
+                                },
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "Select * from d_branchcode",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "d_branchcode.branchcode",
+                                "selected_view_format": "@d_branchcode.branchcode - @d_branchcode.branchname",
+                                "table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_branchcode.branchcode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_branchcode.branchname\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "d_branchcode.branchcode",
+                                "useAction": "true",
+                                "isAutoDefault": "false"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Corporation code": "Branch code"
+                                    },
+                                    "en": {
+                                        "Corporation code": "Branch code"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Branch name",
+                                "code": "branchname",
+                                "codeHidden": "51d29ac13b6d8071",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "false",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "user.branchname",
+                                "structable_read": "user.branchname",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_disabled": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Branch name": "Branch name"
+                                    },
+                                    "en": {
+                                        "Branch name": "Branch name"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "",
+            "des": "",
+            "class": "",
+            "codeHidden": "304e17a841260475",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "button",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "e55f3f4d8d4d38fe",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Update",
+                                "code": "btn_update",
+                                "codeHidden": "sp555789666z40b37",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "default_edit",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-updatedata\",\n        \"input\": {\n            \"list_component\": \"code\",\n            \"list_view\": \"code\",\n            \"table_code\": \"user\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "edit",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {
+                                "vi": "Update",
+                                "en": "Update"
+                            },
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Clear",
+                                "code": "btn_cancel",
+                                "codeHidden": "p6e3765c685988833",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "false",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "icon": "clear",
+                                "color": "default",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {
+                                "vi": "Clear",
+                                "en": "Clear"
+                            },
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ],
+    "react_txt": ""
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub005002","email":"hub005002","user_status":"A","user_id":"hub005002","branchcd":"0050","branchid":"0050","branchname":"Mdy (6) 80 Street","AFGHkeyIndexWJ":"hub005002","AFGHkeyTime":1603781790605,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790605,"AFGHkeyUserCreateWJ":""}

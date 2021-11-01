@@ -1,0 +1,1 @@
+{"group_menu_id":"015002002","group_menu_parent":"015002","group_menu_name":"Currency","AFGHkeyIndexWJ":"sp5557l887v35n82","AFGHkeyTime":1555571188721,"AFGHkeyWorkFlow":""}

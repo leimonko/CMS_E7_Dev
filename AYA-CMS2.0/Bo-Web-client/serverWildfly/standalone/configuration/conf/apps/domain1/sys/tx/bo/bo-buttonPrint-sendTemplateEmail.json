@@ -1,0 +1,43 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "Đọc template",
+            "function": "o9.core.template.sendEmail",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-msg-confirm",
+                            "input": {
+                                "toast_type": "success"
+                            }
+                        }
+                    ]
+                },
+                "false": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-msg-confirm",
+                            "input": {
+                                "toast_type": "error"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-buttonPrint-sendTemplateEmail",
+    "version": 2,
+    "updateTime": 1573101898236,
+    "txname": "Gửi email template",
+    "hasRole": "false",
+    "isOld": true
+}

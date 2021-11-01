@@ -1,0 +1,1 @@
+{"full_name":"hub005401","email":"hub005401","user_status":"A","user_id":"hub005401","branchcd":"0054","branchid":"0054","branchname":"Ygn13-NewUniversityAvenue","AFGHkeyIndexWJ":"hub005401","AFGHkeyTime":1603781790609,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790609,"AFGHkeyUserCreateWJ":""}

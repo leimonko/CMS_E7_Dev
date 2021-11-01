@@ -1,0 +1,1 @@
+{"learn_sql_title":"Xem 1 dữ liệu","learn_sql_data":"table1","learn_sql_parameter":"#recid","learn_sql_parameter_sub":"","learn_sql_query":"SELECT recid, recname, recvalue\n\tFROM testdb.table1 where recid=?","learn_sql_query_sub":"","AFGHkeyIndexWJ":"p6m66496l65n9r4","AFGHTimeWJ":1561269909390}

@@ -1,0 +1,14 @@
+﻿{
+	"learn_sql_title": "Tìm các dòng dữ liệu",
+	"learn_sql_data": "d_corpservice",
+	"learn_sql_parameter": "@servicecode,@corpname,@name,@corpdepositaccno",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT 'S' as codetype, s.servicecode,c.shortnamecorp as corpname,s.name,CASE  s.catid  WHEN 1 THEN 'Collection' WHEN 2 THEN 'Payment' ELSE 'Direct Debit' END as catid  ,s.corpdepositaccno from hubdb.d_corpservice s LEFT JOIN hubdb.d_corpregistation c ON TO_NUMBER(s.corpcode) = c.corpcode
+WHERE UPPER(TO_CHAR(s.servicecode)) LIKE  UPPER(?) or  UPPER(c.shortnamecorp) LIKE  UPPER(?) or  UPPER(s.name) LIKE  UPPER(?) or  UPPER(s.corpdepositaccno) like  UPPER(?) order by servicecode asc",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_corpservice_searchbyparameter",
+	"AFGHTimeWJ": 1561269909390
+}

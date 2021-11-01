@@ -1,0 +1,17 @@
+{
+  "app_code": "o9",
+  "learn_api_name": "ctm_customer_group_account_of_group",
+  "learn_api_link": "$API_SERVER$:$API_PORT_DATA$/api/customer/customergroup/@{ctm_customer_group.grpid}/members/@{ctm_customer_group.grptype}/in",
+  "learn_api_data": "ctm_customer_group_account_of_group",
+  "learn_api_node_data": "data",
+  "learn_api_app": "BO",
+  "learn_api_method": "GET",
+  "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer )",
+  "learn_api_mapping": "",
+  "learn_api_id": "ctm_customer_group_account_of_group",
+  "AFGHkeyIndexWJ": "ctm_customer_group_account_of_group",
+  "AFGHkeyTime": 1577358672797,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1577358672848,
+  "save_to": "form"
+}

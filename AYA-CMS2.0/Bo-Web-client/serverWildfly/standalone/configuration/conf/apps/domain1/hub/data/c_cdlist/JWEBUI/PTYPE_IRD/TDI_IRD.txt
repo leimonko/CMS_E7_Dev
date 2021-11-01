@@ -1,0 +1,1 @@
+{"cdid":"TDI","cdname":"PTYPE_IRD","caption":"Tax due for the income year","cdgrp":"JWEBUI","cdidx":"7","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"TDI_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Tải tất cả data txcode",
+	"learn_sql_parameter": "@errordesc,@UUID",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "Update hubdb.d_hubstm set sts = 'F', char17=?,txupdatedt= SYSDATE  where ID = ?",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_hubstmUpdateHubstmTaxRVFail",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_hubstmUpdateHubstmTaxRVFail"
+}

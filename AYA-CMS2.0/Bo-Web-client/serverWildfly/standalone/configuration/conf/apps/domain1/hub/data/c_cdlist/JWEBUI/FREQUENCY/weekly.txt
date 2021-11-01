@@ -1,0 +1,14 @@
+{
+    "cdid": "W",
+    "cdname": "FREQUENCY",
+    "caption": "Weekly",
+    "cdgrp": "JWEBUI",
+    "cdidx": "3",
+    "cdval": "",
+    "flag": "",
+    "visible": "1",
+    "AFGHkeyIndexWJ": "weekly",
+    "AFGHkeyTime": 1578537990963,
+    "AFGHkeyWorkFlow": "",
+    "AFGHTimeWJ": 1578537990994
+}

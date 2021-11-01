@@ -1,0 +1,2290 @@
+{
+	"info": {
+		"last_update": "24/08/2021 06:13:18 PM",
+		"list_show_error": "false",
+		"app": "jconnect",
+		"title": "O9_HUB13 - Cheque",
+		"bodata": "#hub:bo-load-hubstmNoneRow",
+		"data": "",
+		"des": "O9_HUB13 - Cheque",
+		"flow_layout": [],
+		"form_code": "hubtransactiontransferbycheque",
+		"key_form": "",
+		"lang_form": {},
+		"learnapi": "",
+		"learnsql": "d_hubstmLoadService",
+		"mode_form": {
+			"mode": "",
+			"col_text": "",
+			"col_input": ""
+		},
+		"node_position": [],
+		"ofModal": false,
+		"openOne": "true",
+		"ruleStrong": [
+			{
+				"code": "managerComponent",
+				"inUse": true,
+				"isStart": true,
+				"isStatus": -1,
+				"order": 1,
+				"config": {
+					"component_action": "feecollectionmode",
+					"component_event": "all",
+					"is_use_block": "true",
+					"component_manager": "{\n   \"consumeraccountnobycash\": \"'@{feecollectionmode}' === 'Cash'\",\n    \"consumeraccountnobyaccount\": \"'@{feecollectionmode}' !== 'Cash'\"\n}"
+				},
+				"isDidStart": false
+			},
+			{
+				"code": "setMaskConfig",
+				"config": {
+					"component_action": "mask1",
+					"component_result": "referencefield1value",
+					"component_event": "enter_tab",
+					"mask_format": "@{mask1}",
+					"mask_data_format": "@{mask1}",
+					"mask_mode": "default",
+					"useAction": "true",
+					"condition": ""
+				},
+				"isStart": "yes",
+				"inUse": true,
+				"order": 1
+			},
+			{
+				"code": "setMaskConfig",
+				"config": {
+					"component_action": "mask2",
+					"component_result": "referencefield2value",
+					"component_event": "enter_tab",
+					"mask_format": "@{mask2}",
+					"mask_data_format": "@{mask2}",
+					"mask_mode": "default",
+					"useAction": "true",
+					"condition": ""
+				},
+				"isStart": "yes",
+				"inUse": true,
+				"order": 1
+			},
+			{
+				"code": "setMaskConfig",
+				"config": {
+					"component_action": "mask3",
+					"component_result": "referencefield3value",
+					"component_event": "enter_tab",
+					"mask_format": "@{mask3}",
+					"mask_data_format": "@{mask3}",
+					"mask_mode": "default",
+					"useAction": "true",
+					"condition": ""
+				},
+				"isStart": "yes",
+				"inUse": true,
+				"order": 1
+			},
+			{
+				"code": "setValue",
+				"config": {
+					"component_event": "all",
+					"component_action": "servicecode",
+					"component_result": "{\n    \"code_userName\": \"user.full_name\",\n    \"code_userID\": \"user.user_id\"\n}",
+					"isGetOOP": "true",
+					"getOOPFormat": "{\n    \"billcurrency\": \"d_hubstm.ccycd\",\n    \"customercode\": \"d_hubstm.customercode\",\n    \"customernumbersample\": \"d_hubstm.customersamplenumber\",\n    \"feecode\": \"d_hubstm.feecode\",\n    \"creditaccountnumber\": \"d_hubstm.corpdepositaccno\",\n    \"bankcode\": \"d_hubstm.bankcode\",\n    \"minimummountaccepted\": \"d_hubstm.minamount\",\n    \"maximunamountaccepted\": \"d_hubstm.maxamount\",\n    \"notificationemail\": \"d_hubstm.notifiemail\",\n    \"sendemail\": \"d_hubstm.sendmail\",\n    \"referencefiled1\": \"d_hubstm.ref1\",\n    \"referencefield1sample\": \"d_hubstm.refsa1\",\n    \"referencefield2\": \"d_hubstm.ref2\",\n    \"referencefield2sample\": \"d_hubstm.refsa2\",\n    \"referencefield3\": \"d_hubstm.ref3\",\n    \"referencefield3sample\": \"d_hubstm.refsa3\",\n    \"creditfeeamount\": \"d_hubstm.crfeeamt\",\n    \"debitfeeamount\": \"d_hubstm.drfeeamt\",\n    \"webservicename\": \"d_hubstm.webservicename\",\n \"mask1\": \"d_hubstm.mask\",\n \"mask2\": \"d_hubstm.mask1\",\n \"mask3\": \"d_hubstm.mask3\"\n,\n \"billamount\": \"0\"\n,\n \"errorcode\": \"0\"\n,\n \"errormessage\": \"-\"\n}"
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": false
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "all",
+					"component_action": "",
+					"component_result": "notificationemail;btn_accept2;sendemail;statement;Category;bankcode;creditfeeamount;debitfeeamount;billcurrency;customercode;customernumbersample;transactionreference;creditaccountnumber",
+					"condition": "",
+					"visible": "not_use",
+					"ena_dis": "true",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_action": "",
+					"component_result": "feecode;webservicename;minimummountaccepted;maximunamountaccepted;referencefiled1;referencefield1sample;referencefield2;referencefield2sample;referencefield3;referencefield3sample;consumeraccountnobycash",
+					"view_result": "",
+					"condition": "",
+					"visible": "not_use",
+					"ena_dis": "true",
+					"component_event": "all",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 7,
+				"isStart": true,
+				"isStatus": -1,
+				"isDidStart": false
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "all",
+					"component_action": "",
+					"component_result": "errorcode;errormessage;mask1;mask2;mask3",
+					"condition": "",
+					"visible": "false",
+					"ena_dis": "not_use",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 15,
+				"isStart": true
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "on_click",
+					"component_action": "btn_clear",
+					"component_result": "btn_Accept",
+					"condition": "",
+					"visible": "not_use",
+					"ena_dis": "false",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			},
+			{
+				"code": "runFo",
+				"config": {
+					"component_action": "billamount",
+					"component_result": "",
+					"component_event": "enter_tab",
+					"txFoActions": "[\n    {\n        \"function\": \"formValidate.validateAmount\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+					"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+					"useAction": "true",
+					"condition": ""
+				},
+				"inUse": true,
+				"order": 1
+			},
+			{
+				"code": "runFo",
+				"config": {
+					"component_action": "consumeraccountno",
+					"component_result": "",
+					"component_event": "enter_tab",
+					"txFoActions": "[\n    {\n        \"function\": \"formValidate.validateAccountInput\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+					"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+					"useAction": "true",
+					"condition": ""
+				},
+				"inUse": true,
+				"order": 1
+			},
+			{
+				"code": "runFo",
+				"config": {
+					"component_action": "transactionreference",
+					"component_result": "",
+					"component_event": "all",
+					"txFoActions": "[\n    {\n        \"function\": \"formSupport.getTransactionReferenceCash\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+					"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+					"useAction": "true",
+					"condition": ""
+				},
+				"isStart": true,
+				"inUse": true,
+				"order": 1
+			},
+			{
+				"code": "setDataGB",
+				"config": {
+					"component_event": "enter_tab",
+					"component_action": "corporationcode",
+					"component_result": "servicecode",
+					"data_type": "query_db",
+					"query": "select * from d_hubstm where wf.d_hubstm.codetype ===\"S\" ",
+					"api": "",
+					"query_db": "select * from d_hubstm where wf.d_hubstm.codetype ===\"S\" ",
+					"mode_filter": "js_condition",
+					"filter_condition": "{\n            \"col_col1\": \"condition_1\",\n            \"col_col2\": \"condition_2\"\n            }",
+					"js_condition": "data_gb = data_gb.filter(data=>{\n\n        return data.d_hubstm.corpcode === '@{corporationcode}';\n\n    })"
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "on_change",
+					"component_action": "corporationcode",
+					"component_result": "servicecode",
+					"condition": "",
+					"visible": "true",
+					"ena_dis": "false",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "all",
+					"component_action": "",
+					"component_result": "servicecode",
+					"condition": "",
+					"visible": "true",
+					"ena_dis": "true",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "on_click",
+					"component_action": "btn_clear",
+					"component_result": "servicecode",
+					"condition": "",
+					"visible": "not_use",
+					"ena_dis": "true",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": false
+			},
+			{
+				"code": "getInfo",
+				"config": {
+					"component_event": "enter_tab",
+					"component_action": "referencefield1value;referencefield2value;referencefield3value",
+					"component_result": "{\r\n                    \"errormessage\":\"hubgetbillamount.ERRORDESC\",\r\n                    \"errorcode\":\"hubgetbillamount.ERRORCODE\",\r\n                    \"billamount\":\"hubgetbillamount.AMOUNT\"\r\n                    }",
+					"isSetCode": "true",
+					"data_type": "api",
+					"api_id": "hubgetbillamount",
+					"sql_id": "",
+					"data_table": "",
+					"exception": "",
+					"api_bo": "",
+					"sql_bo": "",
+					"data_bo": "",
+					"is_data_to_form": "false"
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": false
+			},
+			{
+				"code": "getInfo",
+				"config": {
+					"component_event": "enter_tab",
+					"component_action": "referencefield1value;referencefield2value;referencefield3value",
+					"component_result": "{\r\n                    \"debitfeeamount\":\"hubgetfeeamountforcreen.DEBITFEE\",\r\n\t\t\t\t\t \"creditfeeamount\":\"hubgetfeeamountforcreen.CREFEE\"\r\n                    }",
+					"isSetCode": "true",
+					"data_type": "api",
+					"api_id": "hubgetfeeamountforcreen",
+					"sql_id": "",
+					"data_table": "",
+					"exception": "",
+					"api_bo": "",
+					"sql_bo": "",
+					"data_bo": "",
+					"is_data_to_form": "false"
+				},
+				"inUse": true,
+				"order": 2,
+				"isStart": false
+			},
+			{
+				"code": "getInfo",
+				"config": {
+					"component_event": "enter_tab",
+					"component_action": "billamount",
+					"component_result": "{\r\n                    \"debitfeeamount\":\"hubgetfeeamountforcreen.DEBITFEE\",\r\n\t\t\t\t\t \"creditfeeamount\":\"hubgetfeeamountforcreen.CREFEE\"\r\n                    }",
+					"isSetCode": "true",
+					"data_type": "api",
+					"api_id": "hubgetfeeamountforcreen",
+					"sql_id": "",
+					"data_table": "",
+					"exception": "",
+					"api_bo": "",
+					"sql_bo": "",
+					"data_bo": "",
+					"is_data_to_form": "false"
+				},
+				"inUse": true,
+				"order": 2,
+				"isStart": false
+			},
+			{
+				"code": "managerComponent",
+				"config": {
+					"component_event": "all",
+					"component_action": "errorcode",
+					"component_manager": "{\n    \"btn_Accept\": \"'@{errorcode}' === '0' && @{billamount} !== 0\",\n    \"btn_accept2\": \"'@{errorcode}' !== '0' || @{billamount} === 0\"\n}",
+					"is_use_block": "false"
+				},
+				"inUse": true,
+				"order": 15,
+				"isStart": true
+			},
+			{
+				"code": "runFo",
+				"config": {
+					"component_action": "errorcode",
+					"component_result": "",
+					"component_event": "enter_tab",
+					"txFoActions": "[\n    {\n        \"function\": \"formValidate.validateErrorCode\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+					"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+					"useAction": "true",
+					"condition": ""
+				},
+				"inUse": true,
+				"order": 2,
+				"isStart": false
+			}
+		],
+		"responseType": "1"
+	},
+	"list_layout": [
+		{
+			"name": "Input",
+			"des": "",
+			"class": "",
+			"lang": {
+				"vi": "",
+				"en": ""
+			},
+			"lang_des": {},
+			"codeHidden": "8cc3cbfeca1bad6a",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"name": "view",
+					"lang": {},
+					"code": "code",
+					"class": "col-sm-12 col-md-8",
+					"codeHidden": "872498121364007e",
+					"inputtype": "cView",
+					"isTab": "false",
+					"viewUI": "",
+					"list_input": [
+						{
+							"default": {
+								"name": "Transaction id",
+								"code": "transactionreference",
+								"codeHidden": "f8967b9628f1f295",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.id",
+								"structable_read": "hubgetbillamount.ID",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Category",
+								"code": "Category",
+								"codeHidden": "412f4601d5ab361f",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.catid",
+								"structable_read": "d_hubstm.catid",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='HUBSERVICECATEGORY' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "HUBSERVICECATEGORY"
+								},
+								"data_default": "",
+								"data_mode": "cdlist",
+								"query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='HUBSERVICECATEGORY' orderby c_cdlist.cdidx",
+								"is_multi_select": "false",
+								"is_multi_col": "false",
+								"get_data_format": "c_cdlist.cdid",
+								"selected_view_format": "@c_cdlist.caption",
+								"table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "c_cdlist.cdid",
+								"useAction": "true",
+								"isAutoDefault": "true"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Category": "Category"
+									},
+									"en": {
+										"Category": "Category"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Corporation code",
+								"code": "corporationcode",
+								"codeHidden": "8d0518cee077ea87",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.corpcode",
+								"structable_read": "hubgetbillamount.CORPCODE",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='BRANCH' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "BRANCH"
+								},
+								"data_default": "",
+								"data_mode": "query",
+								"query_data": "Select * from d_hubstm where wf.d_hubstm.codetype===\"C\"",
+								"is_multi_select": "false",
+								"is_multi_col": "true",
+								"get_data_format": "d_hubstm.corpcode",
+								"selected_view_format": "@d_hubstm.corpcode - @d_hubstm.name",
+								"table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_hubstm.corpcode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_hubstm.name\"\n    }\n]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "d_hubstm.corpcode",
+								"useAction": "true",
+								"isAutoDefault": "false"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Corporation code": "Corporation code"
+									},
+									"en": {
+										"Corporation code": "Corporation code"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Service code",
+								"code": "servicecode",
+								"codeHidden": "b0e77766c4d1c239",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.servicecode",
+								"structable_read": "hubgetbillamount.SERCODE",
+								"cdlist": {},
+								"data_default": "",
+								"data_mode": "query",
+								"query_data": "select * from d_hubstm where wf.d_hubstm.codetype ===\"S\" ",
+								"is_multi_select": "false",
+								"is_multi_col": "true",
+								"get_data_format": "d_hubstm.servicecode",
+								"selected_view_format": "@d_hubstm.servicecode - @d_hubstm.name",
+								"table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_hubstm.servicecode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_hubstm.name\"\n    }\n]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "d_hubstm.servicecode",
+								"useAction": "true",
+								"isAutoDefault": "true"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Service code": "Service code"
+									},
+									"en": {
+										"Service code": "Service code"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Reference Field 1",
+								"code": "referencefiled1",
+								"codeHidden": "f8967b9628f1f291",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.ref1",
+								"structable_read": "d_hubstm.ref1",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Reference Field 1 Sample",
+								"code": "referencefield1sample",
+								"codeHidden": "b3a4051063302aa5",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.refsa1",
+								"structable_read": "d_hubstm.refsa1",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Reference Field 2",
+								"code": "referencefield2",
+								"codeHidden": "f6a90055f0c2308d",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.ref2",
+								"structable_read": "d_hubstm.ref2",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Reference Field 2 Sample",
+								"code": "referencefield2sample",
+								"codeHidden": "71331196b4a28537",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.refsa2",
+								"structable_read": "d_hubstm.refsa2",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Reference Field 3",
+								"code": "referencefield3",
+								"codeHidden": "3d19303c384c972d",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.ref3",
+								"structable_read": "d_hubstm.ref3",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Reference Field 3 Sample",
+								"code": "referencefield3sample",
+								"codeHidden": "aee2b1d4f3ff75e1",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.refsa3",
+								"structable_read": "d_hubstm.refsa3",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Reference field 1 value",
+								"code": "referencefield1value",
+								"codeHidden": "325a5d0c8912334f",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.referencefield1value",
+								"structable_read": "hubgetbillamount.REFVA1",
+								"data_default": "",
+								"data_type": "edit",
+								"component_title": "",
+								"mask_format": "",
+								"mask_data_format": "",
+								"value_type": "all",
+								"auto_delete": "true",
+								"mask_mode": "default",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": 0
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "jMaskInput"
+						},
+						{
+							"default": {
+								"name": "Reference field 2 value",
+								"code": "referencefield2value",
+								"codeHidden": "325a5d0c8912334f",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.referencefield2value",
+								"structable_read": "hubgetbillamount.REFVA2",
+								"data_default": "",
+								"data_type": "edit",
+								"component_title": "",
+								"mask_format": "",
+								"mask_data_format": "",
+								"value_type": "all",
+								"auto_delete": "true",
+								"mask_mode": "default",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": 0
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "jMaskInput"
+						},
+						{
+							"default": {
+								"name": "Reference field 3 value",
+								"code": "referencefield3value",
+								"codeHidden": "325a5d0c8912334f",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.referencefield3value",
+								"structable_read": "hubgetbillamount.REFVA3",
+								"data_default": "",
+								"data_type": "edit",
+								"component_title": "",
+								"mask_format": "",
+								"mask_data_format": "",
+								"value_type": "all",
+								"auto_delete": "true",
+								"mask_mode": "default",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": 0
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "jMaskInput"
+						},
+						{
+							"default": {
+								"name": "Bill amount",
+								"code": "billamount",
+								"codeHidden": "42bbce2491e83574",
+								"class": "col-sm-6 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.amt",
+								"structable_read": "hubgetbillamount.AMOUNT",
+								"data_default": "0",
+								"format": "#,###.00",
+								"decimal_length": 2
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": 0
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "jCurrency"
+						},
+						{
+							"default": {
+								"name": "Bill Currency",
+								"code": "billcurrency",
+								"codeHidden": "a2631fec73529a97",
+								"class": "col-sm-6 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.ccycd",
+								"structable_read": "d_hubstm.ccycd",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='CRCD' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "CRCD"
+								},
+								"data_default": "",
+								"data_mode": "cdlist",
+								"query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='CRCD' orderby c_cdlist.cdidx",
+								"is_multi_select": "false",
+								"is_multi_col": "false",
+								"get_data_format": "c_cdlist.cdid",
+								"selected_view_format": "@c_cdlist.caption",
+								"table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "c_cdlist.cdid",
+								"useAction": "true",
+								"isAutoDefault": "true"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Bill Currency": "Bill Currency"
+									},
+									"en": {
+										"Bill Currency": "Bill Currency"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Credit account number",
+								"code": "creditaccountnumber",
+								"codeHidden": "7a326701f26227a8",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.craccountnumber",
+								"structable_read": "d_hubstm.craccountnumber",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Cheques number",
+								"code": "chequesnumber",
+								"class": "col-sm-6 col-md-6",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "4c4709b18ef53b50"
+							},
+							"config": {
+								"useAction": "true",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"structable": "d_hubstmInsert.chequesnumber",
+								"structable_read": "d_hubstm.chequesnumber",
+								"data_default": "",
+								"isLookup": "false",
+								"is_upperCase": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false",
+								"action": "",
+								"autoWrap": "false",
+								"isSearch": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": "",
+								"max": "",
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Cheque account number",
+								"code": "chequeaccnumber",
+								"class": "col-sm-6 col-md-6",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "5261fad3e6bf7d88"
+							},
+							"config": {
+								"useAction": "true",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"structable": "d_hubstmInsert.chequeaccnumber",
+								"structable_read": "d_hubstm.chequeaccnumber",
+								"data_default": "",
+								"isLookup": "false",
+								"is_upperCase": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false",
+								"action": "",
+								"autoWrap": "false",
+								"isSearch": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": "",
+								"max": "",
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Fee collection mode",
+								"code": "feecollectionmode",
+								"class": "col-sm-6 col-md-6",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "cf62c1f43a736ca5"
+							},
+							"config": {
+								"structable": "d_hubstmInsert.feecollectionmode",
+								"structable_read": "d_hubstm.feecollectionmode",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='CRCD' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "FEEMODE"
+								},
+								"data_default": "",
+								"data_mode": "cdlist",
+								"query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='CRCD' orderby c_cdlist.cdidx",
+								"is_multi_select": "false",
+								"is_multi_col": "false",
+								"get_data_format": "c_cdlist.cdid",
+								"selected_view_format": "@c_cdlist.caption",
+								"table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "c_cdlist.cdid",
+								"useAction": "true",
+								"isAutoDefault": "true",
+								"isLabel": "false"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": "",
+								"max": "",
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Consumer Account Number",
+								"code": "consumeraccountnobycash",
+								"class": "col-sm-6 col-md-6",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "6065461f9457ae9a"
+							},
+							"config": {
+								"useAction": "true",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"structable": "d_hubstmInsert.custacc",
+								"structable_read": "hubgetbillamount.CUSTACC",
+								"data_default": "CASH",
+								"isLookup": "false",
+								"is_upperCase": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false",
+								"action": "",
+								"autoWrap": "false",
+								"isSearch": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": "",
+								"max": 25,
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Consumer Account Number",
+								"code": "consumeraccountnobyaccount",
+								"class": "col-sm-6 col-md-6",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "ea49afc550ed820e"
+							},
+							"config": {
+								"useAction": "true",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"structable": "d_hubstmInsert.custacc",
+								"structable_read": "hubgetbillamount.CUSTACC",
+								"data_default": "",
+								"isLookup": "false",
+								"is_upperCase": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false",
+								"action": "",
+								"autoWrap": "false",
+								"isSearch": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": "",
+								"max": 25,
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Fee code",
+								"code": "feecode",
+								"codeHidden": "c72e9d897d85f943",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.feecode",
+								"structable_read": "d_hubstm.feecode",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Fee code": "Fee code"
+									},
+									"en": {
+										"Fee code": "Fee code"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Credit Fee amount",
+								"code": "creditfeeamount",
+								"codeHidden": "1cd9c676071c8e6f",
+								"class": "col-sm-6 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.crfeeamount",
+								"structable_read": "hubgetbillamount.CREFEE",
+								"data_default": "0",
+								"format": "#,###.00",
+								"decimal_length": 2
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false,
+								"min": 0
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Target account type": "Target account type"
+									},
+									"en": {
+										"Target account type": "Target account type"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jCurrency"
+						},
+						{
+							"default": {
+								"name": "Debit fee amount",
+								"code": "debitfeeamount",
+								"codeHidden": "002524e61bf25b3f",
+								"class": "col-sm-6 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstm.drfeeamount",
+								"structable_read": "hubgetbillamount.DEBITFEE",
+								"data_default": "0",
+								"format": "#,###.00",
+								"decimal_length": 2
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false,
+								"min": 0
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "jCurrency"
+						},
+						{
+							"default": {
+								"name": "Customer code",
+								"code": "customercode",
+								"codeHidden": "f968cdae5aae0e5b",
+								"class": "col-sm-6 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.customercode",
+								"structable_read": "d_hubstm.customercode",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Currency code": "Currency code"
+									},
+									"en": {
+										"Currency code": "Currency code"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Customer number sample",
+								"code": "customernumbersample",
+								"codeHidden": "2300dba4e9b2c32d",
+								"class": "col-sm-6 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.customersamplenumber",
+								"structable_read": "d_hubstm.customersamplenumber",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "cis_host_transaction",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Minimum amount accepted",
+								"code": "minimummountaccepted",
+								"codeHidden": "0824bf229a0b178a",
+								"class": "col-sm-6 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.minamount",
+								"structable_read": "d_hubstm.minamount",
+								"data_default": "",
+								"format": "#,###.00",
+								"decimal_length": 2
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false,
+								"min": 0
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Expired bill accepted": "Expired bill accepted"
+									},
+									"en": {
+										"Expired bill accepted": "Expired bill accepted"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jCurrency"
+						},
+						{
+							"default": {
+								"name": "Maximum amount accepted",
+								"code": "maximunamountaccepted",
+								"codeHidden": "9191536e9b022358",
+								"class": "col-sm-6 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.maxamount",
+								"structable_read": "d_hubstm.maxamount",
+								"data_default": "",
+								"format": "#,###.00",
+								"decimal_length": 2
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false,
+								"min": 0
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Internet banking": "Internet banking"
+									},
+									"en": {
+										"Internet banking": "Internet banking"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jCurrency"
+						},
+						{
+							"default": {
+								"name": "Bank code",
+								"code": "bankcode",
+								"codeHidden": "ce94b9e7c1e3c045",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.bankcode",
+								"structable_read": "d_hubstm.bankcode",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Amount exceeds bill amount accepted": "Amount exceeds bill amount accepted"
+									},
+									"en": {
+										"Amount exceeds bill amount accepted": "Amount exceeds bill amount accepted"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Notification email",
+								"code": "notificationemail",
+								"codeHidden": "1513bdc3f012e834",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.notifiemail",
+								"structable_read": "d_hubstm.notifiemail",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Statement",
+								"code": "statement",
+								"codeHidden": "adb70083788e743c",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.statement",
+								"structable_read": "d_hubstm.statement",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Description",
+								"code": "description",
+								"codeHidden": "20b5addc05524a03",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.description",
+								"structable_read": "d_hubstm.description",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false,
+								"max": 100
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Webservice name",
+								"code": "webservicename",
+								"codeHidden": "1378951cbbfdcf3e",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.webservicename",
+								"structable_read": "hubgetbillamount.WEBSERNAME",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Send email",
+								"code": "sendemail",
+								"codeHidden": "6b520a1b0449866d",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_hubstmInsert.sm",
+								"structable_read": "d_hubstm.sm",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "QUESTION"
+								},
+								"data_default": "",
+								"data_mode": "cdlist",
+								"query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION' orderby c_cdlist.cdidx",
+								"is_multi_select": "false",
+								"is_multi_col": "false",
+								"get_data_format": "c_cdlist.cdid",
+								"selected_view_format": "@c_cdlist.caption",
+								"table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "c_cdlist.cdid",
+								"useAction": "true",
+								"isAutoDefault": "true"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Send email": "Send email"
+									},
+									"en": {
+										"Send email": "Send email"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Accept",
+								"code": "btn_Accept",
+								"codeHidden": "12e7c317b8104d85",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-accept-saveAndCallAPI\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"\",\n            \"table_code\": \"d_hubstmInsert\",\n            \"learn_api\": \"hubtransactiontransferbycheque\"\n ,\n            \"learn_sql_reload\": \"d_hubstmReLoadOne\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "arrow_forward_ios",
+								"color": "primary",
+								"onTable": "",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						},
+						{
+							"default": {
+								"name": "Accept",
+								"code": "btn_accept2",
+								"codeHidden": "4fede465395a9c09",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"icon": "arrow_forward_ios",
+								"color": "primary",
+								"onTable": "",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						},
+						{
+							"default": {
+								"name": "Clear",
+								"code": "btn_clear",
+								"codeHidden": "8a98c0e8ffd7c001",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+								"useAction": "false",
+								"icon": "clear",
+								"color": "info",
+								"onTable": "",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						},
+						{
+							"default": {
+								"name": "Error message",
+								"code": "errormessage",
+								"codeHidden": "0c271677e15df259",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "",
+								"structable_read": "hubgetbillamount.ERRORDESC",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Error code",
+								"code": "errorcode",
+								"codeHidden": "c34cd5e79f7ba027",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "",
+								"structable_read": "hubgetbillamount.ERRORCODE",
+								"data_default": "0",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Mask1",
+								"code": "mask1",
+								"codeHidden": "c34cd5e79f7ba027",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.mask",
+								"structable_read": "d_hubstm.mask",
+								"data_default": "0",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Mask2",
+								"code": "mask2",
+								"codeHidden": "c34cd5e79f7ba027",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.mask1",
+								"structable_read": "d_hubstm.mask1",
+								"data_default": "0",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Mask3",
+								"code": "mask3",
+								"codeHidden": "c34cd5e79f7ba027",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_hubstmInsert.mask3",
+								"structable_read": "d_hubstm.mask3",
+								"data_default": "0",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Input",
+			"des": "",
+			"class": "",
+			"lang": {
+				"vi": "",
+				"en": ""
+			},
+			"lang_des": {},
+			"codeHidden": "8cc3c6767671b2321a",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"name": "view",
+					"lang": {},
+					"code": "code",
+					"class": "col-sm-12 col-md-12",
+					"codeHidden": "87249812767123137e",
+					"inputtype": "cView",
+					"isTab": "false",
+					"viewUI": "",
+					"list_input": [
+						{
+							"default": {
+								"name": "Transaction info",
+								"code": "apistatement",
+								"codeHidden": "sp55233113713123e",
+								"class": "col-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "",
+								"query_data": "select * from d_hubstmInsert",
+								"paging_record": "50",
+								"columns": "[\n    {\n        \"code\": \"d_hubstmInsert.txrefid\",\n        \"title\": \"Transaction reference\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_hubstmInsert.id\",\n        \"title\": \"Transaction id\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_hubstmInsert.sercode\",\n        \"title\": \"Service code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_hubstmInsert.char12\",\n        \"title\": \"E7 Transaction id\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_hubstmInsert.sts\",\n        \"title\": \"Status\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_hubstmInsert.char17\",\n        \"title\": \"Error description\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_hubstmInsert.descs\",\n        \"title\": \"Description\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+							},
+							"role": {},
+							"property": {},
+							"validate": {},
+							"lang": {
+								"vi": {
+									"Transaction reference number": "Transaction reference number",
+									"Status": "Status",
+									"Error description": "Error description",
+									"Service code": "Service code"
+								},
+								"en": {
+									"Transaction reference number": "Transaction reference number",
+									"Status": "Status",
+									"Error description": "Error description",
+									"Service code": "Service code"
+								}
+							},
+							"configAVD": {},
+							"inputtype": "cTableDefault"
+						}
+					]
+				}
+			]
+		}
+	],
+	"react_txt": ""
+}

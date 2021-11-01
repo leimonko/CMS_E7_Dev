@@ -1,0 +1,1 @@
+{"full_name":"hub008401","email":"hub008401","user_status":"A","user_id":"hub008401","branchcd":"0084","branchid":"0084","branchname":"NPT - ZTC (mini)","AFGHkeyIndexWJ":"hub008401","AFGHkeyTime":1603781790648,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790648,"AFGHkeyUserCreateWJ":""}

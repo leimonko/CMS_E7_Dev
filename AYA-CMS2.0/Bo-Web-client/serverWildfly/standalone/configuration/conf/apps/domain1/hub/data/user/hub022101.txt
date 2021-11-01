@@ -1,0 +1,1 @@
+{"full_name":"hub022101","email":"hub022101","user_status":"A","user_id":"hub022101","branchcd":"0221","branchid":"0221","branchname":"Ygn(92)_HCP","AFGHkeyIndexWJ":"hub022101","AFGHkeyTime":1603781790750,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790750,"AFGHkeyUserCreateWJ":""}

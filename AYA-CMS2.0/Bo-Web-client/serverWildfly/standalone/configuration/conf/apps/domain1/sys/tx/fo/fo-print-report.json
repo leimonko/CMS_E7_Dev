@@ -1,0 +1,28 @@
+{
+	"input": {},
+	"actions": [
+
+		{
+			"name": "In ấn report",
+			"function": "own_print.printReport",
+			"type": "java",
+			"status": "A",
+			"para": [@queries]
+		}
+	],
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "fo-print-report",
+	"txname": "Thực hiện in chứng từ",
+	"version": 1,
+	"updateTime": 1581496366312,
+	"isOld": false,
+	"request": {
+		"bo": [
+			{
+				"txcode": "",
+				"input": {}
+			}
+		]
+	}
+}

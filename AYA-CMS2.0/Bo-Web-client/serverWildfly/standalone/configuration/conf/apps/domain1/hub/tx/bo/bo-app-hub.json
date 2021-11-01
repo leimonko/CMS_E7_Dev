@@ -1,0 +1,24 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "hub",
+      "function": "cis.core.txapi.loginapi_cis",
+      "type": "java",
+      "para": ["login_api_hub"],
+      "status": "A",
+      "response": {
+        "true": { "fo": [{ "txcode": "#sys:fo-container", "input": { "lang": "loginAppTrue" } }] },
+        "false": { "fo": [{ "txcode": "#sys:fo-container", "input": { "lang": "loginAppFalse" } }] }
+      }
+    }
+  ],
+  "response": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-app-hub",
+  "version": 8,
+  "updateTime": 1562292754552,
+  "txname": "Đăng nhập hub",
+  "isOld": true
+}

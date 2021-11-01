@@ -1,0 +1,21 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "Save auto form",
+            "function": "txAutoForm.saveFO_O9",
+            "type": "java",
+            "para": [],
+            "status": "A"
+        }
+    ],
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-save-autoFormFO",
+    "txname": "Luu tat ca tu table excel",
+    "version": 1,
+    "updateTime": 1574998060776,
+    "hasRole": "false",
+    "isOld": false,
+    "response": {}
+}

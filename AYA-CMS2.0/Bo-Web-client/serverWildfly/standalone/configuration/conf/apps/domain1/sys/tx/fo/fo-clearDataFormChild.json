@@ -1,0 +1,23 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Xóa trắng dữ liệu form child",
+      "function": "formChild.clear",
+      "type": "javascript",
+      "status": "A",
+      "para": ["@node_clear"],
+      "request": {
+        "true": {}
+      }
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-clearDataFormChild",
+  "txname": "Tạo mới",
+  "version": 1,
+  "updateTime": 1562501779000,
+  "isOld": true
+}

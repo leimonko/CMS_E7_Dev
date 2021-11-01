@@ -1,0 +1,1 @@
+{"full_name":"hub010702","email":"hub010702","user_status":"A","user_id":"hub010702","branchcd":"0107","branchid":"0107","branchname":"Ygn_Shwe Mingalarzay(mini)","AFGHkeyIndexWJ":"hub010702","AFGHkeyTime":1603781790672,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790672,"AFGHkeyUserCreateWJ":""}

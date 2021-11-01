@@ -1,0 +1,1 @@
+{"active":true,"verify":false,"blocked":false,"requestChangePass":true,"user_id":"31a18087-3fca-49c7-b470-49ce551658fd","full_name":"cmn9999","email":"cmn9999@hub.com","AFGHkeyIndexWJ":"cmn9999@hub.com","AFGHkeyTime":1598842252678}

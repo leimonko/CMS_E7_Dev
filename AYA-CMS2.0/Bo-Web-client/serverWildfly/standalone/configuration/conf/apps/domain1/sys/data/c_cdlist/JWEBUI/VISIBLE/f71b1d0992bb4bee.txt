@@ -1,0 +1,1 @@
+{"cdid":"F","cdname":"VISIBLE","caption":"Only search","cdgrp":"JWEBUI","cdidx":2,"cdval":"","flag":0,"visible":1,"AFGHkeyIndexWJ":"f71b1d0992bb4bee","AFGHkeyTime":1578537936295,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537936316}

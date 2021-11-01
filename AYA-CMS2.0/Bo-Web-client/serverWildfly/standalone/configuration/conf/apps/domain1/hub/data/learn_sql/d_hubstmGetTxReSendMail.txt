@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "d_hubstmGetTxReSendMail",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT corpcode,sercode as servicecode,notifiemail as email,txrefid FROM hubdb.d_hubstm where sts ='C' and  LENGTH(TO_CHAR(corpcode)) > 0 and  LENGTH(TO_CHAR(sercode)) > 0  and LENGTH(TO_CHAR(notifiemail)) > 0 and isemail = 'Y' and char07 ='F'",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmGetTxReSendMail",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "d_hubstmGetTxReSendMail"
+    }

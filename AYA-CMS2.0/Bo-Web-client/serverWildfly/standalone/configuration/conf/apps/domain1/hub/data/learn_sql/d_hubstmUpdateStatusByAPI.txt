@@ -1,0 +1,15 @@
+﻿{
+  "learn_sql_title": "Thêm mới service",
+  "learn_sql_query": "UPDATE hubdb.d_hubstm SET sts = ?,char17 =?,char11 = ?, char12 =?, char13 = ?,char14 =?,wfsts = ?,txupdatedt= SYSDATE,dvaluedt=TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS') WHERE id =?",
+  "learn_sql_parameter": "@STS,@CHAR17,@CHAR11,@CHAR12,@CHAR13,@CHAR14,@WFSTS,@POSTINGDATE,@ID",
+  "learn_sql_parameter_sub": "@ID",
+  "learn_sql_query_sub": "SELECT recid,txrefid,txdt,sts,id FROM hubdb.d_hubstm WHERE id =?",
+  "learn_sql_data": "d_hubstm",
+  "learn_sql_date_verify": "POSTINGDATE",
+  "dynamic_update": "",
+  "validation_para_api": "",
+    "learn_sql_workfolow":"d_workflowInsertRequestAPI",
+  "paras_workfolow":"@TXCODE,@ID,*requestmess,@wfdescs",
+  "AFGHkeyIndexWJ": "d_hubstmUpdateStatusByAPI",
+  "AFGHTimeWJ": 1561266469836
+}

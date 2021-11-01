@@ -1,0 +1,29 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "test",
+			"function": "cis.core.txStartInfoApp.createInfoApp",
+			"type": "java",
+			"para": [],
+			"status": "A",
+			"response": {}
+		}
+	],
+	"response": {
+		"fo": [
+			{
+				"txcode": "",
+				"input": {}
+			}
+		]
+	},
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "bo-startBuild-context",
+	"version": 4,
+	"updateTime": 1583718699716,
+	"txname": "createInfoApp",
+	"hasRole": "false",
+	"isOld": true
+}

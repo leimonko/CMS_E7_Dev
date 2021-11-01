@@ -1,0 +1,1 @@
+{"group_menu_name":"Phân quyền hệ thống","group_menu_order":"1","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"roleMatrix","group_menu_id":"sp560b54w99zt57","AFGHkeyIndexWJ":"sp560b54w99Dp81","AFGHkeyTime":1576558845982,"AFGHkeyWorkFlow":"","group_menu_lang":{"vi":"Phân quyền hệ thống","en":"Permissions System"},"AFGHTimeWJ":1576558847721}

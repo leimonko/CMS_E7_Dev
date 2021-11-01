@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="FBE_jsonConnectorFlow"
+		doc:description="{
+	&quot;path&quot;: &quot;/bfweb/retail/v1/accounts/#[payload.ACNO]/balances&quot;,
+	&quot;method&quot;: &quot;GET&quot;,
+	&quot;params&quot;: {},
+	&quot;headers&quot;: {
+		&quot;Content-Type&quot;: &quot;application/json&quot;,
+		&quot;X-Request-ID&quot;: &quot;b8a888a6-4bbf-11ea-b77f-2e728ce88125&quot;,
+		&quot;Authorization&quot;: &quot;#[payload.SESSIONID]&quot;
+	},
+	&quot;body&quot;: {}
+}">
+		<set-variable variableName="params" value="#[json:params]"
+			doc:name="params" />
+		<set-variable variableName="headers" value="#[json:headers]"
+			doc:name="headers" />
+		<set-variable variableName="path" value="#[json:path]"
+			doc:name="path" />
+		<set-variable variableName="method" value="#[json:method]"
+			doc:name="method" />
+		<set-payload value="#[json:body]" mimeType="application/json"
+			doc:name="body" />
+		<logger
+			message="#[&quot;\n==========[FBE-JSON-REQUEST]=========== &quot;+ flowVars.uuid+ &quot;\n  -Method=&quot;+flowVars.method+&quot;\n  -Params=&quot;+flowVars.params+&quot;\n  -Path=&quot;+flowVars.path+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+ &quot;\n  -Header=&quot; + flowVars.headers+&quot;\n==========[FBE-JSON-REQUEST]===========&quot;]"
+			level="INFO" doc:name="FBE-JSON-REQUEST" />
+		<http:request config-ref="FBE_ENDPOINT" path="#[flowVars.path]"
+			method="#[flowVars.method]" doc:name="FBE_ENDPOINT">
+			<http:request-builder>
+				<http:query-params expression="#[new com.fasterxml.jackson.databind.ObjectMapper().readValue(flowVars.params, java.util.HashMap)]"/>
+				<http:headers expression="#[new com.fasterxml.jackson.databind.ObjectMapper().readValue(flowVars.headers, java.util.HashMap)]"/>
+			</http:request-builder>
+			<http:success-status-code-validator
+				values="200..299,400,422,401" />
+		</http:request>
+		<logger message="#[&quot;\n==========[FBE-JSON-RESPONSE]=========== &quot; + flowVars.uuid +&quot;\n  -Headers=&quot;+message.inboundProperties+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n==========[FBE-JSON-RESPONSE]===========&quot;]" level="INFO" doc:name="FBE-JSON-RESPONSE"/>
+		<json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+		<choice doc:name="Choice">
+			<when expression="#[payload.error!=null]">
+				<set-variable variableName="desc" value="#[payload.error.causes[0].message]"
+					doc:name="desc" />
+			</when>
+			<when expression="#[payload.causes!=null]">
+				<set-variable variableName="desc" value="#[payload.causes[0].message]"
+					doc:name="desc" />
+			</when>
+			<when expression="#[payload.events!=null]">
+				<set-variable variableName="desc" value="#[payload.events[0].message]" doc:name="desc"/>
+			</when>
+			<when expression="#[payload.status!=null]">
+				<set-variable variableName="desc" value="#[payload.status.description]" doc:name="desc"/>
+			</when>
+			<otherwise>
+				<set-variable variableName="desc" value="Transaction Failed"
+					doc:name="desc" />
+			</otherwise>
+		</choice>
+		<json:object-to-json-transformer doc:name="Object to JSON"/>
+		<set-payload
+			value="{  &quot;status&quot;: &quot;#[message.inboundProperties['http.status']==200 ? 0 : message.inboundProperties['http.status']]&quot;,  &quot;message&quot;:&quot;#[message.inboundProperties['http.reason']]&quot;,  &quot;desc&quot;: &quot;#[flowVars.desc]&quot;,  &quot;data&quot; : #[message.payloadAs(java.lang.String)]}"
+			mimeType="application/json" doc:name="Set Payload" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{  &quot;status&quot;: &quot;9999&quot;,  &quot;message&quot;:&quot;#[message.inboundProperties['http.reason']]&quot;,  &quot;desc&quot;: &quot;#[(exception !=null ? (exception.?cause.message or exception) : 'Transaction Failed').toString().replace('&quot;','')]&quot;,  &quot;data&quot; : {}}"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n==========[FBE-JSON-RESPONSE]=========== &quot; + flowVars.uuid +&quot;\n  -Headers=&quot;+message.inboundProperties+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n==========[FBE-JSON-RESPONSE]===========&quot;]"
+				level="INFO" doc:name="FBE-JSON-RESPONSE" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

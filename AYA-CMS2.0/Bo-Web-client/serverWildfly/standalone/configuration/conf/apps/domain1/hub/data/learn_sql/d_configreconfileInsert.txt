@@ -1,0 +1,15 @@
+﻿{
+  "learn_sql_title": "Thêm mới",
+  "learn_sql_query": "INSERT INTO hubdb.d_configreconfile(recid,fieldname, format, indext, isuse, corpcode)
+	VALUES (?,?, ?, ?, ?, ?)",
+  "learn_sql_parameter": "#recid,@fieldname, @format, #indext,#isuse , @corpcode",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query_sub": "SELECT fieldname, format, indext,isuse, corpcode FROM hubdb.d_configreconfile WHERE recid = ? ",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "learn_sql_squence": "select hubdb.D_CONFIGRECONFILE_SEQ.nextval as recid from dual",
+  "AFGHkeyIndexWJ": "d_configreconfileInsert",
+  "AFGHTimeWJ": 1561266469836
+}

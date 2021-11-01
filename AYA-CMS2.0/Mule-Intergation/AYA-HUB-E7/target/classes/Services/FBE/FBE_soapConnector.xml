@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="fbe_soapConnectorFlow">
+		<set-variable variableName="path" value="#[xpath3(&quot;/*:Request/*:path&quot;)]"
+			doc:name="path" />
+		<set-variable variableName="method" value="#[xpath3(&quot;/*:Request/*:method&quot;)]" doc:name="method"/>
+		<set-variable variableName="body" value="#[xpath3(&quot;/*:Request/*:data&quot;)]" doc:name="body"/>
+		<set-payload value="#[flowVars.body]" mimeType="text/xml"
+			doc:name="body" />
+		<logger
+			message="#[&quot;\n==========[FBE-SOAP-REQUEST]=========== &quot;+ flowVars.uuid+ &quot;\n  -Method=&quot;+flowVars.method+&quot;\n  -Params=&quot;+flowVars.params+&quot;\n  -Path=&quot;+flowVars.path+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n  -Header=&quot;+flowVars.headers+&quot;\n==========[FBE-SOAP-REQUEST]===========&quot;]"
+			level="INFO" doc:name="FBE-SOAP-REQUEST" />
+		<http:request config-ref="FBE_ENDPOINT" path="#[flowVars.path]"
+			method="#[flowVars.method]" doc:name="FBE_SOAP_ENDPOINT">
+			<http:request-builder>
+				<http:header headerName="Content-Type" value="text/xml"/>
+			</http:request-builder>
+			<http:success-status-code-validator
+				values="200..599" />
+		</http:request>
+		<set-variable variableName="desc" value="Transaction Successful" doc:name="desc"/>
+		<logger message="#[&quot;\n==========[FBE-SOAP-RESPONSE]=========== &quot; + flowVars.uuid +&quot;\n  -Headers=&quot;+message.inboundProperties+&quot;\n==========[FBE-SOAP-RESPONSE]===========&quot;]" level="INFO" doc:name="FBE-SOAP-RESPONSE"/>
+	</flow>
+</mule>

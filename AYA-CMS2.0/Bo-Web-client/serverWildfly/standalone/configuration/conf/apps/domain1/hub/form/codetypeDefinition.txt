@@ -1,0 +1,610 @@
+{
+	"info": {
+		"last_update": "19/05/2021 10:47:15 AM",
+		"list_show_error": "false",
+		"app": "jconnect",
+		"title": "Code Type",
+		"bodata": "",
+		"data": "",
+		"des": "",
+		"flow_layout": [],
+		"form_code": "codetypeDefinition",
+		"key_form": "",
+		"lang_form": {},
+		"learnapi": "",
+		"learnsql": "d_codetypeLoadAll",
+		"mode_form": {
+			"mode": "",
+			"col_text": "",
+			"col_input": ""
+		},
+		"node_position": [],
+		"ofModal": false,
+		"openOne": "true",
+		"ruleStrong": [
+			{
+				"code": "managerComponent",
+				"inUse": true,
+				"isStart": true,
+				"isStatus": -1,
+				"order": 1,
+				"config": {
+					"component_action": "recid",
+					"component_event": "all",
+					"is_use_block": "false",
+					"component_manager": "{\n\n\"recid\": \"'@{recid}' !== ''\"\n}"
+				},
+				"isDidStart": false
+			},
+			{
+				"code": "managerComponent",
+				"inUse": true,
+				"isStart": true,
+				"isStatus": -1,
+				"order": 1,
+				"config": {
+					"component_action": "recid",
+					"component_event": "all",
+					"is_use_block": "true",
+					"component_manager": "{\n    \"btn_update\": \"'@{recid}' !== ''\",\n \"btn_save\": \"'@{recid}' === ''\"\n}"
+				},
+				"isDidStart": false
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_action": "",
+					"component_result": "recid",
+					"view_result": "",
+					"condition": "",
+					"visible": "true",
+					"ena_dis": "true",
+					"component_event": "on_change",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true,
+				"isStatus": -1,
+				"isDidStart": false
+			},
+			{
+				"code": "visibility",
+				"config": {
+					"component_action": "",
+					"component_result": "codetypeview",
+					"view_result": "",
+					"condition": "",
+					"visible": "not_use",
+					"ena_dis": "true",
+					"component_event": "all",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 4,
+				"isStart": true,
+				"isStatus": -1,
+				"isDidStart": false
+			}
+		],
+		"responseType": "1"
+	},
+	"list_layout": [
+		{
+			"name": "",
+			"des": "",
+			"class": "",
+			"codeHidden": "0f54f6614496ff5b",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"name": "",
+					"code": "",
+					"codeHidden": "b263a88a4284b898",
+					"inputtype": "cView",
+					"isTab": "false",
+					"list_input": []
+				},
+				{
+					"name": "",
+					"code": "",
+					"codeHidden": "5bff5afc021e26bf",
+					"inputtype": "cView",
+					"isTab": "false",
+					"list_input": [
+						{
+							"default": {
+								"name": "codetypetable",
+								"code": "codetypetable",
+								"class": "col-sm-12 col-md-12",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "e3ae415d3bb1ba27"
+							},
+							"config": {
+								"structable": "table.col",
+								"query_data": "select * from d_codetype",
+								"paging_record": "5",
+								"columns": "[\n    {\n        \"code\": \"d_codetype.recid\",\n        \"title\": \"Recid\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_codetype.codetype\",\n        \"title\": \"Code type\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_codetype.subcodetype\",\n        \"title\": \"Sub-codetype\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_codetype.descs\",\n        \"title\": \"Description\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]",
+								"onTable": "",
+								"isLoadDataStart": "true",
+								"hasSystemColumnCheck": "false",
+								"hasSystemColumnCheckTotal": "false",
+								"check_type": "DEFAULT",
+								"headerCheckTitle": ""
+							},
+							"role": {},
+							"property": {},
+							"validate": {
+								"request": false,
+								"min": "",
+								"max": "",
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTableDefault"
+						},
+						{
+							"config": {
+								"onTable": "codetypetable",
+								"icon": "view",
+								"color": "primary",
+								"action": "",
+								"useAction": "false",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewDataSQL\",\n        \"input\": {\n            \"learn_sql\": \"d_codetypeViewOne\"\n        }\n    }\n]",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": "",
+								"isLookup": "",
+								"cmd": "",
+								"callform": "",
+								"uploadfile": {
+									"active": "false",
+									"filetype": ""
+								}
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cButton",
+							"default": {
+								"name": "View",
+								"code": "btn_view",
+								"class": "",
+								"role": "",
+								"condition": "",
+								"ofgroup": "audiencetable",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "37ec09bc155144f9"
+							}
+						},
+						{
+							"config": {
+								"onTable": "codetypetable",
+								"icon": "delete",
+								"color": "primary",
+								"action": "",
+								"useAction": "false",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-deleteDataSQL\",\n        \"input\": {\n            \"table_code\": \"d_codetype\",\n           \"pk_col\": \"recid\",            \"learn_sql\": \"d_codetypeDeleteOne\"        }\n    }\n]",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": "",
+								"isLookup": "",
+								"cmd": "",
+								"callform": "",
+								"uploadfile": {
+									"active": "false",
+									"filetype": ""
+								}
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cButton",
+							"default": {
+								"name": "Delete",
+								"code": "btn_delete",
+								"class": "",
+								"role": "",
+								"condition": "",
+								"ofgroup": "audiencetable",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "6abba1ed56f30dbe"
+							}
+						}
+					]
+				},
+				{
+					"name": "",
+					"class": "",
+					"code": "",
+					"isTab": "false",
+					"lang": {
+						"vi": "",
+						"en": ""
+					},
+					"inputtype": "cView",
+					"viewUI": "",
+					"list_input": [
+						{
+							"default": {
+								"name": "Recid",
+								"code": "recid",
+								"class": "col-xl-6 col-lg-6 col-md-12 col-sm-12",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "ddf9086d57dfb8a0"
+							},
+							"config": {
+								"useAction": "true",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"structable": "d_codetype.recid",
+								"structable_read": "d_codetype.recid",
+								"data_default": "",
+								"isLookup": "false",
+								"is_upperCase": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false",
+								"action": "",
+								"autoWrap": "false",
+								"isSearch": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false,
+								"min": "",
+								"max": "",
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Code Type",
+								"code": "codetype",
+								"class": "col-xl-6 col-lg-6 col-md-12 col-sm-12",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "c81055b6bb513dc8"
+							},
+							"config": {
+								"useAction": "true",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"structable": "d_codetype.codetype",
+								"structable_read": "d_codetype.codetype",
+								"data_default": "",
+								"isLookup": "false",
+								"is_upperCase": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false",
+								"action": "",
+								"autoWrap": "false",
+								"isSearch": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": "",
+								"max": "",
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Sub-codetype",
+								"code": "subcodetype",
+								"class": "col-xl-6 col-lg-6 col-md-12 col-sm-12",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "b61925998da3691f"
+							},
+							"config": {
+								"useAction": "true",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"structable": "d_codetype.subcodetype",
+								"structable_read": "d_codetype.subcodetype",
+								"data_default": "",
+								"isLookup": "false",
+								"is_upperCase": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false",
+								"action": "",
+								"autoWrap": "false",
+								"isSearch": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": "",
+								"max": "",
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Description",
+								"code": "descs",
+								"class": "col-xl-6 col-lg-6 col-md-12 col-sm-12",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "5ae25ad2d95ae350"
+							},
+							"config": {
+								"useAction": "true",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"structable": "d_codetype.descs",
+								"structable_read": "d_codetype.descs",
+								"data_default": "",
+								"isLookup": "false",
+								"is_upperCase": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false",
+								"action": "",
+								"autoWrap": "false",
+								"isSearch": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": "",
+								"max": "",
+								"regex_format": "",
+								"validate_html": "true"
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						}
+					],
+					"codeHidden": "1426e28183dec7f1",
+					"isBorder": "true"
+				},
+				{
+					"name": "",
+					"code": "",
+					"codeHidden": "2f6a1751482deb23",
+					"inputtype": "cView",
+					"isTab": "false",
+					"list_input": [
+						{
+							"config": {
+								"onTable": "",
+								"icon": "save",
+								"color": "primary",
+								"action": "",
+								"useAction": "false",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n\t{\n\t\"txcode\": \"#sys:fo-post-newDataSql\",\n\t\"input\": {\t\"list_component\": \"*\",\n\t\"list_view\": \"*\",\n\t\"learn_sql\": \"d_codetypeInsertOne\",\n\t\"table_code\": \"d_codetype\"\t}\n\t}\n\t]",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": "",
+								"isLookup": "",
+								"cmd": "",
+								"callform": "",
+								"uploadfile": {
+									"active": "false",
+									"filetype": ""
+								}
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cButton",
+							"default": {
+								"name": "Save",
+								"code": "btn_save",
+								"class": "",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "20b8369ad5a5af57"
+							}
+						},
+						{
+							"config": {
+								"onTable": "",
+								"icon": "update",
+								"color": "primary",
+								"action": "",
+								"useAction": "false",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n\t{\n\t\"txcode\": \"#sys:fo-post-updateDataSql\",\n\t\"input\": {\t\"list_component\": \"*\",\n\t\"list_view\": \"*\",\n\t\"learn_sql\": \"d_codetypeUpdateOne\",\n\t\"table_code\": \"d_codetype\",\n\t\"pk_col\":\"recid\"\n\t}\n\t}\n\t]",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": "",
+								"isLookup": "",
+								"cmd": "",
+								"callform": "",
+								"uploadfile": {
+									"active": "false",
+									"filetype": ""
+								}
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cButton",
+							"default": {
+								"name": "Update",
+								"code": "btn_update",
+								"class": "",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "20b8369ad5a5af57"
+							}
+						},
+						{
+							"config": {
+								"onTable": "",
+								"icon": "clear",
+								"color": "info",
+								"action": "",
+								"useAction": "false",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n \t{\n\t\"txcode\": \"#sys:fo-clearDataFormChild\",\n\t\"input\": {\n\t\"node_clear\": \"form_child\"\n\t}\n\t}\n\t]",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": "",
+								"isLookup": "",
+								"cmd": "",
+								"callform": "",
+								"uploadfile": {
+									"active": "false",
+									"filetype": ""
+								}
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cButton",
+							"default": {
+								"name": "Clear",
+								"code": "clear",
+								"class": "",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "8f464fe1670257c2"
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"react_txt": ""
+}

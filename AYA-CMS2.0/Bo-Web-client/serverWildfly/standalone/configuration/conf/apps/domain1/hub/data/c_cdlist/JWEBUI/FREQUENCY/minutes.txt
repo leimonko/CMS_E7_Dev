@@ -1,0 +1,14 @@
+{
+    "cdid": "Mi",
+    "cdname": "FREQUENCY",
+    "caption": "Minutely",
+    "cdgrp": "JWEBUI",
+    "cdidx": "3",
+    "cdval": "",
+    "flag": "",
+    "visible": "1",
+    "AFGHkeyIndexWJ": "minutes",
+    "AFGHkeyTime": 1578537990963,
+    "AFGHkeyWorkFlow": "",
+    "AFGHTimeWJ": 1578537990994
+}

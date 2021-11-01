@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"Test 1","en":"Test 12","thai":"","lao":"","cam":"","mya":"","han":""},"group_menu_name":"Test 1","group_menu_order":"1","group_menu_parent":"0","group_menu_function_code":"","group_menu_id":"3b3b1242bc433864","AFGHkeyIndexWJ":"ff79bb262d221509","AFGHkeyTime":1568622238811,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1568622238819}

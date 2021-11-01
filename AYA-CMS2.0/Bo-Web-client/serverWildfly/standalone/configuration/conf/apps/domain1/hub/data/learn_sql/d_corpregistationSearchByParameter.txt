@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Xem nhiều dòng dữ liệu",
+	"learn_sql_data": "d_corpregistation",
+	"learn_sql_parameter": "#data",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT corpcode, fullnamecorp, shortnamecorp, corpdepositaccno, corpcifno, bcode FROM hubdb.d_corpregistation where corpcode = ?",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_corpregistationSearchByParameter",
+	"AFGHTimeWJ": 1561269909390
+}

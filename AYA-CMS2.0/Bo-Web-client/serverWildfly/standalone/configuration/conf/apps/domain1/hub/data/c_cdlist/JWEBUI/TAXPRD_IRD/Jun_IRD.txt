@@ -1,0 +1,1 @@
+{"cdid":"Jun","cdname":"TAXPRD_IRD","caption":"June","cdgrp":"JWEBUI","cdidx":"7","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"Jun_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

@@ -1,0 +1,1 @@
+{"email":"cmsadmin","full_name":"cmsadmin","user_id":"372b8a3d-ae5d-4394-87fe-96e8b953705e","branchcd":"0001","branchname":"Nay Pyi Taw","AFGHkeyIndexWJ":"cmsadmin","AFGHkeyUserCreateWJ":"0ca9ebc5-73c3-4a98-b565-169461b0af32","AFGHkeyTime":1604637347415,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1604637347439,"JWebUI_UserCreate":"0ca9ebc5-73c3-4a98-b565-169461b0af32"}

@@ -1,0 +1,31 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "Lưu thông tin user map",
+			"function": "txManagerUser.saveUserMap",
+			"type": "java",
+			"para": [],
+			"status": "A",
+			"response": {
+				"_default_": {
+					"fo": [
+						{
+							"txcode": "#sys:fo-container",
+							"input": {}
+						}
+					]
+				}
+			}
+		}
+	],
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "bo-save-userMap",
+	"txname": "Lưu thông tin user map",
+	"version": 1,
+	"updateTime": 1568129234355,
+	"hasRole": "false",
+	"isOld": false,
+	"response": {}
+}

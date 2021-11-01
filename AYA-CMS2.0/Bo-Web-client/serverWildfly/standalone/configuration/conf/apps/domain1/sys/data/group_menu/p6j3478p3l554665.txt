@@ -1,0 +1,1 @@
+{"group_menu_name":"Thêm dữ liệu","group_menu_order":"1","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"p6j347j7hr89473","AFGHkeyIndexWJ":"p6j3478p3l554665","AFGHTimeWJ":1560941645922}

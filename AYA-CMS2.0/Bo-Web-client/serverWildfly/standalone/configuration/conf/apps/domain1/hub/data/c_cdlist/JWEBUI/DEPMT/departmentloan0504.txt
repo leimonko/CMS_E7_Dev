@@ -1,0 +1,1 @@
+{"cdid":"2","cdname":"DEPMT","caption":"Loan Department","cdgrp":"JWEBUI","cdidx":"1","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"departmentloan0504","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

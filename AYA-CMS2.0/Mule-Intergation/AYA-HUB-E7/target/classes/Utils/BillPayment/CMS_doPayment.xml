@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<sub-flow name="hub_doPaymentSub_Flow">
+		<logger level="INFO" doc:name="DoPayment Started"
+			message="#[&quot;\n==============================================================================\nSTARTED DO PAYMENT\nRequqest Message: &quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]" />
+
+		<set-variable variableName="reqJSMsg" value="#[json:]"
+			doc:name="reqJSMsg" />
+		<scripting:transformer doc:name="Store REFVA1, REFVA2, REFVA3">
+			<scripting:script engine="JavaScript"><![CDATA[var resMsg = JSON.parse(flowVars.get('reqJSMsg'));
+var refva1, refva2, refva3;
+try{
+refva1 = JSON.stringify(resMsg.REFVA1);
+refva2 = JSON.stringify(resMsg.REFVA2);
+refva3 = JSON.stringify(resMsg.REFVA3);
+}
+catch(e){
+refva1 = "";
+refva2 = "";
+refva3 = "";
+}
+flowVars.put('REFVA1',refva1.substring(1, refva1.length-1));
+flowVars.put('REFVA2',refva2.substring(1, refva2.length-1));
+flowVars.put('REFVA3',refva3.substring(1, refva3.length-1));
+
+message.setPayload(JSON.stringify(resMsg));
+result = message;]]></scripting:script>
+		</scripting:transformer>
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsgDoPayment" value="#[payload]"
+			doc:name="reqMsgDoPayment" />
+		<choice doc:name="Route To Webservice">
+			<when expression="#[payload.WEBSERNAME==&quot;YCDC&quot;]">
+				<set-payload
+					value="{   &quot;BILLINGMERCHANTCODE&quot;: &quot;#[flowVars.reqMsgDoPayment.WEBSERNAME]&quot;,   &quot;BILLAMOUNT&quot;: &quot;#[flowVars.reqMsgDoPayment.AMT]&quot;,   &quot;CURRENCYCODE&quot;: &quot;#[flowVars.reqMsgDoPayment.CCRCD]&quot;,   &quot;BILLREFNO&quot;: &quot;#[flowVars.REFVA1]&quot;,   &quot;TRANSFERREFNO1&quot;: &quot;#[flowVars.reqMsgDoPayment.ID]&quot;,   &quot;CUSTREFNO&quot;: &quot;-&quot; }"
+					mimeType="application/json" doc:name="Build Message Get Amount" />
+                <logger message="#[&quot;\nCall Do Payment YCDC WEBSERVICE:\n&quot; + message.payloadAs(java.lang.String)]" level="INFO" doc:name="Call Do Payment YCDC WEBSERVICE"/>
+				<flow-ref name="YCDC_makePaymentByApiKeySub_Flow" doc:name="YCDC_makePaymentByApiKeySub_Flow" />
+
+			</when>
+			<when
+				expression="#[payload.WEBSERNAME!=null &amp;&amp; payload.WEBSERNAME.matches(&quot;${SERVICE_EM}&quot;)]">
+
+				<set-payload
+					value="{
+  &quot;SERVICEID&quot;: &quot;#[flowVars.reqMsgDoPayment.WEBSERNAME+&quot;-EM&quot;]&quot;,
+  &quot;ID&quot;: &quot;#[flowVars.reqMsgDoPayment.ID]&quot;,
+  &quot;REFVA1&quot;: &quot;#[flowVars.REFVA1]&quot;,
+  &quot;REFVA2&quot;: &quot;#[flowVars.REFVA2]&quot;,
+  &quot;REFVA3&quot;: &quot;#[flowVars.REFVA3]&quot;
+}"
+					mimeType="application/json" doc:name="Build Message Get Amount" />
+                <logger message="#[&quot;\nCall Do Payment Biller HUB WEBSERVICE:\n&quot; + message.payloadAs(java.lang.String)]" level="INFO" doc:name="Call Do Payment Biller HUB WEBSERVICE"/>
+				<flow-ref name="BillerHUB_doPaymentSub_Flow" doc:name="BillerHUB_doPaymentSub_Flow" />
+
+			</when>
+			<otherwise>
+				<set-payload
+					value="{   &quot;ERRORCODE&quot;: 0,   &quot;ERRORDESC&quot;: &quot;Corporate not have Webservice protocol!&quot; }"
+					mimeType="application/json" doc:name="Corporate not have WS" />
+			</otherwise>
+		</choice>
+		<logger
+			message=" #[&quot;\nReturn:\n&quot; + message.payloadAs(java.lang.String)]"
+			level="INFO" doc:name="Get Bill Return" />
+		<scripting:transformer mimeType="application/json"
+			doc:name="Build Message Response">
+			<scripting:script engine="JavaScript"><![CDATA[var data = {};
+var resMsg ={};
+try{
+data = JSON.parse(payload);
+resMsg = JSON.parse(flowVars.get('reqJSMsg'));
+
+log.info(resMsg.WEBSERNAME);
+resMsg.ERRORCODE=data.ERRORCODE;
+resMsg.ERRORDESC=data.ERRORDESC;	
+}
+catch(err){
+log.info(err);
+resMsg.ERRORCODE = 1;
+resMsg.ERRORDESC = "Cannot do payment";
+}
+message.setPayload(JSON.stringify(resMsg));
+result = message;]]></scripting:script>
+		</scripting:transformer>
+		<json:object-to-json-transformer
+			doc:name="Object to JSON" />
+		<logger
+			message="#[&quot;\n==============================================================================\nEnded DO PAYMENT\nResponse Message: &quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]"
+			level="INFO" doc:name="Do Payment Return" />
+	</sub-flow>
+</mule>

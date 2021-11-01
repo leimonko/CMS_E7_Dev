@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Tải tất cả data txcode",
+	"learn_sql_parameter": "#SERCODE",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT webserprtcol FROM hubdb.d_corpservice where servicecode = ? ",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_corpserviceGetWebserprtcol",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_corpservice"
+}

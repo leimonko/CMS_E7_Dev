@@ -1,0 +1,30 @@
+{
+	"list_appliaction_id": "hub",
+	"list_appliaction_name": "HUB",
+	"list_appliaction_des": "HUB",
+	"list_appliaction_order": "3",
+	"AFGHkeyIndexWJ": "hub",
+	"AFGHkeyTime": 1562251593509,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1562251593512,
+	"list_appliaction_bo": "bo-app-hub",
+	"list_appliaction_img": "../rs/global/img/B38pWG312121.jpg",
+	"ConnectOtherSystemStatus": "true",
+	"configTemplate": {
+		"mobi": {
+			"template": "malibu",
+			"screen_working": "desktop_hub",
+			"theme": "krungthai"
+		},
+		"desktop": {
+			"template": "malibu",
+			"screen_working": "desktop_hub",
+			"theme": "krungthai"
+		},
+		"tablet": {
+			"template": "malibu",
+			"screen_working": "desktop_hub",
+			"theme": "krungthai"
+		}
+	}
+}

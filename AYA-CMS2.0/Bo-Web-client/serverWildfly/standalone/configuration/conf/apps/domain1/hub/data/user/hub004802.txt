@@ -1,0 +1,1 @@
+{"full_name":"hub004802","email":"hub004802","user_status":"A","user_id":"hub004802","branchcd":"0048","branchid":"0048","branchname":"Ygn (12) Shwe Gone Dine","AFGHkeyIndexWJ":"hub004802","AFGHkeyTime":1603781790604,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790604,"AFGHkeyUserCreateWJ":""}

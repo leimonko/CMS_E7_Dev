@@ -1,0 +1,52 @@
+﻿{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "bo-load-refreshDataToForm",
+      "function": "cis.core.txDev_Form.view",
+      "type": "java",
+      "para": [
+	  "@learn_sql",
+		"@table_code"  
+      ],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+			{
+              "txcode": "#sys:fo-msg-toast",
+              "input": {
+                "lang": "sysRefreshOK"
+              }
+            },
+            { 
+              "txcode": "#sys:fo-update-data"
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-msg-toast",
+              "input": {
+                "lang": "sysRefreshError"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-load-refreshDataToForm",
+  "version": 2,
+  "updateTime": 1562205991292,
+  "txname": "bo-load-refreshDataToForm",
+  "isOld": true
+}

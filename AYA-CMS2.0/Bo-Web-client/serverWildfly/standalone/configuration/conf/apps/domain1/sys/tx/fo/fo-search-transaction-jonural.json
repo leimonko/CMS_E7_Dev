@@ -1,0 +1,45 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "Xóa thông báo lỗi",
+			"function": "form.clearError",
+			"type": "javascript",
+			"status": "A",
+			"para": []
+		},
+		{
+			"name": "Thu thập và thêm mới",
+			"function": "formsql.addnew",
+			"type": "javascript",
+			"status": "A",
+			"para": [
+				"@list_component",
+				"@list_view",
+				"@table"
+			],
+			"request": {
+				"true": {
+					"bo": [
+						{
+							"txcode": "#sys:bo-search-transaction-jonural",
+							"input": {
+								"table_code": "@table_code",
+								"list_view": "@list_view",
+								"learn_sql":"searchtransactionjounral"
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"request": {},
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "fo-search-transaction-jonural",
+	"txname": "Search",
+	"version": 2,
+	"updateTime": 1562208638989,
+	"isOld": true
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub001201","email":"hub001201","user_status":"A","user_id":"hub001201","branchcd":"0012","branchid":"0012","branchname":"Sittwe","AFGHkeyIndexWJ":"hub001201","AFGHkeyTime":1603781790564,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790564,"AFGHkeyUserCreateWJ":""}

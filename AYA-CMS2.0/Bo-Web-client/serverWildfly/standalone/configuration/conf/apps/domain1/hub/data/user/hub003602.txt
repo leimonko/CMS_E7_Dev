@@ -1,0 +1,1 @@
+{"full_name":"hub003602","email":"hub003602","user_status":"A","user_id":"hub003602","branchcd":"0036","branchid":"0036","branchname":"Ygn (8) Parami","AFGHkeyIndexWJ":"hub003602","AFGHkeyTime":1603781790592,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790592,"AFGHkeyUserCreateWJ":""}

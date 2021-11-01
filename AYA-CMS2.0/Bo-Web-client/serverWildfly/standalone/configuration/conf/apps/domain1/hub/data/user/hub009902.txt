@@ -1,0 +1,1 @@
+{"full_name":"hub009902","email":"hub009902","user_status":"A","user_id":"hub009902","branchcd":"0099","branchid":"0099","branchname":"PMN - BCE (mini)","AFGHkeyIndexWJ":"hub009902","AFGHkeyTime":1603781790668,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790668,"AFGHkeyUserCreateWJ":""}

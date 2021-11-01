@@ -1,0 +1,1 @@
+{"full_name":"hub007502","email":"hub007502","user_status":"A","user_id":"hub007502","branchcd":"0075","branchid":"0075","branchname":"Ygn(23) Kamaryut","AFGHkeyIndexWJ":"hub007502","AFGHkeyTime":1603781790634,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790634,"AFGHkeyUserCreateWJ":""}

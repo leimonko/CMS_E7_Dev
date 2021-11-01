@@ -1,0 +1,31 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "Xem d? li?u",
+            "function": "formAPI.view",
+            "type": "javascript",
+            "status": "A",
+            "para": [
+                "@table_code",
+                "@table_col_key",
+                "@form_key"
+            ]
+        }
+    ],
+    "request": {
+        "bo": [
+            {
+                "txcode": "",
+                "input": {}
+            }
+        ]
+    },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "fo-view-dataAPIOpenForm",
+    "txname": "view data api openform",
+    "version": 2,
+    "updateTime": 1571219489989,
+    "isOld": true
+}

@@ -1,0 +1,1 @@
+{"cdid":"L","cdname":"SCHEDULE","caption":"Loop","cdgrp":"JWEBUI","cdidx":1,"cdval":"","flag":0,"visible":1,"AFGHkeyIndexWJ":"d13b97f723353f50","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

@@ -1,0 +1,1 @@
+{"learn_sql_title":"Tải tất cả data của table1","learn_sql_parameter":"","learn_sql_parameter_sub":"","learn_sql_query":"SELECT recid, recname, recvalue FROM testdb.table1;","learn_sql_query_sub":"","AFGHkeyIndexWJ":"p6m6e4m5dh9e9","AFGHTimeWJ":1561263635755,"learn_sql_data":"table1"}

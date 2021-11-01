@@ -1,0 +1,14 @@
+﻿{
+  "learn_sql_title": "Thêm mới txcode",
+  "learn_sql_query": "INSERT INTO hubdb.d_corpregistation(corpcode,fullnamecorp, shortnamecorp, corpcifno,bcode) VALUES (?,?, ?, ?,'O9C')",
+  "learn_sql_parameter": "#corpcode,@fullnamecorp, @shortnamecorp, @corpcifno",
+  "learn_sql_parameter_sub": "#corpcode",
+  "learn_sql_query_sub": "SELECT corpcode, fullnamecorp, shortnamecorp, corpdepositaccno, corpcifno, bcode FROM hubdb.d_corpregistation WHERE corpcode = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+   "learn_sql_squence": "select hubdb.D_CORPREGISTATION_SEQ.nextval as corpcode from dual",
+  "AFGHkeyIndexWJ": "d_corpregistationInsertOne",
+  "AFGHTimeWJ": 1561266469836
+}

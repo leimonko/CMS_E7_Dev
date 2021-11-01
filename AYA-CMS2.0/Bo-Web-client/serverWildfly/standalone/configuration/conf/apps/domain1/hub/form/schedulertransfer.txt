@@ -1,0 +1,675 @@
+{
+	"info": {
+		"title": "Schedule Transfer",
+		"des": "",
+		"data": "",
+		"learnapi": "",
+		"learnsql": "d_scheduletransferLoadAll",
+		"bodata": "",
+		"openOne": "true",
+		"url_input": "",
+		"lang_form": {},
+		"mode_form": {
+			"mode": "",
+			"col_text": "",
+			"col_input": ""
+		},
+		"form_code": "scheduletransfer",
+		"ruleStrong": [
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "all",
+					"component_action": "",
+					"component_result": "recid",
+					"condition": "",
+					"visible": "false",
+					"ena_dis": "not_use",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			},
+			{
+				"code": "managerComponent",
+				"config": {
+					"component_event": "all",
+					"component_action": "recid",
+					"component_manager": "{\n    \"btn_save\": \" '@{recid}' === '' \",\n    \"btn_update\": \"'@{recid}' !== '' \"\n}",
+					"is_use_block": "false"
+				},
+				"inUse": true,
+				"order": 2,
+				"isStart": true
+			}
+		]
+	},
+	"list_layout": [
+		{
+			"name": "Schedule Transfer",
+			"des": "",
+			"class": "",
+			"lang": {
+				"vi": "Schedule Transfer",
+				"en": "Schedule Transfer"
+			},
+			"lang_des": {},
+			"codeHidden": "2016bef2e4e3edbe",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"code": "code",
+					"name": "M¿u view",
+					"inputtype": "cView",
+					"list_input": [
+						{
+							"default": {
+								"name": "Schedule name",
+								"code": "schedulename",
+								"codeHidden": "325a5d0ca06e034f",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_scheduletransfer.schedulename",
+								"structable_read": "d_scheduletransfer.schedulename",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": 2
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Transfer type",
+								"code": "transfertype",
+								"codeHidden": "24ae71f1d1a3e643",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_scheduletransfer.transfertype",
+								"structable_read": "d_scheduletransfer.transfertype",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='TRANSFERTYPE' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "TRANSFERTYPE"
+								},
+								"data_default": "",
+								"data_mode": "cdlist",
+								"query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='TRANSFERTYPE' orderby c_cdlist.cdidx",
+								"is_multi_select": "false",
+								"is_multi_col": "false",
+								"get_data_format": "c_cdlist.cdid",
+								"selected_view_format": "@c_cdlist.caption",
+								"table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "c_cdlist.cdid",
+								"useAction": "false",
+								"isAutoDefault": "true"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Transfer type": "Transfer type"
+									},
+									"en": {
+										"Transfer type": "Transfer type"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Frequency",
+								"code": "frequency",
+								"codeHidden": "466d5fb7e353fd68",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_scheduletransfer.frequency",
+								"structable_read": "d_scheduletransfer.frequency",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='FREQUENCY' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "FREQUENCY"
+								},
+								"data_default": "",
+								"data_mode": "cdlist",
+								"query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='FREQUENCY' orderby c_cdlist.cdidx",
+								"is_multi_select": "false",
+								"is_multi_col": "false",
+								"get_data_format": "c_cdlist.cdid",
+								"selected_view_format": "@c_cdlist.caption",
+								"table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "c_cdlist.cdid",
+								"useAction": "false",
+								"isAutoDefault": "true"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Frequency": "Frequency"
+									},
+									"en": {
+										"Frequency": "Frequency"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Description",
+								"code": "description",
+								"codeHidden": "8b1b9c74b9c1ab7d",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_scheduletransfer.descs",
+								"structable_read": "d_scheduletransfer.descs",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Schedule time",
+								"code": "scheduletime",
+								"codeHidden": "1c03a23beda9125d",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_scheduletransfer.firsttime",
+								"structable_read": "d_scheduletransfer.firsttime",
+								"data_default": "",
+								"data_type": "edit",
+								"component_title": "",
+								"mask_format": "__:__:__",
+								"mask_data_format": "__:__:__",
+								"value_type": "number",
+								"auto_delete": "true",
+								"mask_mode": "default",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"cdlist": {}
+							},
+							"role": {
+								"disabled": "",
+								"visible": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"condistion": []
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Schedule time": "Schedule time"
+									},
+									"en": {
+										"Schedule time": "Schedule time"
+									}
+								},
+								"mask_format": {
+									"vi": {
+										"DD/MM/YYYY": "DD/MM/YYYY"
+									},
+									"en": {
+										"DD/MM/YYYY": "DD/MM/YYYY"
+									}
+								},
+								"validate": {}
+							},
+							"configAVD": {},
+							"inputtype": "jMaskInput"
+						},
+						{
+							"default": {
+								"name": "First transfer date",
+								"code": "firsttransferdate",
+								"codeHidden": "bb6bd1b78e6abd96",
+								"class": "col-sm-12 col-md-6",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "d_scheduletransfer.firsttxdate",
+								"structable_read": "d_scheduletransfer.firsttxdate",
+								"data_default": "",
+								"data_type": "edit",
+								"component_title": "",
+								"mask_format": "DD/MM/YYYY",
+								"mask_data_format": "DD/MM/YYYY",
+								"value_type": "number",
+								"auto_delete": "true",
+								"mask_mode": "date",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": ""
+							},
+							"role": {
+								"disabled": "",
+								"visible": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false,
+								"condistion": []
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"First transfer date": "First transfer date"
+									},
+									"en": {
+										"First transfer date": "First transfer date"
+									}
+								},
+								"mask_format": {
+									"vi": {
+										"DD/MM/YYYY": "DD/MM/YYYY"
+									},
+									"en": {
+										"DD/MM/YYYY": "DD/MM/YYYY"
+									}
+								},
+								"validate": {}
+							},
+							"configAVD": {},
+							"inputtype": "jMaskInput"
+						},
+						{
+							"default": {
+								"name": "recid",
+								"code": "recid",
+								"codeHidden": "a9c196152525b52c",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "d_scheduletransfer.recid",
+								"structable_read": "d_scheduletransfer.recid",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "Save",
+								"code": "btn_save",
+								"codeHidden": "p5685f65655469i59",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "default_save",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-newDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"table_code\": \"d_scheduletransfer\",\n            \"learn_sql\": \"d_scheduletransferInsert\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "fa-floppy-o",
+								"color": "info",
+								"onTable": "",
+								"isMasterData": "false",
+								"tableMasterData": "word_typing",
+								"privateKeyTableMasterData": "id"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						},
+						{
+							"default": {
+								"name": "Update",
+								"code": "btn_update",
+								"codeHidden": "p57546g5D3843n7",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "default_edit",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-updateDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"learn_sql\": \"d_scheduletransferUpdateOne\",\n            \"table_code\": \"d_scheduletransfer\",\n            \"pk_col\": \"recid\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "fa-floppy-o",
+								"color": "info",
+								"onTable": "",
+								"isMasterData": "false",
+								"tableMasterData": "word_typing",
+								"privateKeyTableMasterData": "id"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						},
+						{
+							"default": {
+								"name": "Clear",
+								"code": "btn_clear",
+								"codeHidden": "p6d5p797685469956",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+								"useAction": "false",
+								"icon": "fa-floppy-o",
+								"color": "base",
+								"onTable": "",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						}
+					],
+					"codeHidden": "1aee1cb6ec37f32b"
+				}
+			]
+		},
+		{
+			"name": "",
+			"des": "",
+			"class": "",
+			"lang": {},
+			"lang_des": {},
+			"codeHidden": "9379b68931989d66",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"code": "code",
+					"name": "M¿u view",
+					"inputtype": "cView",
+					"list_input": [
+						{
+							"default": {
+								"name": "View",
+								"code": "btn_view",
+								"codeHidden": "p6d988np4t55480",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "default_view",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewDataSQL\",\n        \"input\": {\n            \"learn_sql\": \"d_scheduletransferViewOne\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "fa-floppy-o",
+								"color": "info",
+								"onTable": "table",
+								"isMasterData": "true",
+								"tableMasterData": "word_typing",
+								"privateKeyTableMasterData": "id"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						},
+						{
+							"default": {
+								"name": "Delete",
+								"code": "btn_delete",
+								"codeHidden": "sp5555D4c33A84j",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "default_delete",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-deleteDataSQL\",\n        \"input\": {\n            \"table_code\": \"d_scheduletransfer\",\n            \"pk_col\": \"recid\",\n            \"learn_sql\": \"d_scheduletransferDelete\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "fa-floppy-o",
+								"color": "danger",
+								"onTable": "table",
+								"isMasterData": "true",
+								"tableMasterData": "word_typing",
+								"privateKeyTableMasterData": "id"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						},
+						{
+							"default": {
+								"name": "Danh sách",
+								"code": "table",
+								"codeHidden": "p6d5o69he73n34",
+								"class": "col-sm-12 col-md-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "",
+								"query_data": "select * from d_scheduletransfer",
+								"paging_record": "50",
+								"columns": "[\n    {\n        \"code\": \"d_scheduletransfer.recid\",\n        \"title\": \"recid\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_scheduletransfer.schedulename\",\n        \"title\": \"Schedulename\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_scheduletransfer.transfertype\",\n        \"title\": \"Transfertype\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_scheduletransfer.frequency\",\n        \"title\": \"Frequency\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_scheduletransfer.firsttime\",\n        \"title\": \"Scheduletime\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_scheduletransfer.firsttxdate\",\n        \"title\": \"First transfer date\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_scheduletransfer.today\",\n        \"title\": \"Status today\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_scheduletransfer.descs\",\n        \"title\": \"Descs\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+							},
+							"role": {},
+							"property": {},
+							"validate": {},
+							"lang": {
+								"vi": {
+									"recid": "recid",
+									"Schedulename": "Schedulename",
+									"Transfertype": "Transfertype",
+									"Frequency": "Frequency",
+									"Scheduletime": "Scheduletime",
+									"First transfer date": "First transfer date",
+									"Today": "Today",
+									"Descs": "Descs"
+								},
+								"en": {
+									"recid": "recid",
+									"Schedulename": "Schedulename",
+									"Transfertype": "Transfertype",
+									"Frequency": "Frequency",
+									"Scheduletime": "Scheduletime",
+									"First transfer date": "First transfer date",
+									"Today": "Today",
+									"Descs": "Descs"
+								}
+							},
+							"configAVD": {},
+							"inputtype": "cTableDefault"
+						}
+					],
+					"codeHidden": "1cacae7586c074d8"
+				}
+			]
+		}
+	],
+	"react_txt": ""
+}

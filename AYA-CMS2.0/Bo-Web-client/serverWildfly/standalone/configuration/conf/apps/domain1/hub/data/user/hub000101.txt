@@ -1,0 +1,1 @@
+{"full_name":"hub000101","email":"hub000101","user_status":"A","user_id":"hub000101","branchcd":"0001","branchid":"0001","branchname":"Nay Pyi Taw","AFGHkeyIndexWJ":"hub000101","AFGHkeyTime":1603781790535,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790535,"AFGHkeyUserCreateWJ":""}

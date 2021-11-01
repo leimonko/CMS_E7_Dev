@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data fee",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT '1212121212121' as accno, 111 as amt, 'DT001' as vccode; ",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_LoadInfoForprint",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "datavoucher"
+    }

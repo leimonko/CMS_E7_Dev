@@ -1,0 +1,1 @@
+{"full_name":"hub013502","email":"hub013502","user_status":"A","user_id":"hub013502","branchcd":"0135","branchid":"0135","branchname":"KTA","AFGHkeyIndexWJ":"hub013502","AFGHkeyTime":1603781790695,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790695,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"full_name":"hub025302","email":"hub025302","user_status":"A","user_id":"hub025302","branchcd":"0253","branchid":"0253","branchname":"KDG","AFGHkeyIndexWJ":"hub025302","AFGHkeyTime":1603781790781,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790781,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Update",
+  "learn_sql_data": "d_branchcode",
+  "learn_sql_parameter": "@branchcode, @branchname, #recid",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query": "UPDATE hubdb.d_branchcode SET branchcode=?, branchname=? WHERE recid=? ",
+  "learn_sql_query_sub": "SELECT recid, branchcode, branchname FROM hubdb.d_branchcode WHERE recid = ?",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_branchcodeUpdateOne",
+  "AFGHTimeWJ": 1561295766446
+}

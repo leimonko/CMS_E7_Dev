@@ -1,0 +1,1 @@
+{"full_name":"hub001501","email":"hub001501","user_status":"A","user_id":"hub001501","branchcd":"0015","branchid":"0015","branchname":"Pakokku","AFGHkeyIndexWJ":"hub001501","AFGHkeyTime":1603781790567,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790567,"AFGHkeyUserCreateWJ":""}

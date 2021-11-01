@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd">
+	<flow name="FBE_readAccountFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/readAccount" allowedMethods="POST" doc:name="HTTP"/>
+		<flow-ref name="fbe_readAccountSub_Flow" doc:name="Flow Reference"/>
+	</flow>
+	<flow name="fbe_readAccountSub_Flow">
+		<invoke object-ref="AutoLogin" method="getSessionID"
+			methodArguments="#[message.payloadAs(java.lang.String)]" doc:name="getSessionID" />
+		<set-variable variableName=" RequestMsgJson" value="#[payload]"
+			doc:name=" RequestMsgJson" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsgReadAcc" value="#[payload]"
+			doc:name="reqMsgReadAcc" />
+		<logger
+			message="#[&quot;\n==============================================================================\nSTARTED FBE READ ACCOUNT INFORMATION\nRequest Message: &quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]"
+			level="INFO" doc:name="REQUEST MESSAGE" />
+		<set-payload
+			value="&lt;Request&gt;
+	&lt;path&gt;/bfweb/services/CB_ACC_ReadAccount_SRVWS&lt;/path&gt;
+	&lt;method&gt;POST&lt;/method&gt;
+	&lt;data&gt;&lt;![CDATA[&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:web=&quot;http://webservices.bankfusion.trapedza.com&quot; xmlns:att=&quot;http://www.misys.com/bankfusion/attributes&quot; xmlns:v1r0=&quot;http://www.misys.com/cbs/msgs/v1r0&quot; xmlns:head=&quot;http://www.misys.com/cbs/types/header&quot; xmlns:typ=&quot;http://www.misys.com/cbs/types&quot;&gt;
+			&lt;soapenv:Header&gt;
+				&lt;web:bfgenericsoapheader&gt;
+					&lt;web:authentication&gt;
+						&lt;web:userLocator&gt;#[flowVars.reqMsgReadAcc.SESSIONID]&lt;/web:userLocator&gt;
+					&lt;/web:authentication&gt;
+				&lt;/web:bfgenericsoapheader&gt;
+			&lt;/soapenv:Header&gt;
+			&lt;soapenv:Body&gt;
+				&lt;web:CB_ACC_ReadAccount_SRV&gt;
+					&lt;web:ReadAccountRq&gt;
+						&lt;v1r0:accountKeys&gt;
+							&lt;typ:standardAccountId&gt;#[flowVars.reqMsgReadAcc.ACNO]&lt;/typ:standardAccountId&gt;
+							&lt;typ:inputAccount/&gt;
+						&lt;/v1r0:accountKeys&gt;
+					&lt;/web:ReadAccountRq&gt;
+				&lt;/web:CB_ACC_ReadAccount_SRV&gt;
+			&lt;/soapenv:Body&gt;
+		&lt;/soapenv:Envelope&gt;]]&gt;
+	&lt;/data&gt;
+&lt;/Request&gt;"
+			mimeType="text/xml" doc:name="Build Message Read Account" />
+		<flow-ref name="fbe_soapConnectorFlow" doc:name="fbe_soapConnectorFlow"/>
+		<set-variable variableName="branchID"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:CB_ACC_ReadAccount_SRVResponse/*:ReadAccountRs/*:accountDetails/*:accountInfo/*:acctBasicDetails/*:accountKeys/*:pseudonym/*:branchCode&quot;)]"
+			doc:name="branchID" />
+		<set-variable variableName="customerName" value="#[xpath3(&quot;/*:Envelope/*:Body/*:CB_ACC_ReadAccount_SRVResponse/*:ReadAccountRs/*:accountDetails/*:accountInfo/*:acctBasicDetails/*:customerShortDetails/*:customerName&quot;)]" doc:name="customerName"/>
+		<logger
+			message="#[&quot;\n------\nBRANCH ID:\n&quot; + flowVars.branchID+ &quot;\n------&quot;]"
+			level="INFO" doc:name="FBE Read Account Response" />
+		<set-payload
+			value="{
+	&quot;ERRORCODE&quot;: &quot;#[flowVars.branchID !='' ? 0 : 9999]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[flowVars.branchID !='' ? 'Transaction successfully!' : 'Can not read account information!']&quot;,
+	&quot;BRANCHID&quot;: &quot;#[flowVars.branchID]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;ACNO&quot;: &quot;#[flowVars.reqMsgReadAcc.ACNO]&quot;,
+		&quot;BRANCHID&quot;: &quot;#[flowVars.branchID]&quot;,
+		&quot;CUSTNAME&quot;: &quot;#[flowVars.customerName]&quot;
+	}
+}"
+			doc:name="Build Messaeg Response" mimeType="application/json" />
+		<logger
+			message="#[&quot;\n==============================================================================\nENDED FBE READ ACCOUNT INFORMATION\nResponse Message: &quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]"
+			level="INFO" doc:name="RESPONSE MESSAGE" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{
+	&quot;ERRORCODE&quot;: 9999,
+&quot;ERRORDESC&quot;: &quot;#[(exception.?cause.message or exception).toString().replace('&quot;','')]&quot;,
+	&quot;BRANCHID&quot;: &quot;#[flowVars.branchID]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;ACNO&quot;: &quot;#[flowVars.reqMsgReadAcc.ACNO]&quot;,
+		&quot;BRANCHID&quot;: &quot;#[flowVars.branchID]&quot;,
+		&quot;CUSTNAME&quot;: &quot;#[flowVars.customerName]&quot;
+	}
+}"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n==============================================================================\nENDED FBE READ ACCOUNT INFORMATION\nResponse Message: &quot; + message.payloadAs(java.lang.String)+ &quot;\n==============================================================================&quot;]"
+				level="INFO" doc:name="RESPONSE MESSAGE" />
+		</catch-exception-strategy>	</flow>
+
+</mule>

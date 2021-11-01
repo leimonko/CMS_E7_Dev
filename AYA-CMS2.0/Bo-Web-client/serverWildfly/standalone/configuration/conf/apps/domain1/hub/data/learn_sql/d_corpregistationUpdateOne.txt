@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Sửa 1 dữ liệu txcode",
+  "learn_sql_data": "d_corpregistation",
+  "learn_sql_parameter": "@fullnamecorp, @shortnamecorp, @corpcifno, #corpcode",
+  "learn_sql_parameter_sub": "#corpcode",
+  "learn_sql_query": "UPDATE hubdb.d_corpregistation SET fullnamecorp=?, shortnamecorp=?, corpcifno=?, bcode='O9C' WHERE corpcode=? ",
+  "learn_sql_query_sub": "SELECT corpcode, fullnamecorp, shortnamecorp, corpdepositaccno, corpcifno, bcode FROM hubdb.d_corpregistation WHERE corpcode = ? ",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_corpregistationUpdateOne",
+  "AFGHTimeWJ": 1561295766446
+}

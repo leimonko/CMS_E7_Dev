@@ -1,0 +1,28 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Tính toán fee sau khi xử lý data",
+      "function": "own_O9_fee.feeCaculatorDataConvert",
+      "type": "javascript",
+      "status": "A",
+      "para": [],
+      "request": {}
+    }
+  ],
+  "request": {
+    "bo": [
+      {
+        "txcode": "",
+        "input": {}
+      }
+    ]
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-feeCCL",
+  "txname": "View data open form",
+  "version": 11,
+  "updateTime": 1571223716631,
+  "isOld": true
+}

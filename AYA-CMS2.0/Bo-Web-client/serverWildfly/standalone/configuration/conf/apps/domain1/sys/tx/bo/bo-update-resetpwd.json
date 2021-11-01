@@ -1,0 +1,48 @@
+{
+	"input": {},
+	"actions": [
+		{
+			"name": "dynamicQuery_Insert",
+			"function": "cis.core.txDev_Form.resetPwd",
+			"type": "java",
+			"para": [
+				"@learn_sql"
+			],
+			"status": "A",
+			"response": {
+				"true": {
+					"fo": [
+						{
+							"txcode": "#sys:fo-msg-toast",
+							"input": {
+								"lang": "sysActionResetOk"
+							}
+						},
+						{
+							"txcode": "#sys:fo-add-sqlDataToStore"
+						}
+					]
+				},
+				"false": {
+					"fo": [
+						{
+							"txcode": "#sys:fo-msg-toast",
+							"input": {
+								"lang": "sysActionResetError"
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"response": {},
+	"status": "A",
+	"txtype": "bo",
+	"txcode": "bo-update-resetpwd",
+	"version": 2,
+	"updateTime": 1586077503083,
+	"txname": "dynamicQuery_Insert",
+	"hasRole": "false",
+	"isOld": true
+}

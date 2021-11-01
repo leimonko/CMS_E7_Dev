@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"hàng test","en":"item test"},"group_menu_name":"hàng test","group_menu_order":"1","group_menu_parent":"0","group_menu_status":"A","group_menu_function_code":"1b8551263a0efecf","group_menu_visible":"T","group_menu_id":"2842e9e74db9ccaf","AFGHkeyIndexWJ":"6afbf0bb30586e5b","AFGHkeyTime":1579158399415,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1579158399431}

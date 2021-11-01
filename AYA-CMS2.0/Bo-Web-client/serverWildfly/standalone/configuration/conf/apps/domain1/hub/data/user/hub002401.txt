@@ -1,0 +1,1 @@
+{"full_name":"hub002401","email":"hub002401","user_status":"A","user_id":"hub002401","branchcd":"0024","branchid":"0024","branchname":"Ygn6-Mingalar Taungnyunt","AFGHkeyIndexWJ":"hub002401","AFGHkeyTime":1603781790577,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790577,"AFGHkeyUserCreateWJ":""}

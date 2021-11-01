@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Xem nhiều dòng dữ liệu",
+	"learn_sql_data": "d_configreconfilename",
+	"learn_sql_parameter": "@data",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT 'F' codetype, recid,corpcode, filename,filetype FROM hubdb.d_configreconfilename where corpcode = ? ",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_configreconfilenameSearchByParameter",
+	"AFGHTimeWJ": 1561269909390
+}

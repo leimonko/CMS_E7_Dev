@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Xem 1 dữ liệu",
+	"learn_sql_data": "feecalculation",
+	"learn_sql_parameter": "@feecode",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT  recid,TO_NUMBER(feecode) as feecode, caltype, appliedwhen , basicvalue, payer , descs , CASE WHEN caltype = 'L' then TO_CHAR(tier) else '-' end as tier, fromvalue, tovalue, formular, roundingby,commonacc ,ccrcd FROM hubdb.d_feecal WHERE feecode = ? ORDER BY recid ASC",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_feecalAdvanceSearchByParameter",
+	"AFGHTimeWJ": 1561269909390
+}

@@ -1,0 +1,16 @@
+﻿{
+	"learn_sql_title": "Tải tất cả data txcode",
+	"learn_sql_parameter": "",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT 'F' as codetype, recid, TO_NUMBER(f.corpcode) as corpcode, filename,f.filetype FROM hubdb.d_configreconfilename f left join hubdb.d_corpregistation c on c.corpcode = TO_NUMBER(f.corpcode) 
+UNION ALL 
+select 'C' as codetype,0,TO_NUMBER(corpcode) as corpcode,fullnamecorp,null as filetype from hubdb.d_corpregistation
+order by codetype,corpcode",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_corpregistationLoadAll",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_configreconfilename"
+}

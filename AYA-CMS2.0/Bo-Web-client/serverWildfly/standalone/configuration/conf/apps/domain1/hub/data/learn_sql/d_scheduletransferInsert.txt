@@ -1,0 +1,22 @@
+﻿{
+    "learn_sql_title": "Thêm mới schedule",
+    "learn_sql_query": "INSERT INTO hubdb.d_scheduletransfer(recid, schedulename, transfertype, frequency, firsttxdate, descs,mic,corpcode,sercode,fromdateex,todateex) VALUES (?,?, ?, ?, TO_DATE(TO_CHAR(TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD')|| ' ' || ?,'YYYY-MM-DD HH24:MI:SS'),?,?,?,?,TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'),TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'))",
+    "learn_sql_parameter": "#recid,@schedulename,@transfertype,@frequency,@firsttxdate,@firsttime,@descs,#mic,#corpcode,#sercode,@fromdateex,@todateex",
+    "learn_sql_parameter_sub": "#recid",
+    "learn_sql_query_sub": "SELECT  'D' as codetype,CASE sercode WHEN 0 Then '--' else  TO_CHAR(sercode) END as sercode,
+CASE corpcode WHEN 0 Then  '--' else TO_CHAR(corpcode) END as corpcode,schedulename,recid , transfertype, 
+CASE frequency WHEN 'D' THEN 'Daily' WHEN 'W' THEN 'Weekly' WHEN 'M' THEN 'Monthly' WHEN 'Mi' THEN 'Minutely' ELSE  'One time' END as frequency,
+TO_CHAR(firsttxdate,'HH24:Mi:SS') AS firsttime , TO_CHAR(firsttxdate,'DD/MM/YYYY') AS firsttxdate, 
+CASE WHEN TO_CHAR(lasttxdate,'HH24:Mi:SS') <> '' then TO_CHAR(lasttxdate,'HH24:Mi:SS') else '-'  end  as lasttime , 
+CASE WHEN TO_CHAR(lasttxdate,'DD/MM/YYYY') <> ''  then TO_CHAR(lasttxdate,'DD/MM/YYYY') else '-' end as lasttxdate, descs, status, mic, 
+CASE WHEN TO_CHAR(fromdateex,'DD/MM/YYYY')<> ''  then TO_CHAR(fromdateex,'DD/MM/YYYY') else '-' end as fromdateex, 
+CASE WHEN TO_CHAR(todateex,'DD/MM/YYYY') <> ''  then TO_CHAR(todateex,'DD/MM/YYYY') else '-' end as todateex
+FROM hubdb.d_scheduletransfer where recid = ?",
+    "learn_sql_data": "",
+    "learn_sql_date_verify": "firsttxdate,fromdateex,todateex",
+	"learn_sql_squence": "select hubdb.D_SCHEDULETRANSFER_SEQ.nextval as recid from dual",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_scheduletransferInsert",
+    "AFGHTimeWJ": 1561266469836
+}

@@ -1,0 +1,1 @@
+{"cdid":"PAYE","cdname":"PTYPE_IRD","caption":"Pay as your earn","cdgrp":"JWEBUI","cdidx":"2","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"PAYE_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

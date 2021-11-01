@@ -1,0 +1,1 @@
+{"full_name":"hub011001","email":"hub011001","user_status":"A","user_id":"hub011001","branchcd":"0110","branchid":"0110","branchname":"Mdy(14) Man Myoe Zay (84 ST)","AFGHkeyIndexWJ":"hub011001","AFGHkeyTime":1603781790674,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790674,"AFGHkeyUserCreateWJ":""}

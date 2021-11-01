@@ -1,0 +1,1 @@
+{"full_name":"hub016102","email":"hub016102","user_status":"A","user_id":"hub016102","branchcd":"0161","branchid":"0161","branchname":"TBW","AFGHkeyIndexWJ":"hub016102","AFGHkeyTime":1603781790716,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790716,"AFGHkeyUserCreateWJ":""}

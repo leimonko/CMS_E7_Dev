@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select 1 as idsv, name ,0 as age from HUBDB.D_CORPSERVICE",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_duongtableLoadAll",
+    "AFGHTimeWJ": 1561263635796,
+    "learn_sql_data": "duongtableData"
+    }

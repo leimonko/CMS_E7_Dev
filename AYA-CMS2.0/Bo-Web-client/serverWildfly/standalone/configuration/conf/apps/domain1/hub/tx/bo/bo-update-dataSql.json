@@ -1,0 +1,45 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "SQL",
+            "function": "cis.core.txHUB_Form.updateWithFormChild",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-msg-toast",
+                            "input": {
+                                "lang": "sysActionSaveOk"
+                            }
+                        },
+                        {
+                            "txcode": "#sys:fo-update-dataToStore"
+                        }
+                    ]
+                },
+                "false": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-msg-toast",
+                            "input": {
+                                "lang": "sysActionSaveError"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-update-dataSql",
+    "version": 2,
+    "updateTime": 1562205136817,
+    "txname": "Cập nhập 1 data SQL (không xóa)",
+    "isOld": true
+}

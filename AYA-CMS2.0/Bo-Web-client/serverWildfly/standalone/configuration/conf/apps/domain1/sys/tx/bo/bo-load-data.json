@@ -1,0 +1,28 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Tải dữ liệu và lưu vào kho",
+      "function": "txdata.data",
+      "type": "java",
+      "para": ["@table_code"],
+      "status": "A",
+      "response": {
+        "_default_": {
+          "fo": [
+            { "txcode": "#sys:fo-load-bigData" },
+            { "txcode": "#sys:fo-masterdata-saveDataNew" }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-load-data",
+  "version": 4,
+  "updateTime": 1564481885118,
+  "txname": "Tải data webui (không xóa)",
+  "isOld": true
+}

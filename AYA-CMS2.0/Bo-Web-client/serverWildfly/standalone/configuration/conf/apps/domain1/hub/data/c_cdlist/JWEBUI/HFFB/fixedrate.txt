@@ -1,0 +1,1 @@
+{"cdid":"F","cdname":"HFFB","caption":"Fixed rate","cdgrp":"JWEBUI","cdidx":"1","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"fixedrate","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

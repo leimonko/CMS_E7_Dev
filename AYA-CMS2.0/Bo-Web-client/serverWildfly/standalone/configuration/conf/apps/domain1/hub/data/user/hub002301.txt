@@ -1,0 +1,1 @@
+{"full_name":"hub002301","email":"hub002301","user_status":"A","user_id":"hub002301","branchcd":"0023","branchid":"0023","branchname":"Ygn (5) Lanmataw","AFGHkeyIndexWJ":"hub002301","AFGHkeyTime":1603781790576,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790576,"AFGHkeyUserCreateWJ":""}

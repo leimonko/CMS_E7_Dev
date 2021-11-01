@@ -1,0 +1,1 @@
+{"full_name":"hub019201","email":"hub019201","user_status":"A","user_id":"hub019201","branchcd":"0192","branchid":"0192","branchname":"Ygn(79)_PRM 2","AFGHkeyIndexWJ":"hub019201","AFGHkeyTime":1603781790733,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790733,"AFGHkeyUserCreateWJ":""}

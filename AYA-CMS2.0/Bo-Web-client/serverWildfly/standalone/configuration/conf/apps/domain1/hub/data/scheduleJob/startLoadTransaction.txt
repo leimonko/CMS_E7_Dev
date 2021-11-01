@@ -1,0 +1,17 @@
+﻿{
+  "name": "transaction monitoring",
+  "type": "L",
+  "status": "start",
+  "time": 10000,
+  "creator": "ac02",
+  "conditions": "wf.context.scheduleContext_run_count<=1",
+  "modifier": "ac02",
+  "content_run": "[{\"txcode\":\"#sys:fo-scheduleJob-startLoadDataSQLMonitoring\",\"input\":{\"learn_sql\": \"d_hubstmGetTxnIn5s\",\"table_code\":\"transactionMonitor\"}}]",
+  "id": "5dcfce88af37c010",
+  "AFGHkeyUserCreateWJ": "p56855d3np64A70",
+  "AFGHkeyIndexWJ": "reloadTransactionMonitoring",
+  "AFGHkeyTime": 1588061934561,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1588061934580,
+  "JWebUI_UserCreate": "p56855d3np64A70"
+}

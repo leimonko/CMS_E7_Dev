@@ -1,0 +1,1 @@
+{"admin":{"flow_fo":{"form":{"accept":true,"follow":false}}},"Manager":{"flow_fo":{"form":{"accept":true,"follow":false}}}}

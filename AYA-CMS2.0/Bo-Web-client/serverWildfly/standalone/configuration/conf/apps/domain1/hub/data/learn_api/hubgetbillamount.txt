@@ -1,0 +1,21 @@
+{
+    "app_code": "o9",
+    "learn_api_name": "hub get bill amount",
+    "learn_api_link": "$API_SERVER$:$API_PORT_LOGIN$/hub/getBillAmount",
+    "learn_api_data": "hubgetbillamount",
+    "learn_api_node_data": "",
+    "learn_api_app": "BO",
+    "learn_api_method": "POST",
+    "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer)",
+    "learn_api_mapping": "{   \"SERCODE\": \"MapS.dataS(d_hubstmInsert.servicecode)\",
+    \"CORPCODE\": \"MapS.dataS(d_hubstmInsert.corpcode)\",
+    \"REFVA1\": \"MapS.dataS(d_hubstmInsert.referencefield1value)\",
+    \"REFVA2\": \"MapS.dataS(d_hubstmInsert.referencefield2value)\",
+    \"REFVA3\": \"MapS.dataS(d_hubstmInsert.referencefield3value)\",
+	\"WEBSERNAME\":\"MapS.dataS(d_hubstmInsert.webservicename)\",\"CUSTACC\": \"MapS.dataS(d_hubstmInsert.custacc)\" }",
+    "learn_api_id": "hubgetbillamount",
+    "AFGHkeyIndexWJ": "hubgetbillamount",
+    "AFGHkeyTime": 1569894868360,
+    "AFGHkeyWorkFlow": "",
+    "AFGHTimeWJ": 1569894868366
+}

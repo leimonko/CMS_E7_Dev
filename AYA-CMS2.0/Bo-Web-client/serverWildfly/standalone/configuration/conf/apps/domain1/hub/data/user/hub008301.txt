@@ -1,0 +1,1 @@
+{"full_name":"hub008301","email":"hub008301","user_status":"A","user_id":"hub008301","branchcd":"0083","branchid":"0083","branchname":"NPT(2)_SKP","AFGHkeyIndexWJ":"hub008301","AFGHkeyTime":1603781790646,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790646,"AFGHkeyUserCreateWJ":""}

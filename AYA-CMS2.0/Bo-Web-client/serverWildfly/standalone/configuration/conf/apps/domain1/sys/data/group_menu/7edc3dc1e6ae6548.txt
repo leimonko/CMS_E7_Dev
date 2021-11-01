@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"Quản lý chức năng","en":"Func management","thai":"","lao":"","cam":"","mya":"","han":""},"group_menu_name":"Quản lý chức năng","group_menu_order":"1","group_menu_parent":"0","group_menu_function_code":"","group_menu_id":"563fdd1340b8efb6","AFGHkeyIndexWJ":"7edc3dc1e6ae6548","AFGHkeyTime":1568621288206,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1568621289634}

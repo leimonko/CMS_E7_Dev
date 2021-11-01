@@ -1,0 +1,20 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Chứa tải",
+      "function": "system.container",
+      "type": "javascript",
+      "status": "A",
+      "para": []
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-container",
+  "txname": "Chịu tải, không làm gì, không được xóa, dùng cho code cứng",
+  "version": 2,
+  "updateTime": 1562206653209,
+  "isOld": true
+}

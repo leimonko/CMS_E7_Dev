@@ -1,0 +1,11 @@
+﻿{
+	"learn_sql_title": "d_hubstmUpdateStatusReverse",
+	"learn_sql_query": "Update hubdb.d_hubstm set char11 = 'R',date06 = SYSDATE  where id =? ",
+	"learn_sql_parameter": "@UUID",
+	"learn_sql_data": "d_hubstm",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_hubstmUpdateStatusReverse",
+	"AFGHTimeWJ": 1561266469836
+}

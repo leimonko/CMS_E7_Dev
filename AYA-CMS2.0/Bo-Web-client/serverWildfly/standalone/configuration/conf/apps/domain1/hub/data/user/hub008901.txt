@@ -1,0 +1,1 @@
+{"full_name":"hub008901","email":"hub008901","user_status":"A","user_id":"hub008901","branchcd":"0089","branchid":"0089","branchname":"MYA_CTZ (mini)","AFGHkeyIndexWJ":"hub008901","AFGHkeyTime":1603781790658,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790658,"AFGHkeyUserCreateWJ":""}

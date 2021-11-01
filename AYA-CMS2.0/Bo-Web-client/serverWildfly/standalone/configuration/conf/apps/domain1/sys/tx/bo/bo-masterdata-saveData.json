@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Nếu có thay đổi thì lưu","function":"txmasterdata.saveMasterData","type":"java","para":[],"status":"A"}],"status":"A","txtype":"bo","txcode":"bo-masterdata-saveData","txname":"Lưu data có thay đổi lên server","version":1,"updateTime":1564481954920,"hasRole":"false","isOld":false,"response":{}}

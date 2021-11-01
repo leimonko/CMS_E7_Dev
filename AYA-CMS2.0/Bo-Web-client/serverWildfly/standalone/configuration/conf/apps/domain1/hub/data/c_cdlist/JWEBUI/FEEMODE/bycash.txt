@@ -1,0 +1,14 @@
+{
+	"cdid": "Cash",
+	"cdname": "FEEMODE",
+	"caption": "By Cash",
+	"cdgrp": "JWEBUI",
+	"cdidx": 1,
+	"cdval": "",
+	"flag": 0,
+	"visible": 1,
+	"AFGHkeyIndexWJ": "bycash",
+	"AFGHkeyTime": 1578537958705,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1578537958744
+}

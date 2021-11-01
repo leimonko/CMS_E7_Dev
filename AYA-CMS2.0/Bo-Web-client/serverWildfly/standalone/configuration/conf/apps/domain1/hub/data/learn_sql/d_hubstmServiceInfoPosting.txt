@@ -1,0 +1,22 @@
+﻿{
+	"learn_sql_title": "Tải tất cả data txcode",
+	"learn_sql_parameter": "@REFVA1,@REFVA1,@AMT,@AMT,@AMT,#SERCODE,@CUSTACC,@BRANID,@CUSTACC,@CCRCD, @CHANNELID",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT b.notifiemail,b.sm,b.catid,b.ccrcd, b.feecode ,b.bcode,b.corpdepositaccno,b.websername,CASE WHEN ((length(?)<> 18 AND b.appliedwhen like '%length(refva1)<>18%' ) OR  (b.appliedwhen not like '%length(refva1)<>18%')) THEN case b.drfeeamt when null then 0 else b.drfeeamt end ELSE 0 END as drfeeamt ,CASE WHEN ((length(?)<> 18 AND b.appliedwhen like '%length(refva1)<>18%' ) OR  (b.appliedwhen not like '%length(refva1)<>18%')) THEN case b.crfeeamt when null then 0 else b.crfeeamt end ELSE 0 END as crfeeamt,h.acno as CUSTACC, tc.drcode, tc.crcode
+FROM (
+SELECT a.appliedwhen,a.notifiemail,a.sm,a.catid,a.ccrcd, a.feecode ,a.bcode,a.corpdepositaccno,a.websername,case a.payer when 'C' then a.feeamount else 0 end as drfeeamt,case a.payer when 'P' then a.feeamount else 0 end as crfeeamt
+FROM(
+SELECT f.appliedwhen,s.notifiemail,s.sm,s.ccycd as ccrcd, s.catid, s.feecode ,f.payer,c.bcode,s.corpdepositaccno,s.webserprtcol as websername,CASE WHEN INSTR( f.formular,'%')>0 THEN ROUND((TO_NUMBER(?)*TO_NUMBER(SUBSTR(f.formular,1,length(f.formular)-1))/100),TO_NUMBER(roundingby)) ELSE TO_NUMBER(f.formular) END as feeamount
+FROM  hubdb.d_corpservice s LEFT JOIN hubdb.d_feecal f ON s.feecode = f.feecode AND f.caltype = s.feecaltype AND ((f.caltype = 'L'and f.basicvalue = 'T' and f.fromvalue <= TO_NUMBER(?) and f.tovalue>=TO_NUMBER(?)) OR (f.caltype = 'F'))
+LEFT JOIN hubdb.d_corpregistation c ON c.corpcode = TO_NUMBER(s.corpcode)
+WHERE servicecode = ?  )a )b,
+(SELECT CASE WHEN ? = 'CASH' THEN CASE WHEN INSTR(acno,'XXXX')>0 THEN REPLACE(acno,'XXXX',lpad(?,4,'0')) ELSE acno end ELSE ? END as acno FROM hubdb.D_CASHACNO where ccrcd = ?) h,
+(SELECT crcode  ,drcode from d_transcode  WHERE  channel=? and isfee= 'N' ) tc",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_hubstmServiceInfoPosting",
+	"AFGHTimeWJ": 1561263635755,
+	"learn_sql_data": "d_corpservice"
+}

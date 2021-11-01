@@ -1,0 +1,19 @@
+{
+    "learn_sql_title": "Thêm mới txcode",
+    "learn_sql_query": "INSERT INTO hubdb.d_feedef(feecode,feename, status, description, ccrcd, createdt)VALUES ( ?,?, ?, ?, ?, SYSDATE)",
+    "learn_sql_parameter": "#feecode,@feename, @status, @descs, @ccrcd",
+    "learn_sql_parameter_sub": "#feecode",
+    "learn_sql_query_sub": "SELECT feecode, feename, status, description, ccrcd, createdt FROM hubdb.d_feedef WHERE feecode = ?",
+    "learn_sql_data": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_feemanagementInsert",
+    "AFGHTimeWJ": 1561266469836,
+    "data_formchild_primarykey":"",
+    "data_formchild_list":"",
+	"learn_sql_squence": "select hubdb.D_FEEDEF_SEQ.nextval as feecode from dual",
+    "data_formchild_attribute_list":"",
+    "learn_sql_for_formchild":""
+
+}

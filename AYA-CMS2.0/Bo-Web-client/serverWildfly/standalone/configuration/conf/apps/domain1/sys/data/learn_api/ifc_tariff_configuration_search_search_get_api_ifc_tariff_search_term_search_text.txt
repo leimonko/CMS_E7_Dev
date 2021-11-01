@@ -1,0 +1,16 @@
+{
+  "learn_api_name": "ifc_tariff_configuration Search-Search",
+  "learn_api_link": "$API_SERVER$:$API_PORT_DATA$/api/ifc/tariff/search/?term=@{ifc_tariff_configuration.search_text}&page=0",
+  "learn_api_data": "ifc_tariff_configuration",
+  "learn_api_node_data": "data",
+  "learn_api_app": "BO",
+  "learn_api_method": "GET",
+  "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer )",
+  "learn_api_mapping": "",
+  "learn_api_id": "ifc_tariff_configuration_search_search_get_api_ifc_tariff_search_term_search_text",
+  "AFGHkeyIndexWJ": "ifc_tariff_configuration_search_search_get_api_ifc_tariff_search_term_search_text",
+  "AFGHkeyTime": 1577375285373,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1577375285373,
+  "app_code": "o9"
+}

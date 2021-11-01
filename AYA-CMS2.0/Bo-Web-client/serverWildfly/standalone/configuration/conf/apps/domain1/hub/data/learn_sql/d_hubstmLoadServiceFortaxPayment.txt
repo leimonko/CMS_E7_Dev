@@ -1,0 +1,21 @@
+﻿{
+    "learn_sql_title": "Tải dulieu cho hubstm",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select distinct a.codetype,TO_NUMBER(a.servicecode) AS servicecode,a.corpcode as corpcode,a.name, a.ccycd,a.corpdepositaccno,a.customercode, a.customersamplenumber,a.bankcode,a.minamount, a.maxamount, 
+a.ref1,a.refsa1,a.ref2,a.refsa2,a.ref3,a.refsa3, a.feecode, a.notifiemail, a.sendmail,case a.payer when 'C' then feeamount else 0 end as drfeeamt,case a.payer when 'P' then feeamount else 0 end as crfeeamt,CASE WHEN a.webservicename is null THEN '' else a.webservicename end as webservicename,a.mask,a.mask1,a.mask3
+from(
+select 'S' as codetype, s.servicecode, TO_NUMBER( s.corpcode) as corpcode,s.name, s.ccycd,s.corpdepositaccno,s.customernumber as customercode, s.customernumber as customersamplenumber,c.bcode as bankcode,s.minamount, s.maxamount, 
+s.ref1,s.refsa1,s.ref2,s.refsa2,s.ref3,s.refsa3, s.feecode, s.notifiemail, s.sm as sendmail,f.payer,CASE WHEN f.caltype = 'L' THEN 0 ELSE  CASE WHEN instr(f.formular,'%')>0 THEN TO_NUMBER(SUBSTR(f.formular,1,length(f.formular)-1)) ELSE TO_NUMBER(f.formular) END END  as feeamount,webserprtcol as webservicename,mask,mask1,mask3
+from hubdb.d_corpservice s INNER JOIN hubdb.d_corpregistation c ON c.corpcode = TO_NUMBER(s.corpcode) 
+LEFT JOIN hubdb.d_feecal f ON f.feecode = s.feecode AND  f.caltype = s.feecaltype  where  s.servicecode = '8888')a
+UNION ALL
+SELECT 'C' as codetype,0,TO_NUMBER(corpcode),fullnamecorp,'','','','','',0,0,'','','','','','','','','',0,0,'','','','' FROM hubdb.d_corpregistation WHERE corpcode = '9999'  order by codetype,servicecode,corpcode ASC",
+    "learn_sql_query_sub": "",
+    "learn_sql_data": "d_hubstmfortaxpayment",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmLoadServiceFortaxPayment",
+    "AFGHTimeWJ": 1561263635755
+}

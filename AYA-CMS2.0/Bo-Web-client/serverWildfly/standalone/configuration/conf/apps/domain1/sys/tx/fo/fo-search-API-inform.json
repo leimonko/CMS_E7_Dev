@@ -1,0 +1,37 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Clear error",
+      "function": "form.clearError",
+      "type": "javascript",
+      "status": "A",
+      "para": []
+    },
+    {
+      "name": "Get data from form",
+      "function": "form.addnew",
+      "type": "javascript",
+      "status": "A",
+      "para": ["*", "code"],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-search-API-inform",
+              "input": { "learn_api": "@learn_api" }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-search-API-inform",
+  "txname": "",
+  "version": 1,
+  "updateTime": 1572245899964,
+  "isOld": false,
+  "request": { "bo": [{ "txcode": "", "input": {} }] }
+}

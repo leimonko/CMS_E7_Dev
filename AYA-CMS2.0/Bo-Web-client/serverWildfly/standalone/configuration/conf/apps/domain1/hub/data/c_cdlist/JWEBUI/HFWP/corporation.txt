@@ -1,0 +1,1 @@
+{"cdid":"P","cdname":"HFWP","caption":"Corporation","cdgrp":"JWEBUI","cdidx":"2","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"corporation","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

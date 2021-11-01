@@ -1,0 +1,1 @@
+{"full_name":"hub013602","email":"hub013602","user_status":"A","user_id":"hub013602","branchcd":"0136","branchid":"0136","branchname":"Ygn(55)_SPT","AFGHkeyIndexWJ":"hub013602","AFGHkeyTime":1603781790695,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790695,"AFGHkeyUserCreateWJ":""}

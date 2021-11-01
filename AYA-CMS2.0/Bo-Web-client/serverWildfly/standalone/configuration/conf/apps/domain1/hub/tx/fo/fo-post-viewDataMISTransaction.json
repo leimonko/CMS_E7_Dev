@@ -1,0 +1,38 @@
+﻿{
+    "input": {},
+    "actions": [{
+            "name": "Xóa thông báo lỗi",
+            "function": "form.clearError",
+            "type": "javascript",
+            "status": "A",
+            "para": []
+        }, {
+            "name": "Thu thập và thêm mới",
+            "function": "formsql.addnew",
+            "type": "javascript",
+            "status": "A",
+            "para": ["@list_component", "@list_view"],
+            "request": {
+                "true": {
+                    "bo": [{
+                            "txcode": "#hub:bo-load-viewMISTransaction",
+                            "input": {
+"learn_sql": "@learn_sql",
+                                "table_code": "@table_code"
+                                
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "request": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "fo-post-viewDataMISTransaction",
+    "txname": "Tạo mới có SQL",
+    "version": 2,
+    "updateTime": 1562208638989,
+    "isOld": true
+}

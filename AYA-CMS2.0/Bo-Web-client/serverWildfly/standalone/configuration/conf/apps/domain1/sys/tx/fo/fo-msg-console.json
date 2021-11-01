@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Thông báo","function":"message.showConsole","type":"javascript","status":"A"}],"request":{},"status":"A","txtype":"message","txcode":"fo-msg-console","txname":"Console","version":2,"updateTime":1562206830936,"isOld":true}

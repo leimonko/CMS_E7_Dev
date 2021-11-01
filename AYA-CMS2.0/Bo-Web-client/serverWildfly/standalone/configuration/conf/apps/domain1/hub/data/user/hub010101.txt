@@ -1,0 +1,1 @@
+{"full_name":"hub010101","email":"hub010101","user_status":"A","user_id":"hub010101","branchcd":"0101","branchid":"0101","branchname":"Ygn(37)_NPL","AFGHkeyIndexWJ":"hub010101","AFGHkeyTime":1603781790669,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790669,"AFGHkeyUserCreateWJ":""}

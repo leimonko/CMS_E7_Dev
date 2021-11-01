@@ -1,0 +1,46 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "post API",
+            "function": "cis.core.txCIS_RES_API.call_API_",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "_default_": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-msg-toast",
+                            "input": {
+                                "lang": "sysActionOk"
+                            }
+                        },
+                        {
+                            "txcode": "#sys:fo-update-data"
+                        },
+                        {
+                            "txcode": "#sys:fo-apiO9-Table_showInfoData"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {
+        "fo": [
+            {
+                "txcode": "",
+                "input": {}
+            }
+        ]
+    },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-call-API-CIS",
+    "version": 6,
+    "updateTime": 1582106989173,
+    "txname": "search with API",
+    "hasRole": "false",
+    "isOld": true
+}

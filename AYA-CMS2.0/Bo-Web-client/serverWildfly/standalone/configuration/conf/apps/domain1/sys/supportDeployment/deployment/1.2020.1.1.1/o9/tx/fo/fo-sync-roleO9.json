@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"","function":"form.returnTrue","type":"javascript","status":"A","para":[],"request":{"true":{"bo":[{"txcode":"bo-sync-roleO9","input":{}}]}}}],"request":{"bo":[{"txcode":"","input":{}}]},"status":"A","txtype":"bo","txcode":"fo-sync-roleO9","txname":"fo-sync-roleO9","version":2,"updateTime":1588730582292,"isOld":true}

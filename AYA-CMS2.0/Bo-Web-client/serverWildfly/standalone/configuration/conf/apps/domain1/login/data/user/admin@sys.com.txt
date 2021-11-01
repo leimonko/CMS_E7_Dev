@@ -1,0 +1,17 @@
+{
+    "email": "admin@sys.com",
+    "full_name": "admin",
+    "user_status": "A",
+    "user_id": "0ca9ebc5-73c3-4a98-b565-169461b0af32",
+"user_api":"{}",
+    "branch_code": "",
+    "department_name": "",
+    "remark": "",
+    "user_phone": "",
+    "AFGHkeyIndexWJ": "admin@sys.com",
+    "AFGHkeyUserCreateWJ": "p56855d3np64A70",
+    "AFGHkeyTime": 1594617059650,
+    "AFGHkeyWorkFlow": "",
+    "AFGHTimeWJ": 1594617059739,
+    "JWebUI_UserCreate": "p56855d3np64A70"
+}

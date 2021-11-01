@@ -1,0 +1,13 @@
+{
+  "learn_sql_title": "Thêm mới txcode",
+  "learn_sql_query": "UPDATE hubdb.d_feebeneficiaries SET appliedwhen=?, benificiary=?, formular=?, roundingby=?,commonacc=?,ccrcd=? WHERE feecode =? AND recid =?",
+  "learn_sql_parameter": "@appliedwhen, @benificiary, @formular, #roundingby,@commonacc,@ccrcd,@feecode,#recid",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query_sub": "SELECT recid, feecode, appliedwhen , benificiary, formular, roundingby,commonacc,ccrcd FROM hubdb.d_feebeneficiaries WHERE recid = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_feebeneficiariesUpdateOneFromformdetail",
+  "AFGHTimeWJ": 1561266469836
+}

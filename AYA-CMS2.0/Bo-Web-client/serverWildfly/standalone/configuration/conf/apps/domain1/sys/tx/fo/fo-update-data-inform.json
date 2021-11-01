@@ -1,0 +1,19 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Yêu cầu component của Form cập nhật dữ liệu",
+      "function": "formAPI.setDataInform",
+      "type": "java",
+      "status": "A"
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "system",
+  "txcode": "fo-update-data-inform",
+  "txname": "Update data",
+  "version": 3,
+  "updateTime": 1572106028493,
+  "isOld": true
+}

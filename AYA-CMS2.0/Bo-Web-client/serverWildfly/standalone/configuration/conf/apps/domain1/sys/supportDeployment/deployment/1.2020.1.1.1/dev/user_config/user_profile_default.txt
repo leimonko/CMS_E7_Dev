@@ -1,0 +1,1 @@
+{"list_lang_config":[{"key":"vi","view":"Tiếng Việt"},{"key":"en","view":"English"}]}

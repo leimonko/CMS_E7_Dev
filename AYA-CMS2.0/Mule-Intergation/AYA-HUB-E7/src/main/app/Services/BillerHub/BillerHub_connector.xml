@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:s3="http://www.mulesoft.org/schema/mule/s3" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/s3 http://www.mulesoft.org/schema/mule/s3/current/mule-s3.xsd">
+	<flow name="BillerHub_connectorFlow" doc:description="{  &quot;path&quot;: &quot;&quot;,  &quot;method&quot;: &quot;GET&quot;,  &quot;params&quot;: {},  &quot;headers&quot;: {   &quot;Content-Type&quot;: &quot;application/json&quot;,   &quot;X-Request-ID&quot;: &quot;b8a888a6-4bbf-11ea-b77f-2e728ce88125&quot;,   &quot;Authorization&quot;: &quot;#[payload.SESSIONID]&quot;  },  &quot;body&quot;: {} }">
+		<set-variable variableName="params" value="#[json:params]"
+			doc:name="params" />
+		<set-variable variableName="headers" value="#[json:headers]"
+			doc:name="headers" />
+		<set-variable variableName="path" value="#[json:path]"
+			doc:name="path" />
+		<set-variable variableName="method" value="#[json:method]"
+			doc:name="method" />
+		<set-payload value="#[json:body]" mimeType="application/json"
+			doc:name="body" />
+		<logger
+			message="#[&quot;\n==========[BillerHub-REQUEST]=========== &quot;+ flowVars.uuid+ &quot;\n  -Method=&quot;+flowVars.method+&quot;\n  -Params=&quot;+flowVars.params+&quot;\n  -Path=&quot;+flowVars.path+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n  -Header=&quot;+flowVars.headers+&quot;\n==========[BillerHub-REQUEST]===========&quot;]"
+			level="INFO" doc:name="BillerHub-REQUEST" />
+		<http:request config-ref="BillerHub" path="#[flowVars.path]"
+			method="#[flowVars.method]" doc:name="BillerHub_ENDPOINT">
+			<http:request-builder>
+				<http:query-params expression="#[new com.fasterxml.jackson.databind.ObjectMapper().readValue(flowVars.params, java.util.HashMap)]"/>
+				<http:headers expression="#[new com.fasterxml.jackson.databind.ObjectMapper().readValue(flowVars.headers, java.util.HashMap)]"/>
+			</http:request-builder>
+			<http:success-status-code-validator
+				values="200..599" />
+		</http:request>
+		<logger
+			message="#[&quot;\n==========[BillerHub-RESPONSE]=========== &quot; + flowVars.uuid +&quot;\n  -Headers=&quot;+message.inboundProperties+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n==========[BillerHub-RESPONSE]===========&quot;]"
+			level="INFO" doc:name="BillerHub-RESPONSE" />
+		<set-variable variableName="errorCode" value="#[json:errorCode]" doc:name="errorCode"/>
+		<set-variable variableName="errorDesc" value="#[json:errorDesc]" doc:name="errorDesc"/>
+		<set-payload
+			value="{
+	&quot;status&quot;: &quot;#[message.inboundProperties['http.status']==200 ? 0 : message.inboundProperties['http.status']]&quot;,
+	&quot;message&quot;: &quot;#[message.inboundProperties['http.reason']]&quot;,
+	&quot;code&quot;: &quot;#[flowVars.errorCode==null ? 0 : flowVars.errorCode]&quot;,
+	&quot;desc&quot;: &quot;#[flowVars.errorCode==null ? 'Transaction success' : flowVars.errorDesc]&quot;,
+	&quot;data&quot;: #[(message.inboundProperties['content-type'] or '-').toString().contains('json') ? message.payloadAs(java.lang.String) : '{}']
+}"
+			mimeType="application/json" doc:name="Set Payload" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{
+	&quot;status&quot;: &quot;9999&quot;,
+	&quot;message&quot;: &quot;#[message.inboundProperties['http.reason']]&quot;,
+	&quot;code&quot;: &quot;9999&quot;,
+	&quot;desc&quot;: &quot;#[(exception.?cause.message or exception).toString().replace('&quot;','')]&quot;,
+	&quot;data&quot;: {}
+}"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n==========[BillerHub-RESPONSE]=========== &quot; + flowVars.uuid +&quot;\n  -Headers=&quot;+message.inboundProperties+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n==========[BillerHub-RESPONSE]===========&quot;]"
+				level="INFO" doc:name="BillerHub-RESPONSE" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

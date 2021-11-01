@@ -1,0 +1,14 @@
+{
+  "input": {},
+  "actions": [
+    { "name": "addErrorToForm", "function": "formAPI.addErrorAPI", "type": "javascript", "status": "A", "para": [] }
+  ],
+  "request": { "bo": [{ "txcode": "", "input": {} }] },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-set-FormErrorAPI",
+  "txname": "Set error of API to form request",
+  "version": 5,
+  "updateTime": 1571715659692,
+  "isOld": true
+}

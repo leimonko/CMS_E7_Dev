@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd">
+	<context:property-placeholder location="file:conf//hub2.0-conf.properties" />
+	<spring:beans>
+		<spring:bean id="AutoLogin" class="channel.AutoLogin"
+			name="AutoLogin" />
+		<spring:bean id="ClearLogFile" name="ClearLogFile" class="channel.ClearLogFile" />
+	</spring:beans>
+	<http:listener-config name="CMS_LISTENER" host="0.0.0.0"
+		port="${HUB_PORT}" doc:name="HTTP Listener Configuration" basePath="/hub" />
+	<http:request-config name="IRD_ENDPOINT" protocol="HTTPS"
+		host="${IRD_HOST}" port="${IRD_PORT}" responseTimeout="${CONNECTION_TIMEOUT}"
+		doc:name="HTTP Request Configuration" usePersistentConnections="false"/>
+	<http:request-config name="FBE_ENDPOINT" host="${FBE_HOST}"
+		port="${FBE_PORT}" responseTimeout="${FBE_TIMEOUT}" doc:name="HTTP Request Configuration" usePersistentConnections="false"/>
+	<http:request-config name="YCDCEndpoint" host="${YCDC_HOST}"
+		port="${YCDC_PORT}" responseTimeout="${CONNECTION_TIMEOUT}" doc:name="HTTP Request Configuration"
+		protocol="HTTPS" usePersistentConnections="false" basePath="${YCDC_BASE_PATH}"/>
+	<http:request-config name="BillerHub" host="${BILLERHUB_HOST}"
+		port="${BILLERHUB_PORT}" responseTimeout="${CONNECTION_TIMEOUT}"
+		doc:name="HTTP Request Configuration" usePersistentConnections="false"/>
+	<http:request-config name="HUB2.0_BO" host="${HUBBO_HOST}"
+		port="${HUBBO_PORT}"  responseTimeout="${CONNECTION_TIMEOUT}"
+		doc:name="HTTP Request Configuration" usePersistentConnections="false" basePath="/api/${HUBBO_HOST}/hub"/>
+
+	
+	<flow name="mainFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/*" doc:name="main" />
+		<logger
+			message="#[&quot;\n==================================================&quot; +message +&quot;\n==================================================&quot;]"
+			level="INFO" doc:name="Logger" />
+		<set-payload
+			value="{  &quot;ERRORCODE&quot;:4, &quot;ERRORDESC&quot;: &quot;Sorry, We not have api #[message.inboundProperties['http.request.path']]  !&quot; }"
+			mimeType="application/json" doc:name="Message Response" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 4,  &quot;ERRORDESC&quot;: &quot;#[exception.message.replace('&quot;',&quot;&quot;)]&quot;,  &quot;RESULT&quot;: &quot;&quot; }"
+				doc:name="Message Exception Error " mimeType="application/json" />
+			<logger
+				message="#[&quot;\n----EXCEPTION &quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="---EXCEPTION---" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

@@ -1,0 +1,47 @@
+﻿{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "Truy vấn data theo mã learn sql",
+      "function": "cis.core.txDev_Form.viewTransactionMonitoring",
+      "type": "java",
+      "para": [
+		"@table_code",
+"@learn_sql"		
+      ],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+			
+            { 
+              "txcode": "#sys:fo-update-data"
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+             {
+              "txcode": "#sys:fo-msg-toast",
+              "input": {
+                "lang": "sysSearchError"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-load-autoLoadDataSQLMonitoring",
+  "version": 2,
+  "updateTime": 1562205991292,
+  "txname": "Truy vấn tìm 1 data xem (không xóa)",
+  "isOld": true
+}

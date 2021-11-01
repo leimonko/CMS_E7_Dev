@@ -1,0 +1,1 @@
+{"full_name":"hub021802","email":"hub021802","user_status":"A","user_id":"hub021802","branchcd":"0218","branchid":"0218","branchname":"PKT","AFGHkeyIndexWJ":"hub021802","AFGHkeyTime":1603781790748,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790748,"AFGHkeyUserCreateWJ":""}

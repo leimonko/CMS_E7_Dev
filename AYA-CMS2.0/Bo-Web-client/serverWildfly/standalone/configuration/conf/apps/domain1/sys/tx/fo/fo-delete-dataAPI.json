@@ -1,0 +1,41 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Xác nhận",
+      "function": "form.confirm",
+      "type": "javascript",
+      "status": "A",
+      "para": ["sysConfirmDelTitle"],
+      "request": { "false": { "cmd": "stop" } }
+    },
+    {
+      "name": "Xóa dữ liệu",
+      "function": "formAPI.delete",
+      "type": "javascript",
+      "status": "A",
+      "para": ["@table_code", "@table_col_key", "@learn_api"],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-delete-dataAPI",
+              "input": {
+                "learn_api": "@learn_api",
+                "learn_api_search": "@learn_api_search"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "request": { "bo": [{ "txcode": "", "input": {} }] },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-delete-dataAPI",
+  "txname": "delete data with API",
+  "version": 14,
+  "updateTime": 1571137346578,
+  "isOld": true
+}

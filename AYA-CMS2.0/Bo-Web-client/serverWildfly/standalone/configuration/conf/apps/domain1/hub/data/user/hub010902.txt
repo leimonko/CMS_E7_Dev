@@ -1,0 +1,1 @@
+{"full_name":"hub010902","email":"hub010902","user_status":"A","user_id":"hub010902","branchcd":"0109","branchid":"0109","branchname":"Mdy(13) Nan Shay Zay (19 ST)","AFGHkeyIndexWJ":"hub010902","AFGHkeyTime":1603781790674,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790674,"AFGHkeyUserCreateWJ":""}

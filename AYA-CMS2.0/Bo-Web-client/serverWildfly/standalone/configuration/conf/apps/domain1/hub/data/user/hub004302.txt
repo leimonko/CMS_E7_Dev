@@ -1,0 +1,1 @@
+{"full_name":"hub004302","email":"hub004302","user_status":"A","user_id":"hub004302","branchcd":"0043","branchid":"0043","branchname":"Ygn (9) North Okkalapa","AFGHkeyIndexWJ":"hub004302","AFGHkeyTime":1603781790599,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790599,"AFGHkeyUserCreateWJ":""}

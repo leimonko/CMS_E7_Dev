@@ -1,0 +1,552 @@
+{
+    "info": {
+        "title": "mis_configreconfile_child",
+        "des": "",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "",
+        "bodata": "",
+        "openOne": "true",
+        "url_input": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "misconfigreconfileAddchild",
+        "ruleStrong": [{
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_click",
+                    "component_action": "add;modify",
+                    "component_result": "apply",
+                    "condition": "",
+                    "visible": "true",
+                    "ena_dis": "false",
+                    "view_result": "code",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_click",
+                    "component_action": "apply",
+                    "component_result": "apply",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "code",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_click",
+                    "component_action": "add",
+                    "component_result": "add",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 3,
+                "isStart": false
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_click",
+                    "component_action": "apply",
+                    "component_result": "add",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "false",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 4,
+                "isStart": false
+            }, {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "add",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 5,
+                "isStatus": 5
+            }
+        ]
+    },
+    "list_layout": [{
+            "name": "",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "33e5c16ebe0e6269",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "7850a11f4e1046c0",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Field type",
+                                "code": "filenametype",
+                                "codeHidden": "1e1083e5fc6832d9",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "form_child.filenametype",
+                                "structable_read": "form_child.filenametype",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='FILENAMETYPE' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "FILENAMETYPE"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='FILENAMETYPE' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "false",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "File name type": "File name type"
+                                    },
+                                    "en": {
+                                        "File name type": "File name type"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Field name",
+                                "code": "fieldname",
+                                "codeHidden": "950b886c41deb733",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "true",
+                                "action": "",
+                                "structable": "form_child.fieldname",
+                                "structable_read": "form_child.fieldname",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false,
+								"max":250
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Format name",
+                                "code": "format",
+                                "codeHidden": "6362975dfd02975a",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "form_child.format",
+                                "structable_read": "form_child.format",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Index",
+                                "code": "index",
+                                "codeHidden": "e42c39bcfdf58b2c",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "form_child.indext",
+                                "structable_read": "form_child.indext",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='NUMBER' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "NUMBER"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='NUMBER' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "false",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Index": "Index"
+                                    },
+                                    "en": {
+                                        "Index": "Index"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }, {
+                            "default": {
+                                "name": "Is use",
+                                "code": "isuse",
+                                "codeHidden": "9e56bb8423cd257e",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "form_child.isuse",
+                                "structable_read": "form_child.isuse",
+                                "cdlist": {
+                                    "query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION01' orderby c_cdlist.cdidx",
+                                    "cdgrp": "JWEBUI",
+                                    "cdname": "QUESTION01"
+                                },
+                                "data_default": "",
+                                "data_mode": "cdlist",
+                                "query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='QUESTION01' orderby c_cdlist.cdidx",
+                                "is_multi_select": "false",
+                                "is_multi_col": "false",
+                                "get_data_format": "c_cdlist.cdid",
+                                "selected_view_format": "@c_cdlist.caption",
+                                "table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "c_cdlist.cdid",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Is use": "Is use"
+                                    },
+                                    "en": {
+                                        "Is use": "Is use"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        }
+                    ]
+                }, {
+                    "code": "code",
+                    "name": "View model",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "codeHidden": "725d0b6ddebf6cd7",
+                    "list_input": [{
+                            "default": {
+                                "name": "New row",
+                                "code": "add",
+                                "codeHidden": "cea1cc7729d39fa1",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-clearDataFormChild\",\n        \"input\": {\n            \"node_clear\": \"form_child\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "add",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Apply",
+                                "code": "apply",
+                                "codeHidden": "88b06cd84e8d1790",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-saveDataFormChild\",\n        \"input\": {\n            \"node_get\": \"form_child\",\n            \"node_set\": \"d_configreconfile\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "save",
+                                "color": "success",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "",
+                                "code": "table",
+                                "codeHidden": "064e0d2f5b4665e4",
+                                "class": "col-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "form_child.d_configreconfile",
+                                "query_data": "d_configreconfile",
+                                "paging_record": "50",
+                                "columns": "[\n    {\n        \"code\": \"d_configreconfile.fieldname\",\n        \"title\": \"Field name\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_configreconfile.format\",\n        \"title\": \"Format name\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_configreconfile.indext\",\n        \"title\": \"Index\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_configreconfile.isuse\",\n        \"title\": \"Is use\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {
+                                "vi": {
+                                    "File name": "File name",
+                                    "Format name": "Format name",
+                                    "Index": "Index",
+                                    "Is use": "Is use",
+                                    "Is use status": "Is use status"
+                                },
+                                "en": {
+                                    "File name": "File name",
+                                    "Format name": "Format name",
+                                    "Index": "Index",
+                                    "Is use": "Is use",
+                                    "Is use status": "Is use status"
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jTableForm"
+                        }, {
+                            "default": {
+                                "name": "Modify",
+                                "code": "modify",
+                                "codeHidden": "1431e6d294ddfd10",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-selectDataFormChild\",\n        \"input\": {\n            \"node_set\": \"form_child\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "edit",
+                                "color": "warning",
+                                "onTable": "table",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Remove",
+                                "code": "remove",
+                                "codeHidden": "b47fd76c37580c48",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-removeDataFormChild\",\n        \"input\": {\n            \"node_table\": \"d_configreconfile\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "delete",
+                                "color": "danger",
+                                "onTable": "table",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "react_txt": ""
+}

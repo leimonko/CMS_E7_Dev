@@ -1,0 +1,1 @@
+{"full_name":"hub005601","email":"hub005601","user_status":"A","user_id":"hub005601","branchcd":"0056","branchid":"0056","branchname":"Kyeik Hto","AFGHkeyIndexWJ":"hub005601","AFGHkeyTime":1603781790613,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790613,"AFGHkeyUserCreateWJ":""}

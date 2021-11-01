@@ -1,0 +1,1 @@
+{"full_name":"hub024302","email":"hub024302","user_status":"A","user_id":"hub024302","branchcd":"0243","branchid":"0243","branchname":"YGN(105) New University Avenue Branch-2","AFGHkeyIndexWJ":"hub024302","AFGHkeyTime":1603781790771,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790771,"AFGHkeyUserCreateWJ":""}

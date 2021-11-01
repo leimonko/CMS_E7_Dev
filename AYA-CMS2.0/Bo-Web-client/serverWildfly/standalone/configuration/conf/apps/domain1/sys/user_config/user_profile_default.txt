@@ -1,0 +1,1 @@
+{"list_lang_config":[{"key":"vi","view":"Tiếng Việt","img":"https://i.imgur.com/OKjHV0p.png"},{"key":"en","view":"English","selected":true,"img":"https://i.imgur.com/KgdR2xr.png"}]}

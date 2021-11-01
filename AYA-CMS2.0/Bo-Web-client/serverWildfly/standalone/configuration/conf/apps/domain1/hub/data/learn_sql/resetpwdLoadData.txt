@@ -1,0 +1,13 @@
+{
+	"learn_sql_title": "Tải tất cả data của user",
+	"learn_sql_parameter": "",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT user_id, domain, full_name, email, active, verify, blocked, requestchangepass, afghkeyindexwj, afghkeytime, afghkeyworkflow FROM sysuser",
+	"learn_sql_query_sub": "",
+	"learn_sql_data": "resetpwd",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "resetpwdLoadData",
+	"AFGHTimeWJ": 156126363512755
+}

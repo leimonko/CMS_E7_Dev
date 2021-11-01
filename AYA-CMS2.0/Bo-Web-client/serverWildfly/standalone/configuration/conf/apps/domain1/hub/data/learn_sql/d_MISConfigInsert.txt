@@ -1,0 +1,18 @@
+{
+    "learn_sql_title": "Thêm mới txcode",
+    "learn_sql_query": "",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query_sub": "",
+    "learn_sql_data": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_MISConfigInsert",
+    "AFGHTimeWJ": 1561266469836,
+    "data_formchild_primarykey":"",
+    "data_formchild_list":"d_configreconfile",
+    "data_formchild_attribute_list":"fieldname, format, indext, isuse,isusests, corpcode,sercode",
+    "learn_sql_for_formchild":"d_configreconfileInsert"
+
+}

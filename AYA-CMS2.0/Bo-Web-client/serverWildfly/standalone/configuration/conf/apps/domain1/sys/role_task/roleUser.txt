@@ -1,0 +1,1 @@
+{"admin":{"roleUser":{"form":{"accept":true,"follow":false}}},"Manager":{"roleUser":{"form":{"accept":false,"follow":false}}}}

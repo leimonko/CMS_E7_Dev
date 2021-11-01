@@ -1,0 +1,1 @@
+{"cdid":"SGD","cdname":"CRCD","caption":"SGD","cdgrp":"JWEBUI","cdidx":"2","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"currencycodesgd0404","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

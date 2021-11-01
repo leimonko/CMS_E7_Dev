@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:s3="http://www.mulesoft.org/schema/mule/s3" xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/s3 http://www.mulesoft.org/schema/mule/s3/current/mule-s3.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <asynchronous-processing-strategy name="Asynchronous_Processing_Strategy" doc:name="Asynchronous Processing Strategy"/>
+
+    <sub-flow name="sub_verifytokenSub_Flow">
+		<logger
+			message="#[&quot;\n====================================================================================================\nSTARTED VERIFY TOKEN\n-----\nMessage Request:\n-Header: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================&quot;]"
+			level="INFO" doc:name="Started Verify Token" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqHeader" value="#[message.inboundProperties]"
+			doc:name="reqHeader" />
+		<set-variable variableName="reqBody" value="#[payload]"
+			doc:name="reqBody" />
+        <set-variable variableName="CHANNELID" value="#[flowVars.reqBody.CHANNELID]" doc:name="CHANNELID" doc:description="hard cho kenh IB ko chiu truyen channel id /-_-\"/>
+		<choice doc:name="Check null payload">
+			<when
+				expression="#[flowVars.reqHeader['Authorization']!=null &amp;&amp; flowVars.apiKey!=null]">
+				<invoke object-ref="JWTHelper" method="verifyToken"
+					methodArguments="#[flowVars.reqHeader['Authorization']],#[flowVars.apiKey],#[flowVars.CHANNELID]"
+					doc:name="verifyToken" />
+				<set-payload
+					value="{  &quot;ERRORCODE&quot;: #[json:statusCode],  &quot;ERRORDESC&quot;: &quot;#[json:message]&quot;}"
+					mimeType="application/json" doc:name="Build message response" />
+			</when>
+			<otherwise>
+				<set-payload
+					value="{  &quot;ERRORCODE&quot;: 401,  &quot;ERRORDESC&quot;: &quot;Missing parameters&quot;}"
+					mimeType="application/json" doc:name="Build Message missing parameters" />
+			</otherwise>
+		</choice>
+		<logger
+			message="#[&quot;\n====================================================================================================\nENDED VERIFY TOKEN\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]"
+			level="INFO" doc:name="Ended Verify Token" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+	</sub-flow>
+
+</mule>

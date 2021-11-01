@@ -1,0 +1,1 @@
+{"full_name":"hub009501","email":"hub009501","user_status":"A","user_id":"hub009501","branchcd":"0095","branchid":"0095","branchname":"Ygn_SSP(mini)","AFGHkeyIndexWJ":"hub009501","AFGHkeyTime":1603781790664,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790664,"AFGHkeyUserCreateWJ":""}

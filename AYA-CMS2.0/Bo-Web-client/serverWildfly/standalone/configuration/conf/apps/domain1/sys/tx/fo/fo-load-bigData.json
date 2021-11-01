@@ -1,0 +1,25 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "data webui",
+      "function": "system.data",
+      "type": "java",
+      "status": "A"
+    },
+    {
+      "name": "Yêu cầu tất cả component của form cập nhập dữ liệu",
+      "function": "form.reloadData",
+      "type": "java",
+      "status": "A"
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "system",
+  "txcode": "fo-load-bigData",
+  "txname": "Load Big Data",
+  "version": 2,
+  "updateTime": 1562206817082,
+  "isOld": true
+}

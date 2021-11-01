@@ -1,0 +1,1 @@
+{"full_name":"hub017702","email":"hub017702","user_status":"A","user_id":"hub017702","branchcd":"0177","branchid":"0177","branchname":"Ygn(73)_KMD3","AFGHkeyIndexWJ":"hub017702","AFGHkeyTime":1603781790724,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790724,"AFGHkeyUserCreateWJ":""}

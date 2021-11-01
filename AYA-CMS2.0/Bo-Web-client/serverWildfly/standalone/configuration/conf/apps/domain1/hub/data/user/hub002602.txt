@@ -1,0 +1,1 @@
+{"full_name":"hub002602","email":"hub002602","user_status":"A","user_id":"hub002602","branchcd":"0026","branchid":"0026","branchname":"Myin Gyan","AFGHkeyIndexWJ":"hub002602","AFGHkeyTime":1603781790579,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790579,"AFGHkeyUserCreateWJ":""}

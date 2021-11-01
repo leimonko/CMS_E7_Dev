@@ -1,0 +1,1 @@
+{"role_system_name":"System Admin","role_system_id":"systemadmin","AFGHkeyIndexWJ":"systemadmin","AFGHkeyUserCreateWJ":"p56855d3np64A70","AFGHkeyTime":1604547651135,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1604547651150,"JWebUI_UserCreate":"p56855d3np64A70"}

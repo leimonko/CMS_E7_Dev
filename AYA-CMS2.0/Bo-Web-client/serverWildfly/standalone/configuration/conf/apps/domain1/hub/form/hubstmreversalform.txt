@@ -1,0 +1,474 @@
+{
+    "info": {
+        "title": "O9_HUB07 - Reversal",
+        "des": "O9_HUB07 - Reversal",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "d_hubstmMISTransactionLoadCorpcode",
+        "bodata": "",
+        "openOne": "true",
+        "url_input": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "hubstmreversalform",
+        "ruleStrong": [{
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "transactionreference;trasactionreferencereversal",
+                    "condition": "",
+                    "visible": "true",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            },{
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "billamt;userid;txcode",
+                    "condition": "",
+                    "visible": "false",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            },{
+                "code": "runFo",
+                "config": {
+                    "component_action": "transactionreference",
+                    "component_result": "",
+                    "component_event": "all",
+                    "txFoActions": "[\n    {\n        \"function\": \"formSupport.getTransactionReference\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                    "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                    "useAction": "true",
+                    "condition": ""
+                },
+				"isStart": true,
+                "inUse": true,
+                "order": 1
+            },{
+                "code": "getInfo",
+                "config": {
+                    "component_event": "enter_tab",
+                    "component_action": "transactionumber",
+                    "component_result": '{
+                    "errormessage":"hubgetidreversal.ERRORDESC",
+                    "errorcode":"hubgetidreversal.ERRORCODE",
+                    "trasactionreferencereversal":"hubgetidreversal.IDREVERSAL", 
+					"txcode":"hubgetidreversal.TXCODE",
+                    "userid":"hubgetidreversal.USRID",
+                    "billamt":"hubgetidreversal.BILLAMT"
+                    }',
+                    "isSetCode": "true",
+                    "data_type": "api",
+                    "api_id": "hubgetidreversal",
+                    "sql_id": "",
+                    "data_table": "",
+                    "exception": "",
+                    "api_bo": "",
+                    "sql_bo": "",
+                    "data_bo": "",
+                    "is_data_to_form": "false"
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": false
+            }
+        ]
+    },
+    "list_layout": [{
+            "name": "Input",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "782bb4300c1e02fa",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "View model",
+                    "lang": {},
+                    "code": "code",
+                    "class": "col-sm-8 col-md-8",
+                    "codeHidden": "0109dbefc1c0c30f",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Transaction id",
+                                "code": "transactionreference",
+                                "codeHidden": "f8967b9628f1f236",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-8 col-md-8",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_hubstm.id",
+                                "structable_read": "d_hubstm.id",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Transaction id reversal",
+                                "code": "trasactionreferencereversal",
+                                "codeHidden": "a5a00e9dc8ec0c6b",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-8 col-md-8",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_hubstm.txrefid",
+                                "structable_read": "d_hubstm.txrefid",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "E7 Transaction id",
+                                "code": "transactionumber",
+                                "codeHidden": "d6a7c5da7018e04b",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-8 col-md-8",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_hubstm.uuid",
+                                "structable_read": "d_hubstm.uuid",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Description",
+                                "code": "description",
+                                "codeHidden": "201559e521aafe5f",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-8 col-md-8",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_hubstm.descs",
+                                "structable_read": "d_hubstm.descs",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Amount",
+                                "code": "billamt",
+                                "codeHidden": "201559e521aafe5f",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-8 col-md-8",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_hubstm.billamt",
+                                "structable_read": "d_hubstm.billamt",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "User id",
+                                "code": "userid",
+                                "codeHidden": "201559e521aafe5f",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-8 col-md-8",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_hubstm.userid",
+                                "structable_read": "d_hubstm.userid",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Txcode",
+                                "code": "txcode",
+                                "codeHidden": "201559e521aafe5f",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-8 col-md-8",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_hubstm.txcode",
+                                "structable_read": "d_hubstm.txcode",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }
+                    ]
+                }, {
+                    "code": "code",
+                    "name": "View model",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "codeHidden": "ec871b919bb78c61",
+                    "list_input": [{
+                            "default": {
+                                "name": "Accept",
+                                "code": "btn_Accept",
+                                "codeHidden": "e4c8562b6c3a15ed",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-accept-saveAndCallAPI\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"\",\n            \"table_code\": \"d_hubstm\",\n            \"learn_api\": \"hubtransactionReversal\",\n            \"learn_sql\": \"d_hubstmInsertOneReversal\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "arrow_forward_ios",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Clear",
+                                "code": "btn_clear",
+                                "codeHidden": "b15b771142dca5d6",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "icon": "clear",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "react_txt": ""
+}

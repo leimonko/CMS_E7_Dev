@@ -1,0 +1,1 @@
+{"cdid":"D","cdname":"CHARTTYPE","caption":"Day","cdgrp":"JWEBUI","cdidx":"2","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"chartbydate","AFGHkeyTime":1578537990963,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537990994}

@@ -1,0 +1,1 @@
+{"full_name":"hub006402","email":"hub006402","user_status":"A","user_id":"hub006402","branchcd":"0064","branchid":"0064","branchname":"Yangon (18) YMG","AFGHkeyIndexWJ":"hub006402","AFGHkeyTime":1603781790625,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790625,"AFGHkeyUserCreateWJ":""}

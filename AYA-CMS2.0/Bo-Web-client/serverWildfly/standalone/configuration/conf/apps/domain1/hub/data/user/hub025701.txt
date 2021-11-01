@@ -1,0 +1,1 @@
+{"full_name":"hub025701","email":"hub025701","user_status":"A","user_id":"hub025701","branchcd":"0257","branchid":"0257","branchname":"NCO","AFGHkeyIndexWJ":"hub025701","AFGHkeyTime":1603781790784,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790784,"AFGHkeyUserCreateWJ":""}

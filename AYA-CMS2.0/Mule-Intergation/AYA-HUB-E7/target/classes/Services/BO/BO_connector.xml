@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="BO_connectorFlow">
+	<logger
+		message="#[&quot;\n==========[BO-REQUEST]=========== &quot; + flowVars.uuid +&quot;\n&quot; +message.payloadAs(java.lang.String)]"
+		level="INFO" doc:name="BO-REQUEST" />
+	<http:request config-ref="HUB2.0_BO" path="/" method="POST"
+		doc:name="BO_ENDPOINT">
+		<http:success-status-code-validator
+			values="200..599" />
+	</http:request>
+	<set-variable variableName="isConnected" value="#[json:fo[0]]"
+		doc:name="isConnected" />
+	<logger
+		message="#[&quot;\n---BO Raw Response --- &quot; + flowVars.uuid +&quot;\n&quot;+payload]"
+		level="INFO" doc:name="Raw BO Response" />
+	<choice doc:name="isConnected">
+		<when
+			expression="#[flowVars.isConnected!=null &amp;&amp; flowVars.isConnected!=&quot;&quot;]">
+			<set-payload value="#[payload]" mimeType="application/json"
+				doc:name="True" />
+		</when>
+		<otherwise>
+			<set-payload
+				value="{
+	&quot;fo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;#sys:fo-container-true&quot;,
+			&quot;input&quot;: {
+				&quot;response&quot;: {
+					&quot;errorcode&quot;: 9768,
+					&quot;errordesc&quot;: &quot;Error: The connection to back office is broken&quot;,
+					&quot;data&quot;: {}
+				}
+			}
+		}
+	]
+}"
+				mimeType="application/json" doc:name="False" />
+		</otherwise>
+	</choice>
+	<logger
+		message="#[&quot;\n==========[BO-RESPONSE]=========== &quot; + flowVars.uuid +&quot;\n&quot; +message.payloadAs(java.lang.String)]"
+		level="INFO" doc:name="BO-RESPONSE" />
+	<catch-exception-strategy doc:name="Catch Exception Strategy">
+		<logger
+			message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+			level="INFO" doc:name="Exception Logger" />
+		<set-payload
+			value="{
+	&quot;fo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;#sys:fo-container-true&quot;,
+			&quot;input&quot;: {
+				&quot;response&quot;: {
+					&quot;errorcode&quot;: 9999,
+					&quot;errordesc&quot;: &quot;#[exception.?cause.message or exception]&quot;,
+					&quot;data&quot;: {}
+				}
+			}
+		}
+	]
+}"
+			mimeType="application/json" doc:name="Exception Message" />
+		<logger
+			message="#[&quot;\n==========[BO-RESPONSE]=========== &quot; + flowVars.uuid +&quot;\n&quot; +message.payloadAs(java.lang.String)]"
+			level="INFO" doc:name="BO-RESPONSE-EXCEPTION" />
+	</catch-exception-strategy>
+	</flow>
+</mule>

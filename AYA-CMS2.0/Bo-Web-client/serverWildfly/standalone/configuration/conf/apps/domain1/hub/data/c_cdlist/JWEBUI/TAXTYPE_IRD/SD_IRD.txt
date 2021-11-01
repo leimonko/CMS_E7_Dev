@@ -1,0 +1,1 @@
+{"cdid":"SD","cdname":"TAXTYPE_IRD","caption":"Stamp duty","cdgrp":"JWEBUI","cdidx":"5","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"SD_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

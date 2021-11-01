@@ -1,0 +1,1 @@
+{"full_name":"hub006802","email":"hub006802","user_status":"A","user_id":"hub006802","branchcd":"0068","branchid":"0068","branchname":"Kalay","AFGHkeyIndexWJ":"hub006802","AFGHkeyTime":1603781790629,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790629,"AFGHkeyUserCreateWJ":""}

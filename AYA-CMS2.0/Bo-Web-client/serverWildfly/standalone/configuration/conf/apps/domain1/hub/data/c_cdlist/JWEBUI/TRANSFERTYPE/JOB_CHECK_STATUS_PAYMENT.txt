@@ -1,0 +1,14 @@
+{
+  "cdid": "JOB_CHECK_STATUS_PAYMENT",
+  "cdname": "TRANSFERTYPE",
+  "caption": "JOB_CHECK_STATUS_PAYMENT",
+  "cdgrp": "JWEBUI",
+  "cdidx": "9",
+  "cdval": "",
+  "flag": "",
+  "visible": "",
+  "AFGHkeyIndexWJ": "JOB_CHECK_STATUS_PAYMENT",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

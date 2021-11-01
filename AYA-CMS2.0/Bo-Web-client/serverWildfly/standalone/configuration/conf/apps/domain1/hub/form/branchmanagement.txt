@@ -1,0 +1,437 @@
+{
+    "info": {
+        "title": "Branch Management",
+        "des": "Branch Management",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "d_branchcodeLoadAll",
+        "bodata": "",
+        "openOne": "true",
+        "url_input": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "branchmanagement",
+        "ruleStrong": [{
+                "code": "visibility",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "",
+                    "component_result": "recid",
+                    "condition": "",
+                    "visible": "true",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            }, {
+                "code": "managerComponent",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "recid",
+                    "component_manager": "{\n    \"btn_save\": \"'@{recid}' === ''\",\n    \"btn_update\": \"'@{recid}' !== ''\",\n    \"recid\": \"'@{recid}' !== ''\"\n}",
+                    "is_use_block": "false"
+                },
+                "inUse": true,
+                "order": 2,
+                "isStart": true
+            }
+        ]
+    },
+    "list_layout": [{
+            "name": "Branch listing",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "298103b8301c0474",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "486e97453d10137a",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "Branch listing",
+                                "code": "branchlisting",
+                                "codeHidden": "881b8f204cbf1122",
+                                "class": "col-sm-12 col-md-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "table.col",
+                                "query_data": "select * from d_branchcode",
+                                "paging_record": "5",
+                                "columns": "[\n    {\n        \"code\": \"d_branchcode.branchcode\",\n        \"title\": \"Branch code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_branchcode.branchname\",\n        \"title\": \"Branch Name\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {
+                                "vi": {
+                                    "T?n": ""
+                                },
+                                "en": {
+                                    "T?n": ""
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTableDefault"
+                        }, {
+                            "default": {
+                                "name": "View",
+                                "code": "btn_view",
+                                "codeHidden": "255219d841982885",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewDataSQL\",\n        \"input\": {\n            \"learn_sql\": \"d_branchcodeViewOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "view",
+                                "color": "info",
+                                "onTable": "branchlisting",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Remove",
+                                "code": "btn_remove",
+                                "codeHidden": "49bc620a6168b343",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-deleteDataSQL\",\n        \"input\": {\n            \"table_code\": \"d_branchcode\",\n            \"pk_col\": \"recid\",\n            \"learn_sql\": \"d_branchcodeDeleteOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "delete",
+                                "color": "info",
+                                "onTable": "branchlisting",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "Input",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "ee4a0d26bc92ebd5",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "Add and modify",
+                    "lang": {},
+                    "code": "",
+                    "class": "",
+                    "codeHidden": "c1b9213102687204",
+                    "inputtype": "cView",
+                    "isTab": "true",
+                    "viewUI": "",
+                    "list_input": [{
+                            "default": {
+                                "name": "recid",
+                                "code": "recid",
+                                "codeHidden": "b8ad63d940119e53",
+                                "class": "col-sm-6 col-md-6",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_branchcode.recid",
+                                "structable_read": "d_branchcode.recid",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Branch code",
+                                "code": "branchcode",
+                                "codeHidden": "36fe3331ab05e8b6",
+                                "class": "col-sm-6 col-md-6",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_branchcode.branchcode",
+                                "structable_read": "d_branchcode.branchcode",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }, {
+                            "default": {
+                                "name": "Branch name",
+                                "code": "branchname",
+                                "codeHidden": "05faa6d6237161a9",
+                                "class": "col-sm-6 col-md-6",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_branchcode.branchname",
+                                "structable_read": "d_branchcode.branchname",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "Button",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "ee4a0d2612122ebd5",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "Button",
+                    "lang": {},
+                    "code": "",
+                    "class": "",
+                    "codeHidden": "c1b9121221687204",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [ {
+                            "default": {
+                                "name": "Save",
+                                "code": "btn_save",
+                                "codeHidden": "1ad58f152fbc8975",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-newDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"table_code\": \"d_branchcode\",\n            \"learn_sql\": \"d_branchcodeInsertOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "save",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Update",
+                                "code": "btn_update",
+                                "codeHidden": "39c9952c3f4aa617",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-updateDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"learn_sql\": \"d_branchcodeUpdateOne\",\n            \"table_code\": \"d_branchcode\",\n            \"pk_col\": \"recid\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "edit",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }, {
+                            "default": {
+                                "name": "Clear",
+                                "code": "clear",
+                                "codeHidden": "f87aa55ef734aaf3",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "icon": "clear",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }]
+                }
+            ]
+        }
+    ],
+    "react_txt": ""
+}

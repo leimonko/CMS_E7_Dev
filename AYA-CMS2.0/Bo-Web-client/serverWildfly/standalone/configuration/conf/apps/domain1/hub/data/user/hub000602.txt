@@ -1,0 +1,1 @@
+{"full_name":"hub000602","email":"hub000602","user_status":"A","user_id":"hub000602","branchcd":"0006","branchid":"0006","branchname":"Meikhtila","AFGHkeyIndexWJ":"hub000602","AFGHkeyTime":1603781790558,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790558,"AFGHkeyUserCreateWJ":""}

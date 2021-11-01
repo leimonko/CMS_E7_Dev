@@ -1,0 +1,14 @@
+{
+  "cdid": "csv",
+  "cdname": "FILETYPE",
+  "caption": "csv",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": "",
+  "AFGHkeyIndexWJ": "CSV",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

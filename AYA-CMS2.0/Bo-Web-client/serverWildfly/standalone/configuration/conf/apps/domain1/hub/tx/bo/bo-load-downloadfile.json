@@ -1,0 +1,36 @@
+﻿{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "bo-load-downloadfile",
+      "function": "cis.core.txDev_Form.downloadFileFromForm",
+      "type": "java",
+      "para": ["@learn_sql","@table_code"],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+			
+          ]
+        },
+        "false": {
+          "fo": [
+         
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-load-downloadfile",
+  "version": 2,
+  "updateTime": 1562205991292,
+  "txname": "bo-load-downloadfile",
+  "isOld": true
+}

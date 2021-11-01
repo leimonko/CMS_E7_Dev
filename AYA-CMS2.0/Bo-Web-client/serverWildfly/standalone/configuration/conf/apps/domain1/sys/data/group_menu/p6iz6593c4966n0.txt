@@ -1,0 +1,1 @@
+{"group_menu_name":"Quyền tx bo","group_menu_order":"11","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"roleBo","AFGHkeyIndexWJ":"p6iz6593c4966n0","AFGHTimeWJ":1560825659302}

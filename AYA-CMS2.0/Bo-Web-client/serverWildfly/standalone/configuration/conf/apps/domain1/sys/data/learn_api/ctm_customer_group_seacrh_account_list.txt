@@ -1,0 +1,18 @@
+{
+  "app_code": "o9",
+  "learn_api_name": "ctm_customer_group_seacrh_account_list",
+  "learn_api_link": "$API_SERVER$:$API_PORT_DATA$/api/customer/customergroup/members/@{ctm_customer_group.grptype}/notin/@{ctm_customer_group.search_text}",
+
+  "learn_api_data": "account_list",
+  "learn_api_node_data": "data",
+  "learn_api_app": "BO",
+  "learn_api_method": "GET",
+  "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer )",
+  "learn_api_mapping": "",
+  "learn_api_id": "ctm_customer_group_seacrh_account_list",
+  "AFGHkeyIndexWJ": "ctm_customer_group_seacrh_account_list",
+  "AFGHkeyTime": 1576931699058,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1576931699172,
+  "save_to": "form"
+}

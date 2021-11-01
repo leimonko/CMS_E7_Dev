@@ -1,0 +1,13 @@
+{
+    "learn_sql_title": "xem 1 scheduletransfer",
+    "learn_sql_data": "d_scheduletransfer",
+    "learn_sql_parameter": "#recid",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT recid, schedulename,corpcode,sercode, transfertype, frequency,mic,TO_CHAR(firsttxdate,'HH24:Mi:SS') as firsttime,TO_CHAR(firsttxdate,'DD/MM/YYYY') as firsttxdate,TO_CHAR(fromdateex,'DD/MM/YYYY') as fromdateex,TO_CHAR(todateex,'DD/MM/YYYY') as todateex,descs FROM hubdb.d_scheduletransfer WHERE recid =?",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_scheduletransferViewOne",
+    "AFGHTimeWJ": 1585837541575
+}

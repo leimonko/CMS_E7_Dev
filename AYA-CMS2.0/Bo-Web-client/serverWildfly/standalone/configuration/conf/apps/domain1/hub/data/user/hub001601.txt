@@ -1,0 +1,1 @@
+{"full_name":"hub001601","email":"hub001601","user_status":"A","user_id":"hub001601","branchcd":"0016","branchid":"0016","branchname":"Ygn (3) Bayintnaung","AFGHkeyIndexWJ":"hub001601","AFGHkeyTime":1603781790568,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790568,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"cdid":"1","cdname":"DEPMT","caption":"IT","cdgrp":"JWEBUI","cdidx":"1","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"departmentit0504","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

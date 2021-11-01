@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Xem 1 dữ liệu",
+	"learn_sql_data": "keysearch",
+	"learn_sql_parameter": "",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT TO_NUMBER(feecode) as feecode,feename FROM hubdb.d_feedef  ORDER BY feecode ASC",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_feecalLoadByFeecode",
+	"AFGHTimeWJ": 1561269909390
+}

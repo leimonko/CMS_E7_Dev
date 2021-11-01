@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="hub_getServiceDetail">
+		<http:listener config-ref="CMS_LISTENER" path="/getServiceDetail"
+			allowedMethods="POST" doc:name="/getServiceDetail" />
+			<set-variable variableName="uuid" value="#[java.util.UUID.randomUUID().toString()]" doc:name="uuid"/>
+	<logger
+			message="#[&quot;\n=======================================\nStarted Channel Get Service Detail\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="Started Get Service Detail" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqBody" value="#[payload]"
+			doc:name="reqBody" />
+
+
+		<set-payload
+			value="{
+  &quot;info&quot;: {
+    &quot;lang&quot;: &quot;en&quot;,
+    &quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+    &quot;my_device&quot;: {
+      &quot;browser&quot;: &quot;Chrome&quot;,
+      &quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+      &quot;browserMajorVersion&quot;: 79,
+      &quot;cookies&quot;: true
+    },
+    &quot;request_time&quot;: 1580804624914,
+    &quot;protect_request&quot;: &quot;&quot;,
+    &quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+  },
+  &quot;bo&quot;: [
+    {
+      &quot;txcode&quot;: &quot;bo-hub-dymanicSearch&quot;,
+      &quot;input&quot;: {
+        &quot;learn_sql&quot;: &quot;d_corpserviceGetDetails&quot;,
+        &quot;data&quot;: {
+          &quot;SERCODE&quot;: &quot;#[flowVars.reqBody.SERCODE]&quot;
+        }
+      }
+    }
+  ]
+}"
+			mimeType="application/json" doc:name="Build message get Service Detail" />
+		<flow-ref name="BO_connectorFlow" doc:name="BO_connectorFlow"/>
+		<set-payload value="{  &quot;ERRORCODE&quot;: &quot;#[json:fo[0]/input/response/errorcode]&quot;,  &quot;ERRORDESC&quot;: &quot;#[json:fo[0]/input/response/errordesc]&quot;,  &quot;RESULT&quot;:  #[json:fo[0]/input/response/data] } " mimeType="application/json" doc:name="build message response"/>
+		<logger
+			message="#[&quot;\n=======================================\nEnded Channel Get Service Detail\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="Ended Get Service Detail" />
+
+	<catch-exception-strategy doc:name="Catch Exception Strategy">
+				<logger message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]" level="INFO" doc:name="Exception Logger"/>
+	<set-payload
+				value="{  &quot;ERRORCODE&quot;: 9999,  &quot;ERRORDESC&quot;: &quot;#[exception.?cause.message or exception]&quot;,  &quot;RESULT&quot;: {} }"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=======================================\nEnded Channel Get Service Detail\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+				level="INFO" doc:name="Ended Hub Calculator Fee" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Đăng nhập lại","function":"tx.reLoginOfToken","type":"java","para":[],"status":"A","response":{"_default_":{"fo":[{"txcode":"#sys:fo-container"}]}}}],"status":"A","txtype":"bo","txcode":"bo-relogin-login","txname":"Đăng nhập lại","version":1,"updateTime":1564715285564,"hasRole":"false","isOld":false,"response":{}}

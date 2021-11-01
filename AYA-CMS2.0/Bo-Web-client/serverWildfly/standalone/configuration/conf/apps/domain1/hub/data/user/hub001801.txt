@@ -1,0 +1,1 @@
+{"full_name":"hub001801","email":"hub001801","user_status":"A","user_id":"hub001801","branchcd":"0018","branchid":"0018","branchname":"Myeik","AFGHkeyIndexWJ":"hub001801","AFGHkeyTime":1603781790570,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790570,"AFGHkeyUserCreateWJ":""}

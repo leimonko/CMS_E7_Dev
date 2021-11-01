@@ -1,0 +1,29 @@
+{
+    "input": {},
+    "actions": [{
+            "name": "Xử lý query",
+            "function": "cis.core.txHUB_API.dymanicQuery_Insert",
+            "type": "java",
+            "para": ["@learn_sql"],
+            "status": "A",
+            "response": {
+                "_default_": {
+                    "fo": [{
+                            "txcode": "#sys:fo-container",
+                            "input": {}
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-hub-dymanicQuery-Insert",
+    "version": 2,
+    "updateTime": 1586077503083,
+    "txname": "Thêm statment",
+    "hasRole": "false",
+    "isOld": true
+}

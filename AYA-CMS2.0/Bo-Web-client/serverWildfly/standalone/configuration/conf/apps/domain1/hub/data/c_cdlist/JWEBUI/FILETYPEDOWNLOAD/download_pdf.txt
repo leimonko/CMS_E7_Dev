@@ -1,0 +1,14 @@
+{
+  "cdid": "pdf",
+  "cdname": "FILETYPEDOWNLOAD",
+  "caption": "pdf",
+  "cdgrp": "JWEBUI",
+  "cdidx": "3",
+  "cdval": "",
+  "flag": "",
+  "visible": 1,
+  "AFGHkeyIndexWJ": "download_pdf",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

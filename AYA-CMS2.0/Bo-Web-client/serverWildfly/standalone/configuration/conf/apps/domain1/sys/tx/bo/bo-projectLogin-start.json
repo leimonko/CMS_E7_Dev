@@ -1,0 +1,83 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "Danh sách ngôn ngữ sys",
+            "function": "tx.getUserProfileDefaultSys",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-sys-loginUserProfileDefaultSys"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "AllApplication",
+            "function": "tx.getListAll",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-sys-AllApplication"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Yêu cầu ngôn ngữ",
+            "function": "tx.lang_data",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "_default_": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-load-language"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Tham số",
+            "function": "tx.loadAllParaServer",
+            "type": "java",
+            "para": [],
+            "status": "A",
+            "response": {
+                "_default_": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-sys-parameterSystem"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {
+        "fo": [
+            {
+                "txcode": "#sys:fo-projectLogin-formLogin"
+            }
+        ]
+    },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-projectLogin-start",
+    "version": 2,
+    "updateTime": 1562250940778,
+    "txname": "Chỉ tải cho project login vì cần ít dữ liệu",
+    "isOld": true
+}

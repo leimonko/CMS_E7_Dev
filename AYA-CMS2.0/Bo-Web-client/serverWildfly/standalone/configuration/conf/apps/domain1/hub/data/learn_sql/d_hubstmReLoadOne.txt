@@ -1,0 +1,14 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data txcode",
+    "learn_sql_parameter": "@id",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT h.recid,txrefid,txdt,txcode, corpcode, sercode, billccy, billamt, baccdr,bacccr, cuscode,hubfee01,hubfee02, feecode, notifiemail, catid,id,descs as sts,char17,char15,char12,char05 as descs FROM hubdb.d_hubstm h LEFT JOIN hubdb.d_codetype ON sts = subcodetype AND codetype = 'STT'
+WHERE id = ?",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmReLoadOne",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "d_hubstmInsert"
+    }

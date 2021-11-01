@@ -1,0 +1,1 @@
+{"group_menu_name":"Quản lý chức năng","group_menu_order":"1","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"sp553B4el445q74","group_menu_id":"sp55383z9s5379557","AFGHkeyIndexWJ":"sp55383z9s5570g7","AFGHkeyTime":1558667542609,"AFGHkeyWorkFlow":""}

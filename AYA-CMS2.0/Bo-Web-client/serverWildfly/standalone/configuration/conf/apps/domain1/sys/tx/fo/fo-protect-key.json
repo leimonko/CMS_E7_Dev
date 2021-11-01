@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"bảo vệ","function":"system.setKeyPost","type":"javascript","status":"A","para":[]}],"status":"A","txtype":"bo","txcode":"fo-protect-key","txname":"Lấy key bảo vệ mới","version":1,"updateTime":1563260403658,"isOld":false,"request":{}}

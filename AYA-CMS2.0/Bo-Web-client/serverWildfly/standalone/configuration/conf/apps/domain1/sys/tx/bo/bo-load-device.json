@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Device","function":"tx.getDevice","type":"java","para":["@token_webui"],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-form-device","input":{}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-load-device","version":2,"updateTime":1562205681040,"txname":"Tải tất cả thiết bị đã đăng nhập","isOld":true}

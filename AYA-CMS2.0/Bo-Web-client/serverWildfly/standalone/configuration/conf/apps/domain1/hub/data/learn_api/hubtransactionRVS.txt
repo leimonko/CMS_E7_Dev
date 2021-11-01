@@ -1,0 +1,16 @@
+{
+	"app_code": "o9",
+	"learn_api_name": "hub transaction reverse",
+	"learn_api_link": "$API_SERVER$:$API_PORT_LOGIN$/hub/hub_rvs",
+	"learn_api_data": "hubtransactionRVS",
+	"learn_api_node_data": "",
+	"learn_api_app": "BO",
+	"learn_api_method": "POST",
+	"learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer)",
+	"learn_api_mapping": " { \"datarv\" : { \"TXREFID\": \"MapS.dataS(datarv.TXREFID)\", \"ORGREFID\": \"MapS.dataS(datarv.ORGREFID)\",  \"UUID\": \"MapS.dataS(datarv.UUID)\",     \"DESCS\": \"MapS.dataS(datarv.DESCS)\", \"USRID\": \"MapS.dataS(datarv.USRID)\",  \"TXCODE\": \"MapS.dataS(datarv.TXCODE)\",  \"OSTBALANCE\": \"MapS.dataS(datarv.BILLAMT)\"} }",
+	"learn_api_id": "hubtransactionRVS",
+	"AFGHkeyIndexWJ": "hubtransactionRVS",
+	"AFGHkeyTime": 1569894868360,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1569894868366
+}

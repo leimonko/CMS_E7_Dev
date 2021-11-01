@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"lazy load","function":"txdata.dataLazyLoad","type":"java","para":[],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-load-dataLazy","input":{}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-load-dataLazy","version":3,"updateTime":1582392644597,"txname":"Lazy load","hasRole":"false","isOld":true}

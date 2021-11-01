@@ -1,0 +1,1 @@
+{"full_name":"hub009401","email":"hub009401","user_status":"A","user_id":"hub009401","branchcd":"0094","branchid":"0094","branchname":"Ygn(34)_TRY(NOKA)","AFGHkeyIndexWJ":"hub009401","AFGHkeyTime":1603781790664,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790664,"AFGHkeyUserCreateWJ":""}

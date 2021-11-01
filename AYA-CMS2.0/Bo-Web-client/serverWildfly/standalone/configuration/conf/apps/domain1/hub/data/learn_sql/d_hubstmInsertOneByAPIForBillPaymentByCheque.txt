@@ -1,0 +1,17 @@
+﻿{
+  "learn_sql_title": "d_hubstmInsertOneByAPIForBillPaymentByCheque",
+  "learn_sql_query": "INSERT INTO hubdb.d_hubstm( recid,trace, txrefid, txdt, branchid, usrid, txcode, corpcode, sercode, billccy, billamt, hubfee01,hubfee02, feecode, notifiemail, catid, paymethod, bcode, refva1, refva2, refva3, isemail,id,char11,char12,char13,char14,wfsts,bacccr,char05,txupdatedt,char18,char19,dvaluedt,char1, baccdr, char09,char10)
+	VALUES (HUBDB.D_HUBSTM_SEQ.NEXTVAL,hubdb.d_hubstm_trace_sque.nextval, hubdb.gene_hubstm_txrefid(),SYSDATE, ?, ?, ?, ?, ?, ?, TO_NUMBER(?), TO_NUMBER(?),TO_NUMBER(?), ?, ?, ?,?, ?,REPLACE (REPLACE(REPLACE( ?, CHR(10), '' ),CHR(13),''),',',' '), REPLACE (REPLACE(REPLACE( ?, CHR(10), '' ),CHR(13),''),',',' '), REPLACE (REPLACE(REPLACE( ?, CHR(10), '' ),CHR(13),''),',',' '), ?,?,'P','',?,?,?,?,?,SYSDATE,?,?,SYSDATE,?,?,?,?)",
+  "learn_sql_parameter": "#BRANID,@USRID,@TXCODE,@CORPCODE,@SERCODE,@CCRCD,@AMT,@DRFEEAMT,@CRFEEAMT,@FEECODE,@NOTIFIEMAIL,#CATID,@PAYMETHOD,@BANKCODE,@REFVA1,@REFVA2,@REFVA3,@SM,@ID,@CHAR13,@CHAR14,@WFSTS,@CORPDEPOSITACCNO,@DESCS,@BRNAME,@HUBLGNAME,@CHANNELID,@CHEQUEACC,@CUSTACC,@CHEQUENO",
+  "learn_sql_parameter_sub": "@ID",
+  "learn_sql_query_sub": "SELECT recid,txrefid,txdt,txcode, corpcode, sercode, billccy, billamt, baccdr, cuscode,hubfee01, feecode, notifiemail, catid,id FROM hubdb.d_hubstm WHERE id =?",
+  "learn_sql_data": "d_hubstm",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+   "learn_sql_workfolow":"d_workflowInsertRequestAPI",
+  "paras_workfolow":"@TXCODE,@ID,*requestmess,@wfdescs",
+  "validation_para_api": "",
+   "learn_sql_squence": "select hubdb.D_HUBSTM_SEQ.nextval as recid from dual",
+  "AFGHkeyIndexWJ": "d_hubstmInsertOneByAPIForBillPaymentByCheque",
+  "AFGHTimeWJ": 1561266469836
+}

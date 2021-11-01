@@ -1,0 +1,14 @@
+{
+	"cdid": "Account",
+	"cdname": "FEEMODE",
+	"caption": "By Account",
+	"cdgrp": "JWEBUI",
+	"cdidx": 2,
+	"cdval": "",
+	"flag": 0,
+	"visible": 1,
+	"AFGHkeyIndexWJ": "byaccount",
+	"AFGHkeyTime": 1578537958705,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1578537958744
+}

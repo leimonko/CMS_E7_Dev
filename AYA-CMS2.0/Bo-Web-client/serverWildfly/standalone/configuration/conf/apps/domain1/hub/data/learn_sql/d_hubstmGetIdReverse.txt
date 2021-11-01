@@ -1,0 +1,11 @@
+﻿{
+	"learn_sql_title": "Thêm mới service",
+	"learn_sql_query": "select id as txrefid,char12 as orgrefid,txcode,usrid,billamt from hubdb.d_hubstm where txcode in ('O9_HUB01','O9_HUB02','O9_HUB03','O9_HUB04','O9_HUB05') and (sts= 'F' or sts = 'T') and char11 = 'C' and char13 = 'F'",
+	"learn_sql_parameter": "",
+	"learn_sql_data": "d_hubstm",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_hubstmGetIdReverse",
+	"AFGHTimeWJ": 1561266469836
+}

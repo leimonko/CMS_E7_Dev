@@ -1,0 +1,1 @@
+{"email":"hubadmin@hub.com","full_name":"hubadmin","user_status":"","user_api":"{}","user_id":"4ea765b8-19c1-4f98-a720-4a4ae98360f5","AFGHkeyIndexWJ":"hubadmin@hub.com","AFGHkeyUserCreateWJ":"p56855d3np64A70","AFGHkeyTime":1598865510998,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1598865513091,"JWebUI_UserCreate":"p56855d3np64A70"}

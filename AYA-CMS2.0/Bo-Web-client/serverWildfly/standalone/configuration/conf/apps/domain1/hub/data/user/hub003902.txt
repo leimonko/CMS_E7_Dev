@@ -1,0 +1,1 @@
+{"full_name":"hub003902","email":"hub003902","user_status":"A","user_id":"hub003902","branchcd":"0039","branchid":"0039","branchname":"Myaung Mya","AFGHkeyIndexWJ":"hub003902","AFGHkeyTime":1603781790594,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790594,"AFGHkeyUserCreateWJ":""}

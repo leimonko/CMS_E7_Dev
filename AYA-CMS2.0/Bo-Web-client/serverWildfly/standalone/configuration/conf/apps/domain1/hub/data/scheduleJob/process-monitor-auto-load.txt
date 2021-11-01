@@ -1,0 +1,17 @@
+﻿{
+	"name": "Lập liên tục",
+	"type": "L",
+	"status": "none",
+	"time": 10000,
+	"creator": "ac02",
+	"conditions": "",
+	"modifier": "ac02",
+	"content_run": "[{\"txcode\":\"#sys:fo-scheduleJob-ProcessMonitor\",\"input\": {\"inputne\": \"Process monitor loading\",\"learn_sql\":\"taidulieutixnparameter0504\",\"table_code\":\"d_ebstm\"}}]",
+	"id": "5dcfce88af37c0e9",
+	"AFGHkeyUserCreateWJ": "p56855d3np64A70",
+	"AFGHkeyIndexWJ": "process-monitor-auto-load",
+	"AFGHkeyTime": 1588061934561,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1588061934580,
+	"JWebUI_UserCreate": "p56855d3np64A70"
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub011102","email":"hub011102","user_status":"A","user_id":"hub011102","branchcd":"0111","branchid":"0111","branchname":"Kyauktan","AFGHkeyIndexWJ":"hub011102","AFGHkeyTime":1603781790675,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790675,"AFGHkeyUserCreateWJ":""}

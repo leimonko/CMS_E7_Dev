@@ -1,0 +1,1 @@
+{"full_name":"hub007201","email":"hub007201","user_status":"A","user_id":"hub007201","branchcd":"0072","branchid":"0072","branchname":"South Okkalapa","AFGHkeyIndexWJ":"hub007201","AFGHkeyTime":1603781790632,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790632,"AFGHkeyUserCreateWJ":""}

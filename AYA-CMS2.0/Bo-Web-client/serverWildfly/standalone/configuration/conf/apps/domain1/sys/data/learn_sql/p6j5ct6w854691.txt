@@ -1,0 +1,1 @@
+{"learn_sql_title":"Thêm mới table1","learn_sql_query":"INSERT INTO\ntestdb.table1(recname, recvalue)\nVALUES (?, ?);","learn_sql_parameter":"@recname,#recvalue","AFGHkeyIndexWJ":"p6j5ct6w854691","AFGHTimeWJ":1561266469836,"learn_sql_parameter_sub":"#pk_col","learn_sql_query_sub":"SELECT recid, recname, recvalue\n\tFROM testdb.table1 where recid=?","learn_sql_data":""}

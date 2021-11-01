@@ -1,0 +1,1 @@
+{"full_name":"hub024701","email":"hub024701","user_status":"A","user_id":"hub024701","branchcd":"0247","branchid":"0247","branchname":"MHL(02)","AFGHkeyIndexWJ":"hub024701","AFGHkeyTime":1603781790774,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790774,"AFGHkeyUserCreateWJ":""}

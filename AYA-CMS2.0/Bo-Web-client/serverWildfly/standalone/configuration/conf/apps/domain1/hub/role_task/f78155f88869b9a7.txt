@@ -1,0 +1,1 @@
+{"admin":{"f78155f88869b9a7":{"form":{"accept":false,"caption":null,"follow":false}},"4fd682dbe3b74087":{"layout":{"install":false,"caption":null}},"cd1acba59a74c30e":{"view":{"install":false,"caption":null}},"9527bf4258312ab8":{"component":{"install":false,"caption":"Develop"}}}}

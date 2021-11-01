@@ -1,0 +1,15 @@
+﻿{
+    "learn_sql_title": "Tải dulieu cho monitor",
+    "learn_sql_parameter": "@txdatetime, @txdatetime,@txdatetime",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select txtimenow,sum(a.success) as success, sum(a.pending) as pending, sum(a.failed) as failed,sum(a.reversed) as reversed,sum(a.timeout) as timeout from(
+    SELECT TO_CHAR( TO_DATE(?,'YYYY-MM-DD HH24:MI:SS'), 'HH24:MI:SS') as txtimenow,txdt,sts, CASE WHEN sts ='C' THEN 1 ELSE 0 END AS success,CASE WHEN sts ='P' THEN 1 ELSE 0 END AS pending,CASE WHEN sts ='R' THEN 1 ELSE 0 END AS reversed,CASE WHEN sts ='F' THEN 1 ELSE 0 END AS failed, CASE WHEN sts ='T' THEN 1 ELSE 0 END AS timeout
+    FROM hubdb.d_hubstm where   TO_DATE(TO_CHAR(txdt,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS') >= (TO_DATE(?,'YYYY-MM-DD HH24:MI:SS') - INTERVAL '5' second) and   TO_DATE(TO_CHAR(txdt,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS') < (TO_DATE(?,'YYYY-MM-DD HH24:MI:SS')) and txcode <> 'O9_HUB06' and txcode <> 'O9_HUB11' ) a   group by txtimenow",
+    "learn_sql_query_sub": "",    
+    "learn_sql_data": "transactionMonitor",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_hubstmGetTxnIn5s",
+    "AFGHTimeWJ": 1561263635755
+}

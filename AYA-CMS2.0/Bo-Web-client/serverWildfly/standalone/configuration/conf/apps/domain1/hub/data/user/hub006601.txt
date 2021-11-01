@@ -1,0 +1,1 @@
+{"full_name":"hub006601","email":"hub006601","user_status":"A","user_id":"hub006601","branchcd":"0066","branchid":"0066","branchname":"Kyauk Pan Daung","AFGHkeyIndexWJ":"hub006601","AFGHkeyTime":1603781790627,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790627,"AFGHkeyUserCreateWJ":""}

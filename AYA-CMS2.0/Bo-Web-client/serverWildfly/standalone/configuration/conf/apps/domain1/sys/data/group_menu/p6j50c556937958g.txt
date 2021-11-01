@@ -1,0 +1,1 @@
+{"group_menu_name":"Quản lý truy vấn","group_menu_order":"15","group_menu_parent":"sp5538633k665883b","group_menu_function_code":"learn_sql","AFGHkeyIndexWJ":"p6j50c556937958g","AFGHTimeWJ":1560950025569}

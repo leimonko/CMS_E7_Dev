@@ -1,0 +1,29 @@
+{
+	"list_appliaction_id": "o9",
+	"list_appliaction_name": "O9",
+	"list_appliaction_des": "Optimal 9",
+	"list_appliaction_order": "1",
+	"AFGHkeyIndexWJ": "o9",
+	"AFGHkeyTime": 1562251593509,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1562251593512,
+	"list_appliaction_bo": "bo-app-O9",
+	"list_appliaction_img": "https://i.imgur.com/iW543t8.png",
+	"configTemplate": {
+		"mobi": {
+			"template": "malibu",
+			"screen_working": "desktop_o9",
+			"theme": "Green_Pigment"
+		},
+		"desktop": {
+			"template": "malibu",
+			"screen_working": "desktop_o9",
+			"theme": "Green_Pigment"
+		},
+		"tablet": {
+			"template": "malibu",
+			"screen_working": "desktop_o9",
+			"theme": "Green_Pigment"
+		}
+	}
+}

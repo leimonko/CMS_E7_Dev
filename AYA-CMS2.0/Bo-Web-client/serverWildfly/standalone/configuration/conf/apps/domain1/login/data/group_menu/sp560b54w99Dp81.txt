@@ -1,0 +1,1 @@
+{"group_menu_name":"Quyền và chức năng","group_menu_order":"1","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"roleMatrix","group_menu_id":"sp560b54w99zt57","AFGHkeyIndexWJ":"sp560b54w99Dp81","AFGHkeyTime":1556001892958,"AFGHkeyWorkFlow":""}

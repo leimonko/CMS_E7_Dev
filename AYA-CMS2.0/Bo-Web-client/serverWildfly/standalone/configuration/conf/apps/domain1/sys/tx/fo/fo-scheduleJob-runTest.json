@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Chạy thử","function":"scheduleJob.runTest","type":"javascript","status":"A","para":[]}],"status":"A","txtype":"bo","txcode":"fo-scheduleJob-runTest","txname":"Cấu trúc scheduleJob mẫu","version":1,"updateTime":1588064458147,"isOld":false,"request":{}}

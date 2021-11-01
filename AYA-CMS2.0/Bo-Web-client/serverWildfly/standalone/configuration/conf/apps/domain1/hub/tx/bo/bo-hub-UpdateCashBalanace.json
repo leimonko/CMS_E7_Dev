@@ -1,0 +1,49 @@
+{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "UpdateCashBalanace",
+      "function": "cis.core.txHUB_API.updateUserCash",
+      "type": "java",
+      "para": [
+        "@learn_sql","@learn_sql_sub"
+      ],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-container-true",
+              "input": {
+                
+              }
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-container-false",
+              "input": {
+                
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-hub-UpdateCashBalanace",
+  "version": 2,
+  "updateTime": 1586077503083,
+  "txname": "UpdateCashBalanace",
+  "hasRole": "false",
+  "isOld": true
+}

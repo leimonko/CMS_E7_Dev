@@ -1,0 +1,11 @@
+{
+    "full_name": "hubadmin001",
+    "email": "hubadmin001@hub.com",
+    "user_status": "A",
+    "user_id": "hubadmin001",
+    "AFGHkeyIndexWJ": "hubadmin001@hub.com",
+    "AFGHkeyTime": 1598784402630,
+    "AFGHkeyWorkFlow": "",
+    "AFGHTimeWJ": 1598784402630,
+    "AFGHkeyUserCreateWJ": ""
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub000801","email":"hub000801","user_status":"A","user_id":"hub000801","branchcd":"0008","branchid":"0008","branchname":"Taungyi","AFGHkeyIndexWJ":"hub000801","AFGHkeyTime":1603781790560,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790560,"AFGHkeyUserCreateWJ":""}

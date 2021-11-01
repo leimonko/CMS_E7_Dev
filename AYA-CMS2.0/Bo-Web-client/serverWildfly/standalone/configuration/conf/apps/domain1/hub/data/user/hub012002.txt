@@ -1,0 +1,1 @@
+{"full_name":"hub012002","email":"hub012002","user_status":"A","user_id":"hub012002","branchcd":"0120","branchid":"0120","branchname":"Yaykyi Branch_YKI","AFGHkeyIndexWJ":"hub012002","AFGHkeyTime":1603781790682,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790682,"AFGHkeyUserCreateWJ":""}

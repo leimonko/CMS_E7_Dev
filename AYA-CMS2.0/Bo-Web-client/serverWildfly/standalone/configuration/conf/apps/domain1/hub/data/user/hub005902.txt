@@ -1,0 +1,1 @@
+{"full_name":"hub005902","email":"hub005902","user_status":"A","user_id":"hub005902","branchcd":"0059","branchid":"0059","branchname":"Ygn (15) Pansodan","AFGHkeyIndexWJ":"hub005902","AFGHkeyTime":1603781790619,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790619,"AFGHkeyUserCreateWJ":""}

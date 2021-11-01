@@ -1,0 +1,1 @@
+{"full_name":"hub018701","email":"hub018701","user_status":"A","user_id":"hub018701","branchcd":"0187","branchid":"0187","branchname":"NLP","AFGHkeyIndexWJ":"hub018701","AFGHkeyTime":1603781790729,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790729,"AFGHkeyUserCreateWJ":""}

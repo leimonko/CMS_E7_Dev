@@ -1,0 +1,1 @@
+{"full_name":"hub010502","email":"hub010502","user_status":"A","user_id":"hub010502","branchcd":"0105","branchid":"0105","branchname":"YGN(39)_Yadanar St","AFGHkeyIndexWJ":"hub010502","AFGHkeyTime":1603781790671,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790671,"AFGHkeyUserCreateWJ":""}

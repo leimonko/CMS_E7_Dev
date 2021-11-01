@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="BO_getInfoByE7IDFlow">
+		<http:listener config-ref="CMS_LISTENER" path="/getInfoByE7ID"
+			allowedMethods="POST" doc:name="/getInfoByE7ID" />
+		<set-variable variableName="uuid" value="#[java.util.UUID.randomUUID().toString()]" doc:name="uuid"/>
+		<logger
+			message="#[&quot;\n=======================================\nStarted Channel GET INFO BY E7 ID\nRequest Message:\n&quot; +flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="STARTED GET INFO BY E7 ID" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+        <set-variable variableName="reqMsg" value="#[payload]" doc:name="reqMsg"/>
+		<set-payload
+			value="{
+	&quot;info&quot;: {
+		&quot;lang&quot;: &quot;en&quot;,
+		&quot;uid&quot;: &quot;264a3971-9e86-4ae3-8ade-fea5a363f486&quot;,
+		&quot;my_device&quot;: {
+			&quot;browser&quot;: &quot;Chrome&quot;,
+			&quot;browserVersion&quot;: &quot;79.0.3945.88&quot;,
+			&quot;browserMajorVersion&quot;: 79,
+			&quot;cookies&quot;: true
+		},
+		&quot;request_time&quot;: 1580804624914,
+		&quot;protect_request&quot;: &quot;&quot;,
+		&quot;key_feedback&quot;: &quot;258cf4c8b9b184d3-45&quot;
+	},
+	&quot;bo&quot;: [
+		{
+			&quot;txcode&quot;: &quot;bo-hub-dymanicSearch&quot;,
+			&quot;input&quot;: {
+				&quot;learn_sql&quot;: &quot;d_hubstmGetIdForReversalForm&quot;,
+				&quot;data&quot;: {
+					&quot;E7ID&quot;: &quot;#[flowVars.reqMsg.E7ID]&quot;
+				}
+			}
+		}
+	]
+}"
+			doc:name="Msg Request" mimeType="application/json"/>
+		<flow-ref name="BO_connectorFlow" doc:name="BO_connectorFlow"/>
+		<set-payload
+			value="{
+	&quot;ERRORCODE&quot;: &quot;#[json:fo[0]/input/response/errorcode]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[json:fo[0]/input/response/errordesc]&quot;,
+	&quot;E7ID&quot;: &quot;#[flowVars.reqMsg.E7ID]&quot;,
+	&quot;IDREVERSAL&quot;: &quot;#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/IDREVERSAL]&quot;,
+	&quot;TXCODE&quot;: &quot;#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/TXCODE]&quot;,
+	&quot;USRID&quot;: &quot;#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/USRID]&quot;,
+	&quot;BILLAMT&quot;: &quot;#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/BILLAMT]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;E7ID&quot;: &quot;#[flowVars.reqMsg.E7ID]&quot;,
+		&quot;IDREVERSAL&quot;: &quot;#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/IDREVERSAL]&quot;,
+		&quot;TXCODE&quot;: &quot;#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/TXCODE]&quot;,
+		&quot;USRID&quot;: &quot;#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/USRID]&quot;,
+		&quot;BILLAMT&quot;: &quot;#[json:fo[0]/input/response/data/d_corpservice[0]/d_corpservice/BILLAMT]&quot;
+	}
+}"
+			doc:name="Msg Response" mimeType="application/json"/>
+		<logger
+			message="#[&quot;\n=======================================\nEnded Channel GET INFO BY E7 ID\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+			level="INFO" doc:name="ENDED GET INFO BY E7 ID" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 9999,  &quot;ERRORDESC&quot;: &quot;#[exception.?cause.message or exception]&quot;,  &quot;RESULT&quot;: {} }"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=======================================\nEnded Channel GET INFO BY E7 ID\nResponse Message: &quot;+ flowVars.uuid + message.payloadAs(java.lang.String) +&quot;\n=======================================&quot;]"
+				level="INFO" doc:name="ENDED GET INFO BY E7 ID" />
+		</catch-exception-strategy>
+		</flow>
+</mule>

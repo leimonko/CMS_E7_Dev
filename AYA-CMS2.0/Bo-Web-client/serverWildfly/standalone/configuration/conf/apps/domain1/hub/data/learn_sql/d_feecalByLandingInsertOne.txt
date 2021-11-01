@@ -1,0 +1,14 @@
+{
+  "learn_sql_title": "Thêm mới txcode",
+  "learn_sql_query": "INSERT INTO hubdb.d_feecal(feecode, caltype, appliedwhen, basicvalue, payer, descs, tier, fromvalue, tovalue, formular, roundingby,commonacc,ccrcd) 
+  VALUES (?,'L', ?,?, ?, ?, ?, TO_NUMBER(?), TO_NUMBER(?), ?, ?,?,?)",
+  "learn_sql_parameter": "@feecode,@land_appliedwhen,@land_basisvalue,@land_payer,@land_descs,#tier,@fromvalue,@tovalue,@formular,#roundingby,@land_commonacc,@land_ccrcd",
+  "learn_sql_parameter_sub": "#pk_col",
+  "learn_sql_query_sub": "SELECT recid,feecode, caltype, appliedwhen, basicvalue, payer, descs, tier, fromvalue, tovalue, formular, roundingby FROM hubdb.d_feecal WHERE recid = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_feecalByLandingInsertOne",
+  "AFGHTimeWJ": 1561266469836
+}

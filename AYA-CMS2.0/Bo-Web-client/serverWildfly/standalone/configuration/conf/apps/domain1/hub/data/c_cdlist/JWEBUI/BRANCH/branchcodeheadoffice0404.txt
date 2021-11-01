@@ -1,0 +1,14 @@
+{
+  "cdid": "9999",
+  "cdname": "BRANCH",
+  "caption": "Head office",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": 1,
+  "AFGHkeyIndexWJ": "branchcodeheadoffice0404",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

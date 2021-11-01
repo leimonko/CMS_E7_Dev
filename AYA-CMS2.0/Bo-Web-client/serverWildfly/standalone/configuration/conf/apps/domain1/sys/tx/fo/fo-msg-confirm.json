@@ -1,0 +1,12 @@
+{
+  "input": {},
+  "actions": [{ "name": "Toast", "function": "message.showToastConfirm", "type": "javascript", "status": "A" }],
+  "request": {},
+  "status": "A",
+  "txtype": "system",
+  "txcode": "fo-msg-confirm",
+  "txname": "Toast",
+  "version": 3,
+  "updateTime": 1564540500113,
+  "isOld": true
+}

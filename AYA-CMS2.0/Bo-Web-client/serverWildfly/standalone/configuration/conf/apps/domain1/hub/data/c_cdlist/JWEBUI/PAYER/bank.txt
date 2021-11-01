@@ -1,0 +1,1 @@
+{"cdid":"B","cdname":"PAYER","caption":"Bank","cdgrp":"JWEBUI","cdidx":"3","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"bank","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

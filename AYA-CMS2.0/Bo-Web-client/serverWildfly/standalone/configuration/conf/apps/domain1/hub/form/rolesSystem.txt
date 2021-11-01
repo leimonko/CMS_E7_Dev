@@ -1,0 +1,358 @@
+{
+	"info": {
+		"title": "System Role",
+		"des": "System Role",
+		"data": "role_system",
+		"openOne": "true",
+		"group_menu": "sp553D4v9g54B75",
+		"node_position": [
+			{
+				"id": "start",
+				"left": "432",
+				"top": "111"
+			},
+			{
+				"id": "sp5549k67x5m4370",
+				"left": "565",
+				"top": "12"
+			},
+			{
+				"id": "sp5549o495974c851",
+				"left": "604",
+				"top": "158"
+			},
+			{
+				"id": "sp5549p43544970b",
+				"left": "419",
+				"top": "274"
+			},
+			{
+				"id": "sp5549k86j7u5575",
+				"left": "42",
+				"top": "314"
+			},
+			{
+				"id": "sp5549k7r365C485",
+				"left": "40",
+				"top": "187"
+			}
+		],
+		"flow_layout": [
+			{
+				"sourceId": "start",
+				"targetId": "sp5549k67x5m4370"
+			},
+			{
+				"sourceId": "start",
+				"targetId": "sp5549k7r365C485"
+			},
+			{
+				"sourceId": "start",
+				"targetId": "sp5549k86j7u5575"
+			},
+			{
+				"sourceId": "start",
+				"targetId": "sp5549o495974c851"
+			},
+			{
+				"sourceId": "start",
+				"targetId": "sp5549p43544970b"
+			}
+		],
+		"learnapi": "",
+		"form_code": "rolesSystem",
+		"ruleStrong": [],
+		"learnsql": ""
+	},
+	"list_layout": [
+		{
+			"name": "Input",
+			"des": "",
+			"inputtype": "cLayout",
+			"class": "",
+			"list_view": [
+				{
+					"code": "code",
+					"name": "view",
+					"inputtype": "cView",
+					"list_input": [
+						{
+							"inputtype": "cTextInput",
+							"default": {
+								"name": "Role name",
+								"code": "code",
+								"codeHidden": "sp560g80i6w43365",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"structable": "role_system.role_system_name",
+								"structable_read": "role_system.role_system_name",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": 2
+							},
+							"lang": {},
+							"configAVD": {}
+						},
+						{
+							"inputtype": "cTextInput",
+							"default": {
+								"name": "Code",
+								"code": "code",
+								"codeHidden": "sp560g8j6A599735",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"structable": "role_system.role_system_id",
+								"structable_read": "role_system.role_system_id",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"min": 2
+							},
+							"lang": {},
+							"configAVD": {}
+						},
+						{
+							"inputtype": "cButton",
+							"default": {
+								"name": "Add",
+								"code": "sp5549k67x5m4370",
+								"codeHidden": "sp560g85l98x94d",
+								"class": "",
+								"condition": "wf[\"role_system\"]===undefined",
+								"role": ""
+							},
+							"config": {
+								"action": "default_save",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-newdata\",\n        \"input\": {\n            \"list_component\": \"code\",\n            \"list_view\": \"code\",\n            \"table_code\": \"role_system\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "save",
+								"color": "info",
+								"onTable": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {}
+						},
+						{
+							"inputtype": "cButton",
+							"default": {
+								"name": "Update",
+								"code": "sp5549o495974c851",
+								"codeHidden": "sp560g88440i3y4",
+								"class": "",
+								"condition": "wf[\"role_system\"][\"AFGHkeyIndexWJ\"]!==undefined",
+								"role": ""
+							},
+							"config": {
+								"action": "default_edit",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-updatedata\",\n        \"input\": {\n            \"list_component\": \"code\",\n            \"list_view\": \"code\",\n            \"table_code\": \"role_system\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "save",
+								"color": "info",
+								"onTable": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {}
+						},
+						{
+							"inputtype": "cButton",
+							"default": {
+								"name": "Clear",
+								"code": "sp5549p43544970b",
+								"codeHidden": "p6e7845987637958n",
+								"class": "",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+								"useAction": "false",
+								"icon": "save",
+								"color": "base",
+								"onTable": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {}
+						}
+					],
+					"codeHidden": "3098ca2fcde884b5"
+				}
+			],
+			"codeHidden": "59c92fc964d6d9c0"
+		},
+		{
+			"name": "Danh sách",
+			"des": "",
+			"class": "",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"code": "code",
+					"name": "Mẫu view",
+					"inputtype": "cView",
+					"list_input": [
+						{
+							"inputtype": "cButton",
+							"default": {
+								"name": "Delete",
+								"code": "sp5549k86j7u5575",
+								"codeHidden": "sp560g9i44355640",
+								"class": "",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"action": "default_delete",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-deletedata\",\n        \"input\": {\n            \"table_code\": \"role_system\",\n            \"table_col_key\": \"\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "save",
+								"color": "danger",
+								"onTable": "table"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {}
+						},
+						{
+							"inputtype": "cButton",
+							"default": {
+								"name": "View",
+								"code": "sp5549k7r365C485",
+								"codeHidden": "sp560g9337Bl589",
+								"class": "",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"action": "default_view",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewdata\",\n        \"input\": {\n            \"table_code\": \"role_system\",\n            \"table_col_key\": \"\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "save",
+								"color": "info",
+								"onTable": "table"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {}
+						},
+						{
+							"inputtype": "cTableDefault",
+							"default": {
+								"name": "Listing",
+								"code": "table",
+								"codeHidden": "sp560i355d6o3j4",
+								"class": "col-12",
+								"condition": "",
+								"role": ""
+							},
+							"config": {
+								"structable": "",
+								"query_data": "select * from role_system",
+								"paging_record": "50",
+								"columns": "[{\"code\":\"role_system.role_system_id\",\"title\":\"Code\",\"inputtype\":\"ColumnString\",\"config\":{}},{\"code\":\"role_system.role_system_name\",\"title\":\"Role name\",\"inputtype\":\"ColumnString\",\"config\":{}}]"
+							},
+							"role": {},
+							"property": {},
+							"validate": {},
+							"lang": {
+								"vn": {
+									"Code": "Code",
+									"Role name": "Role name"
+								},
+								"en": {
+									"Code": "Code",
+									"Role name": "Role name"
+								}
+							},
+							"configAVD": {}
+						}
+					],
+					"codeHidden": "5fa60c23d9a1ad09"
+				}
+			],
+			"codeHidden": "48109fec77653b5d"
+		}
+	],
+	"react_txt": ""
+}

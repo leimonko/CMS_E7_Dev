@@ -1,0 +1,1 @@
+{"Accountant":{"3090e8ee63e81ad0":{"form":{"accept":true,"follow":false}},"e63dff050a87da48":{"layout":{"install":true}},"a9cf57f097429e8b":{"view":{"install":true}},"2bc9fc9ba557ca79":{"component":{"install":true}}}}

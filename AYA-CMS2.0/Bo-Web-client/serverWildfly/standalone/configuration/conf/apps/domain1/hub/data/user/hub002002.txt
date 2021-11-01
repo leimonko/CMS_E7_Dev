@@ -1,0 +1,1 @@
+{"full_name":"hub002002","email":"hub002002","user_status":"A","user_id":"hub002002","branchcd":"0020","branchid":"0020","branchname":"Ygn (4) North Dagon","AFGHkeyIndexWJ":"hub002002","AFGHkeyTime":1603781790574,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790574,"AFGHkeyUserCreateWJ":""}

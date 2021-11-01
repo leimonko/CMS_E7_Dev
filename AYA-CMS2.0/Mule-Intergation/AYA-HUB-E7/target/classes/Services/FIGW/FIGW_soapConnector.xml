@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="Figw_soapConnectorFlow">
+		<logger
+			message="#[&quot;\n==========[FIGW-SOAP-REQUEST]=========== &quot;+ flowVars.uuid+ &quot;\n  -Method=&quot;+flowVars.method+&quot;\n  -Params=&quot;+flowVars.params+&quot;\n  -Path=&quot;+flowVars.path+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n  -Header=&quot;+flowVars.headers+&quot;\n==========[FIGW-SOAP-REQUEST]===========&quot;]"
+			level="INFO" doc:name="FIGW-SOAP-REQUEST" />
+		<http:request config-ref="FIGW" path="/CoreService.asmx"
+			method="POST" doc:name="FIGW_SOAP_ENDPOINT">
+			<http:request-builder>
+				<http:header headerName="Content-Type" value="text/xml"/>
+			</http:request-builder>
+			<http:success-status-code-validator
+				values="200..599" />
+		</http:request>
+		<logger message="#[&quot;\n==========[FIGW-SOAP-RESPONSE]=========== &quot; + flowVars.uuid +&quot;\n  -Headers=&quot;+message.inboundProperties+&quot;\n  -Body=&quot;+message.payloadAs(java.lang.String)+&quot;\n==========[FIGW-SOAP-RESPONSE]===========&quot;]" level="INFO" doc:name="FIGW-SOAP-RESPONSE"/>
+	</flow>
+</mule>

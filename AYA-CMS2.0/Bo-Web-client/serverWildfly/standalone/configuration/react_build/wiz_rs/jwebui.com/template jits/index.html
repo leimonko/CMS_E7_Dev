@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Just-in-time Solution</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/icon.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./css/animate.css" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/700b256ad2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="mySidenav" class="jits-header-responsive-sidenav">
+        <div class="jits-header-responsive-Navbar-top">
+            <img class="jits-header-responsive-Navbar-img" src="./images/logowhite.png" />
+            <a href="javascript:void(0)" onclick="closeNav()"><span class="material-icons">
+            close
+            </span></a>
+        </div>
+        <div class="jits-header-responsive-Navbar-content">
+            <div>
+                <a href="#">Solution</a>
+            </div>
+            <ul>
+                <li><a href="./solution_o9.html">Core Banking</a></li>
+                <li><a href="./solution_microfinance.html">Microfinance Solution</a></li>
+                <li><a href="./solution_data_warehouse.html">Data Warehousing Solution</a></li>
+                <li><a href="./solution_local.html">Local Regulartory Reporting Solution</a></li>
+                <li><a href="./solution_cis.html">Card Interface System</a></li>
+                <li><a href="./solution_ebanking.html">E-banking Solution</a></li>
+                <li><a href="./solution_mutil_system.html">Multi-system Interface Solution</a></li>
+            </ul>
+            <div>
+                <a href="./about.html">About</a>
+            </div>
+            <div>
+                <a href="./career.html">
+          Career
+          <img src="./images/newwhite.png" />
+        </a>
+            </div>
+        </div>
+    </div>
+    <!--Header -->
+    <div class="jits-header-container wow fadeInDown" data-wow-delay="0.5s">
+        <div class="jits-header-navbar">
+            <div class="jits-header-img">
+                <img src="./images/logo.png" />
+            </div>
+            <div class="jits-header-responsive-icon">
+                <a href="javascript:;">
+                    <div style="font-size: 30px; cursor: pointer;" onclick="openNav()">
+                        &#9776;
+                    </div>
+                </a>
+            </div>
+            <div class="jits-header-navbar-right">
+                <div class="jits-header-btn jits-button" onclick="window.location.href='contactus.html';">
+                    <a href="./contactus.html" id="lettalk">Let's Talk</a>
+                </div>
+                <div class="jits-header-carrer">
+                    <a href="./career.html">
+            Career
+            <img src="./images/Frame 4.png" />
+          </a>
+                </div>
+                <div class="jits-header-about">
+                    <a href="./about.html">About</a>
+                </div>
+                <div class="jits-header-dropdown">
+                    <div class="jits-header-dropdown-text-solution" id="test">
+                        <a onclick="myfunction()" id="header-text-solution" href="javascript:;">Solution
+              <i class="fa fa-caret-down" id="jits-header-iconDropdown"></i>
+            </a>
+                    </div>
+                    <div class="jits-header-dropdown-content" id="myDropdown">
+                        <div class="jits-header-header"></div>
+                        <div class="jits-header-row">
+                            <div class="jits-header-column">
+                                <div class="jits-header-column-header">
+                                    FINANCIAL SERVICE SOLUTIONS
+                                </div>
+  
+                                <a href="./solution_o9.html">Core Banking</a>
+                                <a href="./solution_microfinance.html">Microfinance Solution</a>
+                            </div>
+                            <div class="jits-header-column">
+                                <div class="jits-header-column-header">
+                                    BIG DATA ANALYTICS
+                                </div>
+                                <a href="./solution_data_warehouse.html">Data Warehousing Solution</a>
+                                <a href="./solution_local.html">Local Regulartory Reporting Solution</a>
+                            </div>
+                            <div class="jits-header-column">
+                                <div class="jits-header-column-header">
+                                    MIDDLEWARE SOLUTIONS
+                                </div>
+                                <a href="./solution_cis.html">Card Interface System</a>
+                                <a href="./solution_ebanking.html">E-Banking Solution</a>
+                                <a href="./solution_mutil_system.html">Multi-system Interface Solution</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Introduction -->
+      <div class="jits-Homepage-introduction">
+        <div
+          class="jits-Homepage-introduction-image wow fadeInDown"
+          data-wow-delay="0.5s"
+        ></div>
+        <div class="jits-Homepage-introduction-introduceside">
+          <div
+            class="jits-Homepage-introduction-introduceside-title wow fadeInDown"
+            data-wow-delay="0.5s"
+          >
+            <span class="txt-rotate_dynamic">
+
+              Providing a Comprehensive Portfolio of Banking</span
+            >
+            <div class="txt-rotate_animation">
+              <span
+                class="txt-rotate"
+                data-period="2000"
+                data-lineid="txt-rotate_animation_line"
+                data-color='["#F69DF8","#8FE4D2"]'
+                data-rotate='[ "Solutions", "Services"]'
+              ></span>
+                    <div id="txt-rotate_animation_line" class="txt-rotate_animation_line"></div>
+                </div>
+            </div>
+            <div class="jits-Homepage-introduction-introduceside-content wow fadeInDown" data-wow-delay="0.5s">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+            </div>
+            <a href="./contactus.html">
+            <div class="jits-lets_talk jits-button wow fadeInDown" data-wow-delay="0.5s">
+                <p class="jits-lets_talk-title">
+                    Let's Talk
+                </p>
+                <span class="material-icons jits-lets_talk-arrow">
+              keyboard_backspace
+            </span>
+            </div>
+        </a>
+    </div>
+    </div>
+    <!-- Service -->
+    <div class="jits-Homepage-service-div">
+        <div class="jits-Homepage-service">
+          
+          <div
+            class="jits-Homepage-service-introduction wow fadeInDown"
+            data-wow-delay="0.5s"
+          >
+            <div class="jits-Homepage-service-introduction-title">
+              Our Services
+            </div>
+            <div class="jits-Homepage-service-introduction-content">
+              We serve a wide range of customers in financial services industry
+              from banks, financial leasing companies to microfinance
+              institutions of all size
+
+            </div>
+            <div class="jits-Homepage-service-content wow fadeInDown" data-wow-delay="0.5s">
+                <div class="jits-Homepage-service-content-list">
+                    <div class="jits-Homepage-service-content-item open">
+                        <span class="material-icons jits-service-icon">
+                  code
+                </span>
+                <div class="jits-Homepage-service-content-list-title">
+                  Outsourcing
+                </div>
+                <div
+                  class="jits-Homepage-service-content-list-introduction"
+                >
+                  We provide integrated outsourcing services to give our
+                  customers competitive edge and help them focus on their core
+                  business.
+                </div>
+                <div
+                  class="jits-Homepage-service-content-image outsourcing"
+                ></div>
+              </div>
+              <div class="jits-Homepage-service-content-item">
+                <span class="material-icons jits-service-icon">
+
+                  cloud
+                </span>
+                        <div class="jits-Homepage-service-content-list-title">
+                            Data Migration
+                        </div>
+                        <div class="jits-Homepage-service-content-list-introduction">
+                            We provide integrated outsourcing services to give our customers competitive edge and help them focus on their core business.
+                        </div>
+                        <div class="jits-Homepage-service-content-image data"></div>
+                        <div class="jits-Homepage-service-content-list-data-introduction"></div>
+                    </div>
+                    <div class="jits-Homepage-service-content-item">
+                        <span class="material-icons jits-service-icon">
+                  memory
+                </span>
+                <div class="jits-Homepage-service-content-list-title">
+                  Project Consultancy and Implementation
+                </div>
+                <div
+                  class="jits-Homepage-service-content-list-introduction"
+                >
+                  We provide integrated outsourcing services to give our
+                  customers competitive edge and help them focus on their core
+                  business.
+                </div>
+                <div class="jits-Homepage-service-content-image consultancy"></div>
+                <div
+                  class="jits-Homepage-service-content-list-project-introduction"
+                ></div>
+              </div>
+              <div class="jits-Homepage-service-content-item">
+                <span class="material-icons jits-service-icon">
+
+                  support_agent
+                </span>
+                        <div class="jits-Homepage-service-content-list-title">
+                            Support
+                        </div>
+                        <div class="jits-Homepage-service-content-list-introduction">
+                            We provide integrated outsourcing services to give our customers competitive edge and help them focus on their core business.
+                        </div>
+                        <div class="jits-Homepage-service-content-image support"></div>
+                        <div class="jits-Homepage-service-content-list-support-introduction"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--Solution-->
+    <div class="jits-Homepage-Solution-container">
+        <div class="jits-Homepage-Solution-subcontainer">
+            <div class="jits-Homepage-Solution-textHeader wow fadeInDown" data-wow-delay="0.5s">
+                <p>SOLUTIONS</p>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-xl-6 col-lg-6 jits-Homepage-Solution-column" id="">
+                <div class="jits-Homepage-Solution-cell wow fadeInDown" data-wow-delay="0.5s">
+                    <div class="jits-Homepage-Solution-Cell-title">
+                        <h2>What the provide</h2>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-12 col-xl-6 col-lg-6 jits-Homepage-Solution-column wow fadeInDown" data-wow-delay="0.5s">
+                <div class="jits-Homepage-Solution-cell">
+                    <div class="jits-Homepage-Solution-Cell">
+                        <h3>Financial Service Solutions</h3>
+                        <ul class="jits-Homepage-Solution-Cell-ul">
+                            <li><a href="./solution_o9.html">Core Banking</a></li>
+                            <li><a href="./solution_microfinance.html">Microfinance Solution</a></li>
+                        </ul>
+                        <img src="./images/financial.png" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-xl-6 col-lg-6 jits-Homepage-Solution-column wow fadeInDown" data-wow-delay="0.5s">
+                <div class="jits-Homepage-Solution-cell">
+                    <div class="jits-Homepage-Solution-Cell">
+                        <h3>Big Data Ananlytics</h3>
+                        <ul class="jits-Homepage-Solution-Cell-ul">
+                            <li><a href="./solution_data_warehouse.html">Data Warehousing Solution</a></li>
+                            <li><a href="./solution_local.html">Local Regulartory Reporting Solution</a></li>
+                        </ul>
+                        <img src="./images/data.png" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-12 col-xl-6 col-lg-6 jits-Homepage-Solution-column wow fadeInDown" data-wow-delay="0.5s">
+                <div class="jits-Homepage-Solution-cell">
+                    <div class="jits-Homepage-Solution-Cell">
+                        <h3>Middleware Solutions</h3>
+                        <ul class="jits-Homepage-Solution-Cell-ul">
+                            <li><a href="./solution_cis.html">Card Interface System</a></li>
+                            <li><a href="./solution_ebanking.html">E-Banking Solution</a></li>
+                            <li><a href="./solution_mutil_system.html">Mul-system Interface Solution</a></li>
+                        </ul>
+                        <img src="./images/middleware.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Featured Clients -->
+    <div class="jits-Homepage-Featured-container">
+        <div class="jits-Homepage-Featured-subcontainer">
+            <div class="jits-Homepage-Featured-subcontainer-text wow fadeInDown" data-wow-delay="0.5s">
+                <p>Featured Clients</p>
+            </div>
+            <div class="jits-Homepage-Featured-subcontainer-img wow fadeInDown" data-wow-delay="0.5s">
+                <div class="col-12">
+                    <img class="jits-Homepage-Featured-subcontainer-subImage" src="./images/aya.png" />
+                    <img class="jits-Homepage-Featured-subcontainer-subImage" src="./images/krungsri-bank-lg 1.png" />
+                    <img class="jits-Homepage-Featured-subcontainer-subImage" src="./images/logo_kasikornthai 1.png" />
+                    <img class="jits-Homepage-Featured-subcontainer-subImage" src="./images/20200226092757 1.png" />
+                    <img class="jits-Homepage-Featured-subcontainer-subImage" src="./images/aya.png" />
+                    <img class="jits-Homepage-Featured-subcontainer-subImage" src="./images/krungsri-bank-lg 1.png" />
+                    <img class="jits-Homepage-Featured-subcontainer-subImage" src="./images/logo_kasikornthai 1.png" />
+                    <img class="jits-Homepage-Featured-subcontainer-subImage" src="./images/20200226092757 1.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jits-footer-contact wow fadeInDown" data-wow-delay="0.5s">
+        <div class="jits-footer-contact-contentside">
+            <div class="jits-footer-contact-contentside-title">Contact Us</div>
+            <div class="jits-footer-contact-contentside-content">
+                Drop us a message if you need any helps from JITS
+            </div>
+            <a href="./contactus.html">
+            <div class="jits-lets_talk jits-button">
+                <p class="jits-lets_talk-title">
+                    Let's Talk
+                </p>
+                <span class="material-icons jits-lets_talk-arrow">
+            keyboard_backspace
+          </span>
+            </div>
+        </a>
+        </div>
+    </div>
+    <div class="jits-footer-infor">
+        <div class="jits-footer-infor-contentside row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 jits-footer-infor-contentside-contact one wow fadeInDown" data-wow-delay="0.5s">
+                <div class="jits-footer-infor-contentside-contact-address">
+                    <li><b>Ho Chi Minh:</b> 27 Nguyen Huu Tho, District 7</li>
+                    <li><b>Ha Noi:</b> 164 Xa Dan, Nam Dong, Dong Da District</li>
+                </div>
+                <div class="jits-footer-infor-contentside-contact-email">
+                    <span class="material-icons jits-service-icon-footer">
+              email
+            </span>
+                    <li>
+                        </i>abcd@jits.vn</li>
+                </div>
+                <div class="jits-footer-infor-contentside-contact-telephone_number">
+                    <span class="material-icons jits-service-icon-footer">
+              phone
+            </span>
+                    <li>+84 836 205 249</li>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 row two">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 row">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 jits-footer-infor-contentside wow fadeInDown" data-wow-delay="0.5s">
+                        <li><b>Product</b></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Solutions</a></li>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 jits-footer-infor-contentside wow fadeInDown" data-wow-delay="0.5s">
+                        <li><b>Company</b></li>
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./contactus.html">Contact Us</a></li>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 jits-footer-infor-contentside wow fadeInDown" data-wow-delay="0.5s">
+                    <li><b>Carrer</b></li>
+                    <li><a href="./career.html">Join Us</a></li>
+                </div>
+            </div>
+        </div>
+        <div class="jits-footer-infor-line wow fadeInDown" data-wow-delay="0.5s"></div>
+        <div class="jits-footer-infor-copyright wow fadeInDown" data-wow-delay="0.5s">
+            Just-in-Time Solutions, @2020 All rights reserved
+        </div>
+        <div class="jits-footer-dropup-language wow fadeInDown" data-wow-delay="0.5s">
+            <div onclick="changeLanguage()" id="languageButton" class="jits-footer-dropbtn-language">
+                English
+                <span class="material-icons jits-footer-dropup-language-arrow">
+          expand_more
+          </span>
+            </div>
+            <div id="languageDropdown" class="jits-footer-dropup-language-content">
+                <a href="#">Bahasa</a>
+                <a href="#">Tiếng Việt</a>
+                <a href="#">English</a>
+            </div>
+        </div>
+    </div>
+  </body>
+  <script>
+
+    var test = 0;
+    document.getElementById('myDropdown').style.height = '0px';
+    document.getElementById('myDropdown').style.display = 'block';
+
+    function myfunction() {
+        var x = document.getElementById('myDropdown').style.display;
+        document.getElementById('myDropdown').style.display = 'block';
+        if (test == 1) {
+            document
+                .getElementById('jits-header-iconDropdown')
+                .setAttribute('class', 'fa fa-caret-down');
+            document.getElementById('header-text-solution').style.color = 'black';
+            document.getElementById('header-text-solution').style.borderBottom =
+                '0px solid rgb(255, 115, 0)';
+            document.getElementById('myDropdown').style.transition =
+                'all 0.5s ease-in-out';
+            document.getElementById('myDropdown').style.height = '0px';
+            document.getElementById('myDropdown').style.borderTop =
+                '1px solid #ffffff';
+            test = 0;
+        } else if (test == 1) {
+            document
+                .getElementById('jits-header-iconDropdown')
+                .setAttribute('class', 'fa fa-caret-down');
+            document.getElementById('header-text-solution').style.color = 'black';
+            document.getElementById('header-text-solution').style.borderBottom =
+                '0px solid rgb(255, 115, 0)';
+            document.getElementById('myDropdown').style.transition =
+                'all 0.5s ease-in-out';
+            document.getElementById('myDropdown').style.height = '0px';
+            document.getElementById('myDropdown').style.borderTop =
+                '1px solid #ffffff';
+            test = 0;
+        } else {
+            document
+                .getElementById('jits-header-iconDropdown')
+                .setAttribute('class', 'fa fa-caret-up');
+            document.getElementById('header-text-solution').style.color =
+                'rgb(255, 115, 0)';
+            document.getElementById('header-text-solution').style.borderBottom =
+                '6px solid rgb(255, 115, 0)';
+            document.getElementById('myDropdown').style.transition =
+                'all 0.5s ease-in-out';
+            document.getElementById('myDropdown').style.height = '238px';
+            document.getElementById('myDropdown').style.borderTop =
+                '1px solid #e5e5e5';
+            test = 1;
+        }
+    }
+</script>
+<script>
+    function openNav() {
+        document.getElementById('mySidenav').style.width = '375px';
+        document.getElementById('container').style.opacity = '40%';
+    }
+
+    function closeNav() {
+        document.getElementById('mySidenav').style.width = '0';
+        document.getElementById('container').style.opacity = '100%';
+    }
+</script>
+<script>
+    var btnContainer = document.getElementsByClassName(
+        'jits-Homepage-service-content-item'
+    );
+
+    for (var i = 0; i < btnContainer.length; i++) {
+        btnContainer[i].addEventListener('click', function() {
+            for (var j = 0; j < btnContainer.length; j++) {
+                btnContainer[j].classList.remove('open');
+            }
+            this.classList.add('open');
+        });
+    }
+
+    var TxtRotate = function(el, toRotate, period, lineid, color) {
+        this.toRotate = toRotate;
+        this.lineid = lineid;
+        this.colorID = 0;
+        this.color = color;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtRotate.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">' + this.txt + `</span>`;
+        if (this.txt === fullTxt) {
+            document.getElementById(this.lineid).className =
+                'txt-rotate_animation_line show';
+            if (this.colorId === 0) this.colorId = 1;
+            else this.colorId = 0;
+            document.getElementById(this.lineid).style.backgroundColor = this.color[
+                this.colorId
+            ];
+        } else if (this.txt === '') {
+            document.getElementById(this.lineid).className =
+                'txt-rotate_animation_line hide';
+        }
+        var that = this;
+        var delta = 150 - Math.random() * 100;
+
+        if (this.isDeleting) {
+            delta /= 2;
+        }
+        if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+        }
+        setTimeout(function() {
+            that.tick();
+        }, delta);
+    };
+    window.onload = function() {
+        var elements = document.getElementsByClassName('txt-rotate');
+        for (var i = 0; i < elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-rotate');
+            var period = elements[i].getAttribute('data-period');
+            var lineid = elements[i].getAttribute('data-lineid');
+            var color = elements[i].getAttribute('data-color');
+            if (toRotate) {
+                new TxtRotate(
+                    elements[i],
+                    JSON.parse(toRotate),
+                    period,
+                    lineid,
+                    JSON.parse(color)
+                );
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement('style');
+        css.type = 'text/css';
+        css.innerHTML =
+            '.txt-rotate > .wrap { border-right: 4px solid #666; animation: animated-cursor 670ms steps(29,end) infinite; }';
+        document.body.appendChild(css);
+    };
+  </script>
+  <script src="./js/jits_language.js"></script>
+  <script src="./js/wow.min.js"></script>
+  <script>
+
+    new WOW().init();
+</script>
+
+</html>

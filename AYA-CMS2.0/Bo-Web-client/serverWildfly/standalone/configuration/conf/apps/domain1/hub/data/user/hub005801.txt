@@ -1,0 +1,1 @@
+{"full_name":"hub005801","email":"hub005801","user_status":"A","user_id":"hub005801","branchcd":"0058","branchid":"0058","branchname":"Nyaung Oo","AFGHkeyIndexWJ":"hub005801","AFGHkeyTime":1603781790616,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790616,"AFGHkeyUserCreateWJ":""}

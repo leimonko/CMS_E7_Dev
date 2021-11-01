@@ -1,0 +1,15 @@
+{
+  "learn_sql_title": "Thêm mới txcode",
+  "learn_sql_query": "INSERT INTO hubdb.d_feebeneficiaries(recid,feecode, appliedwhen, benificiary, formular, roundingby,commonacc,ccrcd)
+	VALUES (?,?, ?, ?, ?, ?,?,?)",
+  "learn_sql_parameter": "#recid,@feecode, @benefit_appliedwhen, @benificiary, @formular, #roundingby,@commonacc,@ccrcd",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query_sub": "SELECT feecode, appliedwhen, benificiary, formular, roundingby FROM hubdb.d_feebeneficiaries WHERE recid = ?",
+  "learn_sql_data": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "learn_sql_squence": "select hubdb.D_FEEBENEFICIARIES_SEQ.nextval as recid from dual",
+  "AFGHkeyIndexWJ": "d_feebeneficiariesInsertOneFromAmendScreen",
+  "AFGHTimeWJ": 1561266469836
+}

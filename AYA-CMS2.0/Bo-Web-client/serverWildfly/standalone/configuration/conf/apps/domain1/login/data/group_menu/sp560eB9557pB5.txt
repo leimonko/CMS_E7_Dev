@@ -1,0 +1,1 @@
+{"group_menu_name":"Danh mục dùng chung","group_menu_order":"10","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"formCDList","group_menu_id":"sp560eB9557469c4","AFGHkeyIndexWJ":"sp560eB9557pB5","AFGHkeyTime":1556004279557,"AFGHkeyWorkFlow":""}

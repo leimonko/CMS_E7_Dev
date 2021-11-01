@@ -1,0 +1,1 @@
+{"full_name":"hub004102","email":"hub004102","user_status":"A","user_id":"hub004102","branchcd":"0041","branchid":"0041","branchname":"Pathein","AFGHkeyIndexWJ":"hub004102","AFGHkeyTime":1603781790598,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790598,"AFGHkeyUserCreateWJ":""}

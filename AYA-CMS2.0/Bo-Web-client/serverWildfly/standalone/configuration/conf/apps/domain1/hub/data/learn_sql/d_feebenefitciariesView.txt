@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Xem 1 dữ liệu",
+	"learn_sql_data": "d_feebeneficiaries",
+	"learn_sql_parameter": "@feecode",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT recid, feecode, appliedwhen AS benefit_appliedwhen, benificiary, formular, roundingby,commonacc,ccrcd FROM hubdb.d_feebeneficiaries WHERE feecode = ?",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_feebenefitciariesView",
+	"AFGHTimeWJ": 1561269909390
+}

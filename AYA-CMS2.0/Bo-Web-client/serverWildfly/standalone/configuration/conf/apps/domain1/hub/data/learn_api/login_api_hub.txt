@@ -1,0 +1,16 @@
+{
+	"learn_api_name": "Login API HUB",
+	"learn_api_link": "$API_SERVER$:$API_PORT_LOGIN$/hub/login",
+	"learn_api_data": "login",
+	"learn_api_node_data": "",
+	"learn_api_app": "BO",
+	"learn_api_method": "POST",
+	"learn_api_header": "Content-Type:application/json\nAccept:application/json",
+	"learn_api_mapping": "{\n    \"USERNAME\": \"MapS.dataS(user.username)\",\n    \"PASSWORD\": \"MapS.dataS(user.password)\"\n}",
+	"AFGHkeyIndexWJ": "login_api_hub",
+	"learn_api_id": "login_api_hub",
+	"AFGHTimeWJ": 1561538220623,
+	"AFGHkeyTime": 1561538220616,
+	"AFGHkeyWorkFlow": "",
+	"app_code": "o9"
+}

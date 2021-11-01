@@ -1,0 +1,16 @@
+﻿{
+	"learn_sql_title": "Xem 1 dữ liệu",
+	"learn_sql_data": "d_corpservice",
+	"learn_sql_parameter": "#servicecode",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT servicecode,corpcode, TYPE,name,description,ccycd, customernumber,billreferencenumber, minamount, maxamount,paymentamount, exceedsbillamount,
+       expiredbill,internetbanking,counter,atm,feecode, contractno,feecaltype,
+       TO_CHAR(stdt,'DD/MM/YYYY') as stdt,TO_CHAR(frdt,'DD/MM/YYYY') as frdt, catid,email, notifiemail,ref1,refsa1,ref2, refsa2,corpdepositaccno, sm,ref3,refsa3,famt,fvamt, efvamt,shortcode, isws,webserprtcol as websername,mask,mask1,mask3,expmishl,validbill,crgl 
+	   FROM hubdb.d_corpservice where servicecode = ?",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "d_corpserviceViewOne",
+	"AFGHTimeWJ": 1561269909390
+}

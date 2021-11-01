@@ -1,0 +1,1 @@
+{"full_name":"hub007602","email":"hub007602","user_status":"A","user_id":"hub007602","branchcd":"0076","branchid":"0076","branchname":"Bagan (mini)","AFGHkeyIndexWJ":"hub007602","AFGHkeyTime":1603781790634,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790634,"AFGHkeyUserCreateWJ":""}

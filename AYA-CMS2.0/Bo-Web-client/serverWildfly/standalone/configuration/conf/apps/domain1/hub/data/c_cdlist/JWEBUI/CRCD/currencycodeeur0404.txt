@@ -1,0 +1,1 @@
+{"cdid":"EUR","cdname":"CRCD","caption":"EUR","cdgrp":"JWEBUI","cdidx":"3","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"currencycodeeur0404","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

@@ -1,0 +1,1 @@
+{"active":true,"verify":false,"blocked":false,"requestChangePass":true,"user_id":"etm9999","full_name":"etm9999","email":"etm9999@hub.com","AFGHkeyIndexWJ":"etm9999@hub.com","AFGHkeyTime":1603968421103,"branchcd":"9999","branchname":"AYA HO","AFGHkeyUserCreateWJ":"0ca9ebc5-73c3-4a98-b565-169461b0af32","AFGHkeyWorkFlow":"","AFGHTimeWJ":1603968421122}

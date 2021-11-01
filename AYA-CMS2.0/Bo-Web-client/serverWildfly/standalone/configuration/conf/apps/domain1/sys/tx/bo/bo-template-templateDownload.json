@@ -1,0 +1,35 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "Tải 1 template theo mã trong para",
+            "function": "template.templateDownloadDefault",
+            "type": "java",
+            "para": ["@template_code"],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [
+                        {
+                            "txcode": "#sys:fo-container"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {
+        "fo": [
+            {
+                "txcode": "#sys:fo-projectLogin-formLogin"
+            }
+        ]
+    },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-projectLogin-start",
+    "version": 2,
+    "updateTime": 1562250940778,
+    "txname": "Chỉ tải cho project login vì cần ít dữ liệu",
+    "isOld": true
+}

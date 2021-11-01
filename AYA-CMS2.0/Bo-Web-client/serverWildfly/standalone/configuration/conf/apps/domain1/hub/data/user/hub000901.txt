@@ -1,0 +1,1 @@
+{"full_name":"hub000901","email":"hub000901","user_status":"A","user_id":"hub000901","branchcd":"0009","branchid":"0009","branchname":"Mogoke","AFGHkeyIndexWJ":"hub000901","AFGHkeyTime":1603781790561,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790561,"AFGHkeyUserCreateWJ":""}

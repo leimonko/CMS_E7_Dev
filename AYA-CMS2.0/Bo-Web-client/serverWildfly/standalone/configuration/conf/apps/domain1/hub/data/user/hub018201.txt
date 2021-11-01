@@ -1,0 +1,1 @@
+{"full_name":"hub018201","email":"hub018201","user_status":"A","user_id":"hub018201","branchcd":"0182","branchid":"0182","branchname":"Ygn(75)_LTA2","AFGHkeyIndexWJ":"hub018201","AFGHkeyTime":1603781790727,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790727,"AFGHkeyUserCreateWJ":""}

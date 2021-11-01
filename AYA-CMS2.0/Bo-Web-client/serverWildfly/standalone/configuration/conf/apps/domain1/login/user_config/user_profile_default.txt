@@ -1,0 +1,1 @@
+{"list_lang_config":[{"key":"vi","view":"Việt Nam"},{"key":"en","view":"English"},{"key":"lo","view":"ລາວ (Lào)"},{"key":"km","view":"Cam"},{"key":"th","view":"ประเทศไทย (Thái)"},{"key":"mg","view":"മ്യാൻമർ (Myanmar)"},{"key":"ja","view":"日本語 (Nhật)"},{"key":"ko","view":"한국"}]}

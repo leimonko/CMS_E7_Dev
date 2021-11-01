@@ -1,0 +1,16 @@
+{
+  "learn_api_name": "ctm_customer_group Save View",
+  "learn_api_link": "$API_SERVER$:$API_PORT_DATA$/api/customer/customergroup/@{ctm_customer_group.grpid}",
+  "learn_api_data": "ctm_customer_group",
+  "learn_api_node_data": "",
+  "learn_api_app": "BO",
+  "learn_api_method": "PUT",
+  "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer )",
+  "learn_api_mapping": "{\"grpname\":\"MapS.dataS(ctm_customer_group.grpname)\",\"purpose\":\"MapS.dataS(ctm_customer_group.purpose)\",\"descr\":\"MapS.dataS(ctm_customer_group.descr)\",\"mmemberid\":\"MapS.dataS(ctm_customer_group.mmemberid)\",\"grpline\":\"MapS.dataN(ctm_customer_group.grpline)\",\"ccrcd\":\"MapS.dataS(ctm_customer_group.ccrcd)\",\"grplineod\":\"MapS.dataN(ctm_customer_group.grplineod)\",\"members\":\"MapS.arrayJson(ctm_customer_group.ctm_customer_group_account_of_group|{\\\"memberid\\\":\\\"MapS.dataS(ctm_customer_group_account_of_group.customercd)\\\",\\\"grpid\\\":\\\"MapS.dataN(ctm_customer_group_account_of_group.ctm_customer_group.grpid)\\\"})\"}",
+  "learn_api_id": "ctm_customer_group_view_save_put_api_customer_customergroup_grpid",
+  "AFGHkeyIndexWJ": "ctm_customer_group_view_save_put_api_customer_customergroup_grpid",
+  "AFGHkeyTime": 1577373168017,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1577373168066,
+  "app_code": "o9"
+}

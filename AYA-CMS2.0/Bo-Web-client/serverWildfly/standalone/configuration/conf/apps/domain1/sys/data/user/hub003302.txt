@@ -1,0 +1,1 @@
+{"full_name":"hub003302","email":"hub003302","user_status":"A","user_id":"hub003302","AFGHkeyIndexWJ":"hub003302","AFGHkeyTime":1598784400361,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1598784400361,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"api","function":"system.loadScreenWorker","type":"java","status":"A"}],"request":{},"status":"A","txtype":"system","txcode":"fo-load-screen","txname":"Tải màn hình làm việc","version":3,"updateTime":1571734920137,"isOld":true}

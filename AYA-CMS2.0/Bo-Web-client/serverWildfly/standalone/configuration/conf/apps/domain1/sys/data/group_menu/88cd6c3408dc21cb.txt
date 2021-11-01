@@ -1,0 +1,1 @@
+{"group_menu_lang":{"vi":"Auto Form","en":"Auto Form","thai":"","lao":"","cam":"","mya":"","han":""},"group_menu_name":"Auto Form","group_menu_order":"1","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"","group_menu_id":"7cb65792dc18d127","AFGHkeyIndexWJ":"88cd6c3408dc21cb","AFGHkeyTime":1576034238776,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1576034238840}

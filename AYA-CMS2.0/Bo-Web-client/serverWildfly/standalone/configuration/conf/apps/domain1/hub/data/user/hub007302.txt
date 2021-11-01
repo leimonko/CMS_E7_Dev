@@ -1,0 +1,1 @@
+{"full_name":"hub007302","email":"hub007302","user_status":"A","user_id":"hub007302","branchcd":"0073","branchid":"0073","branchname":"Thandwe","AFGHkeyIndexWJ":"hub007302","AFGHkeyTime":1603781790633,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790633,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"full_name":"hub019601","email":"hub019601","user_status":"A","user_id":"hub019601","branchcd":"0196","branchid":"0196","branchname":"NTL","AFGHkeyIndexWJ":"hub019601","AFGHkeyTime":1603781790736,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790736,"AFGHkeyUserCreateWJ":""}

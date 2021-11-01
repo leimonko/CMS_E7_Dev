@@ -1,0 +1,27 @@
+{
+    "input": {},
+    "actions": [{
+            "name": "bo-load-viewBalanaceCash",
+            "function": "cis.core.txHUB_Form.getTableDataByUser",
+            "type": "java",
+            "para": ["d_usercashViewByUser","d_usercash"],
+            "status": "A",
+            "response": {
+                "true": {
+                    "fo": [{
+                            "txcode": "#sys:fo-load-bigData"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "response": {},
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "bo-load-viewBalanaceCash",
+    "version": 2,
+    "updateTime": 1562205991292,
+    "txname": "bo-load-viewBalanaceCash",
+    "isOld": true
+}

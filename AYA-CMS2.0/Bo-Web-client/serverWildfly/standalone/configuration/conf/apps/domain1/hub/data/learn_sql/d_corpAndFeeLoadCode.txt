@@ -1,0 +1,16 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data txcode",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT 'S' as codetype, TO_NUMBER(s.servicecode) AS servicecode ,c.fullnamecorp as corpname,s.name,CASE  s.catid  WHEN 1 THEN 'Collection' WHEN 2 THEN 'Payment' ELSE 'Direct Debit' END as catid  ,s.corpdepositaccno from hubdb.d_corpservice s LEFT JOIN hubdb.d_corpregistation c ON TO_NUMBER(s.corpcode) = c.corpcode 
+  UNION ALL
+SELECT 'C' as codetype,TO_NUMBER(corpcode) AS servicecode ,'' as corpname,fullnamecorp as name,'' as catid,'' as corpdepositaccno  FROM hubdb.d_corpregistation UNION ALL
+SELECT 'F' as codetype,TO_NUMBER(feecode) AS servicecode,'' as corpname,feename as name,'' as catid,'' as corpdepositaccno FROM hubdb.d_feedef order by codetype,servicecode ASC",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_corpAndFeeLoadCode",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "d_corpserviceInsert"
+    }

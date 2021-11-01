@@ -1,0 +1,17 @@
+{
+  "app_code": "o9",
+  "learn_api_name": "dpt_account_infomation_view_ifc_list_form_child_ifc_code",
+  "learn_api_link": "$API_SERVER$:$API_PORT_DATA$/api/rulefunc/ifc_ifclst/lkp_data_ifccd",
+  "learn_api_data": "form_child_ifc_code",
+  "learn_api_node_data": "data",
+  "learn_api_app": "BO",
+  "learn_api_method": "POST",
+  "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer )",
+  "learn_api_mapping": "",
+  "learn_api_id": "dpt_account_infomation_view_ifc_list_form_child_ifc_code",
+  "AFGHkeyIndexWJ": "dpt_account_infomation_view_ifc_list_form_child_ifc_code",
+  "AFGHkeyTime": 1577358672797,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1577358672848,
+  "save_to": "client"
+}

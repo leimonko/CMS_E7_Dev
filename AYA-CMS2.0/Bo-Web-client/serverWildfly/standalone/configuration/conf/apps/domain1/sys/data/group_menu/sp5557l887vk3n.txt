@@ -1,0 +1,1 @@
+{"group_menu_id":"012004001","group_menu_parent":"012004","group_menu_name":"Fixed asset and tool","AFGHkeyIndexWJ":"sp5557l887vk3n","AFGHkeyTime":1555571188721,"AFGHkeyWorkFlow":""}

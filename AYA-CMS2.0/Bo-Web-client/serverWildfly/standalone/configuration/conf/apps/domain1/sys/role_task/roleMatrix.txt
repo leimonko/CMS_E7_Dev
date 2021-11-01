@@ -1,0 +1,1 @@
+{"admin":{"roleMatrix":{"form":{"accept":true,"follow":false}}},"Accountant":{"roleMatrix":{"form":{"accept":true,"follow":true}}},"Manager":{"roleMatrix":{"form":{"accept":true,"follow":false}}}}

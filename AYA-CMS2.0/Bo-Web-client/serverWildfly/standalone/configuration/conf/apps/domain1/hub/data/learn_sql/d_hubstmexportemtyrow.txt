@@ -1,0 +1,18 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data txcode",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT h.recid,trace,txrefid,txdt,txcode, usrid as userid, branchid,corpcode,refva1,refva2,refva3, sercode, billccy, billamt, baccdr,bacccr, cuscode,hubfee01,hubfee02, feecode,id,case when char11 = '' then c3.descs else c1.descs end as char11,case when char12 = '' then char17 else char12 end as char12, c2.descs as char13,char14
+FROM hubdb.d_hubstm h 
+LEFT JOIN hubdb.d_codetype c1 ON char11 = c1.subcodetype AND c1.codetype = 'STT'
+LEFT JOIN hubdb.d_codetype c2 ON char13 = c2.subcodetype AND c2.codetype = 'STT'
+LEFT JOIN hubdb.d_codetype c3 ON sts = c3.subcodetype AND c3.codetype = 'STT'
+WHERE TO_DATE(txdt,'YYYY-MM-DD') < TO_DATE('1999-01-01','YYYY-MM-DD') ORDER BY txdt DESC",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmexportemtyrow",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "reportonline001"
+    }

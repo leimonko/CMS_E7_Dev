@@ -1,0 +1,16 @@
+﻿{
+	"learn_sql_title": "Xem 1 dữ liệu",
+	"learn_sql_data": "d_feemanagement",
+	"learn_sql_parameter": "#feecode",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "SELECT feecode, feename, status, description as descs, ccrcd, createdt FROM hubdb.d_feedef WHERE feecode = ?",
+	"learn_sql_query_sub": "",
+	"learn_sql_date_verify": "",
+    "dynamic_update": "",
+	"validation_para_api": "",
+	 "data_formchild_list":"",
+    "data_formchild_attribute_list":"",
+    "learn_sql_for_formchild":"",
+	"AFGHkeyIndexWJ": "d_feedefViewOne",
+	"AFGHTimeWJ": 1561269909390
+}

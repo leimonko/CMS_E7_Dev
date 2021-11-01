@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Tạo biến môi trường (context)","function":"system.buildContext","type":"javascript","status":"A","para":[]}],"status":"A","txtype":"bo","txcode":"fo-load-Context","txname":"Tải thông tin môi trường, user đăng nhập","version":1,"updateTime":1571734920137,"isOld":false,"request":{}}

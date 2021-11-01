@@ -1,0 +1,1 @@
+{"full_name":"hub019902","email":"hub019902","user_status":"A","user_id":"hub019902","branchcd":"0199","branchid":"0199","branchname":"AHG","AFGHkeyIndexWJ":"hub019902","AFGHkeyTime":1603781790737,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790737,"AFGHkeyUserCreateWJ":""}

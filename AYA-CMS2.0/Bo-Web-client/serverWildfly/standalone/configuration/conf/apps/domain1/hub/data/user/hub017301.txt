@@ -1,0 +1,1 @@
+{"full_name":"hub017301","email":"hub017301","user_status":"A","user_id":"hub017301","branchcd":"0173","branchid":"0173","branchname":"Mdy(16)_84x85 ST","AFGHkeyIndexWJ":"hub017301","AFGHkeyTime":1603781790721,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790721,"AFGHkeyUserCreateWJ":""}

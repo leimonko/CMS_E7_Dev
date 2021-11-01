@@ -1,0 +1,1 @@
+{"full_name":"hub003102","email":"hub003102","user_status":"A","user_id":"hub003102","branchcd":"0031","branchid":"0031","branchname":"Ygn (7) Wardan","AFGHkeyIndexWJ":"hub003102","AFGHkeyTime":1603781790583,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790583,"AFGHkeyUserCreateWJ":""}

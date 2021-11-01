@@ -1,0 +1,1 @@
+{"group_menu_id":"012005008","group_menu_parent":"012005","group_menu_name":"Common account mapping","AFGHkeyIndexWJ":"sp5557l887vC7677","AFGHkeyTime":1555571188721,"AFGHkeyWorkFlow":""}

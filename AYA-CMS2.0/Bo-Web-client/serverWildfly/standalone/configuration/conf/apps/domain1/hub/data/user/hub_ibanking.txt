@@ -1,0 +1,1 @@
+{"full_name":"hub_ibanking","email":"hub_ibanking","user_status":"A","user_id":"hub_ibanking","AFGHkeyIndexWJ":"hub_ibanking","AFGHkeyTime":1598784400079,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1598784400079,"AFGHkeyUserCreateWJ":""}

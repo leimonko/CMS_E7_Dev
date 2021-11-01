@@ -1,0 +1,14 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data txcode",
+    "learn_sql_parameter": "#recid",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT h.recid,txrefid,txdt,txcode, corpcode, sercode,usrid,branchid as branid , char18 as branchname, billccy, billamt,refva1,refva2,refva3, baccdr,bacccr, cuscode, hubfee01,hubfee02, feecode, notifiemail, catid,id,descs as sts,char17,char15,char12,char05 as descs,char19 as hublgname,To_char(txdt,'YYYY-MM-DD') as txdate,To_char(txdt,'HH24:MI:SS') as txtime,to_char(billamt, 'FM999,999,999,999,990.00') as dramt, to_char(billamt+hubfee01, 'FM999,999,999,999,990.00') as cramt,to_char(hubfee01, 'FM999,999,999,999,990.00') as feeamt FROM hubdb.d_hubstm h LEFT JOIN hubdb.d_codetype ON sts = subcodetype AND codetype = 'STT'
+WHERE h.recid = ?",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmViewOne",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "transactionJournalData"
+    }

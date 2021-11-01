@@ -1,0 +1,1 @@
+{"full_name":"hub012701","email":"hub012701","user_status":"A","user_id":"hub012701","branchcd":"0127","branchid":"0127","branchname":"Ygn(51)_BSP","AFGHkeyIndexWJ":"hub012701","AFGHkeyTime":1603781790688,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790688,"AFGHkeyUserCreateWJ":""}

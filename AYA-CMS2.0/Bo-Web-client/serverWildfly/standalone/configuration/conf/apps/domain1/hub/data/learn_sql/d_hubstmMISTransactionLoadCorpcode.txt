@@ -1,0 +1,17 @@
+﻿{
+    "learn_sql_title": "Load for mis export",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select 'S' as codetype,TO_NUMBER(s.servicecode) as servicecode,TO_NUMBER(s.corpcode) as corpcode,s.name as corpname, case when f.filename is not null then  case when INSTR( f.filename,'accountnumber')>0 then REPLACE(f.filename,'accountnumber',s.corpdepositaccno) else filename end  else 'corpcode_sercode_ddMMyyyyHHmmss'  end as filename  
+from hubdb.d_corpservice s LEFT JOIN  hubdb.d_configreconfilename f ON f.corpcode = s.corpcode
+UNION ALL
+SELECT 'C' as codetype,0,TO_NUMBER(corpcode),fullnamecorp,'' FROM hubdb.d_corpregistation where corpcode not in ('9999')
+order by codetype,servicecode,corpcode ASC",
+    "learn_sql_query_sub": "",
+    "learn_sql_data": "d_configreconfilename",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmMISTransactionLoadCorpcode",
+    "AFGHTimeWJ": 1561263635755
+}

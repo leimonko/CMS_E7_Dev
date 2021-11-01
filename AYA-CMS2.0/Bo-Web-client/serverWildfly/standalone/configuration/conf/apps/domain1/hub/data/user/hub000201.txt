@@ -1,0 +1,1 @@
+{"full_name":"hub000201","email":"hub000201","user_status":"A","user_id":"hub000201","branchcd":"0002","branchid":"0002","branchname":"Ygn (1) Hlaing","AFGHkeyIndexWJ":"hub000201","AFGHkeyTime":1603781790552,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790552,"AFGHkeyUserCreateWJ":""}

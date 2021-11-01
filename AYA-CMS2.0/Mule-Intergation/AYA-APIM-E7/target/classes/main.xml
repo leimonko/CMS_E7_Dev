@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:context="http://www.springframework.org/schema/context" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd">
+	<http:listener-config name="APIManagement" host="0.0.0.0"
+		port="${APIM_PORT}" doc:name="HTTP Listener Configuration"  usePersistentConnections="false" basePath="/api"/>
+	<http:request-config name="HUB2.0" host="${HUB_HOST}"
+		port="${HUB_PORT}" basePath="/hub" doc:name="HTTP Request Configuration" responseTimeout="${CONNECTION_TIMEOUT}" usePersistentConnections="false"/>
+	<spring:beans>
+		<spring:bean id="JWTHelper" name="JWTHelper" class="mulegateway.JWTHelper" />
+        <spring:bean id="AppConfig" name="AppConfig" class="utils.AppConfig"/>
+	</spring:beans>
+    <context:property-placeholder location="file:${mule.home}/bin/conf/apim-conf.properties"/>
+	<flow name="mainFlow">
+		<http:listener config-ref="APIManagement" path="/*"
+			doc:name="main" />
+		<logger
+			message="#[&quot;\n==================================================&quot; +message +&quot;\n==================================================&quot;]"
+			level="INFO" doc:name="Logger" />
+		<logger message="${APIM_PORT}" level="INFO" doc:name="Logger"/>
+		<set-payload
+			value="{  &quot;message&quot;: &quot;Hello, We not have api #[message.inboundProperties['http.request.path']] 	!&quot; }"
+			mimeType="application/json" doc:name="Message Response" />
+	</flow>
+</mule>

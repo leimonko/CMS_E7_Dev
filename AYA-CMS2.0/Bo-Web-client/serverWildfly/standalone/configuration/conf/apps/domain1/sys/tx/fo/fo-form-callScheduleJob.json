@@ -1,0 +1,22 @@
+{
+  "input": {},
+  "actions": [
+    {
+	"name": "Call schedulejob",
+        "function": "schedule.runScheduleJob",
+		 "type": "javascript",
+        "status": "A",
+        "para": [
+            "reloadTransactionMonitoring"
+        ]
+    }
+  ],
+  "request": {},
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-form-callScheduleJob",
+  "txname": "Call schedulejob and clear form",
+  "version": 3,
+  "updateTime": 1577440015850,
+  "isOld": true
+}

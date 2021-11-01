@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Thêm mới",
+  "learn_sql_query": "INSERT INTO hubdb.d_workflow(recid,txcode,id,requestmess,responsemess,wfdescs,txdt,status,dvaluedt) VALUES (HUBDB.D_WORKFLOW_SEQ.NEXTVAL,?,?,?,?,?,SYSDATE,'C',SYSDATE)",
+  "learn_sql_parameter": "@TXCODE, @ID, @requestmess,@responsemess,@wfdescs",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "learn_sql_data": "d_workflow",
+  "AFGHkeyIndexWJ": "d_workflowInsertRequestAPI",
+  "AFGHTimeWJ": 1561266469836
+}

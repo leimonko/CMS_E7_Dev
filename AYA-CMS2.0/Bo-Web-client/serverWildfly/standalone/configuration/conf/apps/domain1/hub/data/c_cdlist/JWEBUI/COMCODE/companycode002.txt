@@ -1,0 +1,1 @@
+{"cdid":"O9C","cdname":"COMCODE","caption":"Optimal9","cdgrp":"JWEBUI","cdidx":"2","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"companycode002","AFGHkeyTime":1578537990963,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537990994}

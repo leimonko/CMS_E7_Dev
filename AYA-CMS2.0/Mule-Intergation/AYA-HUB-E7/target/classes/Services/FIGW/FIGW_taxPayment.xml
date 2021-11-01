@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+	<http:request-config name="FIGW" host="${FIGW_HOST}"
+		port="${FIGW_PORT}" usePersistentConnections="false" responseTimeout="${CONNECTION_TIMEOUT}"
+		doc:name="HTTP Request Configuration" />
+	<flow name="FIGW_TaxPaymentSub_Flow">
+		<logger
+			message="#[&quot;\n======================================================================\nStarted Posting FIGW\nRequest Message Posting FIGW: Tx ID &quot;+flowVars.reqMsg.ID+&quot;\n&quot; + message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="Request Message Posting FIGW" />
+		<scripting:transformer doc:name="Validator. Validation Phone Number">
+			<scripting:script engine="JavaScript"><![CDATA[var payloadJSON = JSON.parse(payload);
+try {
+var drTel = payloadJSON.DRTEL;
+var telList = drTel.split(',');
+var phoneNumber = telList[0];
+payloadJSON.DRTEL = phoneNumber;
+}
+catch(e){
+log.info('Exception: Validate Phone Number '+ e);
+}
+
+message.setPayload(JSON.stringify(payloadJSON));
+result = message;]]></scripting:script>
+		</scripting:transformer>
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqBodyFIGW" value="#[payload]"
+			doc:name="reqBodyFIGW" />
+		<set-variable variableName="ustrd"
+			value="#[flowVars.reqBodyFIGW.EMAILADDRESS],#[flowVars.reqBodyFIGW.TAXTYPE],#[flowVars.reqBodyFIGW.PTYPE],#[flowVars.reqBodyFIGW.TAXPRD],#[flowVars.reqBodyFIGW.INCYEA]"
+			doc:name="ustrd" />
+		<set-variable variableName="ustrdArr"
+			value="#[flowVars.ustrd.split(&quot;(?&lt;=\\G.{140})&quot;)]"
+			doc:name="ustrdArr" />
+		<set-variable variableName="ustrdXml" value="" doc:name="ustrdXml" />
+		<foreach collection="ustrdArr" doc:name="For Each">
+			<set-variable variableName="ustrd"
+				value="#[flowVars.ustrdXml+= '&lt;tem:ustrd&gt;'+payload+'&lt;/tem:ustrd&gt;']"
+				doc:name="ustrd" />
+		</foreach>
+		<set-payload
+			value="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;&gt;
+	&lt;soapenv:Header/&gt;
+	&lt;soapenv:Body&gt;
+		&lt;tem:CustomerCreditTransferTaxPayment&gt;
+			&lt;tem:groupheader&gt;
+				&lt;tem:businessid&gt;CCT025&lt;/tem:businessid&gt;
+				&lt;tem:tlinamt&gt;#[new java.math.BigDecimal(flowVars.reqBodyFIGW.CFUNDCHARGE) + new java.math.BigDecimal(flowVars.reqBodyFIGW.AMT)]&lt;/tem:tlinamt&gt;
+				&lt;tem:setmethod&gt;CLRG&lt;/tem:setmethod&gt;
+				&lt;tem:setaccid&gt;-&lt;/tem:setaccid&gt;
+				&lt;tem:setacctype&gt;true&lt;/tem:setacctype&gt;
+				&lt;tem:fundcode&gt;3001&lt;/tem:fundcode&gt;
+				&lt;tem:cheque&gt;#[flowVars.reqBodyFIGW.CHEQUENO!=null ? flowVars.reqBodyFIGW.CHEQUENO : '']&lt;/tem:cheque&gt;
+			&lt;/tem:groupheader&gt;
+			&lt;tem:trans&gt;
+				&lt;tem:intxid&gt;#[flowVars.reqBodyFIGW.ID]&lt;/tem:intxid&gt;
+				&lt;tem:channel&gt;#[flowVars.reqBodyFIGW.CHANNELID]&lt;/tem:channel&gt;
+				&lt;tem:iapoption&gt;false&lt;/tem:iapoption&gt;
+				&lt;tem:iapreceived&gt;#[flowVars.reqBodyFIGW.CREDITORBRANCHCODE]&lt;/tem:iapreceived&gt;
+				&lt;tem:transno&gt;
+					&lt;tem:inbamt&gt;#[new java.math.BigDecimal(flowVars.reqBodyFIGW.CFUNDCHARGE) + new java.math.BigDecimal(flowVars.reqBodyFIGW.AMT)]&lt;/tem:inbamt&gt;
+					&lt;tem:indate&gt;-&lt;/tem:indate&gt;
+					&lt;tem:inprior&gt;-&lt;/tem:inprior&gt;
+					&lt;tem:instrmprior&gt;-&lt;/tem:instrmprior&gt;
+					&lt;tem:inamt&gt;#[flowVars.reqBodyFIGW.AMT]&lt;/tem:inamt&gt;
+					&lt;tem:chrbrcode&gt;DEBT&lt;/tem:chrbrcode&gt;
+					&lt;tem:chargedetails&gt;
+						&lt;tem:dfundchargedetails&gt;
+							&lt;tem:chrgamt&gt;0&lt;/tem:chrgamt&gt;
+							&lt;tem:dficode&gt;-&lt;/tem:dficode&gt;
+						&lt;/tem:dfundchargedetails&gt;
+						&lt;tem:dagentchargedetails&gt;
+							&lt;tem:chrgamt&gt;#[flowVars.reqBodyFIGW.DRFEEAMT]&lt;/tem:chrgamt&gt;
+							&lt;tem:dbranchid&gt;-&lt;/tem:dbranchid&gt;
+						&lt;/tem:dagentchargedetails&gt;
+						&lt;tem:cfundchargedetails&gt;
+							&lt;tem:chrgamt&gt;#[flowVars.reqBodyFIGW.CFUNDCHARGE]&lt;/tem:chrgamt&gt;
+							&lt;tem:cficode&gt;-&lt;/tem:cficode&gt;
+						&lt;/tem:cfundchargedetails&gt;
+						&lt;tem:cagentshargedetails&gt;
+							&lt;tem:chrgamt&gt;0&lt;/tem:chrgamt&gt;
+							&lt;tem:cbranchid&gt;-&lt;/tem:cbranchid&gt;
+						&lt;/tem:cagentshargedetails&gt;
+						&lt;tem:otherfees&gt;
+							&lt;tem:otherfee1&gt;#[flowVars.reqBodyFIGW.CFAMT]&lt;/tem:otherfee1&gt;
+							&lt;tem:otherfee2&gt;0&lt;/tem:otherfee2&gt;
+							&lt;tem:otherfee3&gt;0&lt;/tem:otherfee3&gt;
+							&lt;tem:otherfee4&gt;0&lt;/tem:otherfee4&gt;
+							&lt;tem:otherfee5&gt;0&lt;/tem:otherfee5&gt;
+						&lt;/tem:otherfees&gt;
+					&lt;/tem:chargedetails&gt;
+					&lt;tem:debtor&gt;
+						&lt;tem:dbcifi&gt;AYABMMMYYGN&lt;/tem:dbcifi&gt;
+						&lt;tem:dname&gt;#[flowVars.reqBodyFIGW.DRNAME]&lt;/tem:dname&gt;
+						&lt;tem:dbranchid&gt;#[&quot;AYA&quot;+flowVars.reqBodyFIGW.BRANID]&lt;/tem:dbranchid&gt;
+						&lt;tem:dbranchname&gt;#[flowVars.reqBodyFIGW.BRNAME]&lt;/tem:dbranchname&gt;
+						&lt;tem:dphone&gt;+95-#[flowVars.reqBodyFIGW.DRTEL]&lt;/tem:dphone&gt;
+						&lt;tem:didnumber&gt;#[flowVars.reqBodyFIGW.CUSTACC+&quot;#&quot;+flowVars.reqBodyFIGW.TINNO]&lt;/tem:didnumber&gt;
+						&lt;tem:dpropcode&gt;11&lt;/tem:dpropcode&gt;
+						&lt;tem:daddr&gt;#[flowVars.reqBodyFIGW.DRADDR]&lt;/tem:daddr&gt;
+						&lt;tem:dtaxdptacc&gt;#[flowVars.reqBodyFIGW.CUSTACC]&lt;/tem:dtaxdptacc&gt;
+					&lt;/tem:debtor&gt;
+					&lt;tem:creditor&gt;
+						&lt;tem:cbcifi&gt;IRDGMMMYIAP&lt;/tem:cbcifi&gt;
+						&lt;tem:cname&gt;#[flowVars.reqBodyFIGW.CRNAME]&lt;/tem:cname&gt;
+						&lt;tem:cbranchid&gt;#[flowVars.reqBodyFIGW.CREDITORFIBRANCHCODE]&lt;/tem:cbranchid&gt;
+						&lt;tem:cbranchname&gt;#[flowVars.reqBodyFIGW.CREDITORBRANCHNAME]&lt;/tem:cbranchname&gt;
+						&lt;tem:cphone&gt;#[flowVars.reqBodyFIGW.CRTEL]&lt;/tem:cphone&gt;
+						&lt;tem:cidnumber&gt;#[flowVars.reqBodyFIGW.MDACCNO]&lt;/tem:cidnumber&gt;
+						&lt;tem:cpropcode&gt;01&lt;/tem:cpropcode&gt;
+						&lt;tem:caddr&gt;#[flowVars.reqBodyFIGW.CRADDR]&lt;/tem:caddr&gt;
+					&lt;/tem:creditor&gt;
+					&lt;tem:instrinf&gt;#[flowVars.reqBodyFIGW.DESCS]&lt;/tem:instrinf&gt;
+					&lt;tem:rmtinf&gt;       #[flowVars.ustrdXml]      &lt;/tem:rmtinf&gt;
+				&lt;/tem:transno&gt;
+			&lt;/tem:trans&gt;
+		&lt;/tem:CustomerCreditTransferTaxPayment&gt;
+	&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;"
+			mimeType="text/xml" doc:name="Message Tax Payment Request" />
+		<set-variable variableName="replaceSpecialCharacter"
+			value="#[payload.toString().replaceAll('&amp;','&amp;#38;')]"
+			mimeType="text/xml" doc:name="replaceSpecialCharacter" />
+		<set-payload value="#[flowVars.replaceSpecialCharacter]"
+			mimeType="text/xml" doc:name="Re-build message to avoid special character." />
+		<flow-ref name="Figw_soapConnectorFlow" doc:name="Figw_soapConnectorFlow" />
+		<set-variable variableName="transid"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:CustomerCreditTransferTaxPaymentResponse/*:CustomerCreditTransferTaxPaymentResult/*:result/*:transid&quot;)]"
+			doc:name="transid" />
+		<set-variable variableName="errorcode"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:CustomerCreditTransferTaxPaymentResponse/*:CustomerCreditTransferTaxPaymentResult/*:result/*:errorcode&quot;)]"
+			doc:name="errorcode" />
+		<set-variable variableName="errordesc"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:CustomerCreditTransferTaxPaymentResponse/*:CustomerCreditTransferTaxPaymentResult/*:result/*:errordesc&quot;)]"
+			doc:name="errordesc" />
+		<set-variable variableName="faultcode"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:Fault/*:faultcode&quot;)]"
+			doc:name="faultcode" />
+		<set-payload
+			value="{ &quot;ERRORCODE&quot;: &quot;#[flowVars.errorcode != '' ? flowVars.errorcode : 1982]&quot;, &quot;ERRORDESC&quot;: &quot;#[flowVars.errordesc]&quot;, &quot;TRANSID&quot;: &quot;#[flowVars.transid]&quot; }"
+			mimeType="application/json" doc:name="Message Tax Payment Response" />
+		<logger
+			message="#[&quot;\n======================================================================\nEnded Posting FIGW\nResponse Message Posting FIGW: Tx ID &quot;+flowVars.reqMsg.ID+&quot;\n&quot;+ message.payloadAs(java.lang.String) + &quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="Response Message Posting FIGW" />
+	</flow>
+</mule>

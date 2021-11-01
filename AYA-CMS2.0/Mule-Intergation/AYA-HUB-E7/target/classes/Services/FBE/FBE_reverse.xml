@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd">
+	<flow name="fbe_rvsSub_Flow">
+		<invoke object-ref="AutoLogin" method="getSessionID"
+			methodArguments="#[message.payloadAs(java.lang.String)]" doc:name="getSessionID" />
+		<logger
+			message="#[&quot;\n=============[Revest-Request]=================\n&quot;+message.payloadAs(java.lang.String)+&quot;\n=============[Revest-Request]=================&quot;]"
+			level="INFO" doc:name="Revest request" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsgRevert" value="#[payload]"
+			doc:name="reqMsgRevert" />
+		<set-payload
+			value="&lt;Request&gt;
+	&lt;path&gt;/bfweb/services/UB_TXN_ReverseTxn_SRVWS&lt;/path&gt;
+	&lt;method&gt;POST&lt;/method&gt;
+	&lt;data&gt;&lt;![CDATA[&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:web=&quot;http://webservices.bankfusion.trapedza.com&quot; xmlns:att=&quot;http://www.misys.com/bankfusion/attributes&quot; xmlns:ser=&quot;http://www.misys.com/ub/services&quot;&gt;  &lt;soapenv:Header&gt;   &lt;web:bfgenericsoapheader&gt;    &lt;!--Optional:--&gt;    &lt;web:authentication&gt;     &lt;web:userLocator&gt;#[flowVars.reqMsgRevert.SESSIONID]&lt;/web:userLocator&gt;     &lt;!--Optional:--&gt;    &lt;/web:authentication&gt;   &lt;/web:bfgenericsoapheader&gt;  &lt;/soapenv:Header&gt;  &lt;soapenv:Body&gt;   &lt;web:UB_TXN_ReverseTxn_SRV&gt;    &lt;web:ReversalRequest&gt;     &lt;ser:txnId&gt;#[flowVars.reqMsgRevert.ORGREFID]&lt;/ser:txnId&gt;     &lt;ser:txnReference&gt;#[flowVars.reqMsgRevert.TXREFID]&lt;/ser:txnReference&gt;     &lt;!--Optional:--&gt;     &lt;ser:txnNarrative&gt;#[flowVars.reqMsgRevert.DESCS]&lt;/ser:txnNarrative&gt;     &lt;ser:forcePost&gt;true&lt;/ser:forcePost&gt;    &lt;/web:ReversalRequest&gt;   &lt;/web:UB_TXN_ReverseTxn_SRV&gt;  &lt;/soapenv:Body&gt; &lt;/soapenv:Envelope&gt;]]&gt;  &lt;/data&gt;
+&lt;/Request&gt;"
+			mimeType="text/xml" doc:name="build xml message" />
+		<flow-ref name="fbe_soapConnectorFlow" doc:name="fbe_soapConnectorFlow"/>
+		<set-variable variableName="reversalTxnId"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:UB_TXN_ReverseTxn_SRVResponse/*:ReversalResponse/*:reversalTxnId&quot;)]"
+			doc:name="reversalTxnId" />
+		<set-variable variableName="EventMessage"
+			value="#[xpath3(&quot;/*:Envelope/*:Body/*:UB_TXN_ReverseTxn_SRVResponse/*:ErrorResponse/*:EventCollection/*:Event/*:EventMessage&quot;)]"
+			doc:name="EventMessage" />
+		<set-payload
+			value="{
+	&quot;ERRORCODE&quot;: &quot;#[flowVars.reversalTxnId.toString().equals('') ? 8222 : 0]&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[flowVars.reversalTxnId.toString().equals('') ? flowVars.EventMessage :  &quot;Transaction Successfully!&quot;  ]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;TXREFID&quot;: &quot;#[flowVars.reversalTxnId]&quot;
+	}
+}"
+			mimeType="application/json" doc:name="Reversal Response Message" />
+		<logger level="INFO" doc:name="Revert response"
+			message="#[&quot;\n=============[Revest-Response]=================\n&quot;+message.payloadAs(java.lang.String)+&quot;\n=============[Revest-Response]=================&quot;]" />
+<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<logger
+				message="#[&quot;\n---Exception---&quot; + flowVars.uuid+exception+&quot;\n&quot;]"
+				level="INFO" doc:name="Exception Logger" />
+			<set-payload
+				value="{
+	&quot;ERRORCODE&quot;: &quot;9999&quot;,
+	&quot;ERRORDESC&quot;: &quot;#[(exception.?cause.message or exception).toString().replace('&quot;','')]&quot;,
+	&quot;RESULT&quot;: {
+		&quot;TXREFID&quot;: &quot;#[flowVars.statusRvs]&quot;
+	}
+}"
+				mimeType="application/json" doc:name="Build message error" />
+			<logger
+				message="#[&quot;\n=============[Revest-Response]=================\n&quot;+message.payloadAs(java.lang.String)+&quot;\n=============[Revest-Response]=================&quot;]"
+				level="INFO" doc:name="Revert response" />
+		</catch-exception-strategy>	</flow>
+
+</mule>

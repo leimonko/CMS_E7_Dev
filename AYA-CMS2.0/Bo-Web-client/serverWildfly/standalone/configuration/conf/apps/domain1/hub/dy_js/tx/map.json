@@ -1,0 +1,35 @@
+[{
+        "file": "o9_secret.js",
+        "type": "js",
+        "class": "o9_secret",
+        "fo": "",
+        "version": "",
+        "queue": false,
+        "contain": "basicTx"
+    }, {
+        "file": "scheduleJob.js",
+        "type": "js",
+        "class": "scheduleJob",
+        "fo": "",
+        "version": "",
+        "queue": false,
+        "contain": "basicTx"
+    }, {
+        "file": "formValidate.js",
+        "type": "js",
+        "class": "formValidate",
+        "fo": "",
+        "version": "",
+        "queue": false,
+        "contain": "basicTx"
+    },
+	 {
+        "file": "formSupport.js",
+        "type": "js",
+        "class": "formSupport",
+        "fo": "",
+        "version": "",
+        "queue": false,
+        "contain": "basicTx"
+    }
+]

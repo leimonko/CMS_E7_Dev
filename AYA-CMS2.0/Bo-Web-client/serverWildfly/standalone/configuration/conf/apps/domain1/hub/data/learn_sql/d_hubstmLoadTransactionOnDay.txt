@@ -1,0 +1,67 @@
+﻿{
+    "learn_sql_title": "Tải dulieu cho hubstm",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "select to_char(TO_DATE(a.stt,'HH24:MI:SS'), 'HH24')||'h' as txtime,
+    CASE WHEN status ='C' AND  timea <>0 THEN 1 ELSE 0 END AS success,CASE WHEN status ='P' AND  timea <>0 THEN 1 ELSE 0 END AS pending,CASE WHEN status ='F' AND  timea <>0 THEN 1 ELSE 0 END AS failed,CASE WHEN status ='R' AND  timea <>0 THEN 1 ELSE 0 END AS reversed, CASE WHEN status ='T' AND  timea <>0 THEN 1 ELSE 0 END AS timeout
+    FROM(
+    SELECT '00:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea, 'P' as status from dual
+    UNION ALL
+    SELECT '01:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,  'P' as status from dual
+    UNION ALL
+    SELECT '02:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '03:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '04:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '05:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '06:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '07:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '08:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '09:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '10:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '11:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '12:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '13:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '14:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '15:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '16:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '17:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '18:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '19:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '20:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '21:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '22:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT '23:00:00' as stt,  TO_CHAR(SYSDATE,'YYYY-MM-DD') as txdt,TO_CHAR(SYSDATE,'HH24:MI:SS') as txtime,0 as timea,'P' as status from dual
+    UNION ALL
+    SELECT to_char(txdt, 'HH24')||':00:00' AS stt,TO_CHAR(txdt,'YYYY-MM-DD') as txdate,TO_CHAR(txdt,'HH24:MI:SS') as txtime,
+    1 as timea, sts as status FROM hubdb.d_hubstm where TO_CHAR(txdt,'YYYY-MM-DD') = TO_CHAR(SYSDATE,'YYYY-MM-DD') and txcode <> 'O9_HUB06' and txcode <> 'O9_HUB11'
+    )a  where TO_DATE(stt,'HH24:MI:SS')<= TO_DATE(TO_CHAR(SYSDATE,'HH24:MI:SS'),'HH24:MI:SS') 
+    order by stt asc",
+    "learn_sql_query_sub": "",
+    "learn_sql_data": "transactionOnDay",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmLoadTransactionOnDay",
+    "AFGHTimeWJ": 1561263635755
+}

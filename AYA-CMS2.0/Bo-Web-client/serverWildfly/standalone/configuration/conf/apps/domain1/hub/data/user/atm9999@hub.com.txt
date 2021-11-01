@@ -1,0 +1,1 @@
+{"active":true,"verify":false,"blocked":false,"requestChangePass":true,"user_id":"f572f332-cc43-440b-97e4-e3a1e0f9b83d","full_name":"atm9999","email":"atm9999@hub.com","AFGHkeyIndexWJ":"atm9999@hub.com","AFGHkeyTime":1603968410384,"branchcd":"9999","branchname":"AYA HO","AFGHkeyUserCreateWJ":"0ca9ebc5-73c3-4a98-b565-169461b0af32","AFGHkeyWorkFlow":"","AFGHTimeWJ":1603968410404}

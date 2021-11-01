@@ -1,0 +1,1 @@
+{"full_name":"hub002502","email":"hub002502","user_status":"A","user_id":"hub002502","branchcd":"0025","branchid":"0025","branchname":"Mdy (3) Kyawe Sae Kan","AFGHkeyIndexWJ":"hub002502","AFGHkeyTime":1603781790578,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790578,"AFGHkeyUserCreateWJ":""}

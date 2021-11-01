@@ -1,0 +1,891 @@
+{
+	"info": {
+		"title": "Summary CMS 2.0",
+		"des": "Summary CMS 2.0",
+		"data": "",
+		"openOne": "true",
+		"group_menu": "sp553D4v9g54B75",
+		"node_position": [
+			{
+				"id": "start",
+				"left": "268",
+				"top": "128"
+			},
+			{
+				"id": "sp5549k67x5m4370",
+				"left": "128",
+				"top": "318"
+			},
+			{
+				"id": "sp5549o495974c851",
+				"left": "483",
+				"top": "143"
+			},
+			{
+				"id": "sp5549p43544970b",
+				"left": "363",
+				"top": "277"
+			},
+			{
+				"id": "sp5549k7r365C485",
+				"left": "22",
+				"top": "168"
+			},
+			{
+				"id": "sp5549k86j7u5575",
+				"left": "365",
+				"top": "40"
+			}
+		],
+		"flow_layout": [
+			{
+				"sourceId": "start",
+				"targetId": "sp5549k7r365C485"
+			},
+			{
+				"sourceId": "start",
+				"targetId": "sp5549k67x5m4370"
+			}
+		],
+		"learnapi": "",
+		"form_code": "Hubreportonline003",
+		"ruleStrong": [
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "all",
+					"component_action": "",
+					"component_result": "fromdatevalue;todatevalue;exportDate;corpname;branchname",
+					"condition": "",
+					"visible": "false",
+					"ena_dis": "true",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			},{
+				"code": "visibility",
+				"config": {
+					"component_event": "all",
+					"component_action": "",
+					"component_result": "btn_print_disable",
+					"condition": "",
+					"visible": "true",
+					"ena_dis": "true",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			},{
+                "code": "setValue",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "branchcode",
+                    "component_result": "{\n    \"code_userName\": \"user.full_name\",\n    \"code_userID\": \"user.user_id\"\n}",
+                    "isGetOOP": "true",
+                    "getOOPFormat": "{\n    \"branchname\": \"d_hubreportLoadDataForm01.itemname\"\n}"
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": false
+            },{
+                "code": "setValue",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "corpcode",
+                    "component_result": "{\n    \"code_userName\": \"user.full_name\",\n    \"code_userID\": \"user.user_id\"\n}",
+                    "isGetOOP": "true",
+                    "getOOPFormat": "{\n    \"corpname\": \"d_hubreportLoadDataForm01.itemname\"\n}"
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": false
+            },
+			{
+				"code": "managerComponent",
+				"config": {
+					"component_event": "all",
+					"component_action": "filetype",
+					"component_manager": "{\n    \"btn_print\": \" '@{filetype}' === 'pdf' &&  '@{exportDate}' !== '' \",\n    \"btn_download\": \" '@{filetype}' !== 'pdf' &&  '@{exportDate}' !== '' \",\n    \"btn_print_disable\": \"  '@{exportDate}' === '' \"\n}",
+					"is_use_block": "false"
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			}
+		],
+		"key_form": "p6j347j7hr89473",
+		"ofModal": false,
+		"learnsql": "d_hubreportLoadDataForm01",
+		"bodata": "#hub:bo-load-hubreportdataNoneRow",
+		"lang_form": {},
+		"mode_form": {
+			"mode": "",
+			"col_text": "",
+			"col_input": ""
+		}
+	},
+	"list_layout": [
+		{
+			"name": "Search",
+			"des": "",
+			"class": "",
+			"lang": {},
+			"lang_des": {},
+			"codeHidden": "e56213214ef02c4d",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"name": "",
+					"lang": {},
+					"code": "search",
+					"class": "",
+					"codeHidden": "1456cb9267dba8bc",
+					"inputtype": "cView",
+					"isTab": "false",
+					"viewUI": "",
+					"list_input": [
+						{
+							"default": {
+								"name": "Branch",
+								"code": "branchcode",
+								"codeHidden": "8d0518cee077ea87",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "keysearch.branchcode",
+								"structable_read": "dataexportforcmsreport_para.branchcode",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='BRANCH' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "BRANCH"
+								},
+								"data_default": "",
+								"data_mode": "query",
+								"query_data": "Select * from d_hubreportLoadDataForm01 where wf.d_hubreportLoadDataForm01.codetype===\"B\"",
+								"is_multi_select": "false",
+								"is_multi_col": "true",
+								"get_data_format": "d_hubreportLoadDataForm01.itemcode",
+								"selected_view_format": "@d_hubreportLoadDataForm01.itemcode - @d_hubreportLoadDataForm01.itemname",
+								"table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_hubreportLoadDataForm01.itemcode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_hubreportLoadDataForm01.itemname\"\n    }\n]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "d_hubreportLoadDataForm01.itemcode",
+								"useAction": "true",
+								"isAutoDefault": "true"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Branch code": "Branch code"
+									},
+									"en": {
+										"Branch code": "Branch code"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Company",
+								"code": "corpcode",
+								"codeHidden": "8d0518121277ea87",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "keysearch.corpcode",
+								"structable_read": "dataexportforcmsreport_para.corpcode",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='BRANCH' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "BRANCH"
+								},
+								"data_default": "",
+								"data_mode": "query",
+								"query_data": "Select * from d_hubreportLoadDataForm01 where wf.d_hubreportLoadDataForm01.codetype===\"C\" && wf.d_hubreportLoadDataForm01.itemcode!==\"ALL\"",
+								"is_multi_select": "false",
+								"is_multi_col": "true",
+								"get_data_format": "d_hubreportLoadDataForm01.itemname",
+								"selected_view_format": "@d_hubreportLoadDataForm01.itemcode - @d_hubreportLoadDataForm01.itemname",
+								"table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_hubreportLoadDataForm01.itemcode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_hubreportLoadDataForm01.itemname\"\n    }\n]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "d_hubreportLoadDataForm01.itemname",
+								"useAction": "true",
+								"isAutoDefault": "true"
+							},
+							"role": {
+								"disabled": "",
+								"visible": "",
+								"other": "",
+								"other2": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"Corporation code": "Corporation code"
+									},
+									"en": {
+										"Corporation code": "Corporation code"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},{
+                            "default": {
+                                "name": "Branch Name",
+                                "code": "branchname",
+                                "codeHidden": "b3a4051063302aa5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "keysearch.branchname",
+                                "structable_read": "dataexportforcmsreport_para.branchname",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },{
+                            "default": {
+                                "name": "Corp name",
+                                "code": "corpname",
+                                "codeHidden": "b3a4051063302aa5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "keysearch.corpname",
+                                "structable_read": "dataexportforcmsreport_para.corpname",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },
+						{
+							"default": {
+								"name": "From",
+								"code": "fromdate",
+								"codeHidden": "5042e8bf661efab8",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "keysearch.fromdate",
+								"structable_read": "dataexportforcmsreport_para.fromdate_date",
+								"data_default": "",
+								"data_type": "edit",
+								"component_title": "",
+								"mask_format": "DD/MM/YYYY",
+								"mask_data_format": "DD/MM/YYYY",
+								"value_type": "number",
+								"auto_delete": "true",
+								"mask_mode": "date",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": ""
+							},
+							"role": {
+								"disabled": "",
+								"visible": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"condistion": []
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"From": "From"
+									},
+									"en": {
+										"From": "From"
+									}
+								},
+								"mask_format": {
+									"vi": {},
+									"en": {}
+								},
+								"validate": {}
+							},
+							"configAVD": {},
+							"inputtype": "jMaskInput"
+						},
+						{
+							"default": {
+								"name": "To",
+								"code": "To date",
+								"codeHidden": "2cf25774c3cd60c8",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "keysearch.todate",
+								"structable_read": "dataexportforcmsreport_para.todate_date",
+								"data_default": "",
+								"data_type": "edit",
+								"component_title": "",
+								"mask_format": "DD/MM/YYYY",
+								"mask_data_format": "DD/MM/YYYY",
+								"value_type": "number",
+								"auto_delete": "true",
+								"mask_mode": "date",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": ""
+							},
+							"role": {
+								"disabled": "",
+								"visible": ""
+							},
+							"property": {},
+							"validate": {
+								"request": true,
+								"condistion": []
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"To": "To"
+									},
+									"en": {
+										"To": "To"
+									}
+								},
+								"mask_format": {},
+								"validate": {}
+							},
+							"configAVD": {},
+							"inputtype": "jMaskInput"
+						},{
+							"default": {
+								"name": "fromdatevalue",
+								"code": "fromdatevalue",
+								"codeHidden": "6cc6afafd037f5",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "keysearch.fromdatevalue",
+								"structable_read": "dataexportforcmsreport_para.fromdate_date",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},
+						{
+							"default": {
+								"name": "todatevalue",
+								"code": "todatevalue",
+								"codeHidden": "6cc69asfsacd037f5",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "keysearch.todatevalue",
+								"structable_read": "dataexportforcmsreport_para.todate_date",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						},{
+							"default": {
+								"name": "exportDate",
+								"code": "exportDate",
+								"codeHidden": "6cc21313sacd037f5",
+								"class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+								"useAction": "true",
+								"is_upperCase": "false",
+								"action": "",
+								"structable": "keysearch.exportDate",
+								"structable_read": "dataexportforcmsreport_para.exportDate",
+								"data_default": "",
+								"isLookup": "false",
+								"callform": "",
+								"callform_detail": "",
+								"callform_detail_mode": "modal",
+								"data_view": "",
+								"data_value": "",
+								"is_password": "false",
+								"is_upper": "false"
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cTextInput"
+						}
+					]
+				},
+				{
+					"name": "",
+					"lang": {},
+					"code": "search",
+					"class": "",
+					"codeHidden": "1456cb9267dba8bd",
+					"inputtype": "cView",
+					"isTab": "false",
+					"viewUI": "",
+					"list_input": [
+						{
+                            "default": {
+                                "name": "View",
+                                "code": "btn_export",
+                                "codeHidden": "f022934224a7418",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"txcode\": \"#sys:fo-search-transaction-jonural\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"table\",\n            \"table_code\": \"D_EBSTM\"\n        }\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#hub:fo-post-exportHUBreport\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"table_code\": \"keysearch\",\n            \"learn_sql\": \"d_hubstmreportonline003exportbyparameter\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "visibility",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+					]
+				}
+			]
+		},
+		{
+			"name": "HUB Notification Statement",
+			"des": "",
+			"class": "",
+			"lang": {
+				"vi": "HUB Notification Statement",
+				"en": "HUB Notification Statement"
+			},
+			"lang_des": {},
+			"codeHidden": "08e09f13877450cc",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"name": "",
+					"lang": {},
+					"code": "code",
+					"class": "",
+					"codeHidden": "f4331befad2818a6",
+					"inputtype": "cView",
+					"isTab": "false",
+					"viewUI": "",
+					"list_input": [
+						{
+							"default": {
+								"name": "Listing",
+								"code": "table",
+								"codeHidden": "sp5557p7Cp4ze",
+								"class": "col-12",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "",
+								"query_data": "select * from dataexportforcmsreport",
+								"paging_record": "50",
+								"columns": "[\n    {\n        \"code\": \"dataexportforcmsreport.branchid\",\n        \"title\": \"Branch Name\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"dataexportforcmsreport.no\",\n        \"title\": \"No\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"dataexportforcmsreport.amount\",\n        \"title\": \"Amount\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"dataexportforcmsreport.fee\",\n        \"title\": \"Fee\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+							},
+							"role": {},
+							"property": {},
+							"validate": {},
+							"lang": {
+								"vi": {
+									"No": "No",
+									"ID": "ID",
+									"Transaction number": "Transaction number",
+									"TXDT": "TXDT",
+									"Branch id": "Branch id",
+									"USERID": "USERID",
+									"Transaction code": "Transaction code",
+									"Corporation code": "Corporation code",
+									"Service code": "Service code",
+									"Bill currency": "Bill currency",
+									"Bill amount": "Bill amount",
+									"Reference 1": "Reference 1",
+									"Reference 2": "Reference 2",
+									"Reference 3": "Reference 3",
+									"Fee": "Fee",
+									"Core response": "Core response",
+									"Core response description": "Core response description",
+									"Webservice response": "Webservice response",
+									"Webservice response description": "Webservice response description"
+								},
+								"en": {
+									"No": "No",
+									"ID": "ID",
+									"Transaction number": "Transaction number",
+									"TXDT": "TXDT",
+									"Branch id": "Branch id",
+									"USERID": "USERID",
+									"Transaction code": "Transaction code",
+									"Corporation code": "Corporation code",
+									"Service code": "Service code",
+									"Bill currency": "Bill currency",
+									"Bill amount": "Bill amount",
+									"Reference 1": "Reference 1",
+									"Reference 2": "Reference 2",
+									"Reference 3": "Reference 3",
+									"Fee": "Fee",
+									"Core response": "Core response",
+									"Core response description": "Core response description",
+									"Webservice response": "Webservice response",
+									"Webservice response description": "Webservice response description"
+								}
+							},
+							"configAVD": {},
+							"inputtype": "cTableDefault"
+						},{
+							"default": {
+								"name": "FileType",
+								"code": "filetype",
+								"codeHidden": "9810aa940182f55c",
+								"class": "col-sm-2 col-md-2",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"structable": "keysearch.filetype",
+								"structable_read": "keysearch.filetype",
+								"cdlist": {
+									"query": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='FILETYPE' orderby c_cdlist.cdidx",
+									"cdgrp": "JWEBUI",
+									"cdname": "FILETYPEDOWNLOAD"
+								},
+								"data_default": "",
+								"data_mode": "cdlist",
+								"query_data": "select c_cdlist.cdid,c_cdlist.cdname,c_cdlist.caption,c_cdlist.cdval,c_cdlist.cdidx from c_cdlist where wf.c_cdlist.cdgrp==='JWEBUI'&&wf.c_cdlist.cdname==='FILETYPE' orderby c_cdlist.cdidx",
+								"is_multi_select": "false",
+								"is_multi_col": "false",
+								"get_data_format": "c_cdlist.cdid",
+								"selected_view_format": "@c_cdlist.caption",
+								"table_format": "[\n        {\n            \"title\": \"Name\",\n            \"code\": \"col.col_name\"\n        },\n        {\n            \"title\": \"ID\",\n            \"code\": \"col.col_id\"\n        }\n    ]",
+								"col_format": "@c_cdlist.caption",
+								"json_data": "[]",
+								"key_selected": "c_cdlist.cdid",
+								"useAction": "true",
+								"isAutoDefault": "true"
+							},
+							"role": {},
+							"property": {},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"ui": {
+									"vi": {
+										"FileType": "FileType"
+									},
+									"en": {
+										"FileType": "FileType"
+									}
+								}
+							},
+							"configAVD": {},
+							"inputtype": "jSelect"
+						},
+						{
+							"default": {
+								"name": "Export File",
+								"code": "btn_print",
+								"codeHidden": "f0229c6ca2ba7418",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"txFoActions": "[\n    {\n        \"txcode\": \"#sys:fo-search-transaction-jonural\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"table\",\n            \"table_code\": \"D_EBSTM\"\n        }\n    }\n]",
+								"txFo": "[\n    {\n        \"txcode\": \"#sys:fo-template-printVoucher\",\n        \"input\": {\n            \"is_get_new\": true,\n            \"is_get\": true,\n            \"queries\": \"select * from dataexportforcmsreport\",\n            \"template_code\": \"DT005\",\n            \"template_condition\": \"\"\n        }\n    }\n]",
+								"useAction": "false",
+								"icon": "print",
+								"color": "primary",
+								"onTable": "",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						},
+						{
+							"config": {
+								"onTable": "",
+								"icon": "print",
+								"color": "primary",
+								"action": "",
+								"useAction": "false",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[{\"txcode\":\"#hub:fo-post-downloadfile\",\"input\":{\"list_component\":\"*\",\"list_view\":\"\"  , \"table_code\": \"keysearch\",\n            \"learn_sql\": \"d_hubstmreportonline003exportbyparameter\"\n      }}]",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": "",
+								"isLookup": "",
+								"cmd": "",
+								"callform": "",
+								"uploadfile": {
+									"active": "false",
+									"filetype": ""
+								}
+							},
+							"role": {
+								"disabled": "false",
+								"visible": "false"
+							},
+							"property": {
+								"danger": "false",
+								"warning": "false"
+							},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cButton",
+							"default": {
+								"name": "Export File",
+								"code": "btn_download",
+								"class": "",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "61cbd2810c60a57a"
+							}
+						},{
+							"default": {
+								"name": "Export File",
+								"code": "btn_print_disable",
+								"codeHidden": "f0229c6ca2ba7418",
+								"class": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"role": ""
+							},
+							"config": {
+								"action": "",
+								"txFoActions": "[\n    {\n        \"txcode\": \"#sys:fo-search-transaction-jonural\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"table\",\n            \"table_code\": \"D_EBSTM\"\n        }\n    }\n]",
+								"txFo": "[  ]",
+								"useAction": "false",
+								"icon": "print",
+								"color": "primary",
+								"onTable": "",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": ""
+							},
+							"role": {
+								"visible": "",
+								"disabled": ""
+							},
+							"property": {
+								"danger": "",
+								"warning": ""
+							},
+							"validate": {},
+							"lang": {},
+							"configAVD": {},
+							"inputtype": "cButton"
+						}
+						
+					]
+				}
+			]
+		}
+	],
+	"react_txt": ""
+}

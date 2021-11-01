@@ -1,0 +1,1 @@
+{"full_name":"hub003302","email":"hub003302","user_status":"A","user_id":"hub003302","branchcd":"0033","branchid":"0033","branchname":"Pyin Oo Lwin","AFGHkeyIndexWJ":"hub003302","AFGHkeyTime":1603781790589,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790589,"AFGHkeyUserCreateWJ":""}

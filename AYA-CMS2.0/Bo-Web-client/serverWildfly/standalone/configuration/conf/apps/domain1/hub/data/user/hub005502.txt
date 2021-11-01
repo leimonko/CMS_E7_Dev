@@ -1,0 +1,1 @@
+{"full_name":"hub005502","email":"hub005502","user_status":"A","user_id":"hub005502","branchcd":"0055","branchid":"0055","branchname":"Ygn (14) SawBwar GyiGone","AFGHkeyIndexWJ":"hub005502","AFGHkeyTime":1603781790613,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790613,"AFGHkeyUserCreateWJ":""}

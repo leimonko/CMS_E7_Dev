@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Tải 1 đào tạo","function":"txeLearning.getelearning","type":"java","para":[],"status":"A","response":{"_default_":{"fo":[{"txcode":"#sys:fo-container","input":{}}]}}}],"status":"A","txtype":"bo","txcode":"bo-load-oneELearing","txname":"Tải 1 đào tạo theo đa ngữ","version":1,"updateTime":1565875577395,"hasRole":"false","isOld":false,"response":{}}

@@ -1,0 +1,1 @@
+{"full_name":"hub005702","email":"hub005702","user_status":"A","user_id":"hub005702","branchcd":"0057","branchid":"0057","branchname":"Chauk","AFGHkeyIndexWJ":"hub005702","AFGHkeyTime":1603781790615,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790615,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,1 @@
+{"full_name":"hub002202","email":"hub002202","user_status":"A","user_id":"hub002202","branchcd":"0022","branchid":"0022","branchname":"Taungoo","AFGHkeyIndexWJ":"hub002202","AFGHkeyTime":1603781790576,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790576,"AFGHkeyUserCreateWJ":""}

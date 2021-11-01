@@ -1,0 +1,20 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "copy this form",
+      "function": "form.copyThis",
+      "type": "javascript",
+      "status": "A",
+      "para": ["@listDelete", "@form_code"]
+    }
+  ],
+  "request": { "bo": [{ "txcode": "", "input": {} }] },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-copy-thisForm",
+  "txname": "copy this form",
+  "version": 3,
+  "updateTime": 1572422794592,
+  "isOld": true
+}

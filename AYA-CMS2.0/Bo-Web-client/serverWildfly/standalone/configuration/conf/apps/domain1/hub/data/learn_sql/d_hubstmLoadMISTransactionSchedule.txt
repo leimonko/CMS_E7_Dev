@@ -1,0 +1,14 @@
+﻿{
+    "learn_sql_title": "Tải tất cả data txcode",
+    "learn_sql_parameter": "@corpcode,@servicecode",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT recid,trace,txrefid,txdt,txcode, corpcode, sercode, billccy, billamt, baccdr, cuscode,hubfee01, feecode, notifiemail, catid,id FROM hubdb.d_hubstm 
+	WHERE corpcode=? AND sercode=? AND sts='C'  AND isexsftp = 0 ORDER BY txdt ASC",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "fromdate,todate",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubstmLoadMISTransactionSchedule",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "MISTransaction"
+    }

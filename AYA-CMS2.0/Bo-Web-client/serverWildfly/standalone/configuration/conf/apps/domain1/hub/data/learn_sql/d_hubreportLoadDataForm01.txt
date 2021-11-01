@@ -1,0 +1,19 @@
+﻿{
+    "learn_sql_title": "Tải dulieu cho hubstm",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT 'C' as codetype,TO_NUMBER(corpcode) as recid,corpcode as itemcode, fullnamecorp as itemname FROM hubdb.d_corpregistation where corpcode not in ('9999')
+UNION ALL
+SELECT 'C' as codetype,0 as recid,'ALL' , ' ' as itemname FROM dual
+UNION ALL
+SELECT 'B' as codetype,0 as recid,'0000' , 'ALL' as itemname FROM dual
+UNION ALL
+SELECT 'B' as codetype,TO_NUMBER(branchcode), branchcode, branchname from d_branchcode order by codetype,recid ASC ",
+    "learn_sql_query_sub": "",
+    "learn_sql_data": "d_hubreportLoadDataForm01",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_hubreportLoadDataForm01",
+    "AFGHTimeWJ": 1561263635755
+}

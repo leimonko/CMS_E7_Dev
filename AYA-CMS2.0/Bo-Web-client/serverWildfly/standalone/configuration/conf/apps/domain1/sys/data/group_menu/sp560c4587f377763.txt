@@ -1,0 +1,1 @@
+{"group_menu_name":"Quyền và người dùng","group_menu_order":"5","group_menu_parent":"sp5538Ddt4rC81","group_menu_function_code":"roleUser","group_menu_id":"sp560c4587e395p6","AFGHkeyIndexWJ":"sp560c4587f377763","AFGHkeyTime":1576558728735,"AFGHkeyWorkFlow":"","group_menu_lang":{"vi":"Quyền và người dùng","en":"Permissions and user"},"AFGHTimeWJ":1576558730635}

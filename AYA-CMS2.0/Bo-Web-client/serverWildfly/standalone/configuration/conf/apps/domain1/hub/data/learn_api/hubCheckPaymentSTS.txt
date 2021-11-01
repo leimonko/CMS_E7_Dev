@@ -1,0 +1,16 @@
+{
+	"app_code": "o9",
+	"learn_api_name": "hub transaction reverse",
+	"learn_api_link": "$API_SERVER$:$API_PORT_LOGIN$/hub/getStatusPayment",
+	"learn_api_data": "hubtransactionCheckStatus",
+	"learn_api_node_data": "",
+	"learn_api_app": "BO",
+	"learn_api_method": "POST",
+	"learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer)",
+	"learn_api_mapping": " { \"data\" : {  \"TRANSREF\": \"MapS.dataS(data.TRANSREF)\",  \"TRANSDATE\": \"MapS.dataS(data.TRANSDATE)\"}",
+	"learn_api_id": "hubtransactionCheckStatus",
+	"AFGHkeyIndexWJ": "hubtransactionCheckStatus",
+	"AFGHkeyTime": 1569894868360,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1569894868366
+}

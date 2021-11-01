@@ -1,0 +1,57 @@
+﻿{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "bo-load-exportHUBreport",
+      "function": "cis.core.txHUB_Form.exportHUBreport",
+      "type": "java",
+      "para": [
+	  "@learn_sql",
+		"@table_code"  
+      ],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+			{
+              "txcode": "#sys:fo-msg-toast",
+              "input": {
+                "lang": "sysSearchOk"
+              }
+            },
+            { 
+              "txcode": "#sys:fo-update-data"
+            },{
+                "txcode": "#sys:fo-form-setDataToform"
+              }
+          ]
+        },
+        "false": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-msg-toast",
+              "input": {
+                "lang": "sysSearchError"
+              }
+            },
+			{ 
+              "txcode": "#sys:fo-update-data"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-load-exportHUBreport",
+  "version": 2,
+  "updateTime": 1562205991292,
+  "txname": "bo-load-exportHUBreport",
+  "isOld": true
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub026302","email":"hub026302","user_status":"A","user_id":"hub026302","branchcd":"0263","branchid":"0263","branchname":"YSK","AFGHkeyIndexWJ":"hub026302","AFGHkeyTime":1603781790788,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790788,"AFGHkeyUserCreateWJ":""}

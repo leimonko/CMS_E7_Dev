@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="api_irdTaxPaymentFlow">
+		<http:listener config-ref="APIManagement" path="/irdTaxPayment"
+			doc:name="/irdTaxPayment" allowedMethods="POST"/>
+		<logger
+			message="#[&quot;\n====================================================================================================\nSTARTED IRD TAX PAYMENT\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]"
+			level="INFO" category="com.jits.apim.messageinout" doc:name="STARTED IRD TAX PAYMENT - Msg IN" />
+		<logger
+			message="#[&quot;\n====================================================================================================\nSTARTED IRD TAX PAYMENT\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]"
+			level="INFO" doc:name="STARTED IRD TAX PAYMENT" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsg" value="#[payload]"
+			mimeType="application/json" doc:name="reqMsg" />
+		<set-variable variableName="apiKey" value="/irdTaxPayment"
+			doc:name="apiKey - /irdTaxPayment" />
+        <set-variable variableName="CHANNELID" value="#[flowVars.reqMsg.CHANNELID+&quot;&quot;]" doc:name="CHANNELID"/>
+		<flow-ref name="sub_verifytokenSub_Flow" doc:name="sub_verifytokenSub_Flow" />
+		<choice doc:name="Token T ? F">
+			<when expression="#[payload.ERRORCODE==0]">
+				<set-payload
+					value="{
+	&quot;ID&quot;: &quot;#[flowVars.reqMsg.MSGCODE]&quot;,
+	&quot;ORIGINREFNO&quot;: &quot;#[flowVars.reqMsg.CCHQNO]&quot;,
+	&quot;SERCODE&quot;: &quot;9999&quot;,
+	&quot;CORPCODE&quot;: &quot;9999&quot;,
+	&quot;CUSTACC&quot;: &quot;#[flowVars.reqMsg.SACNO]&quot;,
+	&quot;CHANNELID&quot;: &quot;#[flowVars.reqMsg.CHANNELID]&quot;,
+	&quot;AMT&quot;: &quot;#[flowVars.reqMsg.SAMT]&quot;,
+	&quot;TINNO&quot;: &quot;#[flowVars.reqMsg.CTXG10]&quot;,
+	&quot;PHONENO&quot;: &quot;#[flowVars.reqMsg.CSTEL]&quot;,
+	&quot;CRTEL&quot;: &quot;#[flowVars.reqMsg.CRTEL]&quot;,
+	&quot;CFAMT&quot;: &quot;#[flowVars.reqMsg.CFAMT]&quot;,
+	&quot;DEBTORCODE&quot;: &quot;#[flowVars.reqMsg.DEBTORCODE]&quot;,
+	&quot;EMAILADDRESS&quot;: &quot;#[flowVars.reqMsg.CTXG1]&quot;,
+	&quot;TAXTYPE&quot;: &quot;#[flowVars.reqMsg.CDIREC]&quot;,
+	&quot;PTYPE&quot;: &quot;#[flowVars.reqMsg.CNOSTRO1]&quot;,
+	&quot;CCRCD&quot;: &quot;#[flowVars.reqMsg.CCCR]&quot;,
+	&quot;TAXPRD&quot;: &quot;#[flowVars.reqMsg.TAXPRD]&quot;,
+	&quot;INCYEA&quot;: &quot;#[flowVars.reqMsg.CACTP]&quot;,
+	&quot;SM&quot;: &quot;N&quot;,
+	&quot;PAYMETHOD&quot;: &quot;-&quot;,
+	&quot;STATEMENT&quot;: &quot;&quot;,
+	&quot;DESCS&quot;: &quot;#[flowVars.reqMsg.DESCS]&quot;,
+	&quot;MDACCNO&quot;: &quot;#[flowVars.reqMsg.RACNO]&quot;,
+	&quot;CREDITORBRANCHCODE&quot;: &quot;MYEBMMMYNPT&quot;,
+	&quot;CREDITORFIBRANCHCODE&quot;: &quot;&quot;,
+	&quot;CREDITORBRANCHNAME&quot;: &quot;&quot;,
+	&quot;HOUSENO&quot;: &quot;-&quot;,
+	&quot;TOWNSHIPCODE&quot;: &quot;-&quot;,
+	&quot;TAXOFFICENAME&quot;: &quot;#[flowVars.reqMsg.CRNAME]&quot;,
+	&quot;PROFILENAME&quot;: &quot;#[flowVars.reqMsg.CCATNM]&quot;,
+	&quot;QUARTER&quot;: &quot;-&quot;,
+	&quot;DRADDR&quot;: &quot;#[flowVars.reqMsg.CCTMA]&quot;,
+	&quot;CRADDR&quot;: &quot;#[flowVars.reqMsg.CRADDR]&quot;,
+	&quot;STREET&quot;: &quot;-&quot;
+}"
+					mimeType="application/json" doc:name="Remake message IRD Tax Payment" />
+                <logger message="#[&quot;\n====================================================================================================\nSTARTED IRD TAX PAYMENT\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]" level="INFO" doc:name="STARTED IRD TAX PAYMENT"/>
+				<http:request config-ref="HUB2.0" path="/taxPaymentByChannel"
+					method="POST" doc:name="/taxPaymentByChannel">
+				</http:request>
+			</when>
+			<otherwise>
+				<json:object-to-json-transformer
+					doc:name="Object to JSON" />
+			</otherwise>
+		</choice>
+		<logger
+			message="#[&quot;\n====================================================================================================\nENDED IRD TAX PAYMENT\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]"
+			level="INFO" doc:name="ENDED IRD TAX PAYMENT" />
+		<logger
+			message="#[&quot;\n====================================================================================================\nENDED IRD TAX PAYMENT\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]"
+			level="INFO" doc:name="ENDED IRD TAX PAYMENT - Msg OUT"
+			category="com.jits.apim.messageinout" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 4,  &quot;ERRORDESC&quot;: &quot;#[exception.message.replace('&quot;',&quot;&quot;)]&quot;,  &quot;RESULT&quot;: &quot;&quot; }"
+				doc:name="Message Exception Error " mimeType="application/json" />
+			<logger
+				message="#[&quot;\n----EXCEPTION &quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="---EXCEPTION---" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

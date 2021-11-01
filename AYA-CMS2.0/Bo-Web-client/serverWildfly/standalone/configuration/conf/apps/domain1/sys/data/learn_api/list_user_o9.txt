@@ -1,0 +1,17 @@
+{
+  "app_code": "o9",
+  "learn_api_name": "Get list user O9 bank",
+  "learn_api_link": "$API_SERVER$:$API_PORT_DATA$/api/user/?page=0",
+  "learn_api_data": "list_user_o9",
+  "learn_api_node_data": "data",
+  "learn_api_app": "BO",
+  "learn_api_method": "GET",
+  "learn_api_header": "Content-Type:application/json\nAuthorization:MapS.getToken(Bearer )",
+  "learn_api_mapping": "",
+  "learn_api_id": "list_user_o9",
+  "AFGHkeyIndexWJ": "list_user_o9",
+  "AFGHkeyTime": 1576729620238,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1576729620238,
+  "save_to": "client"
+}

@@ -1,0 +1,1 @@
+{"full_name":"hub019501","email":"hub019501","user_status":"A","user_id":"hub019501","branchcd":"0195","branchid":"0195","branchname":"Ygn(81)_NMK","AFGHkeyIndexWJ":"hub019501","AFGHkeyTime":1603781790735,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790735,"AFGHkeyUserCreateWJ":""}

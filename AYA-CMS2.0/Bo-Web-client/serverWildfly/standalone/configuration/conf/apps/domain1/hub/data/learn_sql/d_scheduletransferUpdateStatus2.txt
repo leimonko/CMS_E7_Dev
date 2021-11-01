@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "Thêm mới schedule",
+    "learn_sql_query": "Update hubdb.d_scheduletransfer set status = ?  , lasttxdate = SYSDATE where recid = ?",
+    "learn_sql_parameter": "",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query_sub": "",
+    "learn_sql_data": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "d_scheduletransferUpdateStatus2",
+    "AFGHTimeWJ": 1561266469836
+}

@@ -1,0 +1,29 @@
+﻿{
+	"list_appliaction_name": "JCard",
+	"list_appliaction_des": "App Dev",
+	"list_appliaction_img": "../rs/global/img/B38pWG3.jpg",
+	"list_appliaction_id": "dev",
+	"list_appliaction_bo": "bo-app-dev",
+	"list_appliaction_order": "3",
+	"AFGHkeyIndexWJ": "dev",
+	"AFGHkeyTime": 1567504514322,
+	"AFGHkeyWorkFlow": "",
+	"AFGHTimeWJ": 1567504514326,
+	"configTemplate": {
+		"mobi": {
+			"isFwCss": false,
+			"template": "malibu",
+			"screen_working": "desktop_o9"
+		},
+		"desktop": {
+			"isFwCss": false,
+			"template": "malibu",
+			"screen_working": "desktop_o9"
+		},
+		"tablet": {
+			"isFwCss": false,
+			"template": "malibu",
+			"screen_working": "desktop_o9"
+		}
+	}
+}

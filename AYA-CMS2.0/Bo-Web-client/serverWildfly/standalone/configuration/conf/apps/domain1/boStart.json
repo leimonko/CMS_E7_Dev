@@ -1,0 +1,40 @@
+﻿[
+	{
+		"title": "Create static variable bostart",
+		"app": "hub",
+		"bo": {
+			"bo": [
+				{
+					"txcode": "#sys:bo-startBuild-context",
+					"input": {
+						"sizePoolConnectDB": 10
+					}
+				}
+			]
+		}
+	},
+	{
+		"title": "Create static variable bostart",
+		"app": "sys",
+		"bo": {
+			"bo": [
+				{
+					"txcode": "#sys:bo-startBuild-context",
+					"input": {						
+						"jobReverseTransaction": "JOB_REVERSE_CBS_TRANSACTION",
+						"jobReSendMailTransaction": "JOB_RESEND_MAIL_TX",
+						"jobSendMailMIS": "JOB_MIS_REPORT",
+						"jobSendMailTransaction": "JOB_SEND_MAIL_TX",
+						"poolSizeSchedule": 6,
+						"procname_GetJob": "hubdb.GetDataScheduleForProcess()",
+						"procmame_CleanLog": "hubdb.cleanlog(?)",
+						"repeat_GetJob": "10",
+						"repeat_ExJob": "10",
+						"timeOutThread": 60
+						
+					}
+				}
+			]
+		}
+	}
+]

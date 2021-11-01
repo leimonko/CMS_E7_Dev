@@ -1,0 +1,1 @@
+{"cdid":"CG","cdname":"TAXTYPE_IRD","caption":"Capital gains","cdgrp":"JWEBUI","cdidx":"2","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"CG_IRD","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

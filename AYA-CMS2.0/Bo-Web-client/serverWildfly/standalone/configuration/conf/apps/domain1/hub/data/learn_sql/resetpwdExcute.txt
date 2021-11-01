@@ -1,0 +1,13 @@
+﻿{
+	"learn_sql_title": "Reset password",
+	"learn_sql_parameter": "@password, @user_id",
+	"learn_sql_parameter_sub": "",
+	"learn_sql_query": "UPDATE sysuserpwd SET password=? WHERE user_id=?",
+	"learn_sql_query_sub": "",
+	"learn_sql_data": "resetpwd",
+	"learn_sql_date_verify": "",
+	"dynamic_update": "",
+	"validation_para_api": "",
+	"AFGHkeyIndexWJ": "resetpwdExcute",
+	"AFGHTimeWJ": 1561263635122755
+}

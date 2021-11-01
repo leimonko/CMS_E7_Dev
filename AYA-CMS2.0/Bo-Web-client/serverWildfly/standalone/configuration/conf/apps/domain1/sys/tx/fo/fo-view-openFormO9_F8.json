@@ -1,0 +1,44 @@
+{
+    "input": {},
+    "actions": [
+        {
+            "name": "Thu th?p v? th?m m?i",
+            "function": "formAPI.delete",
+            "type": "javascript",
+            "status": "A",
+            "para": [
+                "@table_code",
+                "@table_col_key"
+            ],
+            "request": {
+                "true": {
+                    "bo": [
+                        {
+                            "txcode": "#sys:bo-view-dataAPIO9_F8",
+                            "input": {
+                                "learn_api": "@learn_api",
+                                "table_code": "@table_code",
+                                "form_key": "@form_key"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "request": {
+        "bo": [
+            {
+                "txcode": "",
+                "input": {}
+            }
+        ]
+    },
+    "status": "A",
+    "txtype": "bo",
+    "txcode": "fo-view-openFormO9_F8",
+    "txname": "View data open form",
+    "version": 11,
+    "updateTime": 1571223716631,
+    "isOld": true
+}

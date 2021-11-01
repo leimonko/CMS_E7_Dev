@@ -1,0 +1,1 @@
+{"full_name":"hub018501","email":"hub018501","user_status":"A","user_id":"hub018501","branchcd":"0185","branchid":"0185","branchname":"Ygn(76)_MYE","AFGHkeyIndexWJ":"hub018501","AFGHkeyTime":1603781790728,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790728,"AFGHkeyUserCreateWJ":""}

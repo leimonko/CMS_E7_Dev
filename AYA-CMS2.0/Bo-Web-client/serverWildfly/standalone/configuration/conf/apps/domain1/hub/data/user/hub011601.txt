@@ -1,0 +1,1 @@
+{"full_name":"hub011601","email":"hub011601","user_status":"A","user_id":"hub011601","branchcd":"0116","branchid":"0116","branchname":"Ygn(45)_TSH","AFGHkeyIndexWJ":"hub011601","AFGHkeyTime":1603781790679,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790679,"AFGHkeyUserCreateWJ":""}

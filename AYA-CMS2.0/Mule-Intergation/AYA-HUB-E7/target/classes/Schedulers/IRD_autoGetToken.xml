@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="AutoGetIRDToken" processingStrategy="asynchronous">
+		<poll doc:name="Poll">
+			<fixed-frequency-scheduler frequency="86400" timeUnit="SECONDS"/>
+			<set-payload
+				value="{
+&quot;userid&quot;:&quot;${IRD_USERNAME}&quot;,
+&quot;password&quot;:&quot;${IRD_PASSWORD}&quot;
+}
+"
+				mimeType="application/json" doc:name="Request Msg Get IRD Token" />
+		</poll>
+		<set-variable variableName="resMsg" value="#[json:]"
+			mimeType="application/json" doc:name="resMsg" />
+		<logger
+			message="#[&quot;\n======================================================================\nSTARTED IRD REQUESTTOKEN\n&quot;+&quot;RequestToken Request Message:\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]"
+			level="INFO" doc:name="STARTED IRD REQUESTTOKEN" />
+		<http:request config-ref="IRD_ENDPOINT"
+			path="/TPISPayerService/module001/service001/requesttoken" method="POST"
+			doc:name="/TPISPayerService/module001/service001/requesttoken" />
+		<logger level="INFO" doc:name="ENDED IRD REQUESTTOKEN"
+			message="#[&quot;\n======================================================================\nENDED IRD REQUESTTOKEN\n&quot; +&quot;RequestToken Response Message:\n&quot;+message.payloadAs(java.lang.String)+&quot;\n======================================================================&quot;]" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<choice doc:name="Check ERRORCODE">
+			<when expression="#[payload.code.equals(&quot;0000&quot;)]">
+				<json:object-to-json-transformer
+					doc:name="Object to JSON" />
+				<invoke object-ref="AutoLogin" method="saveToken"
+					methodArguments="#[message.payloadAs(java.lang.String)]" doc:name="Invoke" />
+			</when>
+			<otherwise>
+				<logger message="No log" doc:name="Loggin fail, No log" />
+			</otherwise>
+
+		</choice>
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 4,  &quot;ERRORDESC&quot;: &quot;#[exception.message.replace('&quot;',&quot;&quot;)]&quot;,  &quot;RESULT&quot;: &quot;&quot; }"
+				doc:name="Message Exception Error " mimeType="application/json" />
+			<logger
+				message="#[&quot;\n----EXCEPTION &quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="---EXCEPTION---" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

@@ -1,0 +1,1 @@
+{"full_name":"hub003501","email":"hub003501","user_status":"A","user_id":"hub003501","branchcd":"0035","branchid":"0035","branchname":"Maubin","AFGHkeyIndexWJ":"hub003501","AFGHkeyTime":1603781790591,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790591,"AFGHkeyUserCreateWJ":""}

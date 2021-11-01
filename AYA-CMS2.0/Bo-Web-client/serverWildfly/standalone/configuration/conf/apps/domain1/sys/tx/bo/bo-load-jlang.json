@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Tải","function":"tx.lang_data","type":"java","para":[],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-container","input":{}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-load-jlang","version":2,"updateTime":1562205857189,"txname":"Khi đổi ngôn ngữ sẽ gọi","isOld":true}

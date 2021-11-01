@@ -1,0 +1,1 @@
+{"group_menu_name":"Hệ Thống ","group_menu_order":"1","group_menu_parent":"0","group_menu_function_code":"","group_menu_function_name":"","group_menu_id":"sp5538Ddt4rC81","AFGHkeyIndexWJ":"sp5538Ddt456lv","AFGHkeyTime":1576558689922,"AFGHkeyWorkFlow":"","group_menu_lang":{"vi":"Hệ Thống ","en":"System"},"AFGHTimeWJ":1576558691664}

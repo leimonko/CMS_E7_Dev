@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Dynamic Javascript tải","function":"tx.getDyJs","type":"java","para":[],"status":"A","response":{"_default_":{"fo":[{"txcode":"#sys:fo-read-dyjs","input":{}}]}}}],"status":"A","txtype":"bo","txcode":"bo-load-dyjs","txname":"Tải js theo yêu cầu client","version":1,"updateTime":1567141028507,"hasRole":"false","isOld":false,"response":{}}

@@ -1,0 +1,1 @@
+{"group_menu_id":"012002","group_menu_parent":"012","group_menu_name":"Bank account definition","AFGHkeyIndexWJ":"sp5557l887v58yD","AFGHkeyTime":1555571188721,"AFGHkeyWorkFlow":""}

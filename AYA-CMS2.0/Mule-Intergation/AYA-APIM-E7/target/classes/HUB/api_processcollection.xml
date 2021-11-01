@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<flow name="api_processcollectionFlow">
+		<http:listener config-ref="APIManagement" path="/processCollection"
+			doc:name="/processCollection" allowedMethods="POST" />
+        <logger message="#[&quot;\n====================================================================================================\nSTARTED PROCESS COLLECTION\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]" level="INFO" category="com.jits.apim.messageinout" doc:name="Process Collection Started - Msg In Out"/>
+		<logger
+			message="#[&quot;\n====================================================================================================\nSTARTED PROCESS COLLECTION\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]"
+			level="INFO" doc:name="Process Collection Started" />
+		<scripting:transformer doc:name="Store REFVA1, REFVA2, REFVA3">
+			<scripting:script engine="JavaScript"><![CDATA[var resMsg = JSON.parse(payload);
+var refva1, refva2, refva3, desc;
+try{
+	refva1 = JSON.stringify(resMsg.REFVA1);
+	refva2 = JSON.stringify(resMsg.REFVA2);
+	refva3 = JSON.stringify(resMsg.REFVA3);
+	desc = JSON.stringify(resMsg.DESC);
+	flowVars.put('REFVA1',refva1.substring(1, refva1.length-1));
+	flowVars.put('REFVA2',refva2.substring(1, refva2.length-1));
+	flowVars.put('REFVA3',refva3.substring(1, refva3.length-1));
+	flowVars.put('DESC',desc.substring(1, desc.length-1));
+}
+catch(e){
+	flowVars.put('REFVA1','');
+	flowVars.put('REFVA2','');
+	flowVars.put('REFVA3','');
+	flowVars.put('DESC','DESC');
+}
+message.setPayload(JSON.stringify(resMsg));
+result = message;]]></scripting:script>
+		</scripting:transformer><json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsg" value="#[payload]"
+			mimeType="application/json" doc:name="reqMsg" />
+		<set-variable variableName="apiKey" value="/processCollection"
+			doc:name="apiKey" />
+		<flow-ref name="sub_verifytokenSub_Flow" doc:name="sub_verifytokenSub_Flow" />
+		<choice doc:name="Token T ? F">
+			<when expression="#[payload.ERRORCODE==0]">
+				<set-payload
+					value="{
+	&quot;ID&quot;: &quot;#[flowVars.reqMsg.TRANREF]&quot;,
+	&quot;CORPCODE&quot;: &quot;#[flowVars.reqMsg.CORP_ID]&quot;,
+	&quot;SERCODE&quot;: &quot;#[flowVars.reqMsg.SERVICE_ID]&quot;,
+	&quot;CCRCD&quot;: &quot;#[flowVars.reqMsg.CCRCD]&quot;,
+	&quot;AMT&quot;: &quot;#[flowVars.reqMsg.AMOUNT]&quot;,
+	&quot;CUSTACC&quot;: &quot;#[flowVars.reqMsg.CUST_ACCT_NO]&quot;,
+	&quot;REFVA1&quot;: &quot;#[flowVars.REFVA1]&quot;,
+	&quot;REFVA2&quot;: &quot;#[flowVars.REFVA2]&quot;,
+	&quot;REFVA3&quot;: &quot;#[flowVars.REFVA3]&quot;,
+	&quot;CATID&quot;: &quot;#[flowVars.reqMsg.CAT_ID]&quot;,
+	&quot;CHANNELID&quot;:&quot;#[flowVars.reqMsg.CHANNELID]&quot;,
+	&quot;DESCS&quot;: &quot;#[flowVars.DESC]&quot;
+}"
+					mimeType="application/json" doc:name="Remake message HUB_ProcessCollection" />
+                <logger message="Msg request toHUB  #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger"/>
+				<http:request config-ref="HUB2.0" path="/processCollection"
+					method="POST" doc:name="/processCollection">
+				</http:request>
+			</when>
+			<otherwise>
+				<json:object-to-json-transformer
+					doc:name="Object to JSON" />
+			</otherwise>
+		</choice>
+        <logger message="#[&quot;\n====================================================================================================\nENDED PROCESS COLLECTION\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]" level="INFO" doc:name="Process Collection Ended"/>
+		<logger
+			message="#[&quot;\n====================================================================================================\nENDED PROCESS COLLECTION\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]"
+			level="INFO" doc:name="Process Collection Ended - Msg In Out" category="com.jits.apim.messageinout"/>
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 4,  &quot;ERRORDESC&quot;: &quot;#[exception.message.replace('&quot;',&quot;&quot;)]&quot;,  &quot;RESULT&quot;: &quot;&quot; }"
+				doc:name="Message Exception Error " mimeType="application/json" />
+			<logger
+				message="#[&quot;\n----EXCEPTION &quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="---EXCEPTION---" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

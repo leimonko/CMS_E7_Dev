@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"Khóa token","function":"tx.lockToken","type":"java","para":[],"status":"A"}],"status":"A","txtype":"bo","txcode":"bo-relogin-lockToken","txname":"Khóa token của màn hình làm việc","version":1,"updateTime":1564714970900,"hasRole":"false","isOld":false,"response":{}}

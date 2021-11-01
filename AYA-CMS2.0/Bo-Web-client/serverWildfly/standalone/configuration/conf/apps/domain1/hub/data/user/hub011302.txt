@@ -1,0 +1,1 @@
+{"full_name":"hub011302","email":"hub011302","user_status":"A","user_id":"hub011302","branchcd":"0113","branchid":"0113","branchname":"Ygn(42)_49St","AFGHkeyIndexWJ":"hub011302","AFGHkeyTime":1603781790677,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790677,"AFGHkeyUserCreateWJ":""}

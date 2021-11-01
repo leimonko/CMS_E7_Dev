@@ -1,0 +1,55 @@
+﻿{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "Truy vấn data theo mã learn sql",
+      "function": "cis.core.txDev_Form.advanceSearch",
+      "type": "java",
+      "para": [
+	  "@learn_sql",
+		"@table_code"  
+      ],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+			{
+              "txcode": "#sys:fo-msg-toast",
+              "input": {
+                "lang": "sysSearchOk"
+              }
+            },
+            { 
+              "txcode": "#sys:fo-update-data"
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-msg-toast",
+              "input": {
+                "lang": "sysSearchError"
+              }
+            },
+			{ 
+              "txcode": "#sys:fo-update-data"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-load-searchAdvanceByParameter",
+  "version": 2,
+  "updateTime": 1562205991292,
+  "txname": "Truy vấn tìm 1 data xem (không xóa)",
+  "isOld": true
+}

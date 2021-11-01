@@ -1,0 +1,1 @@
+{"full_name":"hub009201","email":"hub009201","user_status":"A","user_id":"hub009201","branchcd":"0092","branchid":"0092","branchname":"Ygn(32)_BHN","AFGHkeyIndexWJ":"hub009201","AFGHkeyTime":1603781790662,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790662,"AFGHkeyUserCreateWJ":""}

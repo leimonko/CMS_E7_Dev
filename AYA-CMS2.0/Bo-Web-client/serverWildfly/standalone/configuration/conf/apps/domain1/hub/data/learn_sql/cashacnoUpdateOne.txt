@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Update",
+  "learn_sql_data": "cashacno",
+  "learn_sql_parameter": "@acno, @ccrcd, #recid",
+  "learn_sql_parameter_sub": "#recid",
+  "learn_sql_query": "UPDATE hubdb.d_cashacno SET acno=?, ccrcd=? WHERE recid=? ",
+  "learn_sql_query_sub": "SELECT * FROM hubdb.d_cashacno WHERE recid = ?",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "cashacnoUpdateOne",
+  "AFGHTimeWJ": 1561295766446
+}

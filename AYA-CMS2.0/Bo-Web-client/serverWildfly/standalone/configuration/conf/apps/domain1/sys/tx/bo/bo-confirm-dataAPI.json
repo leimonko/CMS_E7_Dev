@@ -1,0 +1,44 @@
+{
+  "input": {},
+  "actions": [
+    {
+      "name": "Xác nhận dữ liệu bằng API",
+      "function": "o9.core.txO9.confirm",
+      "type": "java",
+      "para": [],
+      "status": "A",
+      "response": {
+        "true": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-msg-confirm",
+              "input": { "toast_type": "success" }
+            },
+
+            {
+              "txcode": "#sys:fo-search-API",
+              "input": { "learn_api": "@learn_api_search" }
+            }
+          ]
+        },
+        "false": {
+          "fo": [
+            {
+              "txcode": "#sys:fo-msg-confirm",
+              "input": { "toast_type": "error" }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "response": { "fo": [{ "txcode": "", "input": {} }] },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "bo-confirm-dataAPI",
+  "version": 7,
+  "updateTime": 1571224518558,
+  "txname": "Confirm data with API",
+  "hasRole": "false",
+  "isOld": true
+}

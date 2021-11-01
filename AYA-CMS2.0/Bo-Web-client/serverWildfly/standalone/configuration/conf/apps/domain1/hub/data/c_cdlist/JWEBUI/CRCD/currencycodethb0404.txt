@@ -1,0 +1,1 @@
+{"cdid":"THB","cdname":"CRCD","caption":"THB","cdgrp":"JWEBUI","cdidx":"6","cdval":"","flag":"","visible":1,"AFGHkeyIndexWJ":"currencycodethb0404","AFGHkeyTime":1578537958705,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537958744}

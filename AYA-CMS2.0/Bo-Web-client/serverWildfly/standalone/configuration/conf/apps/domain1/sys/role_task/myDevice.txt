@@ -1,0 +1,1 @@
+{"admin":{"myDevice":{"form":{"accept":true,"follow":false}}},"Accountant":{"myDevice":{"form":{"accept":true,"follow":false}}},"Manager":{"myDevice":{"form":{"accept":true,"follow":false}}}}

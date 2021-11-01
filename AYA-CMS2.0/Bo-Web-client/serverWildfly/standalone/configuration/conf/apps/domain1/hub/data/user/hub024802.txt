@@ -1,0 +1,1 @@
+{"full_name":"hub024802","email":"hub024802","user_status":"A","user_id":"hub024802","branchcd":"0248","branchid":"0248","branchname":"MLM (03)","AFGHkeyIndexWJ":"hub024802","AFGHkeyTime":1603781790776,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790776,"AFGHkeyUserCreateWJ":""}

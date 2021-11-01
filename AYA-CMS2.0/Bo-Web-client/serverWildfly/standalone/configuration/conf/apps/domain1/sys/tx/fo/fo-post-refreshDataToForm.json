@@ -1,0 +1,42 @@
+{
+  "input": {
+    
+  },
+  "actions": [
+    {
+     "name": "fo-post-refreshDataToForm",
+      "function": "formsql.getDataForm",
+      "type": "javascript",
+      "status": "A",
+      "para": [
+        "@list_component",
+        "@list_view",
+		"false"
+      ],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-load-refreshDataToForm",
+              "input": {
+				"table_code": "@table_code",
+                "learn_sql": "@learn_sql"
+				
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "request": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-post-refreshDataToForm",
+  "txname": "fo-post-refreshDataToForm",
+  "version": 2,
+  "updateTime": 1562208762925,
+  "isOld": true
+}

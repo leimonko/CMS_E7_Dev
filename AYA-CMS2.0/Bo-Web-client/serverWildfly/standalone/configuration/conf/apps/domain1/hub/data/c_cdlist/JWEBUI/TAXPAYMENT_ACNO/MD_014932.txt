@@ -1,0 +1,1 @@
+{"cdid":"MD-014932","cdname":"TAXPAYMENT_ACNO","caption":"3050","cdgrp":"JWEBUI","cdidx":"8","cdval":"","flag":"","visible":"","AFGHkeyIndexWJ":"MD_014932","AFGHkeyTime":"1578537958705","AFGHkeyWorkFlow":"","AFGHTimeWJ":"1578537958744"}

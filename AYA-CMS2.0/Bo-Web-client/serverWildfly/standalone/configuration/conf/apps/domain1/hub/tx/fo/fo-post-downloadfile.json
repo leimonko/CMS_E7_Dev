@@ -1,0 +1,41 @@
+{
+  "input": {
+    
+  },
+  "actions": [
+    {
+     "name": "fo-post-downloadfile",
+      "function": "formsql.getDataForm",
+      "type": "javascript",
+      "status": "A",
+      "para": [
+        "@list_component",
+        "@list_view"
+      ],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#hub:bo-load-downloadfile",
+              "input": {
+				"table_code": "@table_code",
+                "learn_sql": "@learn_sql"
+				
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "request": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-post-downloadfile",
+  "txname": "fo-post-downloadfile",
+  "version": 2,
+  "updateTime": 1562208762925,
+  "isOld": true
+}

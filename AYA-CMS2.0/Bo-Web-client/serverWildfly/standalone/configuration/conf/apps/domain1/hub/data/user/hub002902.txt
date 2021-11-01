@@ -1,0 +1,1 @@
+{"full_name":"hub002902","email":"hub002902","user_status":"A","user_id":"hub002902","branchcd":"0029","branchid":"0029","branchname":"Dawei","AFGHkeyIndexWJ":"hub002902","AFGHkeyTime":1603781790582,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790582,"AFGHkeyUserCreateWJ":""}

@@ -1,0 +1,13 @@
+﻿{
+  "learn_sql_title": "Xóa 1 dữ liệu",
+  "learn_sql_data": "",
+  "learn_sql_parameter": "#recid",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "DELETE FROM hubdb.d_configreconfilename where recid=? ",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_configreconfilenameDeleteOne",
+  "AFGHTimeWJ": 1561266675211
+}

@@ -1,0 +1,14 @@
+{
+  "cdid": "JOB_REVERSE_CBS_TRANSACTION",
+  "cdname": "TRANSFERTYPE",
+  "caption": "JOB_REVERSE_CBS_TRANSACTION",
+  "cdgrp": "JWEBUI",
+  "cdidx": "1",
+  "cdval": "",
+  "flag": "",
+  "visible": 1,
+  "AFGHkeyIndexWJ": "JOB_REVERSE_CBS_TRANSACTION",
+  "AFGHkeyTime": 1578537958705,
+  "AFGHkeyWorkFlow": "",
+  "AFGHTimeWJ": 1578537958744
+}

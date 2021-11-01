@@ -1,0 +1,1 @@
+{"full_name":"hub007401","email":"hub007401","user_status":"A","user_id":"hub007401","branchcd":"0074","branchid":"0074","branchname":"Mdy (9) 26 x 80 St","AFGHkeyIndexWJ":"hub007401","AFGHkeyTime":1603781790633,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790633,"AFGHkeyUserCreateWJ":""}

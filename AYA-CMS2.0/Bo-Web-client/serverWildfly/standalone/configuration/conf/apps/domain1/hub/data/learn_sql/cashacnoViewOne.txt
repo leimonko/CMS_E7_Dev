@@ -1,0 +1,14 @@
+
+{
+  "learn_sql_title": "cashacnoViewOne",
+   "learn_sql_data": "cashacno",
+  "learn_sql_parameter": "@acno",
+  "learn_sql_parameter_sub": "",
+  "learn_sql_query": "SELECT * FROM hubdb.d_cashacno WHERE acno = ? ",
+  "learn_sql_query_sub": "",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "cashacnoViewOne",
+  "AFGHTimeWJ": 1585837541575
+}

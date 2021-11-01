@@ -1,0 +1,1 @@
+{"full_name":"hub015102","email":"hub015102","user_status":"A","user_id":"hub015102","branchcd":"0151","branchid":"0151","branchname":"KSE","AFGHkeyIndexWJ":"hub015102","AFGHkeyTime":1603781790709,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790709,"AFGHkeyUserCreateWJ":""}

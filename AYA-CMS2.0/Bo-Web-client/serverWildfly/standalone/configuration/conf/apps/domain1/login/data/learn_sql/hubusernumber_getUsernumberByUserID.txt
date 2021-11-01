@@ -1,0 +1,13 @@
+﻿{
+    "learn_sql_title": "Get usernumber",
+    "learn_sql_parameter": "@app, @domain, @user_id",
+    "learn_sql_parameter_sub": "",
+    "learn_sql_query": "SELECT usernumber FROM hubdb.HUBUSERNUMBER WHERE APP = ? and DOMAIN = ? and USER_ID =?",
+    "learn_sql_query_sub": "",
+    "learn_sql_date_verify": "",
+    "dynamic_update": "",
+    "validation_para_api": "",
+    "AFGHkeyIndexWJ": "hubusernumber_getUsernumberByUserID",
+    "AFGHTimeWJ": 1561263635755,
+    "learn_sql_data": "hubusernumber"
+    }

@@ -1,0 +1,1 @@
+{"full_name":"hub006002","email":"hub006002","user_status":"A","user_id":"hub006002","branchcd":"0060","branchid":"0060","branchname":"YGN (16) Mayangone","AFGHkeyIndexWJ":"hub006002","AFGHkeyTime":1603781790620,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790620,"AFGHkeyUserCreateWJ":""}

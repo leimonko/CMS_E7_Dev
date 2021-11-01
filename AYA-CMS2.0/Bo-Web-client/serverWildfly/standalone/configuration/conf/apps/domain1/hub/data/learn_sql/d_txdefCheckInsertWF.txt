@@ -1,0 +1,11 @@
+﻿{
+  "learn_sql_title": "Thêm mới service",
+  "learn_sql_query": "SELECT isworkfolow FROM hubdb.d_workflowconfig where txcode = ?",
+  "learn_sql_parameter": "@TXCODE",
+  "learn_sql_data": "d_hubstm",
+  "learn_sql_date_verify": "",
+  "dynamic_update": "",
+  "validation_para_api": "",
+  "AFGHkeyIndexWJ": "d_txdefCheckInsertWF",
+  "AFGHTimeWJ": 1561266469836
+}

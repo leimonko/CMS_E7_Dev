@@ -1,0 +1,113 @@
+{
+	"info": {
+		"last_update": "18/12/2020 04:44:34 PM",
+		"list_show_error": "false",
+		"app": "o9",
+		"title": "Form test download file ",
+		"bodata": "",
+		"data": "",
+		"des": "",
+		"flow_layout": [],
+		"form_code": "form_test_download_file",
+		"key_form": "",
+		"lang_form": {},
+		"learnapi": "",
+		"learnsql": "",
+		"mode_form": {
+			"mode": "",
+			"col_text": "",
+			"col_input": ""
+		},
+		"node_position": [],
+		"ofModal": false,
+		"openOne": "true",
+		"ruleStrong": [
+			{
+				"code": "visibility",
+				"config": {
+					"component_event": "all",
+					"component_action": "",
+					"component_result": "creator;modifier",
+					"condition": "1===1",
+					"visible": "not_use",
+					"ena_dis": "true",
+					"view_result": "",
+					"list_config": []
+				},
+				"inUse": true,
+				"order": 1,
+				"isStart": true
+			}
+		],
+		"responseType": "1"
+	},
+	"list_layout": [
+		{
+			"name": "",
+			"des": "",
+			"class": "",
+			"codeHidden": "fd4803054cd95e86",
+			"inputtype": "cLayout",
+			"list_view": [
+				{
+					"name": "",
+					"code": "",
+					"codeHidden": "e808e6736a9ba632",
+					"inputtype": "cView",
+					"isTab": "false",
+					"list_input": [
+						{
+							"config": {
+								"onTable": "",
+								"icon": "fa-search",
+								"color": "primary",
+								"action": "",
+								"useAction": "false",
+								"txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+								"txFo": "[{\"txcode\":\"#sys:fo-download-test\",\"input\":{\"list_component\":\"*\",\"list_view\":\"\"}}]",
+								"isMasterData": "false",
+								"tableMasterData": "",
+								"privateKeyTableMasterData": "",
+								"isLookup": "",
+								"cmd": "",
+								"callform": "",
+								"uploadfile": {
+									"active": "false",
+									"filetype": ""
+								}
+							},
+							"role": {
+								"disabled": "false",
+								"visible": "false"
+							},
+							"property": {
+								"danger": "false",
+								"warning": "false"
+							},
+							"validate": {
+								"request": false
+							},
+							"lang": {
+								"vi": "",
+								"en": ""
+							},
+							"configAVD": {},
+							"inputtype": "cButton",
+							"default": {
+								"name": "Download",
+								"code": "download",
+								"class": "",
+								"role": "",
+								"condition": "",
+								"ofgroup": "",
+								"class_ofgroup": "col-sm-12 col-md-12",
+								"codeHidden": "61cbd2810c60a57a"
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"react_txt": ""
+}

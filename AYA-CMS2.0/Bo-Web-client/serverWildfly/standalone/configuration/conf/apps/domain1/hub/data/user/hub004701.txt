@@ -1,0 +1,1 @@
+{"full_name":"hub004701","email":"hub004701","user_status":"A","user_id":"hub004701","branchcd":"0047","branchid":"0047","branchname":"Ygn (11) Yan Kin","AFGHkeyIndexWJ":"hub004701","AFGHkeyTime":1603781790603,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790603,"AFGHkeyUserCreateWJ":""}

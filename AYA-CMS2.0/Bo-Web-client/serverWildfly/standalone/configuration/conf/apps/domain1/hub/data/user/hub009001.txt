@@ -1,0 +1,1 @@
+{"full_name":"hub009001","email":"hub009001","user_status":"A","user_id":"hub009001","branchcd":"0090","branchid":"0090","branchname":"Ygn(31)_TPU","AFGHkeyIndexWJ":"hub009001","AFGHkeyTime":1603781790660,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790660,"AFGHkeyUserCreateWJ":""}

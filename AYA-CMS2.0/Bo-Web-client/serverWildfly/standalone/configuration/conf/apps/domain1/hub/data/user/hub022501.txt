@@ -1,0 +1,1 @@
+{"full_name":"hub022501","email":"hub022501","user_status":"A","user_id":"hub022501","branchcd":"0225","branchid":"0225","branchname":"Ygn(95)_MPK","AFGHkeyIndexWJ":"hub022501","AFGHkeyTime":1603781790752,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1603781790752,"AFGHkeyUserCreateWJ":""}

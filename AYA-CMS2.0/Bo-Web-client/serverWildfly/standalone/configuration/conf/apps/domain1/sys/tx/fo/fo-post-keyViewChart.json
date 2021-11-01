@@ -1,0 +1,48 @@
+{
+  "input": {
+    
+  },
+  "actions": [
+    {
+      "name": "Xóa thông báo lỗi",
+      "function": "form.clearError",
+      "type": "javascript",
+      "status": "A",
+      "para": [
+        
+      ]
+    },
+    {
+      "name": "Thu thập",
+      "function": "formsql.addnew",
+      "type": "javascript",
+      "status": "A",
+      "para": [
+        "@list_component",
+        "@list_view"
+      ],
+      "request": {
+        "true": {
+          "bo": [
+            {
+              "txcode": "#sys:bo-save-keyViewChart",
+              "input": {
+                "table_code": "@table_code"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "request": {
+    
+  },
+  "status": "A",
+  "txtype": "bo",
+  "txcode": "fo-post-keyViewChart",
+  "txname": "Tạo mới có SQL",
+  "version": 2,
+  "updateTime": 1562208638989,
+  "isOld": true
+}

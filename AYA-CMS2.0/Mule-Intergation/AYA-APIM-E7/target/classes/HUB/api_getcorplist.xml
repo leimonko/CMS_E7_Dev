@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<flow name="api_getCorpListFlow">
+		<http:listener config-ref="APIManagement" path="/getCorpList"
+			doc:name="/getCorpList" allowedMethods="POST,GET" />
+		<logger
+			message="#[&quot;\n====================================================================================================\nSTARTED GET CORP LIST\n-----\nMessage Request:\n-HEADER: &quot;+ message.inboundProperties + &quot;\n-Body: &quot; + message.payloadAs(java.lang.String)+ &quot;\n====================================================================================================\n&quot;]"
+			level="INFO" doc:name="Get Corp List Started" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<set-variable variableName="reqMsg" value="#[payload]"
+			mimeType="application/json" doc:name="reqMsg" />
+		<set-variable variableName="apiKey" value="/getCorpList"
+			doc:name="apiKey" />
+		<flow-ref name="sub_verifytokenSub_Flow" doc:name="sub_verifytokenSub_Flow" />
+		<choice doc:name="Token T ? F">
+			<when expression="#[payload.ERRORCODE==0]">
+				<set-payload value="{}" mimeType="application/json"
+					doc:name="Remake message HUB_CalculateFee" />
+				<http:request config-ref="HUB2.0" path="/getCorpList"
+					method="POST" doc:name="/getCorpList">
+				</http:request>
+			</when>
+			<otherwise>
+				<json:object-to-json-transformer
+					doc:name="Object to JSON" />
+			</otherwise>
+		</choice>
+		<logger
+			message="#[&quot;\n====================================================================================================\nENDED GET CORP LIST\n-----\nMessage Response: &quot; + message.payloadAs(java.lang.String) + &quot;\n====================================================================================================&quot;]"
+			level="INFO" doc:name="Get Corp List Ended" />
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-payload
+				value="{  &quot;ERRORCODE&quot;: 4,  &quot;ERRORDESC&quot;: &quot;#[exception.message.replace('&quot;',&quot;&quot;)]&quot;,  &quot;RESULT&quot;: &quot;&quot; }"
+				doc:name="Message Exception Error " mimeType="application/json" />
+			<logger
+				message="#[&quot;\n----EXCEPTION &quot;+message.payloadAs(java.lang.String)]"
+				level="INFO" doc:name="----EXCEPTION" />
+		</catch-exception-strategy>
+	</flow>
+</mule>

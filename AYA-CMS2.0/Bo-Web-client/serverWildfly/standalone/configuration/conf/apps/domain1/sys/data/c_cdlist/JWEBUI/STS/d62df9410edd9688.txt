@@ -1,0 +1,1 @@
+{"cdid":"A","cdname":"STS","caption":"Active","cdgrp":"JWEBUI","cdidx":1,"cdval":"","flag":0,"visible":1,"AFGHkeyIndexWJ":"d62df9410edd9688","AFGHkeyTime":1578537990963,"AFGHkeyWorkFlow":"","AFGHTimeWJ":1578537990994}

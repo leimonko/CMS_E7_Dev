@@ -1,0 +1,661 @@
+{
+    "info": {
+        "title": "Corporation Registration",
+        "des": "Corporation Registration",
+        "data": "",
+        "learnapi": "",
+        "learnsql": "d_corpregistationLoadAll",
+        "bodata": "",
+        "openOne": "true",
+        "url_input": "",
+        "lang_form": {},
+        "mode_form": {
+            "mode": "",
+            "col_text": "",
+            "col_input": ""
+        },
+        "form_code": "CorporationResgistration",
+        "ruleStrong": [
+            {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "corporation_view",
+                    "condition": "",
+                    "visible": "not_use",
+                    "ena_dis": "true",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": true,
+                "order": 1,
+                "isStart": true
+            },
+            {
+                "code": "managerComponent",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "corporation_view",
+                    "component_manager": "{\n    \"corporation_view\": \" '@{corporation_view}' !== '' \"\n}",
+                    "is_use_block": "false"
+                },
+                "inUse": false,
+                "order": 2,
+                "isStart": true
+            },
+            {
+                "code": "managerComponent",
+                "config": {
+                    "component_event": "all",
+                    "component_action": "corporation_view",
+                    "component_manager": "{\n    \"btn_save\": \" '@{corporation_view}' === '' \",\n    \"btn_update\": \" '@{corporation_view}' !== '' \"\n}",
+                    "is_use_block": "false"
+                },
+                "inUse": true,
+                "order": 3,
+                "isStart": true
+            },
+            
+            {
+                "code": "visibility",
+                "config": {
+                    "component_event": "on_change",
+                    "component_action": "",
+                    "component_result": "corporation_view",
+                    "condition": "",
+                    "visible": "false",
+                    "ena_dis": "not_use",
+                    "view_result": "",
+                    "list_config": []
+                },
+                "inUse": false,
+                "order": 5,
+                "isStart": true
+            }
+        ]
+    },
+    "list_layout": [
+        {
+            "name": "Search",
+            "des": "",
+            "class": "",
+            "lang": {},
+            "lang_des": {},
+            "codeHidden": "2d29b123eb9bdb85",
+            "inputtype": "cLayout",
+            "list_view": [
+                {
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "7406225sads0e7126",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [
+                        {
+                            "default": {
+                                "name": "Add",
+                                "code": "btn_add",
+                                "codeHidden": "24df0162db913133",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-open-form\",\n        \"input\": {\n            \"form_key\": \"CorporationResgistration_Add\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "add",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                },
+                {
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "74062257500e7126",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [
+                        {
+                            "default": {
+                                "name": "Search by corpcode",
+                                "code": "search",
+                                "codeHidden": "0788c12a138742e5",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "keysearch.data",
+                                "structable_read": "",
+                                "cdlist": {},
+                                "data_default": "",
+                                "data_mode": "query",
+                                "query_data": "select * from d_corpregistation",
+                                "is_multi_select": "false",
+                                "is_multi_col": "true",
+                                "get_data_format": "d_corpregistation.corpcode",
+                                "selected_view_format": "@d_corpregistation.corpcode - @d_corpregistation.fullnamecorp",
+                                "table_format": "[\n    {\n        \"title\": \"Code\",\n        \"code\": \"d_corpregistation.corpcode\"\n    },\n    {\n        \"title\": \"Name\",\n        \"code\": \"d_corpregistation.fullnamecorp\"\n    }\n]",
+                                "col_format": "@c_cdlist.caption",
+                                "json_data": "[]",
+                                "key_selected": "d_corpregistation.corpcode",
+                                "useAction": "true",
+                                "isAutoDefault": "true"
+                            },
+                            "role": {
+                                "disabled": "",
+                                "visible": "",
+                                "other": "",
+                                "other2": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {
+                                "ui": {
+                                    "vi": {
+                                        "Search by corpcode": "Search by corpcode"
+                                    },
+                                    "en": {
+                                        "Search by corpcode": "Search by corpcode"
+                                    }
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "jSelect"
+                        },
+                        {
+                            "default": {
+                                "name": "Search",
+                                "code": "btn_search",
+                                "codeHidden": "f32f897fc206801a",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-searchAdvanceByParameter\",\n        \"input\": {\n            \"list_component\": \"search\",\n            \"list_view\": \"search\",\n            \"table_code\": \"keysearch\",\n            \"learn_sql\": \"d_corpregistationSearchByParameter\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "search",
+                                "color": "info",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Corporation Registration",
+            "des": "",
+            "class": "",
+            "lang": {
+                "en": "Corporation Registration",
+                "vi": "Corporation Registration"
+            },
+            "lang_des": {},
+            "codeHidden": "5ceca2c9492937d9",
+            "inputtype": "cLayout",
+            "list_view": [
+                {
+                    "name": "",
+                    "lang": {},
+                    "code": "search",
+                    "class": "",
+                    "codeHidden": "2ab44811d19fdf12",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [
+                        {
+                            "default": {
+                                "name": "Transaction type listing",
+                                "code": "d_corpregistation",
+                                "codeHidden": "caaf435d2c6d59ef",
+                                "class": "col-12",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "structable": "table.col",
+                                "query_data": "Select * from d_corpregistation",
+                                "paging_record": "5",
+                                "columns": "[\n    {\n        \"code\": \"d_corpregistation.corpcode\",\n        \"title\": \"Corporation code\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_corpregistation.fullnamecorp\",\n        \"title\": \"Full Name of Payee  Corpregistation\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_corpregistation.shortnamecorp\",\n        \"title\": \"Short Name of Payee Corporation\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    },\n    {\n        \"code\": \"d_corpregistation.corpcifno\",\n        \"title\": \"Corporation CIF No\",\n        \"inputtype\": \"ColumnString\",\n        \"config\": {}\n    }\n]"
+                            },
+                            "role": {},
+                            "property": {},
+                            "validate": {},
+                            "lang": {
+                                "vi": {
+                                    "Corporation code": "Corporation code",
+                                    "Full Name of Payee  Corpregistation": "Full Name of Payee  Corpregistation",
+                                    "Short Name of Payee Corporation": "Short Name of Payee Corporation",
+                                    "Corporation CIF No": "Corporation CIF No"
+                                },
+                                "en": {
+                                    "Corporation code": "Corporation code",
+                                    "Full Name of Payee  Corpregistation": "Full Name of Payee  Corpregistation",
+                                    "Short Name of Payee Corporation": "Short Name of Payee Corporation",
+                                    "Corporation CIF No": "Corporation CIF No"
+                                }
+                            },
+                            "configAVD": {},
+                            "inputtype": "cTableDefault"
+                        },
+                        {
+                            "default": {
+                                "name": "View",
+                                "code": "btn_view",
+                                "codeHidden": "902250b0858fcd1c",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-viewDataSQL\",\n        \"input\": {\n            \"learn_sql\": \"d_corpregistationViewOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "visibility",
+                                "color": "info",
+                                "onTable": "d_corpregistation",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        },
+                        {
+                            "default": {
+                                "name": "Delete",
+                                "code": "btn_delete",
+                                "codeHidden": "82495ab8d2d87269",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-deleteDataSQL\",\n        \"input\": {\n            \"table_code\": \"d_corpregistation\",\n            \"pk_col\": \"corpcode\",\n            \"learn_sql\": \"d_corpregistationDeleteOne\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "delete",
+                                "color": "info",
+                                "onTable": "d_corpregistation",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "",
+            "des": "",
+            "class": "",
+            "lang": {
+                "vi": "View and Update",
+                "en": "View and Update"
+            },
+            "lang_des": {},
+            "codeHidden": "8cc3cbfeca1bad6a",
+            "inputtype": "cLayout",
+            "list_view": [
+                {
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "872498127374007e",
+                    "inputtype": "cView",
+                    "isTab": "true",
+                    "viewUI": "",
+                    "list_input": [
+                        {
+                            "default": {
+                                "name": "Corporation code",
+                                "code": "corporation_view",
+                                "codeHidden": "6f7c470e5a1ee749",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "",
+                                "structable_read": "d_corpregistation.corpcode",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": false
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },
+                        {
+                            "default": {
+                                "name": "Full Name of Payee Corporation",
+                                "code": "fullnamecorp",
+                                "codeHidden": "cbfc2b176ad94bb2",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpregistation.fullnamecorp",
+                                "structable_read": "d_corpregistation.fullnamecorp",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },
+                        {
+                            "default": {
+                                "name": "Short Name of Payee Corporation",
+                                "code": "shortnamecorp",
+                                "codeHidden": "412f4601d5ab361f",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpregistation.shortnamecorp",
+                                "structable_read": "d_corpregistation.shortnamecorp",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        },
+                        {
+                            "default": {
+                                "name": "Corporations CIF No",
+                                "code": "corpcifno",
+                                "codeHidden": "33a3408fa18e42ce",
+                                "class": "col-xl-4 col-lg-4 col-md-5 col-sm-5 offset-1-right",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "true",
+                                "is_upperCase": "false",
+                                "action": "",
+                                "structable": "d_corpregistation.corpcifno",
+                                "structable_read": "d_corpregistation.corpcifno",
+                                "data_default": "",
+                                "isLookup": "false",
+                                "callform": "",
+                                "callform_detail": "",
+                                "callform_detail_mode": "modal",
+                                "data_view": "",
+                                "data_value": "",
+                                "is_password": "false",
+                                "is_upper": "false"
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {},
+                            "validate": {
+                                "request": true
+                            },
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cTextInput"
+                        }
+                    ]
+                }
+                
+            ]
+        }, {
+            "name": "Button",
+            "des": "",
+            "class": "",
+            "lang": {
+                "vi": "",
+                "en": "Button"
+            },
+            "lang_des": {},
+            "codeHidden": "8cc3cbfeca1bad6a",
+            "inputtype": "cLayout",
+            "list_view": [{
+                    "name": "",
+                    "lang": {},
+                    "code": "code",
+                    "class": "",
+                    "codeHidden": "872498121364007e",
+                    "inputtype": "cView",
+                    "isTab": "false",
+                    "viewUI": "",
+                    "list_input": [
+                        {
+                            "default": {
+                                "name": "Update",
+                                "code": "btn_update",
+                                "codeHidden": "f2a8d25f2cc6b07b",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"function\": \"\",\n        \"status\": \"A\",\n        \"para\": []\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-post-updateDataSql\",\n        \"input\": {\n            \"list_component\": \"*\",\n            \"list_view\": \"*\",\n            \"learn_sql\": \"d_corpregistationUpdateOne\",\n            \"table_code\": \"d_corpregistation\",\n            \"pk_col\": \"corpcode\"\n        }\n    }\n]",
+                                "useAction": "false",
+                                "icon": "edit",
+                                "color": "primary",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        },
+                        {
+                            "default": {
+                                "name": "Clear",
+                                "code": "btn_clear",
+                                "codeHidden": "8230b16585e31c2d",
+                                "class": "",
+                                "condition": "",
+                                "ofgroup": "",
+                                "class_ofgroup": "col-sm-12 col-md-12",
+                                "role": ""
+                            },
+                            "config": {
+                                "action": "",
+                                "txFoActions": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+                                "txFo": "[\n    {\n        \"txcode\": \"#sys:fo-form-clear\",\n        \"input\": {}\n    }\n]",
+                                "useAction": "false",
+                                "icon": "clear",
+                                "color": "base",
+                                "onTable": "",
+                                "isMasterData": "false",
+                                "tableMasterData": "",
+                                "privateKeyTableMasterData": ""
+                            },
+                            "role": {
+                                "visible": "",
+                                "disabled": ""
+                            },
+                            "property": {
+                                "danger": "",
+                                "warning": ""
+                            },
+                            "validate": {},
+                            "lang": {},
+                            "configAVD": {},
+                            "inputtype": "cButton"
+                        }
+                    ]
+                }]
+		}
+    ],
+    "react_txt": ""
+}

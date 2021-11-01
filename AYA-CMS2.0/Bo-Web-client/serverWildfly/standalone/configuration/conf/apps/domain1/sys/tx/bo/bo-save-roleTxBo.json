@@ -1,0 +1,1 @@
+{"input":{},"actions":[{"name":"save tx bo","function":"tx.saveRoleTxBo","type":"java","para":[],"status":"A","response":{"true":{"fo":[{"txcode":"#sys:fo-msg-toast","input":{"lang":"sysActionSaveOk"}}]}}}],"response":{},"status":"A","txtype":"bo","txcode":"bo-save-roleTxBo","version":2,"updateTime":1562206434725,"txname":"Lưu quyền truy cập cho tx bo","isOld":true}
